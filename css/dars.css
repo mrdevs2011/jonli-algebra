@@ -1,0 +1,71 @@
+.dars-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0 18px;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+.dars-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.lead {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.stage {
+  margin: 22px 0;
+  min-height: 360px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(251,248,241,0.9), rgba(251,248,241,0.9)),
+    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(196,185,166,0.35) 24px),
+    repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(196,185,166,0.28) 24px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.stage strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.preview-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 36px;
+  padding: 0;
+  list-style: none;
+}
+
+.preview-list li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+
+.preview-list b {
+  display: block;
+  margin-bottom: 4px;
+}

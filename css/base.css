@@ -1,0 +1,152 @@
+/* Ko'rinadigan Algebra — umumiy poydevor */
+:root {
+  --paper: #f3eee4;
+  --paper-2: #ebe4d6;
+  --ink: #1a221c;
+  --ink-soft: #4a554c;
+  --line: #d7cfc0;
+  --line-strong: #c4b9a6;
+  --accent: #c24b2a;
+  --accent-2: #2b6b4f;
+  --gold: #b8872b;
+  --white: #fbf8f1;
+  --shadow: 0 10px 30px rgba(26, 34, 28, 0.06);
+  --radius: 18px;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+  --font-sans: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(243,238,228,0.92), rgba(243,238,228,0.92)),
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(196,185,166,0.28) 28px),
+    repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(196,185,166,0.22) 28px);
+  background-color: var(--paper);
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+
+.wrap {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--ink);
+  border-radius: 14px;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-name small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.header-meta {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 9px 14px;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.btn:hover { background: #fff; }
+
+.btn-accent {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pill-soon {
+  background: #efe6d6;
+  color: #6d5b3a;
+}
+
+.pill-ready {
+  background: #dceee4;
+  color: #21563d;
+}
+
+.pill-done {
+  background: #e7efe2;
+  color: #1f3d2c;
+}
+
+.site-footer {
+  margin: 56px auto 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  .site-header { align-items: flex-start; }
+  .header-meta { text-align: left; }
+}
