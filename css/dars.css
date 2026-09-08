@@ -1,3 +1,5 @@
+/* Dars sahifasi — poydevor */
+
 .dars-top {
   display: flex;
   justify-content: space-between;
@@ -18,7 +20,7 @@
   font-family: var(--font-serif);
   font-size: clamp(1.8rem, 4vw, 3rem);
   letter-spacing: -0.03em;
-  line-height: 1;
+  line-height: 1.05;
   margin: 0 0 10px;
 }
 
@@ -26,21 +28,25 @@
   max-width: 62ch;
   color: var(--ink-soft);
   font-size: 1.05rem;
+  margin: 0 0 8px;
 }
 
+/* Sahna — interaktiv chizma joyi */
 .stage {
   margin: 22px 0;
-  min-height: 360px;
+  min-height: 380px;
   border: 1px dashed var(--line-strong);
   border-radius: 24px;
   background:
-    linear-gradient(180deg, rgba(251,248,241,0.9), rgba(251,248,241,0.9)),
+    linear-gradient(180deg, rgba(251,248,241,0.92), rgba(251,248,241,0.92)),
     repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(196,185,166,0.35) 24px),
     repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(196,185,166,0.28) 24px);
   display: grid;
   place-items: center;
   padding: 24px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .stage strong {
@@ -50,22 +56,128 @@
   margin-bottom: 8px;
 }
 
-.preview-list {
-  display: grid;
-  gap: 10px;
-  margin: 0 0 36px;
-  padding: 0;
-  list-style: none;
+.stage.active {
+  border-style: solid;
+  background: var(--white);
+  box-shadow: var(--shadow);
 }
 
-.preview-list li {
+/* Dars matn bloki */
+.dars-body {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 40px;
+}
+
+.block {
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px 16px;
+  border-radius: 18px;
+  padding: 16px 18px;
 }
 
-.preview-list b {
-  display: block;
-  margin-bottom: 4px;
+.block h2 {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.block p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.block code {
+  font-size: 0.9em;
+  background: var(--paper-2);
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+.block-reja {
+  border-left: 4px solid var(--accent);
+}
+
+.block-qoida {
+  border-left: 4px solid var(--accent-2);
+}
+
+.block-holat {
+  border-left: 4px solid var(--gold);
+}
+
+/* Keyinroq to‘ldiriladigan qismlar uchun */
+.block-kirish,
+.block-savollar,
+.block-eslab {
+  display: none; /* poydevorda yashirin; dars yozilganda ko‘rsatiladi */
+}
+
+.block-kirish { display: block; border-left: 4px solid var(--ink-soft); }
+.block-savollar { display: block; border-left: 4px solid #5b6e8c; }
+.block-eslab { display: block; border-left: 4px solid var(--gold); }
+
+/* Savollar (tayyor dars uchun) */
+.savollar {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.savol {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--paper);
+}
+
+.savol-q {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.savol-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.savol-opts button {
+  border: 1px solid var(--line-strong);
+  background: var(--white);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.92rem;
+}
+
+.savol-opts button:hover {
+  background: #fff8ec;
+}
+
+.savol-opts button.togri {
+  background: #dceee4;
+  border-color: var(--accent-2);
+  color: #21563d;
+}
+
+.savol-opts button.notogri {
+  background: #f5e4df;
+  border-color: var(--accent);
+  color: #7a2e1a;
+}
+
+/* Footer o‘rtasi */
+.footer-mid {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .stage { min-height: 300px; padding: 16px; }
+  .dars-title { font-size: clamp(1.5rem, 6vw, 2.2rem); }
 }

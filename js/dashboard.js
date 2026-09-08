@@ -3,7 +3,7 @@
   if (!root) return;
 
   const counts = KA.counts();
-  const percent = Math.round((counts.ready / counts.total) * 100);
+  const percent = Math.round((counts.ready / counts.total) * 100) || 0;
 
   function pill(state) {
     if (state === "done") return '<span class="pill pill-done">O‘tilgan</span>';
@@ -49,7 +49,7 @@
     '<section class="hero">' +
       "<div>" +
         "<h1>Algebra<br>ko‘rinsin.</h1>" +
-        "<p>9-sinf. Alimov darsligi tartibida. Har dars — avval chizma, keyin qoida. Hozir poydevor turibdi: darslar kuniga bittadan ochiladi.</p>" +
+        "<p>9-sinf. Alimov darsligi tartibida. Har dars — avval chizma, keyin qoida. Hozir poydevor turibdi: darslar sekin-asta, 1–2 yil ichida ochiladi.</p>" +
       "</div>" +
       '<aside class="stats">' +
         '<div class="stats-label">Ochilgan darslar</div>' +
@@ -59,5 +59,5 @@
     "</section>" +
     '<nav class="toc">' + toc + "</nav>" +
     chapters +
-    '<p class="note">Har kartochka o‘z papkasiga olib boradi: <code>./1/</code>, <code>./2/</code> … <code>./38/</code>. Ichida <code>index.html</code> turadi.</p>';
+    '<p class="note">Har kartochka o‘z papkasiga olib boradi: <code>./1/</code>, <code>./2/</code> … <code>./38/</code>. Ichida <code>index.html</code> turadi. Yoriqnoma: <code>YORIQNOMA.md</code></p>';
 })();
