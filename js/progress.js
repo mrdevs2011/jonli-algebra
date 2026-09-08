@@ -16,7 +16,7 @@
    * Hozir poydevor — hech narsa ochilmagan.
    */
   function readyIds() {
-    return [];
+    return [1];
   }
 
   function read() {

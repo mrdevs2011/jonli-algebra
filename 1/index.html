@@ -11,6 +11,49 @@
   <link rel="apple-touch-icon" href="../favicon-32.png">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/dars.css">
+  <style>
+    /* Faqat shu darsga tegishli qo'shimcha uslub — umumiy fayllarga tegilmadi */
+    .sahna1-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      width: 100%;
+    }
+    .sahna1-graf {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: var(--white);
+      border-radius: 14px;
+    }
+    .sahna1-formula {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 3.6vw, 1.6rem);
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .sahna1-formula .term-a { color: var(--accent); font-weight: 700; }
+    .sahna1-formula .term-b { color: var(--accent-2); font-weight: 700; }
+    .sahna1-formula .term-c { color: var(--gold); font-weight: 700; }
+    .sahna1-note {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      min-height: 1.4em;
+    }
+    .sahna1-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 16px;
+    }
+    .sahna1-controls .control label span { font-weight: 700; }
+    .sahna1-controls .control:nth-child(1) label span { color: var(--accent); }
+    .sahna1-controls .control:nth-child(2) label span { color: var(--accent-2); }
+    .sahna1-controls .control:nth-child(3) label span { color: var(--gold); }
+    @media (max-width: 560px) {
+      .sahna1-controls { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -32,25 +75,77 @@
       <h1 class="dars-title">Kvadrat funksiyaning ta'rifi</h1>
       <p class="lead">Nima uchun y = ax² + bx + c kvadrat funksiya deyiladi.</p>
 
-      <section class="stage" id="sahna" aria-label="Interaktiv chizma">
-        <div>
-          <strong>Sahna hali bo‘sh.</strong>
-          <p>Bu joyni interaktiv chizma egallaydi. Dars ochilganda slayder, grafik yoki aylana shu yerga qo‘yiladi.</p>
+      <section class="stage is-live" id="sahna" aria-label="Interaktiv chizma: a, b, c slayderlari va grafik">
+        <div class="sahna1-grid">
+          <p class="sahna1-formula">
+            y&nbsp;=&nbsp;<span class="term-a" id="lbl-a">1</span>x²&nbsp;+&nbsp;<span class="term-b" id="lbl-b">0</span>x&nbsp;+&nbsp;<span class="term-c" id="lbl-c">0</span>
+          </p>
+          <svg class="sahna1-graf" id="graf" viewBox="0 0 320 260" role="img" aria-label="Koordinata tekisligida grafik"></svg>
+          <p class="sahna1-note" id="sahna1-note" aria-live="polite"></p>
+          <div class="sahna1-controls controls">
+            <div class="control">
+              <label for="slide-a"><span>a</span> — tarmoqni boshqaradi</label>
+              <input type="range" id="slide-a" min="-3" max="3" step="0.5" value="1">
+              <output id="out-a">1</output>
+            </div>
+            <div class="control">
+              <label for="slide-b"><span>b</span> — uchini suradi</label>
+              <input type="range" id="slide-b" min="-6" max="6" step="1" value="0">
+              <output id="out-b">0</output>
+            </div>
+            <div class="control">
+              <label for="slide-c"><span>c</span> — yuqoriga/pastga ko'chiradi</label>
+              <input type="range" id="slide-c" min="-5" max="5" step="1" value="0">
+              <output id="out-c">0</output>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="dars-body">
+        <div class="block block-kirish">
+          <h2>Kirish</h2>
+          <p>
+            Yuqoridagi slayderlarni siljiting. <strong>a</strong> ni nolga tenglashtiring —
+            egri chiziq to'g'ri chiziqqa aylanadi. Demak, <strong>a</strong> shu formulani
+            aynan <em>kvadrat</em> funksiya qiladigan yagona harf. <strong>b</strong> va
+            <strong>c</strong> esa faqat uni suradi, shaklini o'zgartirmaydi.
+          </p>
+        </div>
+
         <div class="block block-reja">
           <h2>Reja</h2>
-          <p>Formula qismlari a, b, c ga ajraladi. a = 0 bo'lsa chiziqli chiziq qoladi.</p>
+          <p>Formula qismlari a, b, c ga ajraladi. a = 0 bo'lsa chiziqli funksiya qoladi.</p>
         </div>
+
         <div class="block block-qoida">
           <h2>Qoida</h2>
-          <p>Avval ko‘rinadi, keyin formula yoziladi. Kitobdagi mashqlar o‘rnini bosmaydi — tushunishni osonlashtiradi.</p>
+          <p>
+            <strong>y = ax² + bx + c</strong> ko'rinishidagi funksiya <strong>kvadrat
+            funksiya</strong> deyiladi, bunda <strong>a, b, c</strong> — berilgan sonlar
+            va <strong>a ≠ 0</strong>. Aynan x² had — ya'ni x ning ikkinchi darajasi —
+            bu funksiyaga nom beradi. Agar a = 0 bo'lsa, x² had yo'qoladi va qoladigan
+            y = bx + c allaqachon chiziqli funksiya, kvadrat emas.
+          </p>
         </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab">
+          <h2>Eslab qol</h2>
+          <ul>
+            <li>Kvadrat funksiyada <strong>a ≠ 0</strong> shart — aks holda x² had yo'qoladi.</li>
+            <li><strong>a</strong> — shaklni (tarmoqni) belgilaydi: musbat bo'lsa yuqoriga, manfiy bo'lsa pastga qaraydi.</li>
+            <li><strong>b</strong> va <strong>c</strong> grafikni suradi, lekin uni parabola bo'lishdan chiqarmaydi.</li>
+          </ul>
+        </div>
+
         <div class="block block-holat">
           <h2>Holat</h2>
-          <p>Poydevor mustahkam. Bu dars 1–2 kunda, alohida, puxta yoziladi. Tayyor bo‘lgach <code>js/progress.js</code> dagi <code>readyIds</code> ga 1 qo‘shiladi.</p>
+          <p>Bu dars yozilib bo'ldi. Tayyor bo'lgach <code>js/progress.js</code> dagi <code>readyIds</code> ga 1 qo'shiladi.</p>
         </div>
       </section>
     </main>
@@ -63,7 +158,183 @@
   </div>
   <script src="../js/progress.js"></script>
   <script>
-    if (window.KA && KA.onLessonOpen) KA.onLessonOpen(1);
+    (function () {
+      "use strict";
+
+      var svgNS = "http://www.w3.org/2000/svg";
+      var graf = document.getElementById("graf");
+      var W = 320, H = 260;
+      var ORIGIN_X = W / 2, ORIGIN_Y = H / 2;
+      var SCALE = 16; // 1 birlik = 16px
+
+      var slideA = document.getElementById("slide-a");
+      var slideB = document.getElementById("slide-b");
+      var slideC = document.getElementById("slide-c");
+      var outA = document.getElementById("out-a");
+      var outB = document.getElementById("out-b");
+      var outC = document.getElementById("out-c");
+      var lblA = document.getElementById("lbl-a");
+      var lblB = document.getElementById("lbl-b");
+      var lblC = document.getElementById("lbl-c");
+      var note = document.getElementById("sahna1-note");
+
+      function fmt(n) {
+        if (n === 0) return "0";
+        var r = Math.round(n * 100) / 100;
+        return (r > 0 ? "+" + r : String(r));
+      }
+
+      function toX(x) { return ORIGIN_X + x * SCALE; }
+      function toY(y) { return ORIGIN_Y - y * SCALE; }
+
+      function buildAxes() {
+        var frag = document.createDocumentFragment();
+
+        for (var gx = -9; gx <= 9; gx++) {
+          var lx = document.createElementNS(svgNS, "line");
+          lx.setAttribute("x1", toX(gx)); lx.setAttribute("y1", 0);
+          lx.setAttribute("x2", toX(gx)); lx.setAttribute("y2", H);
+          lx.setAttribute("stroke", "#d7cfc0"); lx.setAttribute("stroke-width", gx === 0 ? 0 : 0.5);
+          frag.appendChild(lx);
+        }
+        for (var gy = -7; gy <= 7; gy++) {
+          var ly = document.createElementNS(svgNS, "line");
+          ly.setAttribute("x1", 0); ly.setAttribute("y1", toY(gy));
+          ly.setAttribute("x2", W); ly.setAttribute("y2", toY(gy));
+          ly.setAttribute("stroke", "#d7cfc0"); ly.setAttribute("stroke-width", gy === 0 ? 0 : 0.5);
+          frag.appendChild(ly);
+        }
+
+        var axX = document.createElementNS(svgNS, "line");
+        axX.setAttribute("x1", 0); axX.setAttribute("y1", ORIGIN_Y);
+        axX.setAttribute("x2", W); axX.setAttribute("y2", ORIGIN_Y);
+        axX.setAttribute("stroke", "#4a554c"); axX.setAttribute("stroke-width", "1.2");
+        frag.appendChild(axX);
+
+        var axY = document.createElementNS(svgNS, "line");
+        axY.setAttribute("x1", ORIGIN_X); axY.setAttribute("y1", 0);
+        axY.setAttribute("x2", ORIGIN_X); axY.setAttribute("y2", H);
+        axY.setAttribute("stroke", "#4a554c"); axY.setAttribute("stroke-width", "1.2");
+        frag.appendChild(axY);
+
+        var labX = document.createElementNS(svgNS, "text");
+        labX.setAttribute("x", W - 12); labX.setAttribute("y", ORIGIN_Y - 6);
+        labX.setAttribute("fill", "#4a554c"); labX.setAttribute("font-size", "11");
+        labX.textContent = "x";
+        frag.appendChild(labX);
+
+        var labY = document.createElementNS(svgNS, "text");
+        labY.setAttribute("x", ORIGIN_X + 6); labY.setAttribute("y", 12);
+        labY.setAttribute("fill", "#4a554c"); labY.setAttribute("font-size", "11");
+        labY.textContent = "y";
+        frag.appendChild(labY);
+
+        graf.appendChild(frag);
+      }
+
+      var curvePath = document.createElementNS(svgNS, "path");
+      curvePath.setAttribute("fill", "none");
+      curvePath.setAttribute("stroke-width", "2.4");
+      curvePath.setAttribute("stroke-linecap", "round");
+
+      function render() {
+        var a = parseFloat(slideA.value);
+        var b = parseFloat(slideB.value);
+        var c = parseFloat(slideC.value);
+
+        outA.textContent = a; outB.textContent = b; outC.textContent = c;
+        lblA.textContent = a; lblB.textContent = fmt(b).replace(/^\+/, "+"); lblC.textContent = fmt(c);
+
+        var d = "";
+        var xMin = -9, xMax = 9, step = 0.25;
+        for (var x = xMin; x <= xMax; x += step) {
+          var y = a * x * x + b * x + c;
+          var py = toY(y);
+          if (py < -40) py = -40;
+          if (py > H + 40) py = H + 40;
+          d += (x === xMin ? "M" : "L") + toX(x).toFixed(1) + "," + py.toFixed(1) + " ";
+        }
+        curvePath.setAttribute("d", d);
+        curvePath.setAttribute("stroke", a === 0 ? "#5b6e8c" : "#c24b2a");
+
+        if (a === 0) {
+          note.textContent = "a = 0 — bu endi kvadrat funksiya emas, chiziqli funksiya: y = " + b + "x + " + c;
+        } else if (a > 0) {
+          note.textContent = "a > 0 — tarmoqlar yuqoriga qaraydi";
+        } else {
+          note.textContent = "a < 0 — tarmoqlar pastga qaraydi";
+        }
+      }
+
+      buildAxes();
+      graf.appendChild(curvePath);
+      render();
+
+      [slideA, slideB, slideC].forEach(function (el) {
+        el.addEventListener("input", render);
+      });
+
+      // Savollar
+      var SAVOLLAR = [
+        {
+          savol: "y = 3x² − 5x + 2 funksiyada a nechaga teng?",
+          variantlar: ["3", "−5", "2"],
+          togri: 0
+        },
+        {
+          savol: "y = 7x − 4 kvadrat funksiyami?",
+          variantlar: ["Ha, kvadrat funksiya", "Yo'q, chiziqli funksiya", "Yo'q, umuman funksiya emas"],
+          togri: 1
+        },
+        {
+          savol: "y = ax² + bx + c da qaysi shart bajarilishi shart?",
+          variantlar: ["b ≠ 0", "c ≠ 0", "a ≠ 0"],
+          togri: 2
+        }
+      ];
+
+      var savollarWrap = document.getElementById("savollar");
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (ch) {
+          return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch];
+        });
+      }
+
+      SAVOLLAR.forEach(function (item, qi) {
+        var box = document.createElement("div");
+        box.className = "savol";
+
+        var qEl = document.createElement("p");
+        qEl.className = "savol-q";
+        qEl.textContent = (qi + 1) + ". " + item.savol;
+        box.appendChild(qEl);
+
+        var optsEl = document.createElement("div");
+        optsEl.className = "savol-opts";
+
+        item.variantlar.forEach(function (variant, vi) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.innerHTML = escapeHtml(variant);
+          btn.addEventListener("click", function () {
+            var already = optsEl.querySelectorAll("button.togri, button.notogri");
+            if (already.length) return; // faqat bitta urinish
+            var buttons = optsEl.querySelectorAll("button");
+            buttons.forEach(function (b, bi) {
+              if (bi === item.togri) b.classList.add("togri");
+              else if (bi === vi) b.classList.add("notogri");
+            });
+          });
+          optsEl.appendChild(btn);
+        });
+
+        box.appendChild(optsEl);
+        savollarWrap.appendChild(box);
+      });
+
+      if (window.KA && KA.onLessonOpen) KA.onLessonOpen(1);
+    })();
   </script>
 </body>
 </html>

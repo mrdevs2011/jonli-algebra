@@ -1,7 +1,7 @@
 # Loyiha holati — Jonli Algebra
 
 **Oxirgi yangilanish:** 2026-09-08  
-**Holat:** Poydevor **mustahkam** va tayyor
+**Holat:** 1-§ yozildi, poydevor **mustahkam**
 
 ---
 
@@ -11,7 +11,7 @@
 |--------------------------|---------------------|
 | Jami darslar             | 38                  |
 | Poydevor (shablon)       | 38 / 38             |
-| Tayyor (`readyIds`)      | 0 / 38              |
+| Tayyor (`readyIds`)      | 1 / 38              |
 | O‘tilgan (localStorage)  | 0                   |
 | Qurish hujjatlari        | `ilovani-qurish/`   |
 
@@ -32,12 +32,12 @@
 
 ## Tayyor darslar
 
-Hozircha yo‘q.
+- **1-§** — Kvadrat funksiyaning ta'rifi (a, b, c slayderlari; a = 0 bo'lganda chiziqqa aylanadi)
 
 ```js
 // js/progress.js
 function readyIds() {
-  return [];
+  return [1];
 }
 ```
 
@@ -55,7 +55,7 @@ Sabab: a, b, c slayderlari; 2-§ va 3-§ shu ichida ham ko‘rinadi.
 
 | Bob | Nom | Darslar | Tayyor |
 |-----|-----|---------|--------|
-| I   | Kvadrat funksiya. Kvadrat tengsizliklar | 1–12 | 0 |
+| I   | Kvadrat funksiya. Kvadrat tengsizliklar | 1–12 | 1 |
 | II  | Tenglamalar va tengsizliklar sistemalari | 13–… | 0 |
 | III | Trigonometriya elementlari | … | 0 |
 | IV  | Sonli ketma-ketliklar. Progressiyalar | … | 0 |
@@ -65,6 +65,7 @@ Sabab: a, b, c slayderlari; 2-§ va 3-§ shu ichida ham ko‘rinadi.
 
 ## Oxirgi o‘zgarishlar
 
+- 2026-09-08: 1-§ (Kvadrat funksiyaning ta'rifi) to'liq yozildi — sahna, kirish, qoida, 3 savol, eslab qol. `readyIds` ga 1 qo'shildi.
 - 2026-09-08: Poydevor mustahkamlandi
   - base.css / dars.css / progress.js / dashboard.js mustahkamlandi
   - Barcha 38 dars shabloni yangilandi (meta, a11y, onLessonOpen)
