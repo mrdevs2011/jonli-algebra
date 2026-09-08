@@ -65,6 +65,7 @@ Sabab: a, b, c slayderlari; 2-§ va 3-§ shu ichida ham ko‘rinadi.
 
 ## Oxirgi o‘zgarishlar
 
+- 2026-09-08: Barcha 38 darsga "Darslikda" bloki qo'shildi — Alimov/Xolmuhamedov/Mirzaahmedov (2019) darsligidagi tegishli §-bet raqami (mundarija asosida tasdiqlangan). CSS: `dars.css` ga `.block-kitob` qo'shildi.
 - 2026-09-08: 1-§ (Kvadrat funksiyaning ta'rifi) to'liq yozildi — sahna, kirish, qoida, 3 savol, eslab qol. `readyIds` ga 1 qo'shildi.
 - 2026-09-08: Poydevor mustahkamlandi
   - base.css / dars.css / progress.js / dashboard.js mustahkamlandi

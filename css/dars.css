@@ -105,6 +105,8 @@
 .block-kirish { border-left: 4px solid var(--ink-soft); }
 .block-savollar { border-left: 4px solid #5b6e8c; }
 .block-eslab { border-left: 4px solid var(--gold); }
+.block-kitob { border-left: 4px solid var(--line-strong); }
+.block-kitob p { color: var(--ink-soft); font-size: 0.95rem; }
 
 /* Savollar (tayyor dars uchun) */
 .savollar {
