@@ -147,5 +147,5 @@ yoki
 ---
 
 **Eslab qol:**  
-Poydevor mustahkam. Har dars alohida, puxta, sekin.  
+Poydevor mustahkam va tayyor. Har dars alohida, puxta, sekin.  
 Sifat > tezlik.

@@ -153,3 +153,23 @@
   .chapter-head, .lesson { grid-template-columns: 1fr; }
   .roman { font-size: 1.5rem; }
 }
+
+/* Mustahkamlik */
+.lesson:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+  background: #fff8ec;
+}
+
+.toc a:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+}
+
+.bar {
+  position: relative;
+}
+
+.stats-num {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,4 +1,4 @@
-/* Ko'rinadigan Algebra — umumiy poydevor */
+/* Ko‘rinadigan Algebra — umumiy poydevor (mustahkam) */
 :root {
   --paper: #f3eee4;
   --paper-2: #ebe4d6;
@@ -15,11 +15,20 @@
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
   --font-sans: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1120px;
+  --focus: 2px solid var(--accent);
 }
 
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: var(--font-sans);
@@ -31,6 +40,22 @@ body {
   background-color: var(--paper);
   min-height: 100vh;
   line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 a { color: inherit; }
@@ -63,6 +88,7 @@ a { color: inherit; }
   background: var(--white);
   display: grid;
   place-items: center;
+  flex-shrink: 0;
 }
 
 .brand-name {
@@ -98,6 +124,8 @@ a { color: inherit; }
   padding: 9px 14px;
   text-decoration: none;
   font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
 
 .btn:hover { background: #fff; }
@@ -117,6 +145,7 @@ a { color: inherit; }
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .pill-soon {
@@ -144,9 +173,37 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.site-footer a {
+  text-decoration: none;
+}
+
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 720px) {
-  .site-header { align-items: flex-start; }
-  .header-meta { text-align: left; }
+  .site-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .header-meta {
+    text-align: left;
+    width: 100%;
+  }
+  .wrap {
+    width: calc(100% - 24px);
+  }
 }

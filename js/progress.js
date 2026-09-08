@@ -1,5 +1,13 @@
+/**
+ * Ko‘rinadigan Algebra — progress
+ * readyIds: ochilgan (tayyor) darslar
+ * localStorage: o‘quvchi “ko‘rgan / o‘tgan” holati
+ */
 (function () {
-  const KEY = "korinadigan-algebra-progress";
+  "use strict";
+
+  var KEY = "korinadigan-algebra-progress";
+  var TOTAL = 38;
 
   /**
    * Tayyor darslar ro‘yxati.
@@ -13,7 +21,10 @@
 
   function read() {
     try {
-      return JSON.parse(localStorage.getItem(KEY) || "{}");
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return {};
+      var data = JSON.parse(raw);
+      return data && typeof data === "object" ? data : {};
     } catch (e) {
       return {};
     }
@@ -23,43 +34,62 @@
     try {
       localStorage.setItem(KEY, JSON.stringify(data));
     } catch (e) {
-      // private mode yoki quota
+      // private mode / quota
     }
+  }
+
+  function num(id) {
+    return Number(id);
   }
 
   window.KA = {
     readyIds: readyIds,
 
     isReady: function (id) {
-      return this.readyIds().indexOf(Number(id)) !== -1;
+      return this.readyIds().indexOf(num(id)) !== -1;
     },
 
     markSeen: function (id) {
-      const data = read();
+      id = num(id);
+      if (!id) return;
+      var data = read();
       data[id] = Object.assign({}, data[id], { seen: true, at: Date.now() });
       write(data);
     },
 
     markDone: function (id) {
-      const data = read();
+      id = num(id);
+      if (!id) return;
+      var data = read();
       data[id] = Object.assign({}, data[id], { done: true, at: Date.now() });
       write(data);
     },
 
     state: function (id) {
-      const data = read();
+      id = num(id);
+      var data = read();
       if (data[id] && data[id].done) return "done";
       if (this.isReady(id)) return "ready";
       return "soon";
     },
 
     counts: function () {
-      const data = read();
-      const ready = this.readyIds().length;
-      const done = Object.keys(data).filter(function (k) {
-        return data[k] && data[k].done;
-      }).length;
-      return { total: 38, ready: ready, done: done };
+      var data = read();
+      var ready = this.readyIds().length;
+      var done = 0;
+      for (var k in data) {
+        if (data[k] && data[k].done) done++;
+      }
+      return {
+        total: TOTAL,
+        ready: ready,
+        done: done
+      };
+    },
+
+    /** Dars ochilganda chaqirish mumkin */
+    onLessonOpen: function (id) {
+      if (this.isReady(id)) this.markSeen(id);
     }
   };
 })();

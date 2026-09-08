@@ -1,18 +1,32 @@
 # Loyiha holati — Ko‘rinadigan Algebra
 
-**Oxirgi yangilanish:** 2026-09-08
+**Oxirgi yangilanish:** 2026-09-08  
+**Holat:** Poydevor **mustahkam** va tayyor
 
 ---
 
-## Umumiy holat
+## Umumiy
 
-| Ko‘rsatkich              | Qiymat      |
-|--------------------------|-------------|
-| Jami darslar             | 38          |
-| Poydevor (shablon)       | 38 / 38     |
-| Tayyor (readyIds)        | 0 / 38      |
-| O‘tilgan (localStorage)  | 0           |
-| Holat                    | **Poydevor tayyor** |
+| Ko‘rsatkich              | Qiymat              |
+|--------------------------|---------------------|
+| Jami darslar             | 38                  |
+| Poydevor (shablon)       | 38 / 38             |
+| Tayyor (`readyIds`)      | 0 / 38              |
+| O‘tilgan (localStorage)  | 0                   |
+| Qurish hujjatlari        | `ilovani-qurish/`   |
+
+---
+
+## Poydevor mustahkamligi
+
+- [x] 1–38 papkalar bir xil, toza shablon
+- [x] CSS: focus-visible, reduced-motion, mobil, theme-color
+- [x] JS: escapeHtml, xato ushlash, `"use strict"`, onLessonOpen
+- [x] Progress: xavfsiz localStorage
+- [x] AI.md + STATUS + CONVENTIONS + PLAN + CHECKLIST
+- [x] Dashboard xato holatida tushunarli xabar
+- [x] Meta description + theme-color
+- [x] Sahna `aria-label` va `.is-live` holati tayyor
 
 ---
 
@@ -31,16 +45,13 @@ function readyIds() {
 
 ## Keyingi dars
 
-**Tavsiya: 4-§** — `y = ax² + bx + c funksiya`
+**4-§** — `y = ax² + bx + c funksiya`
 
-Sabab:
-- a, b, c slayderlari
-- 2-§ va 3-§ shu ichida ham ko‘rinadi
-- Keyin 2 → 3 → 1 → 5 tabiiy keladi
+Sabab: a, b, c slayderlari; 2-§ va 3-§ shu ichida ham ko‘rinadi.
 
 ---
 
-## Boblar bo‘yicha progress
+## Boblar
 
 | Bob | Nom | Darslar | Tayyor |
 |-----|-----|---------|--------|
@@ -54,24 +65,16 @@ Sabab:
 
 ## Oxirgi o‘zgarishlar
 
-- 2026-09-08: Poydevor to‘liq qurildi
-  - 1–38 papkalar bir xil shablon bilan
-  - YORIQNOMA.md to‘liq
-  - ilovani-qurish/ papkasi ochildi (AI.md, STATUS.md va boshqalar)
-  - progress.js, dashboard.js, dars.css yaxshilandi
+- 2026-09-08: Poydevor mustahkamlandi
+  - base.css / dars.css / progress.js / dashboard.js mustahkamlandi
+  - Barcha 38 dars shabloni yangilandi (meta, a11y, onLessonOpen)
+  - ilovani-qurish/ to‘liq
 
 ---
 
-## Keyingi qadamlar (odam + AI)
+## Keyingi qadam
 
-1. 4-§ uchun interaktiv sahna yozish
+1. 4-§ uchun interaktiv `#sahna`
 2. Matn + 3 savol
-3. Sinov → readyIds ga 4 qo‘shish
-4. STATUS.md ni yangilash
-5. Keyingi darsga o‘tish
-
----
-
-## Eslatma
-
-Bu fayl har dars ochilganda yoki muhim o‘zgarishda yangilanadi.
+3. Sinov → `readyIds` ga 4
+4. STATUS.md yangilash

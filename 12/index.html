@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ildiz va daraja qachon ishlaydi.">
+  <meta name="theme-color" content="#f3eee4">
   <title>12-§ Daraja qatnashgan tenglama va tengsizlik — Ko‘rinadigan Algebra</title>
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/dars.css">
@@ -12,7 +14,7 @@
     <header class="site-header">
       <a class="brand" href="../index.html">
         <span class="mark" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
             <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
             <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
           </svg>
@@ -23,14 +25,14 @@
     </header>
 
     <main>
-      <p class="kicker">I bob. Kvadrat funksiya. Kvadrat tengsizliklar · 12-§ · dars 12/38</p>
+      <p class="kicker">I bob · 12-§ · dars 12/38</p>
       <h1 class="dars-title">Daraja qatnashgan tenglama va tengsizlik</h1>
       <p class="lead">Ildiz va daraja qachon ishlaydi.</p>
 
-      <section class="stage" id="sahna">
+      <section class="stage" id="sahna" aria-label="Interaktiv chizma">
         <div>
           <strong>Sahna hali bo‘sh.</strong>
-          Bu joyni interaktiv chizma egallaydi. Dars ochilganda slayder, grafik yoki aylana shu yerga qo‘yiladi.
+          <p>Bu joyni interaktiv chizma egallaydi. Dars ochilganda slayder, grafik yoki aylana shu yerga qo‘yiladi.</p>
         </div>
       </section>
 
@@ -45,7 +47,7 @@
         </div>
         <div class="block block-holat">
           <h2>Holat</h2>
-          <p>Poydevor qo‘yilgan. Bu dars 1–2 kunda, alohida, puxta yoziladi. Tayyor bo‘lgach <code>js/progress.js</code> dagi <code>readyIds</code> ga 12 qo‘shiladi.</p>
+          <p>Poydevor mustahkam. Bu dars 1–2 kunda, alohida, puxta yoziladi. Tayyor bo‘lgach <code>js/progress.js</code> dagi <code>readyIds</code> ga 12 qo‘shiladi.</p>
         </div>
       </section>
     </main>
@@ -56,5 +58,9 @@
       <a href="../13/">13-dars</a>
     </footer>
   </div>
+  <script src="../js/progress.js"></script>
+  <script>
+    if (window.KA && KA.onLessonOpen) KA.onLessonOpen(12);
+  </script>
 </body>
 </html>

@@ -1,12 +1,4 @@
-/* Dars sahifasi — poydevor */
-
-.dars-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  padding: 8px 0 18px;
-}
+/* Dars sahifasi — mustahkam poydevor */
 
 .kicker {
   font-size: 0.78rem;
@@ -56,10 +48,19 @@
   margin-bottom: 8px;
 }
 
-.stage.active {
+.stage p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 36ch;
+}
+
+/* Dars ochilganda sahna to‘ldirilganda */
+.stage.is-live {
   border-style: solid;
   background: var(--white);
   box-shadow: var(--shadow);
+  padding: 16px;
+  text-align: left;
 }
 
 /* Dars matn bloki */
@@ -98,28 +99,12 @@
   border-radius: 6px;
 }
 
-.block-reja {
-  border-left: 4px solid var(--accent);
-}
-
-.block-qoida {
-  border-left: 4px solid var(--accent-2);
-}
-
-.block-holat {
-  border-left: 4px solid var(--gold);
-}
-
-/* Keyinroq to‘ldiriladigan qismlar uchun */
-.block-kirish,
-.block-savollar,
-.block-eslab {
-  display: none; /* poydevorda yashirin; dars yozilganda ko‘rsatiladi */
-}
-
-.block-kirish { display: block; border-left: 4px solid var(--ink-soft); }
-.block-savollar { display: block; border-left: 4px solid #5b6e8c; }
-.block-eslab { display: block; border-left: 4px solid var(--gold); }
+.block-reja  { border-left: 4px solid var(--accent); }
+.block-qoida { border-left: 4px solid var(--accent-2); }
+.block-holat { border-left: 4px solid var(--gold); }
+.block-kirish { border-left: 4px solid var(--ink-soft); }
+.block-savollar { border-left: 4px solid #5b6e8c; }
+.block-eslab { border-left: 4px solid var(--gold); }
 
 /* Savollar (tayyor dars uchun) */
 .savollar {
@@ -153,6 +138,8 @@
   padding: 6px 12px;
   cursor: pointer;
   font-size: 0.92rem;
+  font-family: inherit;
+  transition: background 0.12s ease, border-color 0.12s ease;
 }
 
 .savol-opts button:hover {
@@ -171,13 +158,53 @@
   color: #7a2e1a;
 }
 
-/* Footer o‘rtasi */
 .footer-mid {
   color: var(--ink-soft);
   font-size: 0.9rem;
 }
 
+/* Slayderlar uchun tayyor stil (keyin ishlatiladi) */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.control label {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.control input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.control output {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+}
+
 @media (max-width: 720px) {
-  .stage { min-height: 300px; padding: 16px; }
-  .dars-title { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+  .stage {
+    min-height: 300px;
+    padding: 16px;
+  }
+  .dars-title {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
