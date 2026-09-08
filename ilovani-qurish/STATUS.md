@@ -1,4 +1,4 @@
-# Loyiha holati — Ko‘rinadigan Algebra
+# Loyiha holati — Jonli Algebra
 
 **Oxirgi yangilanish:** 2026-09-08  
 **Holat:** Poydevor **mustahkam** va tayyor

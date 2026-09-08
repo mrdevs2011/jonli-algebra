@@ -1,4 +1,4 @@
-# AI uchun yoriqnoma — Ko‘rinadigan Algebra
+# AI uchun yoriqnoma — Jonli Algebra
 
 Bu hujjat **AI agentlar** (Grok, Claude, ChatGPT, Cursor va boshqalar) uchun yozilgan.  
 Odam yoriqnomasi: `../YORIQNOMA.md`

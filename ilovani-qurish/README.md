@@ -1,6 +1,6 @@
 # Ilovani qurish — hujjatlar
 
-Bu papka **Ko‘rinadigan Algebra** loyihasini qurish va saqlash uchun.
+Bu papka **Jonli Algebra** loyihasini qurish va saqlash uchun.
 
 Asosiy dars fayllari (`1/` … `38/`, `css/`, `js/`) ildizda qoladi.  
 Bu yerda faqat **qurish jarayoni** hujjatlari.

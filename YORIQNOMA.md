@@ -1,4 +1,4 @@
-# Ko‘rinadigan Algebra — Yoriqnoma
+# Jonli Algebra — Yoriqnoma
 
 Maqsad: 9-sinf algebra (Alimov, Xolmuhamedov, Mirzaahmedov 2019) tartibida **vizual, interaktiv** darslar yaratish.  
 Har dars = 1 paragraf = 1 papka.  

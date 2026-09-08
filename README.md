@@ -1,4 +1,4 @@
-# Ko‘rinadigan Algebra
+# Jonli Algebra
 
 9-sinf algebra uchun **vizual, interaktiv** darslar.  
 Tartib — Alimov, Xolmuhamedov, Mirzaahmedov (2019) mundarijasi.

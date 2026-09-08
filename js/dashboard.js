@@ -1,5 +1,5 @@
 /**
- * Ko‘rinadigan Algebra — dashboard
+ * Jonli Algebra — dashboard
  */
 (function () {
   "use strict";

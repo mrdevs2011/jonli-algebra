@@ -1,5 +1,5 @@
 /**
- * Ko‘rinadigan Algebra — progress
+ * Jonli Algebra — progress
  * readyIds: ochilgan (tayyor) darslar
  * localStorage: o‘quvchi “ko‘rgan / o‘tgan” holati
  */
