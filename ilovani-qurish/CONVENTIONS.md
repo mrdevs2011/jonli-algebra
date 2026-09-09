@@ -85,6 +85,42 @@ Doska namunalari xuddi shunday, `doska.masalalar[].img` maydonida `png/…` yo�
 Rasm PDF darslikdan ~200 dpi’da olinadi, faqat shu darsga tegishli sahifa(lar).
 Boshqa darsning betini qo‘shmaslik kerak.
 
+## Feature yoqish/o‘chirish (har dars alohida)
+
+Ba’zi darslarda `picker`, `classtimer`, `agenda`, `xulosaBoard` yoki `board`
+(o‘qituvchi doska rejimi tugmasi) kerak bo‘lmasligi mumkin — masalan
+1-darsda ham, 10-darsda ham, istalgan kombinatsiyada, bir-biriga bog‘liq
+emas. `data.json`ga shu darsga xos qo‘shiladi:
+
+```json
+"features": {
+  "classtimer": false,
+  "picker": false
+}
+```
+
+Yozilmagan feature — default yoqilgan. `false` qo‘yilgan blok
+`python3 build/build.py N` ishga tushganda o‘sha darsning `index.html`
+faylidan **butunlay** olib tashlanadi (comment emas — DOM’da umuman yo‘q).
+Boshqa darslarga ta’sir qilmaydi.
+
+Noto‘g‘ri nom yozsangiz (masalan `"stopwatch"`), build xato beradi va
+mavjud nomlar ro‘yxatini ko‘rsatadi — `build/lesson_schema.py`dagi
+`FEATURE_TOGGLES` shu ro‘yxatning yagona manbasi.
+
+Yangi o‘chirib bo‘ladigan feature qo‘shish (masalan yangi utility
+`js/features/yangi.js` yozsangiz va uni ham o‘chirib bo‘lishini
+xohlasangiz):
+
+1. `build/lesson_schema.py` → `FEATURE_TOGGLES` ga qator qo‘shing
+   (`"yangi": "html"` — statik HTML blok bo‘lsa, `"yangi": "js"` —
+   `board.js` kabi JS orqali dinamik qo‘shiladigan bo‘lsa)
+2. `"html"` bo‘lsa: `build/dars-template.html`da mos qismni
+   `<!--#feature:yangi-->...<!--/feature:yangi-->` bilan o‘rang
+3. `"js"` bo‘lsa: `js/features/yangi.js` ichida `board.js`dagi
+   `featureEnabled()` namunasi bo‘yicha `#dars-data`dan
+   `features.yangi`ni o‘qib tekshiring
+
 ## Progress
 
 Dars to‘liq tayyor bo‘lgach **faqat**:

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sahifa topilmadi">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Sahifa topilmadi — Jonli Algebra</title>
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="/css/base.css">
+  <style>
+    .notfound {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 18px;
+      padding: 40px 0;
+    }
+    .notfound .code {
+      font-family: var(--font-serif);
+      font-size: clamp(3.5rem, 12vw, 6rem);
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .notfound h1 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin: 0;
+      color: var(--ink);
+    }
+    .notfound p {
+      color: var(--ink-soft);
+      max-width: 42ch;
+      margin: 0;
+    }
+    .notfound .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="/index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="/index.html">Bosh sahifa</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="notfound">
+        <div class="code">404</div>
+        <h1>Bu sahifa topilmadi</h1>
+        <p>Havola noto'g'ri yoki dars hali tayyor emas. Bosh sahifadan barcha mavjud darslarni ko'rishingiz mumkin.</p>
+        <div class="actions">
+          <a class="btn btn-accent" href="/index.html">Bosh sahifaga qaytish</a>
+          <a class="btn" href="/1/">1-darsdan boshlash</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-mid">Jonli Algebra · 9-sinf algebra</span>
+    </footer>
+  </div>
+</body>
+</html>

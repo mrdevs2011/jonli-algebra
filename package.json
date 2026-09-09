@@ -1,0 +1,13 @@
+{
+  "name": "jonli-algebra",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Jonli Algebra — 9-sinf interaktiv algebra darslari (offline, file://)",
+  "scripts": {
+    "test": "node build/test-render.js",
+    "test:all": "bash build/check_lessons.sh && node build/run-all-render-tests.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.0"
+  }
+}

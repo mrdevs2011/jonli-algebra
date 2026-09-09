@@ -11,6 +11,17 @@ Har dars uchun shu ro‘yxatni belgilang.
 - [ ] Harakat (slayder/tugma) bo‘lsa — kamida 1 ta yozuv/rang o‘zgaradi
 - [ ] Formula chizmadan oldin chiqmayapti
 - [ ] Ortiqcha matn, tugma, reklama yo‘q
+- [ ] **Yangi `sahna-*.js` yozayapsanmi?** Avval tekshir: mavjud turlardan
+      biri (masalan `abc-parabola`) config bilan (boshqa `min`/`max`/`value`)
+      yetarli emasmi? Yetarli bo‘lsa — yangi fayl yozma, faqat `data.json`da
+      shu turdan foydalan. Yetarli bo‘lmasa — yangi faylni **albatta**
+      `js/sahna-base.js`dagi `createPlane`/`bindScrub`/`pulse`/`applyNote`
+      funksiyalaridan foydalanib yoz (qayta yozma). Agar sahnangga mos
+      kelmaydigan YANGI umumiy pattern chiqsa, uni faqat kamida 2-chi marta
+      kerak bo‘lganda `sahna-base.js`ga qo‘sh (1 misoldan umumiylashtirma).
+- [ ] Yangi sahna turi uchun `build/dars-template.html`ga
+      `<script src="../../../../js/sahna-<tur>.js"></script>` qatorini
+      `sahna-base.js`dan KEYIN qo‘shdim.
 
 ## 2-kun — Matn
 

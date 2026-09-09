@@ -5,6 +5,23 @@
 (function () {
   var STORAGE_KEY = 'jonli-algebra-board-mode';
 
+  // data.json.features.board === false bo'lsa, bu dars uchun tugma umuman
+  // qo'shilmaydi. Boshqa feature'lar HTML section orqali build.py'da
+  // kesib tashlanadi (build/dars-template.html'dagi <!--#feature:...-->
+  // markerlariga qarang) — bu esa JS orqali dinamik qo'shiladigan yagona
+  // feature bo'lgani uchun shu yerda o'zi tekshiradi.
+  function featureEnabled() {
+    try {
+      var el = document.getElementById('dars-data');
+      if (!el) return true;
+      var data = JSON.parse(el.textContent);
+      var f = data && data.features;
+      return !(f && f.board === false);
+    } catch (e) {
+      return true;
+    }
+  }
+
   function isOn() {
     try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) { return false; }
   }
@@ -50,6 +67,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    if (!featureEnabled()) return;
     var header = document.querySelector('.site-header');
     if (!header || document.getElementById('boardModeBtn')) return;
 

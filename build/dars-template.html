@@ -35,6 +35,7 @@
       <h1 class="dars-title" id="darsTitle"></h1>
       <p class="lead" id="darsLead"></p>
 
+      <!--#feature:agenda-->
       <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
         <div class="agenda-head">
           <h2>Dars rejasi · 45 daqiqa</h2>
@@ -46,6 +47,7 @@
         </div>
         <ol class="agenda-steps" id="agendaSteps"></ol>
       </section>
+      <!--/feature:agenda-->
 
       <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
         <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
@@ -65,6 +67,7 @@
         <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
       </section>
 
+      <!--#feature:picker-->
       <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
         <div class="picker-head">
           <h2>Doskaga kim chiqadi?</h2>
@@ -88,7 +91,9 @@
           </div>
         </div>
       </section>
+      <!--/feature:picker-->
 
+      <!--#feature:classtimer-->
       <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
         <div class="classtimer-head">
           <h2>Sinf birga yechadi</h2>
@@ -108,6 +113,7 @@
           </div>
         </div>
       </section>
+      <!--/feature:classtimer-->
 
       <section class="dars-body">
         <div class="block block-kirish" id="blockKirish">
@@ -154,13 +160,14 @@
         <div class="block block-xulosa">
           <div class="xulosa-head">
             <h2>Xulosa</h2>
-            <button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
           </div>
           <ul class="xulosa-list" id="xulosaList"></ul>
         </div>
       </section>
     </main>
 
+    <!--#feature:xulosaBoard-->
     <div class="xulosa-board" id="xulosaBoard" hidden>
       <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
       <div class="xulosa-board-inner">
@@ -168,6 +175,7 @@
         <ul id="xulosaBoardList"></ul>
       </div>
     </div>
+    <!--/feature:xulosaBoard-->
 
     <footer class="site-footer">
       <a href="#" id="footerPrev" hidden></a>
@@ -193,15 +201,15 @@
   <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
   <script type="application/json" id="dars-data">__DARS_DATA_JSON__</script>
 
-  <script src="../../../../js/progress.js"></script>
-  <script src="../../../../js/board.js"></script>
-  <script src="../../../../js/agenda.js"></script>
-  <script src="../../../../js/picker.js"></script>
-  <script src="../../../../js/classtimer.js"></script>
-  <script src="../../../../js/xulosa-board.js"></script>
-  <script src="../../../../js/kitob-full.js"></script>
-  <script src="../../../../js/sahna-expand.js"></script>
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+  <script src="../../../../js/sahna-base.js"></script>
   <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
   <script src="../../../../js/dars-render.js"></script>
 </body>
 </html>

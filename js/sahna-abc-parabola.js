@@ -3,17 +3,18 @@
  * Config (data.json'dagi "sahna" obyekti) orqali boshqariladi, shuning uchun
  * 1-§ bilan bir xil chizmani boshqa darslar ham (masalan 2-§, 3-§, 4-§) turli
  * boshlang'ich qiymat/oraliqlar bilan qayta ishlatishi mumkin.
+ *
+ * DIQQAT: SVG koordinata tizimi, slider-scrub va shablon-eslatma logikasi
+ * endi js/sahna-base.js (KA_SAHNA_BASE) ichida — bu fayl faqat PARABOLAGA
+ * XOS narsani o'z ichiga oladi: formula (y = ax²+bx+c), egri chiziq
+ * chizish va uchta o'zgaruvchining (a,b,c) boshqaruv paneli.
  */
 window.KA_SAHNA = window.KA_SAHNA || {};
 
 window.KA_SAHNA["abc-parabola"] = function (stage, cfg) {
   "use strict";
 
-  var svgNS = "http://www.w3.org/2000/svg";
-  var W = 320, H = 260;
-  var ORIGIN_X = W / 2, ORIGIN_Y = H / 2;
-  var SCALE = 16; // 1 birlik = 16px
-
+  var BASE = window.KA_SAHNA_BASE;
   var va = cfg.vars.a, vb = cfg.vars.b, vc = cfg.vars.c;
 
   // ---- sahna ichini quramiz ----
@@ -63,177 +64,51 @@ window.KA_SAHNA["abc-parabola"] = function (stage, cfg) {
   var lblB = body.querySelector("#lbl-b");
   var lblC = body.querySelector("#lbl-c");
   var note = body.querySelector("#sahna1-note");
-  var lastVals = { a: null, b: null, c: null };
+  var lastVals = {};
 
-  function fmt(n) {
-    if (n === 0) return "0";
-    var r = Math.round(n * 100) / 100;
-    return (r > 0 ? "+" + r : String(r));
-  }
+  // ---- umumiy motordan koordinata tekisligini olamiz ----
+  var plane = BASE.createPlane(graf, { width: 320, height: 260, scale: 16 });
 
-  function toX(x) { return ORIGIN_X + x * SCALE; }
-  function toY(y) { return ORIGIN_Y - y * SCALE; }
-
-  function pulse(el, key, val) {
-    if (lastVals[key] !== null && lastVals[key] !== val) {
-      el.classList.remove("is-pulse");
-      void el.offsetWidth; // reflow — animatsiyani qayta ishga tushirish uchun
-      el.classList.add("is-pulse");
-    }
-    lastVals[key] = val;
-  }
-
-  // Formuladagi raqamlarni surib (yoki bosib) o'zgartirish — slayder bilan bir xil natija
-  function bindScrub(el, slider) {
-    el.setAttribute("tabindex", "0");
-    el.setAttribute("role", "slider");
-    el.setAttribute("aria-label", (slider.id === "slide-a" ? "a" : slider.id === "slide-b" ? "b" : "c") + " qiymati");
-    el.setAttribute("aria-valuemin", slider.min);
-    el.setAttribute("aria-valuemax", slider.max);
-
-    var dragging = false, startX = 0, startY = 0, startVal = 0;
-    var PX_PER_STEP = 14;
-
-    function step() { return parseFloat(slider.step) || 1; }
-
-    function setVal(v) {
-      var min = parseFloat(slider.min), max = parseFloat(slider.max), st = step();
-      v = Math.round(v / st) * st;
-      v = Math.max(min, Math.min(max, v));
-      v = Math.round(v * 100) / 100;
-      if (parseFloat(slider.value) !== v) {
-        slider.value = v;
-        slider.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-      el.setAttribute("aria-valuenow", v);
-    }
-
-    el.addEventListener("pointerdown", function (e) {
-      dragging = true;
-      startX = e.clientX; startY = e.clientY;
-      startVal = parseFloat(slider.value);
-      try { el.setPointerCapture(e.pointerId); } catch (err) {}
-      el.classList.add("is-dragging");
-    });
-
-    el.addEventListener("pointermove", function (e) {
-      if (!dragging) return;
-      var dx = e.clientX - startX;
-      setVal(startVal + (dx / PX_PER_STEP) * step());
-    });
-
-    function endDrag() {
-      if (!dragging) return;
-      dragging = false;
-      el.classList.remove("is-dragging");
-    }
-    el.addEventListener("pointerup", endDrag);
-    el.addEventListener("pointercancel", endDrag);
-
-    el.addEventListener("keydown", function (e) {
-      var cur = parseFloat(slider.value);
-      if (e.key === "ArrowRight" || e.key === "ArrowUp") { setVal(cur + step()); e.preventDefault(); }
-      else if (e.key === "ArrowLeft" || e.key === "ArrowDown") { setVal(cur - step()); e.preventDefault(); }
-      else if (e.key === "Home") { setVal(parseFloat(slider.min)); e.preventDefault(); }
-      else if (e.key === "End") { setVal(parseFloat(slider.max)); e.preventDefault(); }
-    });
-
-    el.setAttribute("aria-valuenow", slider.value);
-  }
-
-  function buildAxes() {
-    var frag = document.createDocumentFragment();
-
-    for (var gx = -9; gx <= 9; gx++) {
-      var lx = document.createElementNS(svgNS, "line");
-      lx.setAttribute("x1", toX(gx)); lx.setAttribute("y1", 0);
-      lx.setAttribute("x2", toX(gx)); lx.setAttribute("y2", H);
-      lx.setAttribute("stroke", "#d7cfc0"); lx.setAttribute("stroke-width", gx === 0 ? 0 : 0.5);
-      frag.appendChild(lx);
-    }
-    for (var gy = -7; gy <= 7; gy++) {
-      var ly = document.createElementNS(svgNS, "line");
-      ly.setAttribute("x1", 0); ly.setAttribute("y1", toY(gy));
-      ly.setAttribute("x2", W); ly.setAttribute("y2", toY(gy));
-      ly.setAttribute("stroke", "#d7cfc0"); ly.setAttribute("stroke-width", gy === 0 ? 0 : 0.5);
-      frag.appendChild(ly);
-    }
-
-    var axX = document.createElementNS(svgNS, "line");
-    axX.setAttribute("x1", 0); axX.setAttribute("y1", ORIGIN_Y);
-    axX.setAttribute("x2", W); axX.setAttribute("y2", ORIGIN_Y);
-    axX.setAttribute("stroke", "#4a554c"); axX.setAttribute("stroke-width", "1.2");
-    frag.appendChild(axX);
-
-    var axY = document.createElementNS(svgNS, "line");
-    axY.setAttribute("x1", ORIGIN_X); axY.setAttribute("y1", 0);
-    axY.setAttribute("x2", ORIGIN_X); axY.setAttribute("y2", H);
-    axY.setAttribute("stroke", "#4a554c"); axY.setAttribute("stroke-width", "1.2");
-    frag.appendChild(axY);
-
-    var labX = document.createElementNS(svgNS, "text");
-    labX.setAttribute("x", W - 12); labX.setAttribute("y", ORIGIN_Y - 6);
-    labX.setAttribute("fill", "#4a554c"); labX.setAttribute("font-size", "11");
-    labX.textContent = "x";
-    frag.appendChild(labX);
-
-    var labY = document.createElementNS(svgNS, "text");
-    labY.setAttribute("x", ORIGIN_X + 6); labY.setAttribute("y", 12);
-    labY.setAttribute("fill", "#4a554c"); labY.setAttribute("font-size", "11");
-    labY.textContent = "y";
-    frag.appendChild(labY);
-
-    graf.appendChild(frag);
-  }
-
-  var curvePath = document.createElementNS(svgNS, "path");
+  var curvePath = document.createElementNS(BASE.svgNS, "path");
   curvePath.setAttribute("fill", "none");
   curvePath.setAttribute("stroke-width", "2.4");
   curvePath.setAttribute("stroke-linecap", "round");
+  graf.appendChild(curvePath);
 
-  function applyNote(a, b, c) {
-    var notes = cfg.notes || {};
-    var tpl;
-    if (a === 0) tpl = notes.zero;
-    else if (a > 0) tpl = notes.positive;
-    else tpl = notes.negative;
-    if (!tpl) { note.textContent = ""; return; }
-    note.textContent = tpl
-      .replace(/\{a\}/g, a).replace(/\{b\}/g, b).replace(/\{c\}/g, c);
-  }
-
+  // ---- PARABOLAGA XOS: formula hisoblash va egri chiziq ----
   function render() {
     var a = parseFloat(slideA.value);
     var b = parseFloat(slideB.value);
     var c = parseFloat(slideC.value);
 
     outA.textContent = a; outB.textContent = b; outC.textContent = c;
-    lblA.textContent = a; lblB.textContent = fmt(b).replace(/^\+/, "+"); lblC.textContent = fmt(c);
+    lblA.textContent = a; lblB.textContent = BASE.fmtSigned(b); lblC.textContent = BASE.fmtSigned(c);
 
-    pulse(lblA, "a", a); pulse(lblB, "b", b); pulse(lblC, "c", c);
+    BASE.pulse(lblA, lastVals, "a", a);
+    BASE.pulse(lblB, lastVals, "b", b);
+    BASE.pulse(lblC, lastVals, "c", c);
 
     var d = "";
     var xMin = -9, xMax = 9, step = 0.25;
     for (var x = xMin; x <= xMax; x += step) {
       var y = a * x * x + b * x + c;
-      var py = toY(y);
+      var py = plane.toY(y);
       if (py < -40) py = -40;
-      if (py > H + 40) py = H + 40;
-      d += (x === xMin ? "M" : "L") + toX(x).toFixed(1) + "," + py.toFixed(1) + " ";
+      if (py > plane.H + 40) py = plane.H + 40;
+      d += (x === xMin ? "M" : "L") + plane.toX(x).toFixed(1) + "," + py.toFixed(1) + " ";
     }
     curvePath.setAttribute("d", d);
     curvePath.setAttribute("stroke", a === 0 ? "#5b6e8c" : "#c24b2a");
 
-    applyNote(a, b, c);
+    var activeKey = a === 0 ? "zero" : (a > 0 ? "positive" : "negative");
+    BASE.applyNote(note, cfg.notes, activeKey, { a: a, b: b, c: c });
   }
 
-  buildAxes();
-  graf.appendChild(curvePath);
   render();
 
   [slideA, slideB, slideC].forEach(function (elx) { elx.addEventListener("input", render); });
 
-  bindScrub(lblA, slideA);
-  bindScrub(lblB, slideB);
-  bindScrub(lblC, slideC);
+  BASE.bindScrub(lblA, slideA, { ariaLabel: "a qiymati" });
+  BASE.bindScrub(lblB, slideB, { ariaLabel: "b qiymati" });
+  BASE.bindScrub(lblC, slideC, { ariaLabel: "c qiymati" });
 };
