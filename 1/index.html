@@ -311,6 +311,41 @@
     @media (prefers-reduced-motion: reduce) {
       .board-typed-cursor { animation: none; }
     }
+
+    /* Yon tomondan chiqadigan "nima qilayapti" bubble'lari — o'qituvchi izohi kabi */
+    .board-typed-bubbles {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 14px;
+      min-height: 0;
+    }
+    .board-typed-bubble {
+      align-self: flex-start;
+      max-width: 92%;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #dfe8e0;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      padding: 7px 12px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(4px);
+      animation: bubbleIn 0.25s ease forwards, bubbleOut 0.3s ease forwards 2.6s;
+    }
+    .board-typed-bubble::before { content: "\1F4AC "; opacity: 0.7; }
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bubbleOut {
+      from { opacity: 1; max-height: 60px; margin-bottom: 0; }
+      to   { opacity: 0; max-height: 0; margin-bottom: -8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .board-typed-bubble { animation: none; opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -463,6 +498,7 @@
               <div class="board-typed-caption">1-masala · 6-bet — o'qituvchi doskada yechayapti</div>
               <pre class="board-typed-text" id="boardTypedText" aria-live="polite"></pre>
               <span class="board-typed-cursor" id="boardTypedCursor">▍</span>
+              <div class="board-typed-bubbles" id="boardTypedBubbles" aria-live="polite"></div>
               <div class="board-typed-controls">
                 <button type="button" class="btn btn-ghost" id="boardTypedSkip">Tezlashtirish</button>
                 <button type="button" class="btn btn-ghost" id="boardTypedReset">Boshidan</button>
@@ -929,20 +965,33 @@
         if (!btn || !panel || !textEl) return;
 
         var LINES = [
-          "Formula: y(x) = x\u00b2 \u2212 5x + 6\n",
-          "x o'rniga har bir qiymatni birma-bir qo'yamiz.\n\n",
-          "x = \u22122:  y(\u22122) = (\u22122)\u00b2 \u2212 5\u00b7(\u22122) + 6 = 4 + 10 + 6 = 20\n\n",
-          "x = 0:  y(0) = 0\u00b2 \u2212 5\u00b70 + 6 = 6\n\n",
-          "x = 3:  y(3) = 3\u00b2 \u2212 5\u00b73 + 6 = 9 \u2212 15 + 6 = 0"
+          { text: "Formula: y(x) = x\u00b2 \u2212 5x + 6\n", note: "Avval funksiyaning formulasini yozib olamiz." },
+          { text: "x o'rniga har bir qiymatni birma-bir qo'yamiz.\n\n", note: "Endi berilgan uchta x qiymatini birma-bir tekshiramiz." },
+          { text: "x = \u22122:  y(\u22122) = (\u22122)\u00b2 \u2212 5\u00b7(\u22122) + 6 = 4 + 10 + 6 = 20\n\n", note: "x = \u22122 ni qo'yib hisoblayapman: (\u22122)\u00b2 = 4, keyin ishorasiga e'tibor beramiz." },
+          { text: "x = 0:  y(0) = 0\u00b2 \u2212 5\u00b70 + 6 = 6\n\n", note: "x = 0 bo'lsa eng oson \u2014 faqat erkin had qoladi." },
+          { text: "x = 3:  y(3) = 3\u00b2 \u2212 5\u00b73 + 6 = 9 \u2212 15 + 6 = 0\n", note: "x = 3 ni qo'yamiz \u2014 natija nolga chiqdi, buni keyinroq muhokama qilamiz." }
         ];
-        var FULL_TEXT = LINES.join("");
+        var FULL_TEXT = LINES.map(function (l) { return l.text; }).join("");
 
+        var bubblesEl = document.getElementById("boardTypedBubbles");
         var timer = null;
         var pos = 0;
+        var lineIdx = 0;
+        var lineCharCount = 0;
         var speed = 32; // ms/harf — "sekin yozayotgandek" tezlik
         var fast = false;
 
         function clearTimer() { if (timer) { clearTimeout(timer); timer = null; } }
+
+        function showBubble(text) {
+          if (!bubblesEl || fast) return;
+          // Faqat bittasi ko'rinib tursin — eskisini darrov olib tashlaymiz
+          bubblesEl.innerHTML = "";
+          var b = document.createElement("div");
+          b.className = "board-typed-bubble";
+          b.textContent = text;
+          bubblesEl.appendChild(b);
+        }
 
         function typeStep() {
           if (pos >= FULL_TEXT.length) {
@@ -952,6 +1001,18 @@
           var ch = FULL_TEXT.charAt(pos);
           textEl.textContent += ch;
           pos++;
+          lineCharCount++;
+
+          // Yangi qatorga o'tganda — o'sha qatorga tegishli izohni bubble qilib chiqaramiz
+          var curLine = LINES[lineIdx];
+          if (curLine && lineCharCount === 1) {
+            showBubble(curLine.note);
+          }
+          if (curLine && lineCharCount >= curLine.text.length) {
+            lineIdx++;
+            lineCharCount = 0;
+          }
+
           // Tinish belgilaridan keyin biroz to'xtaydi — tabiiyroq ko'rinadi
           var delay = fast ? 4 : (/[.,:\n]/.test(ch) ? speed * 6 : speed);
           timer = window.setTimeout(typeStep, delay);
@@ -961,7 +1022,10 @@
           clearTimer();
           textEl.textContent = "";
           pos = 0;
+          lineIdx = 0;
+          lineCharCount = 0;
           fast = false;
+          if (bubblesEl) bubblesEl.innerHTML = "";
           cursorEl.classList.remove("is-hidden");
           typeStep();
         }
