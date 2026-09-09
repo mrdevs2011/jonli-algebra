@@ -113,6 +113,17 @@ a { color: inherit; }
   text-align: right;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+@media (max-width: 560px) {
+  .header-right { gap: 8px; }
+  .header-meta { display: none; }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
