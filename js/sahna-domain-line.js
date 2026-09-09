@@ -11,6 +11,10 @@ window.KA_SAHNA["domain-line"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var va = cfg.vars.a || { min: -4, max: 4, step: 0.5, value: 0, desc: "chegaraviy nuqta" };
   var mode = (cfg.mode || "sqrt").toLowerCase();
 

@@ -13,6 +13,10 @@ window.KA_SAHNA["line-parabola"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var vm = cfg.vars.m, vk = cfg.vars.k;
 
   var body = document.createElement("div");

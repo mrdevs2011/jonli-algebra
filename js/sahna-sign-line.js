@@ -10,6 +10,10 @@ window.KA_SAHNA["sign-line"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var vr1 = cfg.vars.r1, vr2 = cfg.vars.r2;
   var sense = (cfg.sense || "gt").toLowerCase(); // gt / lt / ge / le
 

@@ -32,6 +32,10 @@ window.KA_SAHNA["unit-circle"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var vt = cfg.vars.t;
 
   var body = document.createElement("div");

@@ -110,53 +110,71 @@ window.KA_SAHNA_BASE = (function () {
   // bilan render qilaverishi mumkin — ikkalasi ham bir xil yo'ldan o'zgaradi).
   function bindScrub(labelEl, sliderEl, opts) {
     opts = opts || {};
+    if (!labelEl || !sliderEl) return;
+
+    // min===max bo'lsa scrub foydasiz — bog'lamaymiz
+    if (parseFloat(sliderEl.min) === parseFloat(sliderEl.max)) return;
+
     labelEl.setAttribute("tabindex", "0");
     labelEl.setAttribute("role", "slider");
     if (opts.ariaLabel) labelEl.setAttribute("aria-label", opts.ariaLabel);
     labelEl.setAttribute("aria-valuemin", sliderEl.min);
     labelEl.setAttribute("aria-valuemax", sliderEl.max);
 
-    var dragging = false, startX = 0, startVal = 0;
+    var dragging = false, startX = 0, startVal = 0, activePointer = null;
     var PX_PER_STEP = opts.pxPerStep || 14;
 
     function step() { return parseFloat(sliderEl.step) || 1; }
 
     function setVal(v) {
       var min = parseFloat(sliderEl.min), max = parseFloat(sliderEl.max), st = step();
+      if (!isFinite(min) || !isFinite(max)) return;
       v = Math.round(v / st) * st;
       v = Math.max(min, Math.min(max, v));
       v = Math.round(v * 100) / 100;
       if (parseFloat(sliderEl.value) !== v) {
         sliderEl.value = v;
-        sliderEl.dispatchEvent(new Event("input", { bubbles: true }));
+        try {
+          sliderEl.dispatchEvent(new Event("input", { bubbles: true }));
+        } catch (err) {
+          // IE fallback yo'q — zamonaviy brauzerlar uchun yetarli
+        }
       }
       labelEl.setAttribute("aria-valuenow", v);
     }
 
     labelEl.addEventListener("pointerdown", function (e) {
+      if (e.button != null && e.button !== 0) return;
+      e.preventDefault();
       dragging = true;
+      activePointer = e.pointerId;
       startX = e.clientX;
-      startVal = parseFloat(sliderEl.value);
+      startVal = parseFloat(sliderEl.value) || 0;
       try { labelEl.setPointerCapture(e.pointerId); } catch (err) {}
       labelEl.classList.add("is-dragging");
     });
 
     labelEl.addEventListener("pointermove", function (e) {
       if (!dragging) return;
+      if (activePointer != null && e.pointerId !== activePointer) return;
+      e.preventDefault();
       var dx = e.clientX - startX;
       setVal(startVal + (dx / PX_PER_STEP) * step());
     });
 
-    function endDrag() {
+    function endDrag(e) {
       if (!dragging) return;
+      if (e && activePointer != null && e.pointerId !== activePointer) return;
       dragging = false;
+      activePointer = null;
       labelEl.classList.remove("is-dragging");
     }
     labelEl.addEventListener("pointerup", endDrag);
     labelEl.addEventListener("pointercancel", endDrag);
+    labelEl.addEventListener("lostpointercapture", endDrag);
 
     labelEl.addEventListener("keydown", function (e) {
-      var cur = parseFloat(sliderEl.value);
+      var cur = parseFloat(sliderEl.value) || 0;
       if (e.key === "ArrowRight" || e.key === "ArrowUp") { setVal(cur + step()); e.preventDefault(); }
       else if (e.key === "ArrowLeft" || e.key === "ArrowDown") { setVal(cur - step()); e.preventDefault(); }
       else if (e.key === "Home") { setVal(parseFloat(sliderEl.min)); e.preventDefault(); }

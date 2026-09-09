@@ -9,6 +9,10 @@ window.KA_SAHNA["mono-parabola"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var va = cfg.vars.a, vb = cfg.vars.b, vc = cfg.vars.c;
 
   var body = document.createElement("div");

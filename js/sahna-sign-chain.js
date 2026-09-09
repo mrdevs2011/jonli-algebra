@@ -11,6 +11,10 @@ window.KA_SAHNA["sign-chain"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var vx = cfg.vars.x;
   var roots = (cfg.roots || [-3, 1]).slice().sort(function (a, b) { return a - b; });
   var r0 = roots[0], r1 = roots[1];

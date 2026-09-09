@@ -85,5 +85,8 @@
   }
 
   window.KA_SAHNA = window.KA_SAHNA || {};
-  window.KA_SAHNA["system-methods"] = { init: init };
+  // dars-render.js builder(stage, cfg) deb chaqiradi — funksiya bo'lishi shart
+  window.KA_SAHNA["system-methods"] = function (stage, cfg) {
+    init(stage, cfg || {});
+  };
 })();

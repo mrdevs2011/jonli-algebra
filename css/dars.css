@@ -926,11 +926,26 @@
       font-size: 0.92rem;
       color: var(--ink-soft);
       min-height: 1.4em;
+      line-height: 1.45;
+      max-width: 42em;
+      margin-left: auto;
+      margin-right: auto;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      padding: 0 8px;
     }
     .sahna1-controls {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px 16px;
+    }
+    /* Faqat bitta faol slayder bo'lganda (masalan 3-§: faqat a) */
+    .sahna1-controls.sahna-controls-single {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .sahna-x2-controls { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; width: 100%; }
     .sahna-x2-table {
@@ -1071,7 +1086,15 @@
       width: 100%;
       height: 100%;
     }
-    .sahna-stage.sahna-expanded .sahna1-note { flex: 0 0 auto; margin: 0; font-size: clamp(0.85rem, 1.6vw, 1.05rem); }
+    .sahna-stage.sahna-expanded .sahna1-note {
+      flex: 0 0 auto;
+      margin: 0;
+      font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+      line-height: 1.4;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      max-width: 90%;
+    }
     .sahna-stage.sahna-expanded .sahna1-controls {
       flex: 0 0 auto;
       grid-template-columns: repeat(3, 1fr);

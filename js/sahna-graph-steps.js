@@ -13,6 +13,10 @@ window.KA_SAHNA["graph-steps"] = function (stage, cfg) {
   "use strict";
 
   var BASE = window.KA_SAHNA_BASE;
+  if (!BASE) {
+    stage.insertAdjacentHTML("beforeend", '<p class="sahna-fallback">Vizualizator asosi yuklanmadi. Sahifani yangilang.</p>');
+    return;
+  }
   var vs = cfg.vars.step;
   var ex = cfg.example || { a: 1, b: -2, c: -3 };
   var a = ex.a, b = ex.b, c = ex.c;
