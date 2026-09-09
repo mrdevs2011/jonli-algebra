@@ -182,10 +182,6 @@
     "intro": "Kvadrat tengsizlikni ko‘paytuvchilar ishorasi bilan yechish — doskada.",
     "masalalar": [
       {
-        "img": "png/kitob-24.png",
-        "alt": "1-masala: x² + 5x − 6 > 0",
-        "width": 640,
-        "height": 790,
         "caption": "1-masala · 24-bet",
         "steps": [
           "x² + 5x − 6 = (x + 6)(x − 1).",
@@ -194,10 +190,6 @@
         ]
       },
       {
-        "img": "png/kitob-25.png",
-        "alt": "(x − 2)(x − 3) > 0",
-        "width": 640,
-        "height": 790,
         "caption": "2-masala · 25-bet",
         "steps": [
           "Ikkala ko‘paytuvchi musbat: x > 3.",
@@ -206,10 +198,6 @@
         ]
       },
       {
-        "img": "png/kitob-26.png",
-        "alt": "3-masala: −3x² + 5x − 2 > 0",
-        "width": 640,
-        "height": 790,
         "caption": "3-masala · 26-bet",
         "steps": [
           "−1 ga ko‘paytirib: 3x² − 5x + 2 < 0.",

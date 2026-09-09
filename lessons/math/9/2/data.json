@@ -120,10 +120,6 @@
     "intro": "Kitobdagi asl matn tartibida: avval jadval va parabola ta'rifi, keyin xossalar, so'ngra tugallanmagan masala.",
     "masalalar": [
       {
-        "img": "png/kitob-7-tarif.png",
-        "alt": "y = x² qiymatlar jadvali, grafik hosil qilish va parabola ta'rifi",
-        "width": 978,
-        "height": 268,
         "caption": "Jadval va ta'rif · 7-bet",
         "kirish": "Keling, avval jadval va ta'rifni ko'rib chiqamiz.",
         "steps": [
@@ -133,10 +129,6 @@
         ]
       },
       {
-        "img": "png/kitob-7-xossa-1.png",
-        "alt": "Xossalarni qarash boshlanishi — 1-band",
-        "width": 978,
-        "height": 137,
         "caption": "Xossa 1 · 7–8-bet",
         "kirish": "Endi funksiyaning 1-xossasini ko'rib chiqamiz.",
         "steps": [
@@ -146,10 +138,6 @@
         ]
       },
       {
-        "img": "png/kitob-8-xossa-2.png",
-        "alt": "Xossalar 2 va 3-bandlar, grafik simmetriyasi va monotonlik",
-        "width": 978,
-        "height": 665,
         "caption": "Xossa 2–3 · 8-bet",
         "kirish": "Endi 2- va 3-xossalarni ko'rib chiqamiz.",
         "steps": [
@@ -158,10 +146,6 @@
         ]
       },
       {
-        "img": "png/kitob-8-masala.png",
-        "alt": "Masala: y=x² parabola bilan y=x+6 to'g'ri chiziqning kesishish nuqtalari",
-        "width": 978,
-        "height": 173,
         "caption": "Masala (tugallanmagan) · 8-bet",
         "kirish": "Va nihoyat, masalani ko'rib chiqamiz.",
         "steps": [

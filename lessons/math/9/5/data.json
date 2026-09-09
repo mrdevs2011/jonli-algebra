@@ -146,10 +146,6 @@
     "intro": "Avval 5 qadamni ochib ko'rsatamiz, keyin kitobdagi 4 ta misolni shu tartibda yechamiz.",
     "masalalar": [
       {
-        "img": "png/kitob-16-qadamlar.png",
-        "alt": "Kvadrat funksiya grafigini yasashning besh qadami",
-        "width": 978,
-        "height": 570,
         "caption": "Besh qadam · 16-bet",
         "steps": [
           "<strong>1.</strong> Uch: x<sub>v</sub> = −b/(2a), so'ng y<sub>v</sub> = y(x<sub>v</sub>).",
@@ -160,18 +156,10 @@
         ]
       },
       {
-        "img": "png/kitob-16-misol1-savol.png",
-        "alt": "1-misol sharti: y = x² − 2x − 3",
-        "width": 978,
-        "height": 202,
         "caption": "1-misol · shart · 16-bet",
         "static": "Namuna sahnada ham shu: <strong>y = x² − 2x − 3</strong>. Qadamni slayderda bosib, doskadagi yechim bilan solishtiring."
       },
       {
-        "img": "png/kitob-17-misol1.png",
-        "alt": "1-misol yechimi: uch (1; −4), nollar −1 va 3",
-        "width": 978,
-        "height": 829,
         "caption": "1-misol · yechim · 17-bet",
         "steps": [
           "a = 1, b = −2, c = −3 → x<sub>v</sub> = −(−2)/2 = <strong>1</strong>, y(1) = 1 − 2 − 3 = <strong>−4</strong>. Uch: (1; −4).",
@@ -182,10 +170,6 @@
         ]
       },
       {
-        "img": "png/kitob-18-misol2.png",
-        "alt": "2-misol: y = −x² + 2x + 3, uch (1; 4)",
-        "width": 978,
-        "height": 497,
         "caption": "2-misol · 17–18-bet",
         "steps": [
           "y = −x² + 2x + 3. a = −1, b = 2, c = 3.",
@@ -195,10 +179,6 @@
         ]
       },
       {
-        "img": "png/kitob-18-misol3.png",
-        "alt": "3-misol: y = x² + 2x + 2, D < 0, nollar yo'q",
-        "width": 978,
-        "height": 418,
         "caption": "3-misol · 18-bet",
         "steps": [
           "y = x² + 2x + 2. D = 4 − 8 = <strong>−4 < 0</strong> — nollar yo'q, 3-qadam tushadi.",
@@ -208,10 +188,6 @@
         ]
       },
       {
-        "img": "png/kitob-19-misol4.png",
-        "alt": "4-misol: y = −2x² + 8x − 7, uch (2; 1)",
-        "width": 978,
-        "height": 564,
         "caption": "4-misol · 18–19-bet",
         "steps": [
           "y = −2x² + 8x − 7. a = −2, b = 8, c = −7.",

@@ -144,10 +144,6 @@
     "intro": "Avval zanjir qoidasini ochamiz, keyin kitobdagi 4 ta misolni o'qda yechamiz.",
     "masalalar": [
       {
-        "img": "png/kitob-26-usul.png",
-        "alt": "Intervallar usuli: nollar o'qni oraliqlarga ajratadi",
-        "width": 978,
-        "height": 729,
         "caption": "Usul · 26-bet",
         "steps": [
           "Ifodani ko'paytuvchilarga ajratamiz — har ko'paytuvchining noli o'qda nuqta.",
@@ -157,10 +153,6 @@
         ]
       },
       {
-        "img": "png/kitob-27-misol1.png",
-        "alt": "1-misol: x² + 2x − 3 < 0, yechim (−3; 1)",
-        "width": 978,
-        "height": 497,
         "caption": "1-misol · 26–27-bet",
         "steps": [
           "x² + 2x − 3 = (x + 3)(x − 1). Nollar: x = −3 va x = 1.",
@@ -170,10 +162,6 @@
         ]
       },
       {
-        "img": "png/kitob-28-misol2.png",
-        "alt": "2-misol: (2x − 1)(x + 3) ≥ 0",
-        "width": 978,
-        "height": 444,
         "caption": "2-misol · 27–28-bet",
         "steps": [
           "Nollar: 2x − 1 = 0 → x = 1/2; x + 3 = 0 → x = −3.",
@@ -183,10 +171,6 @@
         ]
       },
       {
-        "img": "png/kitob-28-misol3.png",
-        "alt": "3-misol: (2 − x)/(x + 1) ≥ 0",
-        "width": 978,
-        "height": 597,
         "caption": "3-misol · 28-bet",
         "steps": [
           "Sur'at noli: x = 2. Maxraj noli: x = −1 — bu nuqta <strong>hech qachon</strong> yechimga kirmaydi.",
@@ -196,10 +180,6 @@
         ]
       },
       {
-        "img": "png/kitob-30-misol4.png",
-        "alt": "4-misol: kasrlarni bir tomonga yig'ib zanjir chizish",
-        "width": 978,
-        "height": 497,
         "caption": "4-misol · 29–30-bet",
         "steps": [
           "Avval hammasi bir tomonga: x/(x−1) + 1/(x+1) − 1 ≤ 0.",

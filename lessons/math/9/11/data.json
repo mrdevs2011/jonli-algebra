@@ -134,10 +134,6 @@
     "intro": "Ta’rif va misollar — doskada ketma-ket.",
     "masalalar": [
       {
-        "img": "png/kitob-47.png",
-        "alt": "Juft funksiya ta’rifi",
-        "width": 640,
-        "height": 790,
         "caption": "Ta’rif · 47-bet",
         "steps": [
           "y(−x) = y(x) ⇒ juft. Misollar: y = x⁴, y = |x|.",
@@ -145,10 +141,6 @@
         ]
       },
       {
-        "img": "png/kitob-48.png",
-        "alt": "Toq funksiya ta’rifi",
-        "width": 640,
-        "height": 790,
         "caption": "Ta’rif · 48-bet",
         "steps": [
           "y(−x) = −y(x) ⇒ toq. Misollar: y = x³, y = 1/x (x ≠ 0).",
@@ -157,10 +149,6 @@
         ]
       },
       {
-        "img": "png/kitob-49.png",
-        "alt": "Toq funksiya grafigini yasash",
-        "width": 640,
-        "height": 790,
         "caption": "Misollar · 49-bet",
         "steps": [
           "Avval x ≥ 0 uchun nuqtalar, keyin simmetriya bilan x < 0.",

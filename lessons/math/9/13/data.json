@@ -1,28 +1,65 @@
 {
   "id": 13,
-  "bob": { "roman": "II", "nom": "Tenglamalar va tengsizliklar sistemalari" },
+  "bob": {
+    "roman": "II",
+    "nom": "Tenglamalar va tengsizliklar sistemalari"
+  },
   "paragraf": "13-§",
   "title": "Kvadrat qatnashgan sodda sistemalar",
   "lead": "Parabola va to‘g‘ri chiziq kesishishi.",
-  "prev": { "href": "../12/", "label": "12-dars" },
-  "next": { "href": "../14/", "label": "14-dars" },
-
+  "prev": {
+    "href": "../12/",
+    "label": "12-dars"
+  },
+  "next": {
+    "href": "../14/",
+    "label": "14-dars"
+  },
   "agenda": [
-    { "min": 5, "name": "Kirish — ikki shart bitta juftlik" },
-    { "min": 10, "name": "Sahna — parabola va chiziq kesishadi" },
-    { "min": 8, "name": "Qoida — almashtirish usuli" },
-    { "min": 7, "name": "Savollar — sinf ovoz bilan javob beradi" },
-    { "min": 10, "name": "Darslikdan mashqlar — daftarga yechish" },
-    { "min": 5, "name": "Eslab qol — xulosa va uyga vazifa" }
+    {
+      "min": 5,
+      "name": "Kirish — ikki shart bitta juftlik"
+    },
+    {
+      "min": 10,
+      "name": "Sahna — parabola va chiziq kesishadi"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — almashtirish usuli"
+    },
+    {
+      "min": 7,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 10,
+      "name": "Darslikdan mashqlar — daftarga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
   ],
-
   "sahna": {
     "type": "line-parabola",
     "ariaLabel": "Interaktiv chizma: parabola y = x² va to‘g‘ri chiziq y = mx + k",
     "hint": "m va k ni suring — kesishish nuqtalari yonadi yoki yo‘qoladi",
     "vars": {
-      "m": { "min": -3, "max": 3, "step": 0.5, "value": 1, "desc": "chiziqning qiyaligi" },
-      "k": { "min": -4, "max": 4, "step": 0.5, "value": 2, "desc": "Oy dagi kesim" }
+      "m": {
+        "min": -3,
+        "max": 3,
+        "step": 0.5,
+        "value": 1,
+        "desc": "chiziqning qiyaligi"
+      },
+      "k": {
+        "min": -4,
+        "max": 4,
+        "step": 0.5,
+        "value": 2,
+        "desc": "Oy dagi kesim"
+      }
     },
     "notes": {
       "two": "D = m² + 4k > 0 — ikki kesishish: {pts}",
@@ -30,58 +67,79 @@
       "none": "D = m² + 4k < 0 — kesishish yo‘q"
     }
   },
-
   "kirish": [
     "<p class=\"kirish-nega\">Maydonning yuzi kvadrat formula bilan, perimetri esa to‘g‘ri chiziq bilan beriladi. Ikkalasi bir vaqtda bajarilishi kerak bo‘lsa — bu endi bitta tenglama emas, <strong>sistema</strong>. Bugun kvadrat qatnashgan eng sodda sistemani grafik va algebra bilan yechamiz.</p>",
     "<p>Sahnada qizil chiziq — <strong>parabola y = x²</strong>, ko‘k chiziq — <strong>y = mx + k</strong>. Ularning yonib turgan nuqtalari — sistemaning yechimlari. m yoki k ni o‘zgartiring: ba’zan ikkita nuqta, ba’zan bitta (tegish), ba’zan umuman yo‘q.</p>"
   ],
-
   "reja": "Parabola va to‘g‘ri chiziqning kesishish nuqtalari — sistemaning yechimlari. Almashtirish: x² = mx + k.",
-
   "qoida": "<p><strong>Kvadrat qatnashgan sodda sistema</strong> — tenglamalardan biri kvadrat, ikkinchisi odatda chiziqli bo‘lgan sistema. Eng ko‘p uchraydigan ko‘rinish:</p><p><strong>{ y = x²<br>y = mx + k }</strong></p><p>Yechish tartibi (almashtirish):</p><ol><li>Ikkinchi ifodani birinchisiga qo‘yamiz: <strong>x² = mx + k</strong>.</li><li>Barcha hadlarni chapga: <strong>x² − mx − k = 0</strong>.</li><li>Diskriminant: <strong>D = m² + 4k</strong>. D > 0 — ikki ildiz, D = 0 — bitta (chiziq tegadi), D < 0 — yechim yo‘q.</li><li>Har bir x ni y = x² (yoki y = mx + k) ga qo‘yib juftlikni yozamiz: (x; y).</li></ol><p>Grafik ma’nosi: yechim — parabola va to‘g‘ri chiziqning <strong>umumiy nuqtalari</strong>.</p>",
-
   "savollar": [
     {
       "savol": "{ y = x², y = x + 2 } sistemasida nechta yechim bor?",
-      "variantlar": ["1 ta", "2 ta", "Yechim yo‘q"],
+      "variantlar": [
+        "1 ta",
+        "2 ta",
+        "Yechim yo‘q"
+      ],
       "togri": 1
     },
     {
       "savol": "Parabola y = x² ga y = 2x − 1 chizig‘i nima qiladi? (D = 4 − 4 = 0)",
-      "variantlar": ["Ikki nuqtada kesishadi", "Tegadi (bitta nuqta)", "Umuman uchrashmaydi"],
+      "variantlar": [
+        "Ikki nuqtada kesishadi",
+        "Tegadi (bitta nuqta)",
+        "Umuman uchrashmaydi"
+      ],
       "togri": 1
     },
     {
       "savol": "Sistemani yechishda x² = mx + k dan keyin qanday tenglama chiqadi?",
-      "variantlar": ["x² − mx − k = 0", "x² + mx + k = 0", "mx + k = 0"],
+      "variantlar": [
+        "x² − mx − k = 0",
+        "x² + mx + k = 0",
+        "mx + k = 0"
+      ],
       "togri": 0
     }
   ],
-
   "eslabQol": [
     "Yechim — parabola va to‘g‘ri chiziqning <strong>kesishish nuqtalari</strong>.",
     "Almashtirish: <strong>x² = mx + k</strong> → kvadrat tenglama.",
     "<strong>D > 0</strong> ikki nuqta, <strong>D = 0</strong> tegish, <strong>D < 0</strong> yechim yo‘q."
   ],
-
   "kitob": {
     "betlar": "57–60-betlar",
     "sahifalar": [
-      { "img": "png/kitob-57.png", "bet": "57-bet", "width": 640, "height": 790 },
-      { "img": "png/kitob-58.png", "bet": "58-bet", "width": 640, "height": 790 },
-      { "img": "png/kitob-59.png", "bet": "59-bet", "width": 640, "height": 790 },
-      { "img": "png/kitob-60.png", "bet": "60-bet", "width": 640, "height": 790 }
+      {
+        "img": "png/kitob-57.png",
+        "bet": "57-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-58.png",
+        "bet": "58-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-59.png",
+        "bet": "59-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-60.png",
+        "bet": "60-bet",
+        "width": 640,
+        "height": 790
+      }
     ]
   },
-
   "doska": {
     "intro": "Kitobdagi 3 ta masala — o‘qituvchi doskada shu tartibda yechib ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
     "masalalar": [
       {
-        "img": "png/kitob-58-misol1.png",
-        "alt": "1-misol: y = x² va y = x + 2 sistemasini yechish",
-        "width": 978,
-        "height": 220,
         "caption": "1-misol · 58-bet",
         "steps": [
           "Sistema: <strong>{ y = x² ; y = x + 2 }</strong>. Ikkinchi ifodani birinchisiga qo‘yamiz.",
@@ -92,10 +150,6 @@
         ]
       },
       {
-        "img": "png/kitob-58-misol2.png",
-        "alt": "2-misol: y = x² va y = 2x − 1 — tegish holati",
-        "width": 978,
-        "height": 200,
         "caption": "2-misol · 58-bet",
         "steps": [
           "Sistema: <strong>{ y = x² ; y = 2x − 1 }</strong>.",
@@ -105,18 +159,10 @@
         ]
       },
       {
-        "img": "png/kitob-59-tarif.png",
-        "alt": "Grafik ma’no: kesishish = yechim",
-        "width": 978,
-        "height": 140,
         "caption": "Ta’rif · 59-bet",
         "static": "<strong>Muhim tushuncha:</strong> sistemaning har bir yechimi — tekislikdagi nuqta (x; y). Bu nuqta <em>bir vaqtda</em> parabolada va to‘g‘ri chiziqda yotadi. Shuning uchun yechimlar soni kesishishlar soniga teng: 2, 1 yoki 0."
       },
       {
-        "img": "png/kitob-59-misol3.png",
-        "alt": "3-misol: x + y = 5, xy = 6",
-        "width": 978,
-        "height": 210,
         "caption": "3-misol · 59-bet",
         "steps": [
           "Bu ham kvadrat qatnashgan sodda sistema: <strong>{ x + y = 5 ; xy = 6 }</strong>.",
@@ -127,7 +173,6 @@
       }
     ]
   },
-
   "mashqlar": {
     "betlar": "60-bet",
     "intro": "Daftarga yeching. O‘qituvchi doskada tekshiradi.",
@@ -144,18 +189,24 @@
       }
     ]
   },
-
   "xulosa": [
     "<strong>Kvadrat qatnashgan sistema</strong> — tenglamalardan biri kvadrat, ikkinchisi odatda chiziqli.",
     "Grafik: yechim — <strong>parabola va to‘g‘ri chiziqning kesishish nuqtalari</strong>.",
     "Algebra: almashtirish bilan <strong>x² − mx − k = 0</strong> kvadrat tenglama chiqadi.",
     "D > 0 — ikki yechim, D = 0 — bitta (tegish), D < 0 — yechim yo‘q."
   ],
-
   "xulosaBoard": [
-    { "html": "<strong>{ y = x² , y = mx + k }</strong>" },
-    { "html": "Kesishish = yechim (2 / 1 / 0)" },
-    { "html": "Almashtirish: x² = mx + k" },
-    { "html": "D = m² + 4k" }
+    {
+      "html": "<strong>{ y = x² , y = mx + k }</strong>"
+    },
+    {
+      "html": "Kesishish = yechim (2 / 1 / 0)"
+    },
+    {
+      "html": "Almashtirish: x² = mx + k"
+    },
+    {
+      "html": "D = m² + 4k"
+    }
   ]
 }

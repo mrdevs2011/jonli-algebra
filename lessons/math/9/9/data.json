@@ -175,10 +175,6 @@
     "intro": "Aniqlanish sohasi — formula qayerda ma’noga ega.",
     "masalalar": [
       {
-        "img": "png/kitob-38.png",
-        "alt": "1-masala: turli formulalarning aniqlanish sohasi",
-        "width": 640,
-        "height": 790,
         "caption": "1-masala · 38-bet",
         "steps": [
           "y = 2x² + 3x + 6 — barcha x (ℝ).",
@@ -188,10 +184,6 @@
         ]
       },
       {
-        "img": "png/kitob-39.png",
-        "alt": "y = |x| va y = |x − 2| − 1",
-        "width": 640,
-        "height": 790,
         "caption": "2–3-masala · 39-bet",
         "steps": [
           "y = |x| barcha ℝ da aniqlangan; grafik V shaklida.",

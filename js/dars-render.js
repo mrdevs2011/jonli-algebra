@@ -158,10 +158,17 @@
         box.appendChild(el("p", { class: "doska-masala-kirish" }, m.kirish));
       }
 
+      // "img" hozircha yo'q (qayta olinmoqda) — shu holatda faqat caption
+      // bilan bo'sh joy ko'rsatiladi, matn (steps/static) baribir ishlaydi.
       var imgWrap = el("div", { class: "doska-masala-img" });
-      var a = el("a", { href: m.img, target: "_blank", rel: "noopener", class: "doska-img" });
-      a.appendChild(el("img", { src: m.img, alt: m.alt, loading: "lazy", width: m.width, height: m.height }));
-      imgWrap.appendChild(a);
+      if (m.img) {
+        var a = el("a", { href: m.img, target: "_blank", rel: "noopener", class: "doska-img" });
+        a.appendChild(el("img", { src: m.img, alt: m.alt, loading: "lazy", width: m.width, height: m.height }));
+        imgWrap.appendChild(a);
+      } else {
+        imgWrap.classList.add("doska-masala-img-pending");
+        imgWrap.appendChild(el("div", { class: "doska-img-placeholder" }, "Rasm tayyorlanmoqda"));
+      }
       imgWrap.appendChild(el("span", { class: "doska-img-cap" }, m.caption));
       box.appendChild(imgWrap);
 

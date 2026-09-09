@@ -207,10 +207,6 @@
     "intro": "Kitobdagi asl matn tartibida: 1-masala, rasmlar, parallel ko'chirish, to'la kvadrat qoidasi, so'ng 2- va 3-masala.",
     "masalalar": [
       {
-        "img": "png/kitob-14-masala1.png",
-        "alt": "4-§ sarlavha va 1-masala: y = x² − 2x + 3 grafigini yasash",
-        "width": 640,
-        "height": 530,
         "caption": "1-masala · 14-bet",
         "kirish": "Keling, 1-masalani ko'rib chiqamiz.",
         "steps": [
@@ -221,19 +217,11 @@
         ]
       },
       {
-        "img": "png/kitob-15-rasmlar.png",
-        "alt": "9–12-rasm: y=x² ni o'ngga, chapga, yuqoriga va pastga ko'chirish",
-        "width": 640,
-        "height": 350,
         "caption": "9–12-rasm · 15-bet",
         "kirish": "Endi shu ko'chirishni rasmlarda ko'ramiz.",
         "static": "9-rasm — o'ngga ko'chirish; 10-rasm — 1-masala grafigi (o'ngga 1, yuqoriga 2); 11-rasm — chapga ko'chirish; 12-rasm — pastga ko'chirish. Har birida parabola shakli saqlanadi, faqat uchi siljiydi."
       },
       {
-        "img": "png/kitob-15-tushuntirish.png",
-        "alt": "1-masala xulosasi va umumiy holda to'la kvadratni ajratish",
-        "width": 640,
-        "height": 320,
         "caption": "Parallel ko'chirish · 15-bet",
         "kirish": "Rasmlardan keyin umumiy xulosani chiqaramiz.",
         "steps": [
@@ -243,19 +231,11 @@
         ]
       },
       {
-        "img": "png/kitob-16-qoida.png",
-        "alt": "To'la kvadrat formulasi: y = a(x − x₀)² + y₀",
-        "width": 640,
-        "height": 155,
         "caption": "Qoida · 16-bet",
         "kirish": "Endi formulani oxirigacha yozamiz.",
         "static": "<strong>Qoida:</strong> y = a(x + b/(2a))² + (c − b²/(4a)). Bunda x₀ = −b/(2a), y₀ = (4ac − b²)/(4a). Demak y = a(x − x₀)² + y₀. Grafik — y = ax² parabolasini parallel ko'chirish; uchi (x₀; y₀)."
       },
       {
-        "img": "png/kitob-16-masala2.png",
-        "alt": "2-masala: y = 2x² − x − 3 parabolaning uchini topish",
-        "width": 640,
-        "height": 292,
         "caption": "2-masala · 16-bet",
         "kirish": "Endi 2-masalaga o'tamiz.",
         "steps": [
@@ -266,10 +246,6 @@
         ]
       },
       {
-        "img": "png/kitob-16-17-masala3.png",
-        "alt": "3-masala: uchi (−1; 2) va (−2; 5) nuqtadan o'tuvchi parabola tenglamasi",
-        "width": 640,
-        "height": 262,
         "caption": "3-masala · 16–17-bet",
         "kirish": "Va endi 3-masalani ko'rib chiqamiz.",
         "steps": [

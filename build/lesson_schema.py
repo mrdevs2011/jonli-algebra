@@ -202,8 +202,12 @@ def validate_lesson(data: dict, folder: Path, js_dir: Path) -> list[str]:
         doska = data.get("doska")
         if doska:
             for i, m in enumerate(doska.get("masalalar", [])):
-                _req_keys(m, ["img", "alt", "width", "height", "caption"], f"dars.doska.masalalar[{i}]")
-                img_paths.append((f"dars.doska.masalalar[{i}].img", m["img"]))
+                _req_keys(m, ["caption"], f"dars.doska.masalalar[{i}]")
+                # "img" endi ixtiyoriy — rasm qayta olinmaguncha faqat matn (steps/static) ko'rsatiladi.
+                # Agar "img" berilgan bo'lsa, "alt"/"width"/"height" ham majburiy bo'ladi.
+                if "img" in m:
+                    _req_keys(m, ["img", "alt", "width", "height", "caption"], f"dars.doska.masalalar[{i}]")
+                    img_paths.append((f"dars.doska.masalalar[{i}].img", m["img"]))
                 is_static = "static" in m
                 if not is_static:
                     _require("steps" in m, f"dars.doska.masalalar[{i}] — na 'static' na 'steps' bor (bittasi shart)")

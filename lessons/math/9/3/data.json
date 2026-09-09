@@ -194,10 +194,6 @@
     "intro": "Kitobdagi asl matn tartibida: 1, 2, 3-masalalar, so'ng ta'rif va xossalar, oxirida grafik xulosasi.",
     "masalalar": [
       {
-        "img": "png/kitob-10-masala1.png",
-        "alt": "1-masala: y = 2x² funksiyaning grafigini yasash",
-        "width": 640,
-        "height": 355,
         "caption": "1-masala · 10-bet",
         "kirish": "Keling, 1-masalani ko'rib chiqamiz.",
         "steps": [
@@ -209,10 +205,6 @@
         ]
       },
       {
-        "img": "png/kitob-10-11-masala2.png",
-        "alt": "2-masala: y = (1/2)x² funksiyaning grafigini yasash",
-        "width": 640,
-        "height": 587,
         "caption": "2-masala · 10–11-bet",
         "kirish": "Endi 2-masalaga o'tamiz.",
         "steps": [
@@ -224,10 +216,6 @@
         ]
       },
       {
-        "img": "png/kitob-11-masala3.png",
-        "alt": "3-masala: y = −x² funksiyaning grafigini yasash",
-        "width": 640,
-        "height": 265,
         "caption": "3-masala · 11-bet",
         "kirish": "Va endi 3-masalani ko'rib chiqamiz.",
         "steps": [
@@ -238,19 +226,11 @@
         ]
       },
       {
-        "img": "png/kitob-12-tarif.png",
-        "alt": "y = ax² funksiyaning ta'rifi va fokusi",
-        "width": 640,
-        "height": 448,
         "caption": "Ta'rif va fokus · 12-bet",
         "kirish": "Uchta masaladan keyin, umumiy ta'rifni chiqaramiz.",
         "static": "<strong>Ta'rif:</strong> y = ax² funksiyaning grafigi ham (a ≠ 0 bo'lganda) <strong>parabola</strong> deb ataladi. a > 0 bo'lganda parabolaning tarmoqlari yuqoriga, a < 0 bo'lganda esa pastga yo'nalgan. Bundan tashqari, y = ax² parabolaning <strong>fokusi</strong> (0; 1/4a) nuqtada joylashgan."
       },
       {
-        "img": "png/kitob-12-xossalar.png",
-        "alt": "y = ax² funksiyaning asosiy xossalari (1, 2, 3-band)",
-        "width": 640,
-        "height": 272,
         "caption": "Xossalar · 12-bet",
         "kirish": "Endi funksiyaning asosiy xossalarini birma-bir sanab o'tamiz.",
         "steps": [
@@ -260,10 +240,6 @@
         ]
       },
       {
-        "img": "png/kitob-13-rasmlar.png",
-        "alt": "7 va 8-rasm: y=ax² grafiklari a>0 va a<0 uchun",
-        "width": 640,
-        "height": 300,
         "caption": "Grafik xulosasi · 13-bet",
         "kirish": "Xossalarni grafik orqali ham yakunlab ko'ramiz.",
         "static": "Yuqoridagi barcha xossalarni grafikdan bevosita ko'rish mumkin (7- va 8-rasmlar): a > 0 bo'lganda tarmoqlar yuqoriga (7-rasm), a < 0 bo'lganda pastga (8-rasm) yo'nalgan."

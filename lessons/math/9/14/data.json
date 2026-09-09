@@ -121,10 +121,6 @@
     "intro": "Kitobdagi masalalar — o‘qituvchi doskada shu tartibda yechib ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
     "masalalar": [
       {
-        "img": "png/kitob-57-masala1.png",
-        "alt": "1-masala: oddiy chiziqli sistema",
-        "width": 978,
-        "height": 300,
         "caption": "1-masala · 57-bet",
         "steps": [
           "Sistema: <strong>{ x + y = 7;  x − y = 3 }</strong>.",
@@ -134,10 +130,6 @@
         ]
       },
       {
-        "img": "png/kitob-57-masala2.png",
-        "alt": "2-masala: almashtirish usuli",
-        "width": 978,
-        "height": 350,
         "caption": "2-masala · 57-bet",
         "steps": [
           "Sistema: <strong>{ y = 2x − 1;  3x + y = 11 }</strong>.",
@@ -146,10 +138,6 @@
         ]
       },
       {
-        "img": "png/kitob-58-masala3.png",
-        "alt": "3-masala: grafik usul",
-        "width": 978,
-        "height": 400,
         "caption": "3-masala · 58-bet",
         "steps": [
           "Sistema: <strong>{ y = x + 1;  y = −x + 5 }</strong>.",

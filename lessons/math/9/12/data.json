@@ -1,21 +1,46 @@
 {
   "id": 12,
-  "bob": { "roman": "I", "nom": "Kvadrat funksiya. Kvadrat tengsizliklar" },
+  "bob": {
+    "roman": "I",
+    "nom": "Kvadrat funksiya. Kvadrat tengsizliklar"
+  },
   "paragraf": "12-§",
   "title": "Daraja qatnashgan tenglama va tengsizlik",
   "lead": "Ildiz va daraja qachon ishlaydi.",
-  "prev": { "href": "../11/", "label": "11-dars" },
-  "next": { "href": "../13/", "label": "13-dars" },
-
+  "prev": {
+    "href": "../11/",
+    "label": "11-dars"
+  },
+  "next": {
+    "href": "../13/",
+    "label": "13-dars"
+  },
   "agenda": [
-    { "min": 5, "name": "Kirish — o'tgan mavzuni eslash" },
-    { "min": 10, "name": "Sahna — ruxsat etilgan sohani ko'rsatish (doskada)" },
-    { "min": 8, "name": "Qoida — ildiz va daraja shartlarini chiqarish" },
-    { "min": 7, "name": "Savollar — sinf ovoz bilan javob beradi" },
-    { "min": 10, "name": "Darslikdan mashqlar — daftarga yechish" },
-    { "min": 5, "name": "Eslab qol — xulosa va uyga vazifa" }
+    {
+      "min": 5,
+      "name": "Kirish — o'tgan mavzuni eslash"
+    },
+    {
+      "min": 10,
+      "name": "Sahna — ruxsat etilgan sohani ko'rsatish (doskada)"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — ildiz va daraja shartlarini chiqarish"
+    },
+    {
+      "min": 7,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 10,
+      "name": "Darslikdan mashqlar — daftarga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
   ],
-
   "sahna": {
     "type": "domain-line",
     "mode": "sqrt",
@@ -36,16 +61,12 @@
       "abs": "|x − a| barcha haqiqiy x da aniqlangan."
     }
   },
-
   "kirish": [
     "<p class=\"kirish-nega\">Telefoningizda yorug'lik kuchini o'zgartirganda yoki o'yinda masofani hisoblaganda ba'zan ildiz yoki daraja chiqadi. Lekin har qanday sonning ildizi ham, juft darajasi ham har doim ishlamaydi — ba'zi joylarda ifoda umuman ma'nosiz. Bugun shu <strong>ruxsat etilgan soha</strong>ni avval chizib, keyin tenglama yoki tengsizlikni yechamiz.</p>",
     "<p>Yuqoridagi slayderni siljiting. <strong>a</strong> o'zgaganda ildiz ostidagi ifoda qayerda ≥ 0 bo'lishini ko'ring. Chap tomonda teshik — u yerda √ haqiqiy son bermaydi. Shu sohani topmasdan tenglama yechish xato javob beradi.</p>"
   ],
-
   "reja": "Avval ruxsat etilgan soha (D), keyin tenglama yoki tengsizlik. Ildiz osti ≥ 0, juft daraja uchun asos ≥ 0 yoki ≤ 0 qoidalariga e'tibor.",
-
   "qoida": "<p><strong>Daraja yoki ildiz qatnashgan tenglama/tengsizlik</strong>ni yechishda birinchi qadam — <strong>ruxsat etilgan soha</strong>ni topish.</p><p>• √f(x) mavjud bo'lishi uchun <strong>f(x) ≥ 0</strong>.<br>• x<sup>n</sup> (n juft) uchun asos istalgan, lekin tenglikda ildiz olishda ehtiyot.<br>• √g(x) = a ko'rinishida: a ≥ 0 va g(x) = a², qo'shimcha g(x) ≥ 0 tekshiriladi.<br>• √g(x) &lt; a (a &gt; 0) da: 0 ≤ g(x) &lt; a².</p><p>Yechimni topgach, uni ruxsat etilgan sohaga solishtirish shart — tashqaridagi ildizlar tashlab ketiladi.</p>",
-
   "savollar": [
     {
       "savol": "√(x − 2) ifodasi qayerda aniqlangan?",
@@ -75,13 +96,11 @@
       "togri": 1
     }
   ],
-
   "eslabQol": [
     "Avval ruxsat etilgan soha (D) — keyin tenglama/tengsizlik.",
     "√f(x) uchun f(x) ≥ 0 shart; yechimni D ga solishtirish majburiy.",
     "√g = a (a ≥ 0) → g = a² va g ≥ 0; a < 0 bo'lsa yechim yo'q."
   ],
-
   "kitob": {
     "betlar": "51–56-betlar",
     "sahifalar": [
@@ -123,15 +142,10 @@
       }
     ]
   },
-
   "doska": {
     "intro": "Ildiz va daraja — avval ruxsat etilgan soha.",
     "masalalar": [
       {
-        "img": "png/kitob-52.png",
-        "alt": "1-masala: ildizli tenglama",
-        "width": 640,
-        "height": 790,
         "caption": "1-masala · 52-bet",
         "steps": [
           "√(x − 3) = 2. Avval a ≥ 0: 2 ≥ 0 — yechim bo'lishi mumkin.",
@@ -140,10 +154,6 @@
         ]
       },
       {
-        "img": "png/kitob-53.png",
-        "alt": "2-masala: ildizli tengsizlik",
-        "width": 640,
-        "height": 790,
         "caption": "2-masala · 53-bet",
         "steps": [
           "√x ≤ 3. Ruxsat etilgan soha: x ≥ 0.",
@@ -152,10 +162,6 @@
         ]
       },
       {
-        "img": "png/kitob-54.png",
-        "alt": "3-masala: daraja qatnashgan",
-        "width": 640,
-        "height": 790,
         "caption": "3-masala · 54-bet",
         "steps": [
           "x² = 4 → x = ±2.",
@@ -165,7 +171,6 @@
       }
     ]
   },
-
   "mashqlar": {
     "betlar": "55–56-betlar",
     "intro": "Daftarga yeching. Avval ruxsat etilgan sohani yozing.",
@@ -187,18 +192,24 @@
       }
     ]
   },
-
   "xulosa": [
     "<strong>Ruxsat etilgan soha</strong> — ifoda haqiqiy son beradigan x lar to'plami. Uni avval topish shart.",
     "√f(x) mavjud bo'lishi uchun <strong>f(x) ≥ 0</strong>.",
     "√g(x) = a tenglamasi: a ≥ 0 bo'lsa g(x) = a² (va g ≥ 0); a < 0 bo'lsa yechim yo'q.",
     "√g(x) < a (a > 0): 0 ≤ g(x) < a²; yechimni D bilan kesishma qilish."
   ],
-
   "xulosaBoard": [
-    { "html": "<strong>Avval D</strong> &nbsp;&mdash;&nbsp; <span>ruxsat etilgan soha</span>" },
-    { "html": "√f(x) → <span class=\"term-a\">f(x) ≥ 0</span>" },
-    { "html": "√g = a (a ≥ 0) → <span>g = a²</span>" },
-    { "html": "Yechimni <span class=\"term-b\">D</span> ga solishtirish" }
+    {
+      "html": "<strong>Avval D</strong> &nbsp;&mdash;&nbsp; <span>ruxsat etilgan soha</span>"
+    },
+    {
+      "html": "√f(x) → <span class=\"term-a\">f(x) ≥ 0</span>"
+    },
+    {
+      "html": "√g = a (a ≥ 0) → <span>g = a²</span>"
+    },
+    {
+      "html": "Yechimni <span class=\"term-b\">D</span> ga solishtirish"
+    }
   ]
 }

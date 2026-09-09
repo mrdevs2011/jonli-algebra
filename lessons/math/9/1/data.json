@@ -138,10 +138,6 @@
     "intro": "Kitobdagi 3 ta masala — o'qituvchi doskada shu tartibda yechib ko'rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
     "masalalar": [
       {
-        "img": "png/kitob-6-masala1.png",
-        "alt": "1-masala: y=x²-5x+6 funksiyaning x=-2,0,3 dagi qiymatlari",
-        "width": 978,
-        "height": 214,
         "caption": "1-masala · 6-bet",
         "kirish": "Keling, 1-masalani ko'rib chiqamiz.",
         "steps": [
@@ -152,10 +148,6 @@
         ]
       },
       {
-        "img": "png/kitob-6-masala2.png",
-        "alt": "2-masala: y=x²+4x-5 funksiya 7, -9, -8, 0 ga teng bo'lgan x larni topish",
-        "width": 978,
-        "height": 487,
         "caption": "2-masala · 6-bet",
         "kirish": "Endi 2-masalaga o'tamiz.",
         "steps": [
@@ -167,19 +159,11 @@
         ]
       },
       {
-        "img": "png/kitob-6-nollar.png",
-        "alt": "Kvadrat funksiyaning nollari ta'rifi",
-        "width": 978,
-        "height": 108,
         "caption": "Ta'rif · 6-bet",
         "kirish": "2-masaladan chiqqan xulosaga alohida to'xtalib o'tamiz.",
         "static": "<strong>Muhim tushuncha:</strong> yuqoridagi 2-masalaning oxirgi qismida (y = 0) topilgan x₁ = 1 va x₂ = −5 — funksiyaning qiymati nolga teng bo'ladigan x lar. Bunday x lar <strong>funksiyaning nollari</strong> deyiladi. 3-masala aynan shuni topishni so'raydi."
       },
       {
-        "img": "png/kitob-6-masala3.png",
-        "alt": "3-masala: y=x²-3x funksiyaning nollarini topish",
-        "width": 978,
-        "height": 82,
         "caption": "3-masala · 6-bet",
         "kirish": "Va nihoyat, 3-masalani ko'rib chiqamiz.",
         "steps": [

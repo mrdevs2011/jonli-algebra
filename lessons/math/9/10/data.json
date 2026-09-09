@@ -1,82 +1,141 @@
 {
   "id": 10,
-  "bob": { "roman": "I", "nom": "Kvadrat funksiya. Kvadrat tengsizliklar" },
+  "bob": {
+    "roman": "I",
+    "nom": "Kvadrat funksiya. Kvadrat tengsizliklar"
+  },
   "paragraf": "10-§",
   "title": "Funksiyaning o‘sishi va kamayishi",
   "lead": "Qaysi oraliqda grafik ko‘tariladi yoki tushadi. Uchdan chap va o‘ng rang bilan ajraladi.",
-  "prev": { "href": "../9/", "label": "9-dars" },
-  "next": { "href": "../11/", "label": "11-dars" },
-
+  "prev": {
+    "href": "../9/",
+    "label": "9-dars"
+  },
+  "next": {
+    "href": "../11/",
+    "label": "11-dars"
+  },
   "agenda": [
-    { "min": 5, "name": "Kirish — uchi eslash" },
-    { "min": 12, "name": "Sahna — chap/o‘ng rang, o‘sadi/kamayadi" },
-    { "min": 8, "name": "Qoida — ta’rif va parabola uchun xulosa" },
-    { "min": 7, "name": "Savollar" },
-    { "min": 10, "name": "Darslikdan mashqlar" },
-    { "min": 5, "name": "Eslab qol" }
+    {
+      "min": 5,
+      "name": "Kirish — uchi eslash"
+    },
+    {
+      "min": 12,
+      "name": "Sahna — chap/o‘ng rang, o‘sadi/kamayadi"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — ta’rif va parabola uchun xulosa"
+    },
+    {
+      "min": 7,
+      "name": "Savollar"
+    },
+    {
+      "min": 10,
+      "name": "Darslikdan mashqlar"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol"
+    }
   ],
-
   "sahna": {
     "type": "mono-parabola",
     "ariaLabel": "Parabola: o‘sish va kamayish oraliklari uchi atrofida",
     "hint": "a ni musbat/manfiy qiling — chap va o‘ng tomon ranglari almasinadi. b uchi joyini siljitadi",
     "vars": {
-      "a": { "min": -3, "max": 3, "step": 0.5, "value": 1, "desc": "tarmoqlar" },
-      "b": { "min": -6, "max": 6, "step": 1, "value": -2, "desc": "uchi (x₀ = −b/2a)" },
-      "c": { "min": -5, "max": 5, "step": 1, "value": 0, "desc": "siljish" }
+      "a": {
+        "min": -3,
+        "max": 3,
+        "step": 0.5,
+        "value": 1,
+        "desc": "tarmoqlar"
+      },
+      "b": {
+        "min": -6,
+        "max": 6,
+        "step": 1,
+        "value": -2,
+        "desc": "uchi (x₀ = −b/2a)"
+      },
+      "c": {
+        "min": -5,
+        "max": 5,
+        "step": 1,
+        "value": 0,
+        "desc": "siljish"
+      }
     }
   },
-
   "kirish": [
     "<p class=\"kirish-nega\">Parabola uchi — burilish nuqtasi. Undan <strong>chapda</strong> grafik bir tomonga, <strong>o‘ngda</strong> boshqa tomonga harakat qiladi. Bugun shu ikki tomonni rang bilan ajratib, «o'sadi» va «kamayadi» degan so‘zlarni grafik tiliga o‘tkazamiz.</p>",
     "<p>Slayderlarda <strong>a</strong> ni o‘zgartiring: musbat bo‘lsa chapda kamayadi, o‘ngda o‘sadi; manfiy bo‘lsa — aksincha. <strong>b</strong> uchi joyini siljitadi, lekin qoida o‘zgarmaydi.</p>"
   ],
-
   "reja": "Ta’rif → uchi → chap/o‘ng oraliqlar.",
-
   "qoida": "<p>Agar oraliqdagi istalgan x₁ &lt; x₂ uchun f(x₁) &lt; f(x₂) bo‘lsa, funksiya shu oraliqda <strong>o'suvchi</strong>; f(x₁) &gt; f(x₂) bo‘lsa — <strong>kamayuvchi</strong> deyiladi.</p><p><strong>y = ax² + bx + c</strong> (a ≠ 0) uchun uchi x₀ = −b/(2a):</p><ul style=\"margin:0.4em 0 0.6em 1.2em;padding:0\"><li>a &gt; 0: (−∞; x₀] da kamayadi, [x₀; +∞) da o‘sadi;</li><li>a &lt; 0: (−∞; x₀] da o‘sadi, [x₀; +∞) da kamayadi.</li></ul>",
-
   "savollar": [
     {
       "savol": "y = x² − 4x + 3 uchun o‘sish oralig‘i?",
-      "variantlar": ["(−∞; 2]", "[2; +∞)", "(−∞; +∞)"],
+      "variantlar": [
+        "(−∞; 2]",
+        "[2; +∞)",
+        "(−∞; +∞)"
+      ],
       "togri": 1
     },
     {
       "savol": "a < 0 bo‘lsa, uchi chapida funksiya qanday?",
-      "variantlar": ["Kamayadi", "O‘sadi", "O‘zgarmaydi"],
+      "variantlar": [
+        "Kamayadi",
+        "O‘sadi",
+        "O‘zgarmaydi"
+      ],
       "togri": 1
     },
     {
       "savol": "x₀ = −b/(2a) nima?",
-      "variantlar": ["Nol", "Uchining abssissasi", "Eng katta ildiz"],
+      "variantlar": [
+        "Nol",
+        "Uchining abssissasi",
+        "Eng katta ildiz"
+      ],
       "togri": 1
     }
   ],
-
   "eslabQol": [
     "O‘suvchi: x₁ &lt; x₂ ⇒ f(x₁) &lt; f(x₂).",
     "Parabolada chegara — <strong>uchi</strong> (x₀).",
     "a&gt;0: chapda ↓, o‘ngda ↑; a&lt;0: chapda ↑, o‘ngda ↓."
   ],
-
   "kitob": {
     "betlar": "41–43-betlar",
     "sahifalar": [
-      { "img": "png/kitob-41.png", "bet": "41-bet", "width": 640, "height": 790 },
-      { "img": "png/kitob-42.png", "bet": "42-bet", "width": 640, "height": 790 },
-      { "img": "png/kitob-43.png", "bet": "43-bet", "width": 640, "height": 790 }
+      {
+        "img": "png/kitob-41.png",
+        "bet": "41-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-42.png",
+        "bet": "42-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-43.png",
+        "bet": "43-bet",
+        "width": 640,
+        "height": 790
+      }
     ]
   },
-
   "doska": {
     "intro": "Ta’rif va parabola misoli — doskada birga.",
     "masalalar": [
       {
-        "img": "png/kitob-42.png",
-        "alt": "O‘sish va kamayish ta’rifi",
-        "width": 640,
-        "height": 790,
         "caption": "Ta’rif · 42-bet",
         "steps": [
           "x₁ &lt; x₂ va f(x₁) &lt; f(x₂) ⇒ o‘suvchi.",
@@ -86,7 +145,6 @@
       }
     ]
   },
-
   "mashqlar": {
     "betlar": "44–45-betlar (kitob)",
     "intro": "Daftarga: parabola uchun o‘sish/kamayish oraliqlarini yozing.",
@@ -97,18 +155,24 @@
       }
     ]
   },
-
   "xulosa": [
     "O‘suvchi / kamayuvchi — oraliqda argument oshganda funksiya qiymati oshishi yoki kamayishi.",
     "Kvadrat funksiyada chegara — <strong>uchi</strong> x₀ = −b/(2a).",
     "a&gt;0: kamayadi (−∞; x₀], o‘sadi [x₀; +∞).",
     "a&lt;0: aksincha."
   ],
-
   "xulosaBoard": [
-    { "html": "x₁ &lt; x₂ ⇒ f(x₁) ? f(x₂)" },
-    { "html": "Chegara: <strong>x₀ = −b/(2a)</strong>" },
-    { "html": "a&gt;0: ↓ chap · ↑ o‘ng" },
-    { "html": "a&lt;0: ↑ chap · ↓ o‘ng" }
+    {
+      "html": "x₁ &lt; x₂ ⇒ f(x₁) ? f(x₂)"
+    },
+    {
+      "html": "Chegara: <strong>x₀ = −b/(2a)</strong>"
+    },
+    {
+      "html": "a&gt;0: ↓ chap · ↑ o‘ng"
+    },
+    {
+      "html": "a&lt;0: ↑ chap · ↓ o‘ng"
+    }
   ]
 }
