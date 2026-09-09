@@ -113,32 +113,32 @@
       {
         "img": "png/kitob-16.png",
         "bet": "16-bet",
-        "width": 978,
-        "height": 1014
+        "width": 640,
+        "height": 790
       },
       {
         "img": "png/kitob-17.png",
         "bet": "17-bet",
-        "width": 978,
-        "height": 1014
+        "width": 640,
+        "height": 790
       },
       {
         "img": "png/kitob-18.png",
         "bet": "18-bet",
-        "width": 978,
-        "height": 1014
+        "width": 640,
+        "height": 790
       },
       {
         "img": "png/kitob-19.png",
         "bet": "19-bet",
-        "width": 978,
-        "height": 1014
+        "width": 640,
+        "height": 790
       },
       {
         "img": "png/kitob-20.png",
         "bet": "20-bet",
-        "width": 978,
-        "height": 1014
+        "width": 640,
+        "height": 790
       }
     ]
   },
