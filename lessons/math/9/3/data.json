@@ -115,22 +115,28 @@
     "y = ax² ning uchi doim (0; 0) da, Oy ga nisbatan simmetrik."
   ],
   "mashqlar": {
-    "betlar": "12–13-bet",
+    "betlar": "13-bet",
     "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
     "items": [
       {
-        "title": "1-mashq (og'zaki).",
+        "title": "17-mashq.",
+        "body": "Millimetrli qog'ozda y = 3x² funksiyaning grafigini yasang. Grafik bo'yicha:",
+        "sub": "1) x = −2,8; −1,2; 1,5; 2,5 bo'lganda y ning qiymatini toping; 2) agar y = 9; 6; 2; 8; 1,3 bo'lsa, x ning qiymatini taqriban toping."
+      },
+      {
+        "title": "18-mashq (og'zaki).",
         "body": "Parabola tarmoqlarining yo'nalishini aniqlang:",
-        "sub": "1) y = ½x²; &nbsp; 2) y = −4x²; &nbsp; 3) y = −0,1x²; &nbsp; 4) y = 8x²."
+        "sub": "1) y = 3x²; &nbsp; 2) y = ⅓x²; &nbsp; 3) y = −4x²; &nbsp; 4) y = −⅓x²."
       },
       {
-        "title": "2-mashq.",
-        "body": "Quyidagi funksiyalarning grafiklarini bitta koordinata tekisligida yasang:",
-        "sub": "1) y = x² va y = 3x²; &nbsp; 2) y = x² va y = ⅓x²; &nbsp; 3) y = −x² va y = −2x²."
+        "title": "19-mashq.",
+        "body": "Quyidagi funksiyalarning grafiklarini bitta koordinata tekisligida yasang, so'ng ulardan qaysilari x ≥ 0 oraliqda o'suvchi ekanini aniqlang:",
+        "sub": "1) y = x² va y = 3x²; &nbsp; 2) y = −x² va y = −3x²; &nbsp; 3) y = 3x² va y = −3x²; &nbsp; 4) y = ⅓x² va y = −⅓x²."
       },
       {
-        "title": "3-mashq.",
-        "body": "y = 2x² funksiyaning grafigini millimetrli qog'ozda yasang. Grafik bo'yicha x = −2,5; 1,5; 2,8 bo'lganda y ning taxminiy qiymatini toping."
+        "title": "20-mashq.",
+        "body": "Quyidagi funksiyalar grafiklari kesishish nuqtalarining koordinatalarini toping:",
+        "sub": "1) y = 2x² va y = 3x + 2; &nbsp; 2) y = −½x² va y = ½x − 3."
       }
     ]
   },
@@ -185,42 +191,82 @@
     ]
   },
   "doska": {
-    "intro": "Kitobdagi asosiy misollar — o‘qituvchi doskada ketma-ket ko‘rsatadi.",
+    "intro": "Kitobdagi asl matn tartibida: 1, 2, 3-masalalar, so'ng ta'rif va xossalar, oxirida grafik xulosasi.",
     "masalalar": [
       {
-        "img": "png/kitob-10.png",
-        "alt": "1-masala: y = 2x² grafigini yasash",
+        "img": "png/kitob-10-masala1.png",
+        "alt": "1-masala: y = 2x² funksiyaning grafigini yasash",
         "width": 640,
-        "height": 790,
+        "height": 355,
         "caption": "1-masala · 10-bet",
+        "kirish": "Keling, 1-masalani ko'rib chiqamiz.",
         "steps": [
-          "Jadval: x = −3…3 uchun y = 2x² qiymatlari.",
-          "Nuqtalarni yasab, silliq egri o‘tkazamiz.",
-          "y = x² bilan taqqoslash: har ordinata 2 marta katta — parabola «ingichkaroq» emas, balandroq."
+          "<strong>1-masala.</strong> y = 2x² funksiyaning grafigini yasang.",
+          "Qiymatlar jadvali tuziladi: x = −3...3 uchun y = 2x² hisoblanadi (masalan x=2 → y=8, x=3 → y=18).",
+          "Topilgan nuqtalar orqali silliq egri chiziq o'tkaziladi (3-rasm).",
+          "y = 2x² va y = x² solishtiriladi: aynan bir x da y = 2x² ning qiymati y = x² dan 2 marta ortiq.",
+          "Xulosa: y = 2x² grafigi, y = x² grafigini <strong>Ox'dan Oy o'qi bo'yicha 2 marta cho'zish</strong> bilan hosil qilinadi, deyiladi."
         ]
       },
       {
-        "img": "png/kitob-11.png",
-        "alt": "y = (1/2)x² va y = −x²",
+        "img": "png/kitob-10-11-masala2.png",
+        "alt": "2-masala: y = (1/2)x² funksiyaning grafigini yasash",
         "width": 640,
-        "height": 790,
-        "caption": "2–3-masala · 11-bet",
+        "height": 587,
+        "caption": "2-masala · 10–11-bet",
+        "kirish": "Endi 2-masalaga o'tamiz.",
         "steps": [
-          "a = 1/2: ordinatalar y = x² dan 2 marta kichik — parabola yassi.",
-          "a = −1: y = −x², Ox ga nisbatan simmetrik — tarmoqlar pastga."
+          "<strong>2-masala.</strong> y = ½x² funksiyaning grafigini yasang.",
+          "Qiymatlar jadvali tuziladi (3-rasm bilan taqqoslash uchun bir xil x lar): masalan x=2 → y=2, x=3 → y=4,5.",
+          "Nuqtalar orqali silliq chiziq o'tkaziladi (4-rasm).",
+          "y = ½x² va y = x² solishtiriladi: har bir nuqtada ordinata 2 marta kamaytirilgan.",
+          "Xulosa: y = ½x² grafigi, y = x² grafigini <strong>Ox'dan Oy o'qi bo'yicha 2 marta siqish</strong> bilan hosil qilinadi, deyiladi."
         ]
       },
       {
-        "img": "png/kitob-12.png",
-        "alt": "y = ax² asosiy xossalari",
+        "img": "png/kitob-11-masala3.png",
+        "alt": "3-masala: y = −x² funksiyaning grafigini yasash",
         "width": 640,
-        "height": 790,
+        "height": 265,
+        "caption": "3-masala · 11-bet",
+        "kirish": "Va endi 3-masalani ko'rib chiqamiz.",
+        "steps": [
+          "<strong>3-masala.</strong> y = −x² funksiyaning grafigini yasang.",
+          "y = −x² va y = x² taqqoslanadi: aynan bir x da bu funksiyalarning qiymatlari modul bo'yicha teng, lekin ishorasi qarama-qarshi.",
+          "Xulosa: y = −x² grafigi, y = x² grafigini <strong>Ox o'qiga nisbatan simmetrik ko'chirish</strong> bilan hosil qilinadi (5-rasm).",
+          "Shunga o'xshab, y = −½x² grafigi ham y = ½x² grafigiga Ox o'qiga nisbatan simmetrikdir (6-rasm)."
+        ]
+      },
+      {
+        "img": "png/kitob-12-tarif.png",
+        "alt": "y = ax² funksiyaning ta'rifi va fokusi",
+        "width": 640,
+        "height": 448,
+        "caption": "Ta'rif va fokus · 12-bet",
+        "kirish": "Uchta masaladan keyin, umumiy ta'rifni chiqaramiz.",
+        "static": "<strong>Ta'rif:</strong> y = ax² funksiyaning grafigi ham (a ≠ 0 bo'lganda) <strong>parabola</strong> deb ataladi. a > 0 bo'lganda parabolaning tarmoqlari yuqoriga, a < 0 bo'lganda esa pastga yo'nalgan. Bundan tashqari, y = ax² parabolaning <strong>fokusi</strong> (0; 1/4a) nuqtada joylashgan."
+      },
+      {
+        "img": "png/kitob-12-xossalar.png",
+        "alt": "y = ax² funksiyaning asosiy xossalari (1, 2, 3-band)",
+        "width": 640,
+        "height": 272,
         "caption": "Xossalar · 12-bet",
+        "kirish": "Endi funksiyaning asosiy xossalarini birma-bir sanab o'tamiz.",
         "steps": [
-          "a > 0: y ≥ 0, uchi (0;0) eng past nuqta; x > 0 da o‘sadi, x < 0 da kamayadi.",
-          "a < 0: y ≤ 0, uchi eng yuqori; o‘sish/kamayish aksincha.",
-          "Simmetriya o‘qi — Oy (x = 0)."
+          "<strong>1)</strong> a > 0 bo'lsa, y = ax² funksiya x ≠ 0 da musbat qiymatlar qabul qiladi; a < 0 bo'lsa, manfiy qiymatlar qabul qiladi. Qiymati faqat x = 0 bo'lganda 0 ga teng.",
+          "<strong>2)</strong> y = ax² parabola ordinatalar o'qiga nisbatan simmetrik bo'ladi.",
+          "<strong>3)</strong> a > 0 bo'lsa, funksiya x > 0 da o'sadi, x ≤ 0 da kamayadi. a < 0 bo'lsa, x ≥ 0 da kamayadi, x ≤ 0 da o'sadi."
         ]
+      },
+      {
+        "img": "png/kitob-13-rasmlar.png",
+        "alt": "7 va 8-rasm: y=ax² grafiklari a>0 va a<0 uchun",
+        "width": 640,
+        "height": 300,
+        "caption": "Grafik xulosasi · 13-bet",
+        "kirish": "Xossalarni grafik orqali ham yakunlab ko'ramiz.",
+        "static": "Yuqoridagi barcha xossalarni grafikdan bevosita ko'rish mumkin (7- va 8-rasmlar): a > 0 bo'lganda tarmoqlar yuqoriga (7-rasm), a < 0 bo'lganda pastga (8-rasm) yo'nalgan."
       }
     ]
   }
