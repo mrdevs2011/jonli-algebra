@@ -251,100 +251,134 @@
     .board-mode .doska-steps-list li { font-size: 1.12rem; line-height: 1.6; }
     .board-mode .doska-steps-controls .btn { font-size: 1.05rem; padding: 10px 18px; }
 
-    .birga-yechish-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 14px;
-    }
-    .birga-yechish-btn svg { transition: transform 0.2s ease; }
-    .birga-yechish-btn[aria-expanded="true"] svg { transform: rotate(90deg); }
-    .birga-yechish-panel {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    /* Qora doska — o'qituvchi yozayotgandek sekin typing effekti */
-    .board-typed {
-      background: #1f2b22;
-      border-radius: 14px;
+    /* ============ Doskaga kim chiqadi? (random ism tanlash) ============ */
+    .block-picker, .block-classtimer {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
       padding: 18px 20px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), var(--shadow);
+      box-shadow: var(--shadow);
+      margin: 18px 0;
     }
-    .board-typed-caption {
-      color: #9db89f;
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-      opacity: 0.85;
-    }
-    .board-typed-text {
-      display: inline;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-family: var(--font-serif);
-      font-size: clamp(1rem, 2.6vw, 1.25rem);
-      line-height: 1.9;
-      color: #f3eee4;
-      margin: 0;
-    }
-    .board-typed-cursor {
-      color: #f3eee4;
-      font-size: clamp(1rem, 2.6vw, 1.25rem);
-      animation: boardCursorBlink 0.9s step-end infinite;
-    }
-    .board-typed-cursor.is-hidden { display: none; }
-    @keyframes boardCursorBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .board-typed-controls {
+    .picker-head h2, .classtimer-head h2 { margin: 0 0 2px; }
+    .picker-sub, .classtimer-sub { color: var(--muted); font-size: 0.88rem; margin: 0 0 14px; }
+    .picker-body { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .picker-display {
+      flex: 1 1 260px;
+      min-height: 84px;
       display: flex;
-      gap: 10px;
-      margin-top: 14px;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper);
+      border-radius: 14px;
+      overflow: hidden;
     }
-    .board-typed-controls .btn-ghost {
-      background: rgba(255,255,255,0.08);
-      color: #f3eee4;
-      border-color: rgba(255,255,255,0.18);
+    .picker-name {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      color: var(--accent);
+      transition: transform 0.1s ease;
     }
+    .picker-name.is-spinning { animation: pickerSpin 0.08s linear infinite; }
+    @keyframes pickerSpin {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-4px); opacity: 0.55; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .picker-name.is-landed { animation: pickerLand 0.38s ease; }
+    @keyframes pickerLand {
+      0% { transform: scale(1.35); }
+      60% { transform: scale(0.94); }
+      100% { transform: scale(1); }
+    }
+    .picker-controls { display: flex; gap: 10px; flex-wrap: wrap; }
+    .picker-names-panel { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .picker-names-panel label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+    .picker-names-panel textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .picker-names-actions { display: flex; align-items: center; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+    .picker-checkbox { display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; color: var(--muted); }
     @media (prefers-reduced-motion: reduce) {
-      .board-typed-cursor { animation: none; }
+      .picker-name.is-spinning { animation: none; }
     }
 
-    /* Yon tomondan chiqadigan "nima qilayapti" bubble'lari — o'qituvchi izohi kabi */
-    .board-typed-bubbles {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 14px;
-      min-height: 0;
+    /* ============ Sinf birga yechadi (taymer) ============ */
+    .classtimer-body { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .classtimer-clock {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      min-width: 130px;
+      text-align: center;
+      color: var(--accent-2);
+      background: var(--paper);
+      border-radius: 14px;
+      padding: 10px 18px;
     }
-    .board-typed-bubble {
-      align-self: flex-start;
-      max-width: 92%;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #dfe8e0;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      padding: 7px 12px;
-      border-radius: 10px;
-      opacity: 0;
-      transform: translateY(4px);
-      animation: bubbleIn 0.25s ease forwards, bubbleOut 0.3s ease forwards 2.6s;
+    .classtimer-clock.is-up { color: #b3413a; animation: classtimerPulse 0.8s ease infinite; }
+    @keyframes classtimerPulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.55; }
     }
-    .board-typed-bubble::before { content: "\1F4AC "; opacity: 0.7; }
-    @keyframes bubbleIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bubbleOut {
-      from { opacity: 1; max-height: 60px; margin-bottom: 0; }
-      to   { opacity: 0; max-height: 0; margin-bottom: -8px; }
-    }
+    .classtimer-presets { display: flex; gap: 8px; flex-wrap: wrap; }
+    .classtimer-presets .btn.is-active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .classtimer-controls { display: flex; gap: 10px; margin-left: auto; }
     @media (prefers-reduced-motion: reduce) {
-      .board-typed-bubble { animation: none; opacity: 1; }
+      .classtimer-clock.is-up { animation: none; }
+    }
+
+    /* ============ Xulosa bloki + doska rejimidagi katta slayd ============ */
+    .xulosa-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .xulosa-board-btn { white-space: nowrap; }
+    .xulosa-list { margin: 12px 0 0; padding-left: 20px; line-height: 1.7; }
+    .xulosa-board {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      box-sizing: border-box;
+      animation: sahnaFadeIn 0.22s ease;
+    }
+    .xulosa-board-inner { max-width: 900px; width: 100%; }
+    .xulosa-board-inner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin: 0 0 28px;
+      text-align: center;
+    }
+    .xulosa-board-inner ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+    .xulosa-board-inner li {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 3.6vw, 2rem);
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px 26px;
+      box-shadow: var(--shadow);
+    }
+    .xulosa-board-inner li span { font-weight: 700; }
+    .xulosa-board-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -435,6 +469,50 @@
         </div>
       </section>
 
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+
       <section class="dars-body">
         <div class="block block-kirish">
           <h2>Kirish</h2>
@@ -488,22 +566,6 @@
               <img src="kitob-6.png" alt="Darslik, 6-bet" loading="lazy" width="500" height="638">
               <span>6-bet · kattalashtirish</span>
             </a>
-          </div>
-          <button type="button" class="btn birga-yechish-btn" id="birgaYechishBtn" aria-expanded="false" aria-controls="birgaYechishPanel">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12h8"></path><path d="M13 7l5 5-5 5"></path></svg>
-            Birgalikda yechish
-          </button>
-          <div class="birga-yechish-panel" id="birgaYechishPanel" hidden>
-            <div class="board-typed" id="boardTyped">
-              <div class="board-typed-caption">1-masala · 6-bet — o'qituvchi doskada yechayapti</div>
-              <pre class="board-typed-text" id="boardTypedText" aria-live="polite"></pre>
-              <span class="board-typed-cursor" id="boardTypedCursor">▍</span>
-              <div class="board-typed-bubbles" id="boardTypedBubbles" aria-live="polite"></div>
-              <div class="board-typed-controls">
-                <button type="button" class="btn btn-ghost" id="boardTypedSkip">Tezlashtirish</button>
-                <button type="button" class="btn btn-ghost" id="boardTypedReset">Boshidan</button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -604,8 +666,35 @@
             </li>
           </ol>
         </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button>
+          </div>
+          <ul class="xulosa-list">
+            <li><strong>Kvadrat funksiya</strong> — ko'rinishi <strong>y = ax² + bx + c</strong>, bunda <strong>a ≠ 0</strong>.</li>
+            <li><strong>a</strong> — parabolaning tarmoqlarini boshqaradi: a &gt; 0 bo'lsa yuqoriga, a &lt; 0 bo'lsa pastga qaraydi.</li>
+            <li><strong>b</strong> — parabolaning uchini (yuqori/pastki nuqtasini) yon tomonga suradi.</li>
+            <li><strong>c</strong> — grafikni yuqoriga yoki pastga ko'chiradi (y o'qi bilan kesishish nuqtasi).</li>
+            <li>Funksiyaning qiymatini topish uchun x o'rniga sonni qo'yib, natijani hisoblaymiz.</li>
+          </ul>
+        </div>
       </section>
     </main>
+
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul>
+          <li><strong>y = ax² + bx + c</strong> &nbsp;&mdash;&nbsp; <span>a ≠ 0</span></li>
+          <li><span class="term-a">a</span> — tarmoqlar (yuqoriga / pastga)</li>
+          <li><span class="term-b">b</span> — uchini suradi</li>
+          <li><span class="term-c">c</span> — yuqoriga / pastga ko'chiradi</li>
+        </ul>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <span></span>
@@ -954,99 +1043,6 @@
         savollarWrap.appendChild(box);
       });
 
-      // "Birgalikda yechish" — o'qituvchi doskada sekin yozayotgandek typing effekti
-      (function () {
-        var btn = document.getElementById("birgaYechishBtn");
-        var panel = document.getElementById("birgaYechishPanel");
-        var textEl = document.getElementById("boardTypedText");
-        var cursorEl = document.getElementById("boardTypedCursor");
-        var skipBtn = document.getElementById("boardTypedSkip");
-        var resetBtn = document.getElementById("boardTypedReset");
-        if (!btn || !panel || !textEl) return;
-
-        var LINES = [
-          { text: "Formula: y(x) = x\u00b2 \u2212 5x + 6\n", note: "Avval funksiyaning formulasini yozib olamiz." },
-          { text: "x o'rniga har bir qiymatni birma-bir qo'yamiz.\n\n", note: "Endi berilgan uchta x qiymatini birma-bir tekshiramiz." },
-          { text: "x = \u22122:  y(\u22122) = (\u22122)\u00b2 \u2212 5\u00b7(\u22122) + 6 = 4 + 10 + 6 = 20\n\n", note: "x = \u22122 ni qo'yib hisoblayapman: (\u22122)\u00b2 = 4, keyin ishorasiga e'tibor beramiz." },
-          { text: "x = 0:  y(0) = 0\u00b2 \u2212 5\u00b70 + 6 = 6\n\n", note: "x = 0 bo'lsa eng oson \u2014 faqat erkin had qoladi." },
-          { text: "x = 3:  y(3) = 3\u00b2 \u2212 5\u00b73 + 6 = 9 \u2212 15 + 6 = 0\n", note: "x = 3 ni qo'yamiz \u2014 natija nolga chiqdi, buni keyinroq muhokama qilamiz." }
-        ];
-        var FULL_TEXT = LINES.map(function (l) { return l.text; }).join("");
-
-        var bubblesEl = document.getElementById("boardTypedBubbles");
-        var timer = null;
-        var pos = 0;
-        var lineIdx = 0;
-        var lineCharCount = 0;
-        var speed = 32; // ms/harf — "sekin yozayotgandek" tezlik
-        var fast = false;
-
-        function clearTimer() { if (timer) { clearTimeout(timer); timer = null; } }
-
-        function showBubble(text) {
-          if (!bubblesEl || fast) return;
-          // Faqat bittasi ko'rinib tursin — eskisini darrov olib tashlaymiz
-          bubblesEl.innerHTML = "";
-          var b = document.createElement("div");
-          b.className = "board-typed-bubble";
-          b.textContent = text;
-          bubblesEl.appendChild(b);
-        }
-
-        function typeStep() {
-          if (pos >= FULL_TEXT.length) {
-            cursorEl.classList.remove("is-hidden");
-            return;
-          }
-          var ch = FULL_TEXT.charAt(pos);
-          textEl.textContent += ch;
-          pos++;
-          lineCharCount++;
-
-          // Yangi qatorga o'tganda — o'sha qatorga tegishli izohni bubble qilib chiqaramiz
-          var curLine = LINES[lineIdx];
-          if (curLine && lineCharCount === 1) {
-            showBubble(curLine.note);
-          }
-          if (curLine && lineCharCount >= curLine.text.length) {
-            lineIdx++;
-            lineCharCount = 0;
-          }
-
-          // Tinish belgilaridan keyin biroz to'xtaydi — tabiiyroq ko'rinadi
-          var delay = fast ? 4 : (/[.,:\n]/.test(ch) ? speed * 6 : speed);
-          timer = window.setTimeout(typeStep, delay);
-        }
-
-        function startTyping() {
-          clearTimer();
-          textEl.textContent = "";
-          pos = 0;
-          lineIdx = 0;
-          lineCharCount = 0;
-          fast = false;
-          if (bubblesEl) bubblesEl.innerHTML = "";
-          cursorEl.classList.remove("is-hidden");
-          typeStep();
-        }
-
-        btn.addEventListener("click", function () {
-          var open = panel.hidden;
-          panel.hidden = !open;
-          btn.setAttribute("aria-expanded", open ? "true" : "false");
-          if (open && pos === 0) startTyping();
-        });
-
-        if (skipBtn) {
-          skipBtn.addEventListener("click", function () {
-            fast = true;
-          });
-        }
-        if (resetBtn) {
-          resetBtn.addEventListener("click", startTyping);
-        }
-      })();
-
       // Doskada namuna — qadam-baqadam ochish
       document.querySelectorAll("[data-doska]").forEach(function (box) {
         var items = box.querySelectorAll("[data-doska-list] li");
@@ -1079,6 +1075,280 @@
 
         update();
       });
+
+      // ============ Doskaga kim chiqadi? (random ism tanlash) ============
+      (function () {
+        var displayEl = document.getElementById("pickerDisplay");
+        var nameEl = document.getElementById("pickerName");
+        var spinBtn = document.getElementById("pickerSpinBtn");
+        var listBtn = document.getElementById("pickerListBtn");
+        var namesPanel = document.getElementById("pickerNamesPanel");
+        var namesInput = document.getElementById("pickerNamesInput");
+        var namesSave = document.getElementById("pickerNamesSave");
+        var noRepeatBox = document.getElementById("pickerNoRepeat");
+        if (!spinBtn || !nameEl) return;
+
+        var STORE_KEY = "ka-sinf-royxati";
+        var USED_KEY = "ka-sinf-royxati-used";
+        var DEFAULT_NAMES = [
+          "Abduhalilova Shukrona",
+          "Abdurahimova Zulayho",
+          "Ahmadilyev Muhammadrizo",
+          "Ahmadjonov Abdulloh",
+          "Ahmadzulunov Abdunazar",
+          "Alixonova Muqaddasxon",
+          "Ashurboyev Saydjalol",
+          "Bahodirjonova Sojida",
+          "Begijonova Robiya",
+          "Ibragimova Shoxsanam",
+          "Ma'rufjonov Nabijon",
+          "Madaminxojayeva Munisa",
+          "Muxtorjonova Oydinoy",
+          "Nizomov Muhammadaziz",
+          "O'ktamova Shirinoy",
+          "Odiljonov Ubaydulloh",
+          "Qobiljonova Mohlaroy",
+          "Qodirjonov Muhammadali",
+          "Qosimov Muhammadrasul",
+          "Rafuqjonov Abdulboriy",
+          "Rafuqjonov Abdurahmon",
+          "Sobirov Muhammadsodiq",
+          "Tolqinboyev Abdulloh",
+          "Tolqinboyeva Oisha",
+          "Ubaydullayev Muhammadyusuf",
+          "Yoqubjonov Mominjon",
+          "Ziyohiddinova Oisha"
+        ];
+        var names = [];
+        var used = [];
+        var spinning = false;
+
+        function loadNames() {
+          try {
+            var raw = localStorage.getItem(STORE_KEY);
+            names = raw ? JSON.parse(raw) : DEFAULT_NAMES.slice();
+            if (!raw) { try { localStorage.setItem(STORE_KEY, JSON.stringify(names)); } catch (e) {} }
+          } catch (e) { names = DEFAULT_NAMES.slice(); }
+          try {
+            var rawUsed = sessionStorage.getItem(USED_KEY);
+            used = rawUsed ? JSON.parse(rawUsed) : [];
+          } catch (e) { used = []; }
+          namesInput.value = names.join("\n");
+        }
+
+        function saveNames() {
+          names = namesInput.value
+            .split("\n")
+            .map(function (s) { return s.trim(); })
+            .filter(Boolean);
+          try { localStorage.setItem(STORE_KEY, JSON.stringify(names)); } catch (e) {}
+          used = [];
+          try { sessionStorage.setItem(USED_KEY, JSON.stringify(used)); } catch (e) {}
+        }
+
+        function pickPool() {
+          if (!noRepeatBox.checked) return names;
+          var pool = names.filter(function (n) { return used.indexOf(n) === -1; });
+          if (pool.length === 0) {
+            used = []; // hammasi chiqdi — aylanadan qayta boshlaymiz
+            pool = names;
+          }
+          return pool;
+        }
+
+        function beep(freq, dur) {
+          try {
+            var Ctx = window.AudioContext || window.webkitAudioContext;
+            if (!Ctx) return;
+            if (!beep.ctx) beep.ctx = new Ctx();
+            var ctx = beep.ctx;
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.type = "square";
+            osc.frequency.value = freq;
+            gain.gain.value = 0.05;
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+            osc.connect(gain).connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + dur);
+          } catch (e) {}
+          if (navigator.vibrate) navigator.vibrate(8);
+        }
+
+        function spin() {
+          if (spinning) return;
+          if (names.length === 0) {
+            nameEl.textContent = "Avval ismlarni kiriting";
+            namesPanel.hidden = false;
+            return;
+          }
+          spinning = true;
+          spinBtn.disabled = true;
+          nameEl.classList.add("is-spinning");
+
+          var pool = pickPool();
+          var finalName = pool[Math.floor(Math.random() * pool.length)];
+
+          // Ease-out sekinlashish + o'rtada bitta "fake-out" sakrash —
+          // bir ismda to'xtayotgandek bo'lib, birdan boshqasiga otilib ketadi.
+          var baseDelay = 45;
+          var totalTicks = 22 + Math.floor(Math.random() * 5);
+          var fakeOutAt = totalTicks - (3 + Math.floor(Math.random() * 2)); // oxiridan 3-4 tik oldin
+          var tick = 0;
+
+          function step() {
+            var randomName;
+            if (tick === totalTicks) {
+              randomName = finalName;
+            } else if (tick === fakeOutAt) {
+              // "to'xtayotgandek" bo'lib, tasodifan boshqa ismga sakraydi
+              var others = names.filter(function (n) { return n !== finalName; });
+              randomName = others.length ? others[Math.floor(Math.random() * others.length)] : finalName;
+            } else {
+              randomName = names[Math.floor(Math.random() * names.length)];
+            }
+            nameEl.textContent = randomName;
+
+            var progress = tick / totalTicks;
+            var delay;
+            if (tick < fakeOutAt - 2) {
+              // 1: asta-sekin sekinlashish (ease-out)
+              delay = baseDelay * Math.pow(1.14, tick);
+            } else if (tick < fakeOutAt) {
+              // sekinlashish avjida — "hozir to'xtaydi" hissi
+              delay = baseDelay * Math.pow(1.14, fakeOutAt - 2) * 1.6;
+            } else if (tick === fakeOutAt) {
+              // 2: fake-out — birdan tezlashib sakraydi
+              beep(320, 0.05);
+              delay = baseDelay * 0.7;
+            } else {
+              // sakragandan keyin yana ease-out bilan yakuniy to'xtash
+              var afterFake = tick - fakeOutAt;
+              delay = baseDelay * 1.3 * Math.pow(1.35, afterFake);
+            }
+
+            beep(tick === totalTicks ? 520 : 260 + progress * 120, tick === totalTicks ? 0.12 : 0.03);
+
+            if (tick >= totalTicks) {
+              nameEl.classList.remove("is-spinning");
+              nameEl.classList.add("is-landed");
+              window.setTimeout(function () { nameEl.classList.remove("is-landed"); }, 380);
+              if (noRepeatBox.checked) {
+                used.push(finalName);
+                try { sessionStorage.setItem(USED_KEY, JSON.stringify(used)); } catch (e) {}
+              }
+              spinning = false;
+              spinBtn.disabled = false;
+              return;
+            }
+            tick++;
+            window.setTimeout(step, delay);
+          }
+
+          step();
+        }
+
+        spinBtn.addEventListener("click", spin);
+        listBtn.addEventListener("click", function () {
+          namesPanel.hidden = !namesPanel.hidden;
+        });
+        namesSave.addEventListener("click", function () {
+          saveNames();
+          namesPanel.hidden = true;
+          nameEl.textContent = "Tayyor";
+        });
+
+        loadNames();
+      })();
+
+      // ============ Sinf birga yechadi (taymer) ============
+      (function () {
+        var clockEl = document.getElementById("classtimerClock");
+        var toggleBtn = document.getElementById("classtimerToggle");
+        var resetBtn = document.getElementById("classtimerReset");
+        var presetBtns = document.querySelectorAll(".classtimer-presets [data-secs]");
+        if (!clockEl || !toggleBtn) return;
+
+        var totalSecs = 60;
+        var remaining = totalSecs;
+        var timer = null;
+        var running = false;
+
+        function fmt(s) {
+          var m = Math.floor(Math.abs(s) / 60);
+          var sec = Math.abs(s) % 60;
+          return (s < 0 ? "-" : "") + String(m).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
+        }
+
+        function render() {
+          clockEl.textContent = fmt(remaining);
+          clockEl.classList.toggle("is-up", remaining <= 0);
+        }
+
+        function tick() {
+          remaining--;
+          render();
+        }
+
+        function start() {
+          if (running) return;
+          running = true;
+          toggleBtn.textContent = "To'xtatish";
+          timer = window.setInterval(tick, 1000);
+        }
+
+        function stop() {
+          running = false;
+          toggleBtn.textContent = "Davom ettirish";
+          window.clearInterval(timer);
+        }
+
+        toggleBtn.addEventListener("click", function () {
+          if (running) stop(); else start();
+        });
+
+        resetBtn.addEventListener("click", function () {
+          stop();
+          toggleBtn.textContent = "Boshlash";
+          remaining = totalSecs;
+          render();
+        });
+
+        presetBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            stop();
+            toggleBtn.textContent = "Boshlash";
+            totalSecs = parseInt(btn.getAttribute("data-secs"), 10);
+            remaining = totalSecs;
+            presetBtns.forEach(function (b) { b.classList.remove("is-active"); });
+            btn.classList.add("is-active");
+            render();
+          });
+        });
+
+        document.querySelector('.classtimer-presets [data-secs="60"]').classList.add("is-active");
+        render();
+      })();
+
+      // ============ Xulosa — proyektor uchun katta doska ============
+      (function () {
+        var openBtn = document.getElementById("xulosaBoardBtn");
+        var board = document.getElementById("xulosaBoard");
+        var closeBtn = document.getElementById("xulosaBoardClose");
+        if (!openBtn || !board) return;
+
+        function open() { board.hidden = false; }
+        function close() { board.hidden = true; }
+
+        openBtn.addEventListener("click", open);
+        closeBtn.addEventListener("click", close);
+        board.addEventListener("click", function (e) {
+          if (e.target === board) close();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !board.hidden) close();
+        });
+      })();
 
       if (window.KA && KA.onLessonOpen) KA.onLessonOpen(1);
     })();
