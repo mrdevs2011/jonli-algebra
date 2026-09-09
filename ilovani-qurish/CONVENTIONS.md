@@ -45,6 +45,36 @@ Tavsiya etilgan tartib:
 </section>
 ```
 
+## Darslik sahifasi (block-kitob)
+
+Har dars papkasida darslikning tegishli beti(lari) rasm sifatida saqlanadi:
+
+```
+4/kitob-14.png        # darslik, 14-bet (200 dpi PNG)
+```
+
+`index.html`da:
+
+```html
+<div class="block block-kitob">
+  <h2>Darslikda</h2>
+  <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong>4-§, 14-bet</strong>.</p>
+  <div class="kitob-sahifalar">
+    <a class="kitob-sahifa" href="kitob-14.png" target="_blank" rel="noopener">
+      <img src="kitob-14.png" alt="Darslik, 14-bet" loading="lazy" width="620" height="877">
+      <span>14-bet · kattalashtirish</span>
+    </a>
+  </div>
+</div>
+```
+
+Bir necha bet kerak bo‘lsa (masalan 1-§, 5–6-betlar), har bir bet uchun alohida
+`kitob-<bet>.png` va alohida `<a class="kitob-sahifa">` qo‘shiladi — ro‘yxat avtomatik
+qatorga tizilib chiqadi.
+
+Rasm PDF darslikdan ~200 dpi’da olinadi, faqat shu darsga tegishli sahifa(lar).
+Boshqa darsning betini qo‘shmaslik kerak.
+
 ## Progress
 
 Dars to‘liq tayyor bo‘lgach **faqat**:

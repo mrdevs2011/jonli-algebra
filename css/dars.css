@@ -108,6 +108,43 @@
 .block-kitob { border-left: 4px solid var(--line-strong); }
 .block-kitob p { color: var(--ink-soft); font-size: 0.95rem; }
 
+.kitob-sahifalar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.kitob-sahifa {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 132px;
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.kitob-sahifa img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.kitob-sahifa:hover img {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(26, 34, 28, 0.16);
+}
+
+@media (max-width: 520px) {
+  .kitob-sahifa { width: 104px; }
+}
+
 /* Savollar (tayyor dars uchun) */
 .savollar {
   display: grid;

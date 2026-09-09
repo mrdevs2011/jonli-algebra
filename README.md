@@ -47,7 +47,8 @@ Dashboarddagi havola: `./4/` → `4/index.html`.
 1. Shu kunning paragrafini oching, masalan `4/index.html`.
 2. `#sahna` ichiga faqat o‘sha darsning interaktiv chizmasini yozing.
 3. Pastdagi bloklarni shu darsga moslab yozing (kirish, qoida, savollar, eslab qol).
-4. Dars tayyor bo‘lsa `js/progress.js` ichidagi `readyIds` ga raqamni qo‘shing.
+4. `block-kitob` ichidagi bet raqami va `kitob-<bet>.png` rasm(lar) to‘g‘riligini tekshiring (batafsil: `ilovani-qurish/CONVENTIONS.md`).
+5. Dars tayyor bo‘lsa `js/progress.js` ichidagi `readyIds` ga raqamni qo‘shing.
 
 Boshqa 37 papkaga tegilmaydi.
 
