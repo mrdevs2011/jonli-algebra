@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":3,"bob":{"roman":"I","nom":"Kvadrat funksiya. Kvadrat tengsizliklar"},"paragraf":"3-§","title":"y = ax² funksiya","lead":"a tarmoqlarni ochadi, yopadi yoki ag'daradi.","prev":{"href":"../2/","label":"2-dars"},"next":{"href":"../4/","label":"4-dars"},"agenda":[{"min":5,"name":"Kirish — y = x² ni eslash"},{"min":12,"name":"Sahna — a slayderi bilan jonli ko'rsatish"},{"min":8,"name":"Qoida — a ning 3 ta roli"},{"min":7,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":8,"name":"Darslikdan mashqlar — daftarga yechish"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"abc-parabola","ariaLabel":"Interaktiv chizma: a slayderi va y = ax² grafigi","hint":"a ni suring — parabola ingichkalashadi, kengayadi yoki ag'dariladi","vars":{"a":{"min":-3,"max":3,"step":0.25,"value":1,"desc":"tarmoqlarni boshqaradi"},"b":{"min":0,"max":0,"step":1,"value":0,"desc":"bu darsda 0"},"c":{"min":0,"max":0,"step":1,"value":0,"desc":"bu darsda 0"}},"notes":{"zero":"a = 0 — parabola yo'qoladi, y = 0 to'g'ri chizig'i qoladi","positive":"a > 0 — tarmoqlar yuqoriga ochiladi. |a| katta → ingichka, kichik → keng","negative":"a < 0 — tarmoqlar pastga ag'dariladi. |a| katta → ingichka, kichik → keng"}},"kirish":["<p class=\"kirish-nega\">O'tgan darsda eng sodda parabola — <strong>y = x²<\/strong> ni ko'rdik. U har doim yuqoriga ochiladi va uchi (0; 0) da. Bugun shu parabolani <strong>a<\/strong> koeffitsiyenti bilan o'zgartiramiz: y = ax².<\/p>","<p>Yuqoridagi <strong>a<\/strong> slayderini siljiting. a ni 2 ga oshiring — parabola siqiladi (ingichkalashadi). a ni 0,5 ga tushiring — kengayadi. a ni manfiy qiling — butunlay ag'dariladi, pastga ochiladi. Mana shu uchta o'zgarish — bugungi darsning butun mazmuni.<\/p>"],"reja":"a tarmoqlarni ochadi, yopadi yoki ag'daradi. |a| kattaligi esa parabola qanchalik ingichka yoki keng ekanini belgilaydi.","qoida":"<p><strong>y = ax²<\/strong> funksiyaning grafigi parabola. <strong>a<\/strong> ning ishorasi tarmoqlar yo'nalishini, |a| esa uning «ingichkaligini» belgilaydi:<\/p><ul><li><strong>a > 0<\/strong> — tarmoqlar yuqoriga ochiladi;<\/li><li><strong>a < 0<\/strong> — tarmoqlar pastga ochiladi;<\/li><li><strong>|a| katta<\/strong> — parabola ingichka (siqilgan);<\/li><li><strong>|a| kichik<\/strong> — parabola keng (yoyilgan).<\/li><\/ul><p>Har qanday a ≠ 0 da uchi (0; 0) da qoladi va Oy o'qiga nisbatan simmetrik bo'ladi.<\/p>","savollar":[{"savol":"y = −3x² funksiyaning grafigi qanday?","variantlar":["Yuqoriga ochilgan, keng parabola","Pastga ochilgan, ingichka parabola","Yuqoriga ochilgan, ingichka parabola"],"togri":1},{"savol":"y = 0,25x² va y = 4x² larni taqqoslang. Qaysi biri kengroq?","variantlar":["y = 4x² kengroq","Ikkalasi bir xil","y = 0,25x² kengroq"],"togri":2},{"savol":"a = 0 bo'lsa y = ax² nima bo'ladi?","variantlar":["Hali ham parabola, lekin tekis","Oddiy to'g'ri chiziq (y = 0)","Hech narsa o'zgarmaydi"],"togri":1}],"eslabQol":["a > 0 → tarmoqlar yuqoriga; a < 0 → pastga.","|a| katta → parabola ingichka; |a| kichik → keng.","y = ax² ning uchi doim (0; 0) da, Oy ga nisbatan simmetrik."],"mashqlar":{"betlar":"13-bet","intro":"Daftarga yeching. O'qituvchi doskada tekshiradi.","items":[{"title":"17-mashq.","body":"Millimetrli qog'ozda y = 3x² funksiyaning grafigini yasang. Grafik bo'yicha:","sub":"1) x = −2,8; −1,2; 1,5; 2,5 bo'lganda y ning qiymatini toping; 2) agar y = 9; 6; 2; 8; 1,3 bo'lsa, x ning qiymatini taqriban toping."},{"title":"18-mashq (og'zaki).","body":"Parabola tarmoqlarining yo'nalishini aniqlang:","sub":"1) y = 3x²; &nbsp; 2) y = ⅓x²; &nbsp; 3) y = −4x²; &nbsp; 4) y = −⅓x²."},{"title":"19-mashq.","body":"Quyidagi funksiyalarning grafiklarini bitta koordinata tekisligida yasang, so'ng ulardan qaysilari x ≥ 0 oraliqda o'suvchi ekanini aniqlang:","sub":"1) y = x² va y = 3x²; &nbsp; 2) y = −x² va y = −3x²; &nbsp; 3) y = 3x² va y = −3x²; &nbsp; 4) y = ⅓x² va y = −⅓x²."},{"title":"20-mashq.","body":"Quyidagi funksiyalar grafiklari kesishish nuqtalarining koordinatalarini toping:","sub":"1) y = 2x² va y = 3x + 2; &nbsp; 2) y = −½x² va y = ½x − 3."}]},"xulosa":["<strong>y = ax²<\/strong> — uchi (0; 0) da joylashgan parabola.","<strong>a > 0<\/strong> — tarmoqlar yuqoriga ochiladi; <strong>a < 0<\/strong> — pastga.","<strong>|a|<\/strong> qancha katta bo'lsa, parabola shuncha ingichka (siqilgan) bo'ladi.","Grafik har doim Oy o'qiga nisbatan simmetrik.","a = 0 bo'lsa — bu endi kvadrat funksiya emas."],"xulosaBoard":[{"html":"<strong>y = ax²<\/strong> &nbsp;&mdash;&nbsp; uchi (0; 0)"},{"html":"<span class=\"term-a\">a &gt; 0<\/span> — yuqoriga; <span class=\"term-a\">a &lt; 0<\/span> — pastga"},{"html":"<span class=\"term-a\">|a| katta<\/span> — ingichka; <span class=\"term-a\">|a| kichik<\/span> — keng"},{"html":"Oy o'qiga nisbatan <strong>simmetrik<\/strong>"}],"kitob":{"betlar":"10–13-betlar","sahifalar":[{"img":"png/kitob-10.png","bet":"10-bet","width":640,"height":790},{"img":"png/kitob-11.png","bet":"11-bet","width":640,"height":790},{"img":"png/kitob-12.png","bet":"12-bet","width":640,"height":790},{"img":"png/kitob-13.png","bet":"13-bet","width":640,"height":790}]},"doska":{"intro":"Kitobdagi asl matn tartibida: 1, 2, 3-masalalar, so'ng ta'rif va xossalar, oxirida grafik xulosasi.","masalalar":[{"caption":"1-masala · 10-bet","kirish":"Keling, 1-masalani ko'rib chiqamiz.","steps":["<strong>1-masala.<\/strong> y = 2x² funksiyaning grafigini yasang.","Qiymatlar jadvali tuziladi: x = −3...3 uchun y = 2x² hisoblanadi (masalan x=2 → y=8, x=3 → y=18).","Topilgan nuqtalar orqali silliq egri chiziq o'tkaziladi (3-rasm).","y = 2x² va y = x² solishtiriladi: aynan bir x da y = 2x² ning qiymati y = x² dan 2 marta ortiq.","Xulosa: y = 2x² grafigi, y = x² grafigini <strong>Ox'dan Oy o'qi bo'yicha 2 marta cho'zish<\/strong> bilan hosil qilinadi, deyiladi."]},{"caption":"2-masala · 10–11-bet","kirish":"Endi 2-masalaga o'tamiz.","steps":["<strong>2-masala.<\/strong> y = ½x² funksiyaning grafigini yasang.","Qiymatlar jadvali tuziladi (3-rasm bilan taqqoslash uchun bir xil x lar): masalan x=2 → y=2, x=3 → y=4,5.","Nuqtalar orqali silliq chiziq o'tkaziladi (4-rasm).","y = ½x² va y = x² solishtiriladi: har bir nuqtada ordinata 2 marta kamaytirilgan.","Xulosa: y = ½x² grafigi, y = x² grafigini <strong>Ox'dan Oy o'qi bo'yicha 2 marta siqish<\/strong> bilan hosil qilinadi, deyiladi."]},{"caption":"3-masala · 11-bet","kirish":"Va endi 3-masalani ko'rib chiqamiz.","steps":["<strong>3-masala.<\/strong> y = −x² funksiyaning grafigini yasang.","y = −x² va y = x² taqqoslanadi: aynan bir x da bu funksiyalarning qiymatlari modul bo'yicha teng, lekin ishorasi qarama-qarshi.","Xulosa: y = −x² grafigi, y = x² grafigini <strong>Ox o'qiga nisbatan simmetrik ko'chirish<\/strong> bilan hosil qilinadi (5-rasm).","Shunga o'xshab, y = −½x² grafigi ham y = ½x² grafigiga Ox o'qiga nisbatan simmetrikdir (6-rasm)."]},{"caption":"Ta'rif va fokus · 12-bet","kirish":"Uchta masaladan keyin, umumiy ta'rifni chiqaramiz.","static":"<strong>Ta'rif:<\/strong> y = ax² funksiyaning grafigi ham (a ≠ 0 bo'lganda) <strong>parabola<\/strong> deb ataladi. a > 0 bo'lganda parabolaning tarmoqlari yuqoriga, a < 0 bo'lganda esa pastga yo'nalgan. Bundan tashqari, y = ax² parabolaning <strong>fokusi<\/strong> (0; 1/4a) nuqtada joylashgan."},{"caption":"Xossalar · 12-bet","kirish":"Endi funksiyaning asosiy xossalarini birma-bir sanab o'tamiz.","steps":["<strong>1)<\/strong> a > 0 bo'lsa, y = ax² funksiya x ≠ 0 da musbat qiymatlar qabul qiladi; a < 0 bo'lsa, manfiy qiymatlar qabul qiladi. Qiymati faqat x = 0 bo'lganda 0 ga teng.","<strong>2)<\/strong> y = ax² parabola ordinatalar o'qiga nisbatan simmetrik bo'ladi.","<strong>3)<\/strong> a > 0 bo'lsa, funksiya x > 0 da o'sadi, x ≤ 0 da kamayadi. a < 0 bo'lsa, x ≥ 0 da kamayadi, x ≤ 0 da o'sadi."]},{"caption":"Grafik xulosasi · 13-bet","kirish":"Xossalarni grafik orqali ham yakunlab ko'ramiz.","static":"Yuqoridagi barcha xossalarni grafikdan bevosita ko'rish mumkin (7- va 8-rasmlar): a > 0 bo'lganda tarmoqlar yuqoriga (7-rasm), a < 0 bo'lganda pastga (8-rasm) yo'nalgan."}]}}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>
