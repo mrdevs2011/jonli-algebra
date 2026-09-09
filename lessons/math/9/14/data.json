@@ -1,0 +1,154 @@
+{
+  "id": 14,
+  "bob": { "roman": "II", "nom": "Tenglamalar va tengsizliklar sistemalari" },
+  "paragraf": "14-§",
+  "title": "Sistemani yechishning turli usullari",
+  "lead": "Almashtirish, qo‘shish, grafik usullari.",
+  "prev": { "href": "../13/", "label": "13-dars" },
+  "next": { "href": "../15/", "label": "15-dars" },
+
+  "agenda": [
+    { "min": 5, "name": "Kirish — oddiy sistema misoli" },
+    { "min": 10, "name": "Sahna — bir sistema, uch usul (doskada)" },
+    { "min": 8, "name": "Qoida — usullarni solishtirish" },
+    { "min": 7, "name": "Savollar — qaysi usul qulay?" },
+    { "min": 10, "name": "Darslikdan mashqlar — daftarga yechish" },
+    { "min": 5, "name": "Eslab qol — xulosa va uyga vazifa" }
+  ],
+
+  "sahna": {
+    "type": "system-methods",
+    "ariaLabel": "Interaktiv: bir sistema uchta usulda yechiladi",
+    "hint": "Usulni tanlang yoki slayderdan foydalaning",
+    "vars": {
+      "method": { "min": 0, "max": 2, "step": 1, "value": 0, "desc": "0=grafik, 1=almashtirish, 2=qo‘shish" }
+    },
+    "notes": {
+      "graph": "Grafik usul: ikki chiziq kesishishi — yechim nuqtasi",
+      "subst": "Almashtirish: bir tenglamadan x ni ifodalab, ikkinchisiga qo‘yamiz",
+      "add": "Qo‘shish (ayirish): koeffitsientlarni tenglashtirib, bir o‘zgaruvchini yo‘qotamiz"
+    }
+  },
+
+  "kirish": [
+    "<p class=\"kirish-nega\">Ikki shart bir vaqtda bajarilishi kerak — masalan, ikki do‘stning yoshi yig‘indisi 30, farqi 4. Bitta javob topish uchun bir necha yo‘l bor: chizib ko‘rish, birini ikkinchisiga almashtirish yoki qo‘shib yuborish. Bugun shu uch usulni bir sistema ustida solishtiramiz.</p>",
+    "<p>Yuqoridagi sahna bir xil sistemani uch xil usulda yechib ko‘rsatadi. Har bir usul oxirida bir xil javobga olib keladi — lekin qaysi biri tezroq yoki qulayroq ekanini o‘zingiz tanlaysiz.</p>"
+  ],
+
+  "reja": "Bir sistema — uch usul: grafik, almashtirish, qo‘shish. Har biri o‘z afzalligiga ega.",
+
+  "qoida": "<p><strong>Tenglamalar sistemasi</strong>ni yechishning asosiy usullari:</p><ul><li><strong>Grafik usul</strong> — har bir tenglama grafigini chizamiz, kesishish nuqtasi yechim.</li><li><strong>Almashtirish usuli</strong> — bir tenglamadan bir o‘zgaruvchini ifodalab, ikkinchisiga qo‘yamiz.</li><li><strong>Qo‘shish (ayirish) usuli</strong> — tenglamalarni qo‘shib yoki ayirib, bir o‘zgaruvchini yo‘qotamiz.</li></ul><p>Barcha usullar to‘g‘ri yechim beradi; qulayligi tenglamalar ko‘rinishiga bog‘liq.</p>",
+
+  "savollar": [
+    {
+      "savol": "x + y = 5, x − y = 1 sistemasini yechishda eng qulay usul qaysi?",
+      "variantlar": ["Faqat grafik", "Almashtirish yoki qo‘shish", "Faqat almashtirish"],
+      "togri": 1
+    },
+    {
+      "savol": "Almashtirish usulida nima qilinadi?",
+      "variantlar": ["Tenglamalarni qo‘shamiz", "Bir o‘zgaruvchini ifodalab, ikkinchisiga qo‘yamiz", "Faqat grafik chizamiz"],
+      "togri": 1
+    },
+    {
+      "savol": "Grafik usulda yechim nima?",
+      "variantlar": ["Ikki chiziq kesishish nuqtasi", "Faqat x o‘qi bilan kesishish", "Parabola uchi"],
+      "togri": 0
+    }
+  ],
+
+  "eslabQol": [
+    "Bir sistema uchta usul bilan yechilishi mumkin: <strong>grafik</strong>, <strong>almashtirish</strong>, <strong>qo‘shish</strong>.",
+    "Almashtirish — bir o‘zgaruvchini ifodalab, ikkinchisiga qo‘yish.",
+    "Qo‘shish usuli — koeffitsientlarni tenglashtirib, o‘zgaruvchini yo‘qotish."
+  ],
+
+  "kitob": {
+    "betlar": "57–58-betlar",
+    "sahifalar": [
+      { "img": "png/kitob-57.png", "bet": "57-bet", "width": 500, "height": 638 },
+      { "img": "png/kitob-58.png", "bet": "58-bet", "width": 500, "height": 638 }
+    ]
+  },
+
+  "doska": {
+    "intro": "Kitobdagi masalalar — o‘qituvchi doskada shu tartibda yechib ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
+    "masalalar": [
+      {
+        "img": "png/kitob-57-masala1.png",
+        "alt": "1-masala: oddiy chiziqli sistema",
+        "width": 978,
+        "height": 300,
+        "caption": "1-masala · 57-bet",
+        "steps": [
+          "Sistema: <strong>{ x + y = 7;  x − y = 3 }</strong>.",
+          "Qo‘shish usuli: ikkala tenglamani qo‘shamiz: 2x = 10 → <strong>x = 5</strong>.",
+          "Birinchi tenglamaga qo‘yamiz: 5 + y = 7 → <strong>y = 2</strong>.",
+          "Tekshirish: 5 − 2 = 3 — to‘g‘ri."
+        ]
+      },
+      {
+        "img": "png/kitob-57-masala2.png",
+        "alt": "2-masala: almashtirish usuli",
+        "width": 978,
+        "height": 350,
+        "caption": "2-masala · 57-bet",
+        "steps": [
+          "Sistema: <strong>{ y = 2x − 1;  3x + y = 11 }</strong>.",
+          "Almashtirish: ikkinchi tenglamaga y ni qo‘yamiz: 3x + (2x − 1) = 11 → 5x − 1 = 11 → 5x = 12 → <strong>x = 2,4</strong>.",
+          "y = 2·2,4 − 1 = <strong>3,8</strong>."
+        ]
+      },
+      {
+        "img": "png/kitob-58-masala3.png",
+        "alt": "3-masala: grafik usul",
+        "width": 978,
+        "height": 400,
+        "caption": "3-masala · 58-bet",
+        "steps": [
+          "Sistema: <strong>{ y = x + 1;  y = −x + 5 }</strong>.",
+          "Birinchi chiziq: uchi (0,1), nishabi 1.",
+          "Ikkinchi chiziq: uchi (0,5), nishabi −1.",
+          "Kesishish: x + 1 = −x + 5 → 2x = 4 → <strong>x = 2, y = 3</strong>."
+        ]
+      }
+    ]
+  },
+
+  "mashqlar": {
+    "betlar": "58-bet",
+    "intro": "Daftarga yeching. O‘qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "1-mashq.",
+        "body": "Quyidagi sistemani almashtirish usuli bilan yeching:",
+        "sub": "{ x + 2y = 8;  y = 3x − 1 }"
+      },
+      {
+        "title": "2-mashq.",
+        "body": "Qo‘shish usuli bilan yeching:",
+        "sub": "{ 2x + y = 7;  3x − y = 8 }"
+      },
+      {
+        "title": "3-mashq.",
+        "body": "Grafik usul bilan yeching va tekshiring:",
+        "sub": "{ y = 2x − 3;  y = −x + 3 }"
+      }
+    ]
+  },
+
+  "xulosa": [
+    "<strong>Sistemani yechish</strong>ning asosiy usullari: grafik, almashtirish, qo‘shish (ayirish).",
+    "Grafik usul — ko‘rgazmali, lekin taxminiy bo‘lishi mumkin.",
+    "Almashtirish — bir o‘zgaruvchini ifodalash qulay bo‘lsa yaxshi.",
+    "Qo‘shish — koeffitsientlar qarama-qarshi yoki tenglashtirilsa tez.",
+    "Har doim yechimni tekshirish kerak."
+  ],
+
+  "xulosaBoard": [
+    { "html": "<strong>Grafik</strong> — kesishish nuqtasi" },
+    { "html": "<strong>Almashtirish</strong> — ifodalab qo‘yish" },
+    { "html": "<strong>Qo‘shish</strong> — o‘zgaruvchini yo‘qotish" },
+    { "html": "Barcha usullar bir xil javob beradi" }
+  ]
+}

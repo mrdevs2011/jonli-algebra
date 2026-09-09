@@ -1,7 +1,7 @@
 # Loyiha holati — Jonli Algebra
 
 **Oxirgi yangilanish:** 2026-09-09  
-**Holat:** 1–11-§ to‘liq tayyor; barcha data.json 1-dars strukturasi bilan 100% mos
+**Holat:** 1–14-§ to‘liq tayyor; barcha data.json 1-dars strukturasi bilan 100% mos
 
 ---
 
@@ -10,8 +10,8 @@
 | Ko‘rsatkich              | Qiymat              |
 |--------------------------|---------------------|
 | Jami darslar (reja)      | 38                  |
-| Fizik mavjud dars papkasi| 11 / 38             |
-| Tayyor (`readyIds`)      | 11 / 38             |
+| Fizik mavjud dars papkasi| 14 / 38             |
+| Tayyor (`readyIds`)      | 14 / 38             |
 
 ---
 
@@ -30,10 +30,13 @@
 | 9 | Aniqlanish sohasi | domain-line |
 | 10 | O‘sish va kamayish | mono-parabola |
 | 11 | Juftlik va toqlik | even-odd |
+| 12 | Daraja qatnashgan tenglama va tengsizlik | domain-line (yoki tegishli) |
+| 13 | Kvadrat qatnashgan sodda sistemalar | line-parabola |
+| 14 | Sistemani yechishning turli usullari | system-methods |
 
 ```js
 function readyIds() {
-  return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 }
 ```
 
@@ -41,4 +44,4 @@ function readyIds() {
 
 ## Keyingi dars
 
-**12-§** — Daraja qatnashgan tenglama va tengsizlik
+**15-§** — Kvadrat tenglamalar sistemasini yechish
