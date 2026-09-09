@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../css/dars.css">
   <style>
     /* Faqat shu darsga tegishli qo'shimcha uslub — umumiy fayllarga tegilmadi */
+    .sahna-stage { position: relative; }
+
     .sahna1-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -35,6 +37,42 @@
     .sahna1-formula .term-a { color: var(--accent); font-weight: 700; }
     .sahna1-formula .term-b { color: var(--accent-2); font-weight: 700; }
     .sahna1-formula .term-c { color: var(--gold); font-weight: 700; }
+
+    /* Formuladagi raqamlar — surish (drag) yoki oq/pastga tugma bilan o'zgartsa bo'ladi */
+    .term-value {
+      display: inline-block;
+      position: relative;
+      cursor: ew-resize;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      padding: 1px 5px;
+      border-radius: 8px;
+      border-bottom: 2px dotted currentColor;
+      opacity: 0.92;
+      transition: background-color 0.15s ease, transform 0.12s ease;
+    }
+    .term-value:hover,
+    .term-value:focus-visible { background: rgba(74, 85, 76, 0.09); outline: none; }
+    .term-value.is-dragging {
+      background: rgba(74, 85, 76, 0.16);
+      transform: scale(1.14);
+      border-bottom-style: solid;
+    }
+    .term-value.is-pulse { animation: termPulse 0.28s ease; }
+    @keyframes termPulse {
+      0% { transform: scale(1); }
+      45% { transform: scale(1.22); }
+      100% { transform: scale(1); }
+    }
+    .sahna1-hint {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      opacity: 0.75;
+      margin: -4px 0 0;
+    }
+
     .sahna1-note {
       text-align: center;
       font-size: 0.92rem;
@@ -53,6 +91,130 @@
     @media (max-width: 560px) {
       .sahna1-controls { grid-template-columns: 1fr; }
     }
+
+    /* Kattalashtirish tugmasi — sahna burchagida */
+    .sahna-expand-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .sahna-expand-btn:hover { background: var(--paper); }
+
+    /* Kengaytirilgan (butun ekran) rejim — har qanday qurilmada scrollsiz sig'adi */
+    .sahna-stage.sahna-expanded {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      margin: 0;
+      border-radius: 0;
+      background: var(--paper);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+      height: calc(var(--vh, 1vh) * 100);
+      height: 100dvh;
+    }
+    .sahna-stage.sahna-expanded .sahna1-grid {
+      width: 100%;
+      max-width: 980px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sahna-stage.sahna-expanded .sahna1-formula {
+      flex: 0 0 auto;
+      font-size: clamp(1.2rem, 3.4vw, 2.1rem);
+      margin: 4px 0 0;
+    }
+    .sahna-stage.sahna-expanded .sahna1-hint { flex: 0 0 auto; }
+    .sahna-stage.sahna-expanded .sahna1-graf {
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .sahna-stage.sahna-expanded .sahna1-note { flex: 0 0 auto; margin: 0; font-size: clamp(0.85rem, 1.6vw, 1.05rem); }
+    .sahna-stage.sahna-expanded .sahna1-controls {
+      flex: 0 0 auto;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 12px;
+    }
+    .sahna-stage.sahna-expanded .control-desc { display: none; }
+    .sahna-stage.sahna-expanded .control label { font-size: 1rem; }
+    .sahna-stage.sahna-expanded .sahna-expand-btn { top: max(10px, env(safe-area-inset-top)); right: max(10px, env(safe-area-inset-right)); }
+    /* Juda past bo'yli ekranlar (kichik telefon, gorizontal) — tavsif va maslahat matnini olib, joy tejaymiz */
+    @media (max-height: 480px) {
+      .sahna-stage.sahna-expanded .sahna1-hint { display: none; }
+      .sahna-stage.sahna-expanded .sahna1-formula { font-size: clamp(1rem, 3vw, 1.5rem); margin-top: 0; }
+      .sahna-stage.sahna-expanded .sahna1-controls { gap: 4px 10px; }
+      .sahna-stage.sahna-expanded .sahna1-grid { gap: 6px; }
+    }
+    body.sahna-lock { overflow: hidden; }
+
+    /* Doskada namuna yechish — faqat shu darsga tegishli */
+    .block-doska { border-left: 4px solid var(--accent-2); }
+    .doska-intro { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 14px !important; }
+
+    .doska-masala {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .doska-masala:first-of-type { border-top: none; padding-top: 0; }
+
+    .doska-masala-img { display: flex; flex-direction: column; gap: 6px; }
+    .doska-img { display: block; text-decoration: none; }
+    .doska-img img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .doska-img:hover img { transform: scale(1.015); box-shadow: 0 10px 24px rgba(26,34,28,0.16); }
+    .doska-img-cap { font-size: 0.78rem; color: var(--ink-soft); text-align: center; }
+
+    .doska-steps-list { margin: 0; padding-left: 20px; display: grid; gap: 10px; }
+    .doska-steps-list li {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.2s ease;
+    }
+    .doska-steps-list li.is-shown { opacity: 1; max-height: none; }
+
+    .doska-steps-controls { display: flex; gap: 10px; margin-top: 12px; }
+    .doska-steps-static p { margin: 0; color: var(--ink-soft); }
+    .doska-masala-tarif { background: var(--paper); border-radius: 14px; padding: 12px 14px; }
+    .doska-masala-tarif .doska-masala-img { align-self: center; }
+
+    @media (max-width: 720px) {
+      .doska-masala { grid-template-columns: 1fr; }
+    }
+
+    /* Doska rejimida (o'qituvchi to'liq ekran) — kattaroq matn */
+    .board-mode .doska-steps-list li { font-size: 1.12rem; line-height: 1.6; }
+    .board-mode .doska-steps-controls .btn { font-size: 1.05rem; padding: 10px 18px; }
   </style>
 </head>
 <body>
@@ -97,26 +259,30 @@
         </ol>
       </section>
 
-      <section class="stage is-live" id="sahna" aria-label="Interaktiv chizma: a, b, c slayderlari va grafik">
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv chizma: a, b, c slayderlari va grafik">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <span aria-hidden="true">⤢</span>
+        </button>
         <div class="sahna1-grid">
           <p class="sahna1-formula">
-            y&nbsp;=&nbsp;<span class="term-a" id="lbl-a">1</span>x²&nbsp;+&nbsp;<span class="term-b" id="lbl-b">0</span>x&nbsp;+&nbsp;<span class="term-c" id="lbl-c">0</span>
+            y&nbsp;=&nbsp;<span class="term-a term-value" id="lbl-a" data-var="a">1</span>x²&nbsp;+&nbsp;<span class="term-b term-value" id="lbl-b" data-var="b">0</span>x&nbsp;+&nbsp;<span class="term-c term-value" id="lbl-c" data-var="c">0</span>
           </p>
-          <svg class="sahna1-graf" id="graf" viewBox="0 0 320 260" role="img" aria-label="Koordinata tekisligida grafik"></svg>
+          <p class="sahna1-hint">👆 Raqamlarni suring yoki pastdagi slayderdan foydalaning</p>
+          <svg class="sahna1-graf" id="graf" viewBox="0 0 320 260" role="img" aria-label="Koordinata tekisligida grafik" preserveAspectRatio="xMidYMid meet"></svg>
           <p class="sahna1-note" id="sahna1-note" aria-live="polite"></p>
           <div class="sahna1-controls controls">
             <div class="control">
-              <label for="slide-a"><span>a</span> — tarmoqni boshqaradi</label>
+              <label for="slide-a"><span>a</span> <small class="control-desc">— tarmoqni boshqaradi</small></label>
               <input type="range" id="slide-a" min="-3" max="3" step="0.5" value="1">
               <output id="out-a">1</output>
             </div>
             <div class="control">
-              <label for="slide-b"><span>b</span> — uchini suradi</label>
+              <label for="slide-b"><span>b</span> <small class="control-desc">— uchini suradi</small></label>
               <input type="range" id="slide-b" min="-6" max="6" step="1" value="0">
               <output id="out-b">0</output>
             </div>
             <div class="control">
-              <label for="slide-c"><span>c</span> — yuqoriga/pastga ko'chiradi</label>
+              <label for="slide-c"><span>c</span> <small class="control-desc">— yuqoriga/pastga ko'chiradi</small></label>
               <input type="range" id="slide-c" min="-5" max="5" step="1" value="0">
               <output id="out-c">0</output>
             </div>
@@ -180,6 +346,89 @@
           </div>
         </div>
 
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro">
+            Kitobdagi 3 ta masala — o'qituvchi doskada shu tartibda yechib ko'rsatadi.
+            Har birida rasm (kitobdan) va yoniga "Keyingi qadam" bilan ochiladigan tushuntirish bor.
+          </p>
+
+          <div class="doska-masala" data-doska>
+            <div class="doska-masala-img">
+              <a href="kitob-6-masala1.png" target="_blank" rel="noopener" class="doska-img">
+                <img src="kitob-6-masala1.png" alt="1-masala: y=x²-5x+6 funksiyaning x=-2,0,3 dagi qiymatlari" loading="lazy" width="978" height="214">
+              </a>
+              <span class="doska-img-cap">1-masala · 6-bet</span>
+            </div>
+            <div class="doska-steps">
+              <ol class="doska-steps-list" data-doska-list>
+                <li>Formula: <strong>y(x) = x² − 5x + 6</strong>. x o'rniga har bir qiymatni birma-bir qo'yamiz.</li>
+                <li><strong>x = −2</strong>: y(−2) = (−2)² − 5·(−2) + 6 = 4 + 10 + 6 = <strong>20</strong>.</li>
+                <li><strong>x = 0</strong>: y(0) = 0² − 5·0 + 6 = <strong>6</strong>.</li>
+                <li><strong>x = 3</strong>: y(3) = 3² − 5·3 + 6 = 9 − 15 + 6 = <strong>0</strong>.</li>
+              </ol>
+              <div class="doska-steps-controls">
+                <button type="button" class="btn doska-step-next" data-doska-next>Keyingi qadam</button>
+                <button type="button" class="btn btn-ghost doska-step-reset" data-doska-reset>Boshidan</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doska-masala" data-doska>
+            <div class="doska-masala-img">
+              <a href="kitob-6-masala2.png" target="_blank" rel="noopener" class="doska-img">
+                <img src="kitob-6-masala2.png" alt="2-masala: y=x²+4x-5 funksiya 7, -9, -8, 0 ga teng bo'lgan x larni topish" loading="lazy" width="978" height="487">
+              </a>
+              <span class="doska-img-cap">2-masala · 6-bet</span>
+            </div>
+            <div class="doska-steps">
+              <ol class="doska-steps-list" data-doska-list>
+                <li>Formula: <strong>y = x² + 4x − 5</strong>. Har bir qiymat uchun tenglama tuzamiz: y ni shu songa tenglaymiz.</li>
+                <li><strong>y = 7</strong>: x² + 4x − 5 = 7 → x² + 4x − 12 = 0. x₁,₂ = −2 ± √(4+12) = −2 ± 4 → x₁ = 2, x₂ = −6.</li>
+                <li><strong>y = −9</strong>: x² + 4x − 5 = −9 → x² + 4x + 4 = 0 → (x+2)² = 0 → <strong>x = −2</strong> (bitta ildiz).</li>
+                <li><strong>y = −8</strong>: x² + 4x − 5 = −8 → x² + 4x + 3 = 0 → x₁ = −3, x₂ = −1.</li>
+                <li><strong>y = 0</strong>: x² + 4x − 5 = 0 → x₁ = 1, x₂ = −5.</li>
+              </ol>
+              <div class="doska-steps-controls">
+                <button type="button" class="btn doska-step-next" data-doska-next>Keyingi qadam</button>
+                <button type="button" class="btn btn-ghost doska-step-reset" data-doska-reset>Boshidan</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doska-masala doska-masala-tarif">
+            <div class="doska-masala-img">
+              <a href="kitob-6-nollar.png" target="_blank" rel="noopener" class="doska-img">
+                <img src="kitob-6-nollar.png" alt="Kvadrat funksiyaning nollari ta'rifi" loading="lazy" width="978" height="108">
+              </a>
+              <span class="doska-img-cap">Ta'rif · 6-bet</span>
+            </div>
+            <div class="doska-steps doska-steps-static">
+              <p><strong>Muhim tushuncha:</strong> yuqoridagi 2-masalaning oxirgi qismida (y = 0) topilgan x₁ = 1 va x₂ = −5 — funksiyaning qiymati nolga teng bo'ladigan x lar. Bunday x lar <strong>funksiyaning nollari</strong> deyiladi. 3-masala aynan shuni topishni so'raydi.</p>
+            </div>
+          </div>
+
+          <div class="doska-masala" data-doska>
+            <div class="doska-masala-img">
+              <a href="kitob-6-masala3.png" target="_blank" rel="noopener" class="doska-img">
+                <img src="kitob-6-masala3.png" alt="3-masala: y=x²-3x funksiyaning nollarini topish" loading="lazy" width="978" height="82">
+              </a>
+              <span class="doska-img-cap">3-masala · 6-bet</span>
+            </div>
+            <div class="doska-steps">
+              <ol class="doska-steps-list" data-doska-list>
+                <li>Nollarni topish uchun <strong>y = 0</strong> qo'yamiz: x² − 3x = 0.</li>
+                <li>Umumiy ko'paytuvchi x ni qavsdan chiqaramiz: <strong>x(x − 3) = 0</strong>.</li>
+                <li>Ko'paytma nolga teng bo'lishi uchun kamida bitta ko'paytuvchi nol bo'lishi kerak: <strong>x₁ = 0, x₂ = 3</strong>.</li>
+              </ol>
+              <div class="doska-steps-controls">
+                <button type="button" class="btn doska-step-next" data-doska-next>Keyingi qadam</button>
+                <button type="button" class="btn btn-ghost doska-step-reset" data-doska-reset>Boshidan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="block block-mashq">
           <h2>Darslikdan mashqlar · 6-bet</h2>
           <p class="mashq-intro">Daftarga yeching. O'qituvchi doskada tekshiradi.</p>
@@ -240,6 +489,7 @@
       var lblB = document.getElementById("lbl-b");
       var lblC = document.getElementById("lbl-c");
       var note = document.getElementById("sahna1-note");
+      var lastVals = { a: null, b: null, c: null };
 
       function fmt(n) {
         if (n === 0) return "0";
@@ -249,6 +499,75 @@
 
       function toX(x) { return ORIGIN_X + x * SCALE; }
       function toY(y) { return ORIGIN_Y - y * SCALE; }
+
+      function pulse(el, key, val) {
+        if (lastVals[key] !== null && lastVals[key] !== val) {
+          el.classList.remove("is-pulse");
+          // reflow — animatsiyani qayta ishga tushirish uchun
+          void el.offsetWidth;
+          el.classList.add("is-pulse");
+        }
+        lastVals[key] = val;
+      }
+
+      // Formuladagi raqamlarni surib (yoki bosib) o'zgartirish — slayder bilan bir xil natija
+      function bindScrub(el, slider) {
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("role", "slider");
+        el.setAttribute("aria-label", (slider.id === "slide-a" ? "a" : slider.id === "slide-b" ? "b" : "c") + " qiymati");
+        el.setAttribute("aria-valuemin", slider.min);
+        el.setAttribute("aria-valuemax", slider.max);
+
+        var dragging = false, moved = false, startX = 0, startY = 0, startVal = 0;
+        var PX_PER_STEP = 14;
+
+        function step() { return parseFloat(slider.step) || 1; }
+
+        function setVal(v) {
+          var min = parseFloat(slider.min), max = parseFloat(slider.max), st = step();
+          v = Math.round(v / st) * st;
+          v = Math.max(min, Math.min(max, v));
+          v = Math.round(v * 100) / 100;
+          if (parseFloat(slider.value) !== v) {
+            slider.value = v;
+            slider.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+          el.setAttribute("aria-valuenow", v);
+        }
+
+        el.addEventListener("pointerdown", function (e) {
+          dragging = true; moved = false;
+          startX = e.clientX; startY = e.clientY;
+          startVal = parseFloat(slider.value);
+          try { el.setPointerCapture(e.pointerId); } catch (err) {}
+          el.classList.add("is-dragging");
+        });
+
+        el.addEventListener("pointermove", function (e) {
+          if (!dragging) return;
+          var dx = e.clientX - startX, dy = e.clientY - startY;
+          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved = true;
+          setVal(startVal + (dx / PX_PER_STEP) * step());
+        });
+
+        function endDrag() {
+          if (!dragging) return;
+          dragging = false;
+          el.classList.remove("is-dragging");
+        }
+        el.addEventListener("pointerup", endDrag);
+        el.addEventListener("pointercancel", endDrag);
+
+        el.addEventListener("keydown", function (e) {
+          var cur = parseFloat(slider.value);
+          if (e.key === "ArrowRight" || e.key === "ArrowUp") { setVal(cur + step()); e.preventDefault(); }
+          else if (e.key === "ArrowLeft" || e.key === "ArrowDown") { setVal(cur - step()); e.preventDefault(); }
+          else if (e.key === "Home") { setVal(parseFloat(slider.min)); e.preventDefault(); }
+          else if (e.key === "End") { setVal(parseFloat(slider.max)); e.preventDefault(); }
+        });
+
+        el.setAttribute("aria-valuenow", slider.value);
+      }
 
       function buildAxes() {
         var frag = document.createDocumentFragment();
@@ -308,6 +627,8 @@
         outA.textContent = a; outB.textContent = b; outC.textContent = c;
         lblA.textContent = a; lblB.textContent = fmt(b).replace(/^\+/, "+"); lblC.textContent = fmt(c);
 
+        pulse(lblA, "a", a); pulse(lblB, "b", b); pulse(lblC, "c", c);
+
         var d = "";
         var xMin = -9, xMax = 9, step = 0.25;
         for (var x = xMin; x <= xMax; x += step) {
@@ -336,6 +657,60 @@
       [slideA, slideB, slideC].forEach(function (el) {
         el.addEventListener("input", render);
       });
+
+      bindScrub(lblA, slideA);
+      bindScrub(lblB, slideB);
+      bindScrub(lblC, slideC);
+
+      // Butun ekranga yoyish — har qanday qurilmada scrollsiz sig'ishi uchun
+      (function () {
+        var stage = document.getElementById("sahna");
+        var btn = document.getElementById("sahnaExpandBtn");
+        if (!stage || !btn) return;
+
+        function setVh() {
+          document.documentElement.style.setProperty("--vh", (window.innerHeight * 0.01) + "px");
+        }
+        setVh();
+        window.addEventListener("resize", setVh);
+        window.addEventListener("orientationchange", setVh);
+
+        function requestFs() {
+          try {
+            var req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+            if (req) req.call(stage);
+          } catch (e) {}
+        }
+        function exitFs() {
+          try {
+            var exit = document.exitFullscreen || document.webkitExitFullscreen;
+            if (document.fullscreenElement && exit) exit.call(document);
+          } catch (e) {}
+        }
+
+        function setExpanded(on) {
+          stage.classList.toggle("sahna-expanded", on);
+          document.body.classList.toggle("sahna-lock", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+          btn.innerHTML = on ? "<span aria-hidden=\"true\">✕</span>" : "<span aria-hidden=\"true\">⤢</span>";
+          btn.setAttribute("aria-label", on ? "Kichraytirish" : "Butun ekranga yoyish");
+          if (on) { setVh(); requestFs(); } else { exitFs(); }
+        }
+
+        btn.addEventListener("click", function () {
+          setExpanded(!stage.classList.contains("sahna-expanded"));
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && stage.classList.contains("sahna-expanded")) setExpanded(false);
+        });
+
+        document.addEventListener("fullscreenchange", function () {
+          if (!document.fullscreenElement && stage.classList.contains("sahna-expanded")) {
+            setExpanded(false);
+          }
+        });
+      })();
 
       // Savollar
       var SAVOLLAR = [
@@ -394,6 +769,39 @@
 
         box.appendChild(optsEl);
         savollarWrap.appendChild(box);
+      });
+
+      // Doskada namuna — qadam-baqadam ochish
+      document.querySelectorAll("[data-doska]").forEach(function (box) {
+        var items = box.querySelectorAll("[data-doska-list] li");
+        var nextBtn = box.querySelector("[data-doska-next]");
+        var resetBtn = box.querySelector("[data-doska-reset]");
+        var shown = 0;
+
+        function update() {
+          items.forEach(function (li, i) {
+            li.classList.toggle("is-shown", i < shown);
+          });
+          if (shown >= items.length) {
+            nextBtn.disabled = true;
+            nextBtn.textContent = "Barcha qadamlar ko'rsatildi";
+          } else {
+            nextBtn.disabled = false;
+            nextBtn.textContent = "Keyingi qadam";
+          }
+        }
+
+        nextBtn.addEventListener("click", function () {
+          if (shown < items.length) shown++;
+          update();
+        });
+
+        resetBtn.addEventListener("click", function () {
+          shown = 0;
+          update();
+        });
+
+        update();
       });
 
       if (window.KA && KA.onLessonOpen) KA.onLessonOpen(1);
