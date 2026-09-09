@@ -251,6 +251,43 @@
     .board-mode .doska-steps-list li { font-size: 1.12rem; line-height: 1.6; }
     .board-mode .doska-steps-controls .btn { font-size: 1.05rem; padding: 10px 18px; }
 
+    /* Xato ovchisi — sokin, ta'lim-uslubda ochiladigan eslatma (o'yin emas) */
+    .xato-ovchisi {
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      border-left: 3px solid #b3413a;
+      border-radius: 8px;
+      background: var(--paper);
+    }
+    .xato-ovchisi summary {
+      cursor: pointer;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      color: #8a4038;
+      list-style: none;
+    }
+    .xato-ovchisi summary::-webkit-details-marker { display: none; }
+    .xato-ovchisi summary::before { content: "⚠ "; }
+    .xato-ovchisi p {
+      margin: 0;
+      padding: 0 12px 12px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .board-mode .xato-ovchisi summary,
+    .board-mode .xato-ovchisi p { font-size: 1.02rem; }
+
+    /* Kirish — "nega kerak" motivatsion kirish gapi, sokin uslubda ajratilgan */
+    .kirish-nega {
+      background: var(--paper);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-style: italic;
+      color: var(--ink);
+    }
+
     /* ============ Doskaga kim chiqadi? (random ism tanlash) ============ */
     .block-picker, .block-classtimer {
       background: var(--white);
@@ -351,6 +388,9 @@
       box-sizing: border-box;
       animation: sahnaFadeIn 0.22s ease;
     }
+    /* MUHIM: hidden atributi bo'lsa, yuqoridagi display:flex'ni bekor qilamiz —
+       aks holda JS "hidden=true" qo'ysa ham panel ko'rinib qolaveradi. */
+    .xulosa-board[hidden] { display: none; }
     .xulosa-board-inner { max-width: 900px; width: 100%; }
     .xulosa-board-inner h2 {
       font-family: var(--font-serif);
@@ -516,6 +556,12 @@
       <section class="dars-body">
         <div class="block block-kirish">
           <h2>Kirish</h2>
+          <p class="kirish-nega">
+            Telefoningizdagi o'yinda personaj sakraganda, uning yo'li tekis chiziq bo'lmaydi —
+            avval yuqoriga ko'tariladi, keyin egilib pastga tushadi. Aynan shu egri yo'lni
+            hisoblab, o'yin dvigateli har millisekundda personajni to'g'ri joyga chizadi.
+            Mana shu hisob-kitob — bugun o'rganadigan <strong>kvadrat funksiya</strong>ning o'zi.
+          </p>
           <p>
             Yuqoridagi slayderlarni siljiting. <strong>a</strong> ni nolga tenglashtiring —
             egri chiziq to'g'ri chiziqqa aylanadi. Demak, <strong>a</strong> shu formulani
@@ -586,7 +632,12 @@
             <div class="doska-steps">
               <ol class="doska-steps-list" data-doska-list>
                 <li>Formula: <strong>y(x) = x² − 5x + 6</strong>. x o'rniga har bir qiymatni birma-bir qo'yamiz.</li>
-                <li><strong>x = −2</strong>: y(−2) = (−2)² − 5·(−2) + 6 = 4 + 10 + 6 = <strong>20</strong>.</li>
+                <li><strong>x = −2</strong>: y(−2) = (−2)² − 5·(−2) + 6 = 4 + 10 + 6 = <strong>20</strong>.
+                  <details class="xato-ovchisi">
+                    <summary>Ko'pchilik shu yerda xato qiladi — bosib ko'ring</summary>
+                    <p>Ba'zi o'quvchilar <strong>(−2)² = −4</strong> deb yozadi. Bu xato: manfiy sonni kvadratga oshirganda ishora <strong>yo'qoladi</strong> — (−2)·(−2) = <strong>+4</strong>. Doskada shu joyni sinfdan so'rab tekshirib o'ting.</p>
+                  </details>
+                </li>
                 <li><strong>x = 0</strong>: y(0) = 0² − 5·0 + 6 = <strong>6</strong>.</li>
                 <li><strong>x = 3</strong>: y(3) = 3² − 5·3 + 6 = 9 − 15 + 6 = <strong>0</strong>.</li>
               </ol>
