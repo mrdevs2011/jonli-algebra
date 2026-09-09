@@ -1,0 +1,181 @@
+{
+  "id": 2,
+  "bob": { "roman": "I", "nom": "Kvadrat funksiya. Kvadrat tengsizliklar" },
+  "paragraf": "2-§",
+  "title": "y = x² funksiya",
+  "lead": "Eng sodda parabola: uchi, simmetriya o'qi va juft nuqtalar.",
+  "prev": { "href": "../1/", "label": "1-dars" },
+  "next": { "href": "../3/", "label": "3-dars" },
+
+  "agenda": [
+    { "min": 5, "name": "Kirish — 1-§ ni bir jumlada eslash" },
+    { "min": 12, "name": "Sahna — x ni surib nuqta va juftini ko'rish" },
+    { "min": 8, "name": "Qoida — uchi, o'q, juftlik" },
+    { "min": 6, "name": "Savollar — sinf ovoz bilan" },
+    { "min": 9, "name": "Darslikdagi 1-misol va mashqlar" },
+    { "min": 5, "name": "Eslab qol — xulosa va uyga vazifa" }
+  ],
+
+  "sahna": {
+    "type": "x2-parabola",
+    "ariaLabel": "Interaktiv chizma: y = x² parabola, nuqta va simmetrik jufti",
+    "hint": "x ni suring — nuqta ko'tariladi, jufti Oy ning narigi tomonida yonadi",
+    "vars": {
+      "x": { "min": -3, "max": 3, "step": 0.5, "value": 2, "desc": "nuqtani parabola bo'ylab yuritadi" }
+    },
+    "notes": {
+      "zero": "Uch O(0; 0) — parabola shu yerda Ox ga tegadi. Oy — simmetriya o'qi.",
+      "side": "x = {x} va x = {nx} bir xil balandlikda: y = {y}. Chap tomon o'ngning ko'zgusi."
+    }
+  },
+
+  "kirish": [
+    "<p class=\"kirish-nega\">Suv favvorasidan chiqqan tomchi avval yuqoriga ko'tariladi, keyin egilib pastga tushadi. Eng sodda bunday yo'lning formulasi — faqat <strong>y = x²</strong>. Bugun shu bitta formulani nuqta-nuqta yig'amiz va nima uchun chap tomon o'ngga o'xshashini ko'ramiz.</p>",
+    "<p>Yuqorida <strong>x</strong> ni suring. Nuqta parabola bo'ylab yuradi, Oy ning narigi tomonida esa uning <em>jufti</em> yonadi. Ikkalasining balandligi bir xil — chunki (−x)² = x². Avval shu chizmani ko'ring, keyin qoida o'zi keladi.</p>"
+  ],
+
+  "reja": "Nuqtalar jadvalidan parabola yig'iladi. Uchi va simmetriya o'qi jonlanadi.",
+
+  "qoida": "<p><strong>y = x²</strong> funksiyaning grafigi <strong>parabola</strong> deyiladi. Uning <strong>uchi</strong> — O(0; 0) nuqta, <strong>simmetriya o'qi</strong> — Oy. Funksiya <strong>juft</strong>: y(−x) = (−x)² = x² = y(x), shuning uchun chap qanot o'ng qanotning ko'zgusi. Qiymatlar to'plami <strong>[0; +∞)</strong> — grafik Ox dan pastga tushmaydi.</p>",
+
+  "savollar": [
+    {
+      "savol": "y = x² grafigining uchi qayerda?",
+      "variantlar": ["O(0; 0)", "A(1; 1)", "B(0; 1)"],
+      "togri": 0
+    },
+    {
+      "savol": "Nima uchun y = x² juft funksiya?",
+      "variantlar": ["Chunki uchi origoda", "Chunki y(−x) = y(x)", "Chunki qiymati hech qachon manfiy emas"],
+      "togri": 1
+    },
+    {
+      "savol": "x² = −1 tenglama nechta yechimga ega?",
+      "variantlar": ["Ikita: −1 va 1", "Bitta: 0", "Yechimga ega emas"],
+      "togri": 2
+    }
+  ],
+
+  "eslabQol": [
+    "<strong>y = x²</strong> grafigi — parabola; uchi <strong>O(0; 0)</strong>, simmetriya o'qi <strong>Oy</strong>.",
+    "Funksiya <strong>juft</strong>: (−x)² = x², shuning uchun chap va o'ng qanot bir xil.",
+    "y hech qachon manfiy emas: <strong>E(y) = [0; +∞)</strong>. Shuning uchun x² = −1 yechimsiz."
+  ],
+
+  "kitob": {
+    "betlar": "7–8-betlar",
+    "sahifalar": [
+      { "img": "png/kitob-7.png", "bet": "7-bet", "width": 978, "height": 1014 },
+      { "img": "png/kitob-8.png", "bet": "8-bet", "width": 978, "height": 1014 }
+    ]
+  },
+
+  "doska": {
+    "intro": "Avval nuqtalarni qo'yamiz, keyin parabolani ataymiz, so'ng 1-misolni grafikdan yechamiz.",
+    "masalalar": [
+      {
+        "img": "png/kitob-7-qadamlar.png",
+        "alt": "y = x² grafigini yasashning uch qadami",
+        "width": 978,
+        "height": 292,
+        "caption": "Yasash tartibi · 7-bet",
+        "steps": [
+          "<strong>1-qadam.</strong> Qiymatlar jadvalini tuzamiz: x ga −3, −2, −1, 0, 1, 2, 3 ni qo'yamiz.",
+          "<strong>2-qadam.</strong> Har bir (x; x²) juftligini koordinata tekisligiga nuqta qilib tushiramiz.",
+          "<strong>3-qadam.</strong> Nuqtalarni ravon chiziq bilan tutashtiramiz — parabola hosil bo'ladi."
+        ]
+      },
+      {
+        "img": "png/kitob-7-jadval.png",
+        "alt": "y = x² qiymatlar jadvali va parabola chizmasi",
+        "width": 978,
+        "height": 504,
+        "caption": "Jadval va grafik · 7-bet",
+        "steps": [
+          "Jadval: x = −3, −2, −1, 0, 1, 2, 3 → y = 9, 4, 1, 0, 1, 4, 9.",
+          "Chapdagi y lar o'ngdagilar bilan bir xil. Bu — simmetriya: (−2)² = 2² = 4.",
+          "Eng pastki nuqta — (0; 0). Bu nuqta parabolaning <strong>uchi</strong>.",
+          "Oy o'qi chizmani ikkiga bo'ladi. Shu o'q — <strong>simmetriya o'qi</strong>."
+        ]
+      },
+      {
+        "img": "png/kitob-7-tarif.png",
+        "alt": "Parabola, uch va simmetriya o'qi ta'rifi",
+        "width": 978,
+        "height": 162,
+        "caption": "Ta'rif · 7-bet",
+        "static": "<strong>Atamalar:</strong> y = x² egri chizig'i <strong>parabola</strong> deyiladi. O(0; 0) — uning <strong>uchi</strong>. Oy — <strong>simmetriya o'qi</strong>. Bundan xossa chiqadi: aniqlanish sohasi barcha haqiqiy sonlar, qiymatlar to'plami esa [0; +∞)."
+      },
+      {
+        "img": "png/kitob-8-xossa.png",
+        "alt": "y = x² funksiyaning xossalari",
+        "width": 978,
+        "height": 458,
+        "caption": "Xossalar · 8-bet",
+        "steps": [
+          "<strong>D(y) = (−∞; +∞)</strong> — x ga istalgan haqiqiy sonni qo'yish mumkin.",
+          "<strong>E(y) = [0; +∞)</strong> — y manfiy bo'lmaydi.",
+          "<strong>Juftlik:</strong> y(−x) = (−x)² = x² = y(x).",
+          "<strong>Kamayish / o'sish:</strong> (−∞; 0] da kamayadi, [0; +∞) da o'sadi.",
+          "<strong>Minimum</strong> x = 0 da: y = 0. Funksiyaning yagona noli ham x = 0."
+        ]
+      },
+      {
+        "img": "png/kitob-8-misol1.png",
+        "alt": "1-misol: y = x² grafigidan tenglamalarni yechish",
+        "width": 978,
+        "height": 278,
+        "caption": "1-misol · 8-bet",
+        "steps": [
+          "Grafikdan qarab yechamiz — formulani yoddan emas, chizmadan.",
+          "<strong>a) y = 4.</strong> Gorizontal chiziq y = 4 parabola bilan ikki nuqtada kesishadi: <strong>x = −2</strong> va <strong>x = 2</strong>.",
+          "<strong>b) y = 2.</strong> Kesishish bor, lekin x butun emas: <strong>x = −√2</strong> va <strong>x = √2</strong>.",
+          "<strong>c) y = −1.</strong> y = −1 chizig'i paraboladan <em>pastda</em>, umuman tegmaydi. Yechim yo'q — chunki x² hech qachon manfiy emas.",
+          "<details class=\"xato-ovchisi\"><summary>Ko'pchilik shu yerda xato qiladi — bosib ko'ring</summary><p>«Kvadrat ildiz» deb x = −1 yozish — xato. √(−1) haqiqiy sonda yo'q. Doskada so'rang: parabola Ox dan pastga tushadimi?</p></details>"
+        ]
+      }
+    ]
+  },
+
+  "mashqlar": {
+    "betlar": "8-bet",
+    "intro": "Avval grafikga qarab, keyin daftarga yozing. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "1-mashq.",
+        "body": "y = x² grafigidan foydalanib taxminiy qiymatni toping:",
+        "sub": "a) y(2,5); &nbsp; b) y(−1,5)."
+      },
+      {
+        "title": "2-mashq.",
+        "body": "Grafikdan (yoki xossadan) yeching:",
+        "sub": "a) x² = 1; &nbsp; b) x² = 9; &nbsp; c) x² = 5; &nbsp; d) x² = −4."
+      },
+      {
+        "title": "3-mashq.",
+        "body": "Grafikdan tengsizlikni yeching:",
+        "sub": "a) x² > 1; &nbsp; b) x² ≥ 4; &nbsp; c) x² < 9; &nbsp; d) x² ≤ 0; &nbsp; e) x² > −1."
+      },
+      {
+        "title": "4-mashq.",
+        "body": "y = x² ning berilgan oraliqdagi qiymatlar to'plamini toping:",
+        "sub": "a) [0,5; 2]; &nbsp; b) [−2; −0,5]; &nbsp; c) [−2; 2]."
+      }
+    ]
+  },
+
+  "xulosa": [
+    "<strong>y = x²</strong> grafigi — <strong>parabola</strong>.",
+    "Uchi — <strong>O(0; 0)</strong>, simmetriya o'qi — <strong>Oy</strong>.",
+    "Juft funksiya: chap qanot o'ng qanotning ko'zgusi.",
+    "Qiymatlar to'plami <strong>[0; +∞)</strong>; x² = manfiy son — yechimsiz.",
+    "Yasash: jadval → nuqtalar → ravon chiziq."
+  ],
+
+  "xulosaBoard": [
+    { "html": "<strong>y = x²</strong> &nbsp;&mdash;&nbsp; <span>parabola</span>" },
+    { "html": "uch — <strong>O(0; 0)</strong>" },
+    { "html": "o'q — <strong>Oy</strong> (simmetriya)" },
+    { "html": "juft: <span class=\"term-a\">(−x)² = x²</span>" }
+  ]
+}

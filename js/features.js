@@ -681,11 +681,11 @@
   /**
    * Tayyor darslar ro‘yxati.
    * Dars to‘liq yozilib, sinovdan o‘tgach shu yerga raqam qo‘shiladi.
-   * Misol: return [4, 2, 3];
+   * Misol: return [1, 2, 3, 4, 5, 6];
    * Hozir poydevor — hech narsa ochilmagan.
    */
   function readyIds() {
-    return [1];
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   }
 
   function read() {

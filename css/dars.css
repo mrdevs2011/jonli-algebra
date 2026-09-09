@@ -922,6 +922,57 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 10px 16px;
     }
+    .sahna-x2-controls { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; width: 100%; }
+    .sahna-x2-table {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sahna-x2-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      text-align: center;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .sahna-x2-table th,
+    .sahna-x2-table td {
+      padding: 6px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .sahna-x2-table thead th { color: var(--ink-soft); font-weight: 600; }
+    .sahna-x2-table tbody th { text-align: left; padding-left: 10px; color: var(--ink-soft); font-weight: 600; }
+    .sahna-x2-table .is-on {
+      background: rgba(194, 75, 42, 0.14);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .sahna-stage.sahna-expanded .sahna-x2-table { flex: 0 0 auto; }
+    .sahna-stage.sahna-expanded .sahna-x2-controls { max-width: none; }
+
+    .sahna-step-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+    .sahna-step-pill {
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      color: var(--ink-soft);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+    .sahna-step-pill.is-on {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+      font-weight: 700;
+    }
+    .sahna-stage.sahna-expanded .sahna-step-pills { flex: 0 0 auto; }
     .sahna1-controls .control label span { font-weight: 700; }
     .sahna1-controls .control:nth-child(1) label span { color: var(--accent); }
     .sahna1-controls .control:nth-child(2) label span { color: var(--accent-2); }
@@ -1094,3 +1145,84 @@
       color: var(--ink);
     }
 
+
+/* ---- ineq-parabola sahna ---- */
+.ineq-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 6px 0 4px;
+}
+.ineq-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink-soft, #8a8478);
+  background: var(--paper, #f3eee4);
+  color: var(--ink, #1a221c);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.ineq-btn:hover { border-color: var(--accent, #c24b2a); }
+.ineq-btn.is-active,
+.ineq-btn[aria-pressed="true"] {
+  background: var(--accent, #c24b2a);
+  border-color: var(--accent, #c24b2a);
+  color: #fff;
+}
+.ineq-sign {
+  font-weight: 700;
+  color: var(--accent, #c24b2a);
+  margin-left: 2px;
+}
+.sahna1-note .note-meta {
+  opacity: 0.7;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+/* ---- mono-parabola (o'sish/kamayish) ---- */
+.mono-chip {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.85em;
+  font-weight: 700;
+}
+.mono-chip.mono-inc { background: rgba(46, 125, 90, 0.18); color: #2e7d5a; }
+.mono-chip.mono-dec { background: rgba(194, 75, 42, 0.18); color: #c24b2a; }
+
+/* ---- graph-steps / sign-chain extras ---- */
+.sahna-step-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 4px 0 8px;
+}
+.sahna-step-pills button {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink-soft, #8a8478);
+  background: var(--paper, #f3eee4);
+  color: var(--ink);
+  cursor: pointer;
+}
+.sahna-step-pills button.is-active,
+.sahna-step-pills button[aria-selected="true"] {
+  background: var(--accent, #c24b2a);
+  border-color: var(--accent, #c24b2a);
+  color: #fff;
+}
+.sahna-sign-factors {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 4px 0;
+  color: var(--ink-soft, #5a554c);
+}

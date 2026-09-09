@@ -1,0 +1,227 @@
+{
+  "id": 3,
+  "bob": {
+    "roman": "I",
+    "nom": "Kvadrat funksiya. Kvadrat tengsizliklar"
+  },
+  "paragraf": "3-§",
+  "title": "y = ax² funksiya",
+  "lead": "a tarmoqlarni ochadi, yopadi yoki ag'daradi.",
+  "prev": {
+    "href": "../2/",
+    "label": "2-dars"
+  },
+  "next": {
+    "href": "../4/",
+    "label": "4-dars"
+  },
+  "agenda": [
+    {
+      "min": 5,
+      "name": "Kirish — y = x² ni eslash"
+    },
+    {
+      "min": 12,
+      "name": "Sahna — a slayderi bilan jonli ko'rsatish"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — a ning 3 ta roli"
+    },
+    {
+      "min": 7,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 8,
+      "name": "Darslikdan mashqlar — daftarga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "abc-parabola",
+    "ariaLabel": "Interaktiv chizma: a slayderi va y = ax² grafigi",
+    "hint": "a ni suring — parabola ingichkalashadi, kengayadi yoki ag'dariladi",
+    "vars": {
+      "a": {
+        "min": -3,
+        "max": 3,
+        "step": 0.25,
+        "value": 1,
+        "desc": "tarmoqlarni boshqaradi"
+      },
+      "b": {
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "value": 0,
+        "desc": "bu darsda 0"
+      },
+      "c": {
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "value": 0,
+        "desc": "bu darsda 0"
+      }
+    },
+    "notes": {
+      "zero": "a = 0 — parabola yo'qoladi, oddiy to'g'ri chiziq qoladi (y = 0)",
+      "positive": "a > 0 — tarmoqlar yuqoriga ochiladi. |a| katta bo'lsa parabola ingichka, kichik bo'lsa keng",
+      "negative": "a < 0 — tarmoqlar pastga ag'dariladi. |a| katta bo'lsa ingichka, kichik bo'lsa keng"
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">O'tgan darsda eng sodda parabola — <strong>y = x²</strong> ni ko'rdik. U har doim yuqoriga ochiladi va uchi (0; 0) da. Bugun shu parabolani <strong>a</strong> koeffitsiyenti bilan o'zgartiramiz: y = ax².</p>",
+    "<p>Yuqoridagi <strong>a</strong> slayderini siljiting. a ni 2 ga oshiring — parabola siqiladi (ingichkalashadi). a ni 0,5 ga tushiring — kengayadi. a ni manfiy qiling — butunlay ag'dariladi, pastga ochiladi. Mana shu uchta o'zgarish — bugungi darsning butun mazmuni.</p>"
+  ],
+  "reja": "a tarmoqlarni ochadi, yopadi yoki ag'daradi. |a| kattaligi esa parabola qanchalik ingichka yoki keng ekanini belgilaydi.",
+  "qoida": "<p><strong>y = ax²</strong> funksiyaning grafigi parabola. <strong>a</strong> ning ishorasi tarmoqlar yo'nalishini, |a| esa uning «ingichkaligini» belgilaydi:</p><ul><li><strong>a > 0</strong> — tarmoqlar yuqoriga ochiladi;</li><li><strong>a < 0</strong> — tarmoqlar pastga ochiladi;</li><li><strong>|a| katta</strong> — parabola ingichka (siqilgan);</li><li><strong>|a| kichik</strong> — parabola keng (yoyilgan).</li></ul><p>Har qanday a ≠ 0 da uchi (0; 0) da qoladi va Oy o'qiga nisbatan simmetrik bo'ladi.</p>",
+  "savollar": [
+    {
+      "savol": "y = −3x² funksiyaning grafigi qanday?",
+      "variantlar": [
+        "Yuqoriga ochilgan, keng parabola",
+        "Pastga ochilgan, ingichka parabola",
+        "Yuqoriga ochilgan, ingichka parabola"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "y = 0,25x² va y = 4x² larni taqqoslang. Qaysi biri kengroq?",
+      "variantlar": [
+        "y = 4x² kengroq",
+        "Ikkalasi bir xil",
+        "y = 0,25x² kengroq"
+      ],
+      "togri": 2
+    },
+    {
+      "savol": "a = 0 bo'lsa y = ax² nima bo'ladi?",
+      "variantlar": [
+        "Hali ham parabola, lekin tekis",
+        "Oddiy to'g'ri chiziq (y = 0)",
+        "Hech narsa o'zgarmaydi"
+      ],
+      "togri": 1
+    }
+  ],
+  "eslabQol": [
+    "a > 0 → tarmoqlar yuqoriga; a < 0 → pastga.",
+    "|a| katta → parabola ingichka; |a| kichik → keng.",
+    "y = ax² ning uchi doim (0; 0) da, Oy ga nisbatan simmetrik."
+  ],
+  "mashqlar": {
+    "betlar": "12–13-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "1-mashq (og'zaki).",
+        "body": "Parabola tarmoqlarining yo'nalishini aniqlang:",
+        "sub": "1) y = ½x²; &nbsp; 2) y = −4x²; &nbsp; 3) y = −0,1x²; &nbsp; 4) y = 8x²."
+      },
+      {
+        "title": "2-mashq.",
+        "body": "Quyidagi funksiyalarning grafiklarini bitta koordinata tekisligida yasang:",
+        "sub": "1) y = x² va y = 3x²; &nbsp; 2) y = x² va y = ⅓x²; &nbsp; 3) y = −x² va y = −2x²."
+      },
+      {
+        "title": "3-mashq.",
+        "body": "y = 2x² funksiyaning grafigini millimetrli qog'ozda yasang. Grafik bo'yicha x = −2,5; 1,5; 2,8 bo'lganda y ning taxminiy qiymatini toping."
+      }
+    ]
+  },
+  "xulosa": [
+    "<strong>y = ax²</strong> — uchi (0; 0) da joylashgan parabola.",
+    "<strong>a > 0</strong> — tarmoqlar yuqoriga ochiladi; <strong>a < 0</strong> — pastga.",
+    "<strong>|a|</strong> qancha katta bo'lsa, parabola shuncha ingichka (siqilgan) bo'ladi.",
+    "Grafik har doim Oy o'qiga nisbatan simmetrik.",
+    "a = 0 bo'lsa — bu endi kvadrat funksiya emas."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>y = ax²</strong> &nbsp;&mdash;&nbsp; uchi (0; 0)"
+    },
+    {
+      "html": "<span class=\"term-a\">a &gt; 0</span> — yuqoriga; <span class=\"term-a\">a &lt; 0</span> — pastga"
+    },
+    {
+      "html": "<span class=\"term-a\">|a| katta</span> — ingichka; <span class=\"term-a\">|a| kichik</span> — keng"
+    },
+    {
+      "html": "Oy o'qiga nisbatan <strong>simmetrik</strong>"
+    }
+  ],
+  "kitob": {
+    "betlar": "10–13-betlar",
+    "sahifalar": [
+      {
+        "img": "png/kitob-10.png",
+        "bet": "10-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-11.png",
+        "bet": "11-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-12.png",
+        "bet": "12-bet",
+        "width": 640,
+        "height": 790
+      },
+      {
+        "img": "png/kitob-13.png",
+        "bet": "13-bet",
+        "width": 640,
+        "height": 790
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi asosiy misollar — o‘qituvchi doskada ketma-ket ko‘rsatadi.",
+    "masalalar": [
+      {
+        "img": "png/kitob-10.png",
+        "alt": "1-masala: y = 2x² grafigini yasash",
+        "width": 640,
+        "height": 790,
+        "caption": "1-masala · 10-bet",
+        "steps": [
+          "Jadval: x = −3…3 uchun y = 2x² qiymatlari.",
+          "Nuqtalarni yasab, silliq egri o‘tkazamiz.",
+          "y = x² bilan taqqoslash: har ordinata 2 marta katta — parabola «ingichkaroq» emas, balandroq."
+        ]
+      },
+      {
+        "img": "png/kitob-11.png",
+        "alt": "y = (1/2)x² va y = −x²",
+        "width": 640,
+        "height": 790,
+        "caption": "2–3-masala · 11-bet",
+        "steps": [
+          "a = 1/2: ordinatalar y = x² dan 2 marta kichik — parabola yassi.",
+          "a = −1: y = −x², Ox ga nisbatan simmetrik — tarmoqlar pastga."
+        ]
+      },
+      {
+        "img": "png/kitob-12.png",
+        "alt": "y = ax² asosiy xossalari",
+        "width": 640,
+        "height": 790,
+        "caption": "Xossalar · 12-bet",
+        "steps": [
+          "a > 0: y ≥ 0, uchi (0;0) eng past nuqta; x > 0 da o‘sadi, x < 0 da kamayadi.",
+          "a < 0: y ≤ 0, uchi eng yuqori; o‘sish/kamayish aksincha.",
+          "Simmetriya o‘qi — Oy (x = 0)."
+        ]
+      }
+    ]
+  }
+}
