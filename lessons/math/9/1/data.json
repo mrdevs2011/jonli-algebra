@@ -112,25 +112,25 @@
     "<strong>b</strong> va <strong>c</strong> grafikni suradi, lekin uni parabola bo'lishdan chiqarmaydi."
   ],
   "kitob": {
-    "betlar": "5–6-betlar (mashqlar 7-bet boshigacha davom etadi)",
+    "betlar": "5–7-betlar",
     "sahifalar": [
       {
         "img": "png/kitob-5.png",
         "bet": "5-bet",
         "width": 640,
-        "height": 790
+        "height": 761
       },
       {
         "img": "png/kitob-6.png",
         "bet": "6-bet",
         "width": 640,
-        "height": 790
+        "height": 756
       },
       {
-        "img": "png/kitob-7-mashq3-7.png",
-        "bet": "7-bet (3–7-mashqlar davomi)",
-        "width": 978,
-        "height": 497
+        "img": "png/kitob-7.png",
+        "bet": "7-bet",
+        "width": 640,
+        "height": 761
       }
     ]
   },
