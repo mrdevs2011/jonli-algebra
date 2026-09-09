@@ -71,67 +71,53 @@
   },
 
   "doska": {
-    "intro": "Avval nuqtalarni qo'yamiz, keyin parabolani ataymiz, so'ng 1-misolni grafikdan yechamiz.",
+    "intro": "Kitobdagi asl matn tartibida: avval jadval va parabola ta'rifi, keyin xossalar, so'ngra tugallanmagan masala.",
     "masalalar": [
       {
-        "img": "png/kitob-7-qadamlar.png",
-        "alt": "y = x² grafigini yasashning uch qadami",
-        "width": 978,
-        "height": 292,
-        "caption": "Yasash tartibi · 7-bet",
-        "steps": [
-          "<strong>1-qadam.</strong> Qiymatlar jadvalini tuzamiz: x ga −3, −2, −1, 0, 1, 2, 3 ni qo'yamiz.",
-          "<strong>2-qadam.</strong> Har bir (x; x²) juftligini koordinata tekisligiga nuqta qilib tushiramiz.",
-          "<strong>3-qadam.</strong> Nuqtalarni ravon chiziq bilan tutashtiramiz — parabola hosil bo'ladi."
-        ]
-      },
-      {
-        "img": "png/kitob-7-jadval.png",
-        "alt": "y = x² qiymatlar jadvali va parabola chizmasi",
-        "width": 978,
-        "height": 504,
-        "caption": "Jadval va grafik · 7-bet",
-        "steps": [
-          "Jadval: x = −3, −2, −1, 0, 1, 2, 3 → y = 9, 4, 1, 0, 1, 4, 9.",
-          "Chapdagi y lar o'ngdagilar bilan bir xil. Bu — simmetriya: (−2)² = 2² = 4.",
-          "Eng pastki nuqta — (0; 0). Bu nuqta parabolaning <strong>uchi</strong>.",
-          "Oy o'qi chizmani ikkiga bo'ladi. Shu o'q — <strong>simmetriya o'qi</strong>."
-        ]
-      },
-      {
         "img": "png/kitob-7-tarif.png",
-        "alt": "Parabola, uch va simmetriya o'qi ta'rifi",
+        "alt": "y = x² qiymatlar jadvali, grafik hosil qilish va parabola ta'rifi",
         "width": 978,
-        "height": 162,
-        "caption": "Ta'rif · 7-bet",
-        "static": "<strong>Atamalar:</strong> y = x² egri chizig'i <strong>parabola</strong> deyiladi. O(0; 0) — uning <strong>uchi</strong>. Oy — <strong>simmetriya o'qi</strong>. Bundan xossa chiqadi: aniqlanish sohasi barcha haqiqiy sonlar, qiymatlar to'plami esa [0; +∞)."
-      },
-      {
-        "img": "png/kitob-8-xossa.png",
-        "alt": "y = x² funksiyaning xossalari",
-        "width": 978,
-        "height": 458,
-        "caption": "Xossalar · 8-bet",
+        "height": 268,
+        "caption": "Jadval va ta'rif · 7-bet",
         "steps": [
-          "<strong>D(y) = (−∞; +∞)</strong> — x ga istalgan haqiqiy sonni qo'yish mumkin.",
-          "<strong>E(y) = [0; +∞)</strong> — y manfiy bo'lmaydi.",
-          "<strong>Juftlik:</strong> y(−x) = (−x)² = x² = y(x).",
-          "<strong>Kamayish / o'sish:</strong> (−∞; 0] da kamayadi, [0; +∞) da o'sadi.",
-          "<strong>Minimum</strong> x = 0 da: y = 0. Funksiyaning yagona noli ham x = 0."
+          "Jadval tuziladi: x = −4...4 uchun y = x² hisoblanadi (masalan x=3 → y=9, x=4 → y=16).",
+          "Jadvaldagi nuqtalar tekislikka tushiriladi va silliq chiziq bilan tutashtiriladi — <strong>1-rasm</strong> hosil bo'ladi.",
+          "<strong>Ta'rif:</strong> y = x² funksiyaning grafigi bo'lgan egri chiziq <strong>parabola</strong> deyiladi."
         ]
       },
       {
-        "img": "png/kitob-8-misol1.png",
-        "alt": "1-misol: y = x² grafigidan tenglamalarni yechish",
+        "img": "png/kitob-7-xossa-1.png",
+        "alt": "Xossalarni qarash boshlanishi — 1-band",
         "width": 978,
-        "height": 278,
-        "caption": "1-misol · 8-bet",
+        "height": 137,
+        "caption": "Xossa 1 · 7–8-bet",
         "steps": [
-          "Grafikdan qarab yechamiz — formulani yoddan emas, chizmadan.",
-          "<strong>a) y = 4.</strong> Gorizontal chiziq y = 4 parabola bilan ikki nuqtada kesishadi: <strong>x = −2</strong> va <strong>x = 2</strong>.",
-          "<strong>b) y = 2.</strong> Kesishish bor, lekin x butun emas: <strong>x = −√2</strong> va <strong>x = √2</strong>.",
-          "<strong>c) y = −1.</strong> y = −1 chizig'i paraboladan <em>pastda</em>, umuman tegmaydi. Yechim yo'q — chunki x² hech qachon manfiy emas.",
-          "<details class=\"xato-ovchisi\"><summary>Ko'pchilik shu yerda xato qiladi — bosib ko'ring</summary><p>«Kvadrat ildiz» deb x = −1 yozish — xato. √(−1) haqiqiy sonda yo'q. Doskada so'rang: parabola Ox dan pastga tushadimi?</p></details>"
+          "y = x² funksiyaning xossalari ko'rib chiqiladi.",
+          "<strong>1)</strong> x ≠ 0 bo'lganda qiymati musbat, x = 0 bo'lganda nolga teng. Demak, parabola koordinatalar boshidan o'tadi, qolgan barcha nuqtalari esa abssissalar o'qidan yuqorida yotadi.",
+          "Xulosa: parabola Ox o'qiga (0; 0) nuqtada <strong>urinadi</strong> deyiladi."
+        ]
+      },
+      {
+        "img": "png/kitob-8-xossa-2.png",
+        "alt": "Xossalar 2 va 3-bandlar, grafik simmetriyasi va monotonlik",
+        "width": 978,
+        "height": 665,
+        "caption": "Xossa 2–3 · 8-bet",
+        "steps": [
+          "<strong>2)</strong> Grafik ordinatalar o'qiga nisbatan simmetrik, chunki (−x)² = x². Masalan, y(−3) = y(3) = 9 (1-rasm). Shuning uchun Oy — <strong>parabolaning simmetriya o'qi</strong>; o'qning parabola bilan kesishish nuqtasi — <strong>parabolaning uchi</strong>.",
+          "<strong>3)</strong> x ≥ 0 bo'lganda x ortishi bilan y ham ortadi — funksiya bu oraliqda <strong>o'suvchi</strong>. x ≤ 0 bo'lganda esa x ortishi bilan y kamayadi — funksiya bu oraliqda <strong>kamayuvchi</strong>."
+        ]
+      },
+      {
+        "img": "png/kitob-8-masala.png",
+        "alt": "Masala: y=x² parabola bilan y=x+6 to'g'ri chiziqning kesishish nuqtalari",
+        "width": 978,
+        "height": 173,
+        "caption": "Masala (tugallanmagan) · 8-bet",
+        "steps": [
+          "<strong>Masala.</strong> y = x² parabola bilan y = x + 6 to'g'ri chiziqning kesishish nuqtalari koordinatalarini toping.",
+          "Kesishish nuqtalari — sistemaning yechimlari: { y = x², y = x + 6.",
+          "<em>Eslatma: kitobning shu nusxasida masalaning davomi (9-bet) mavjud emas — yechim shu yerda uzilib qoladi. O'qituvchi doskada sistemani o'zi oxirigacha yechib ko'rsatishi kerak: x² = x+6 → x²−x−6=0 → x₁=3, x₂=−2 → nuqtalar (3;9) va (−2;4).</em>"
         ]
       }
     ]
