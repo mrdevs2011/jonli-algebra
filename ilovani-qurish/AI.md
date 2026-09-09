@@ -118,6 +118,44 @@ function readyIds() {
 
 ---
 
+## 6.1. Loyihani arxivlash / zip qilish (KRITIK — hajmni ISROF QILMANG)
+
+Bu loyihada **og'ir, o'zgarmas fayllar** bor:
+- `darslik.pdf` (~47 MB) — bir marta yuklangan, boshqa o'zgarmaydi
+- `kitob/*.png` (~240 ta rasm) — sahifa skanlari, o'zgarmaydi
+- `1/`…`38/` ichidagi `kitob-*.png` — har bir darsning skan-rasmi, o'zgarmaydi
+- `.git/` papkasi — git tarixi, deploy/yuborish uchun UMUMAN kerak emas
+
+**Qoida: agar sendan "loyihani zip qil / arxivla / yubor" deyishsa:**
+
+1. **`.git/` ni HECH QACHON zip'ga qo'shma.** U yolg'iz o'zi 60+ MB va foydasiz (git clone/pull orqali tiklanadi).
+2. **`darslik.pdf` va `kitob/*.png` larni qayta compress qilma.** Ular allaqachon siqilgan formatlar (PDF/PNG) — ularni yana zip ichiga "deflate" qilish vaqt yeydi va hajmni deyarli kamaytirmaydi. Agar mumkin bo'lsa:
+   - `zip -X -0 out.zip darslik.pdf kitob/*.png ...` (ya'ni shu fayllar uchun **`-0` = store, compress qilma**, faqat qadab qo'y)
+   - Qolgan matn fayllar (`.html`, `.css`, `.js`, `.md`) uchun oddiy compression (`-9` yoki default) ishlat — ular kichik va matn, siqilishdan foyda bor.
+3. **Agar oldingi zip mavjud bo'lsa va faqat 1-2 ta dars papkasi o'zgargan bo'lsa** — butun loyihani qaytadan zip qilma. Faqat o'zgargan papka(lar)ni yubor yoki `zip -u eski.zip 4/*` kabi **update rejimida** qo'sh, to'liq qayta arxivlama.
+4. **Sabab tushuntirilsin, oqlanmasin:** bu vaqt/token isrofi masalasi, "PDF bir marta kitob, u o'zgarmaydi" — shuning uchun har safar uni qayta paketlashning ma'nosi yo'q.
+
+Qisqa buyruq shakli (odam AI ga aytadigan): 
+> "Zip qilsang, .git ni qo'shma, darslik.pdf va kitob/ ichidagi PNG larni compress qilmasdan store qil, faqat kod fayllarini siq."
+
+---
+
+## 6.2. Natijani qaytarish — FAQAT o'zgargan fayl(lar), asl path bilan
+
+**Qoida: butun loyihani qayta zip qilib yoki qayta chiqarib bermang.**
+
+Agar bitta ish faqat 1 (yoki bir nechta) faylni o'zgartirsa:
+
+1. **Faqat o'sha o'zgargan fayl(lar)ni chiqar** — boshqa o'zgarmagan fayllarni qayta yozma, qayta zip'lama, qayta ko'rsatma.
+2. **Asl path saqlansin.** Masalan `ilovani-qurish/AI.md` o'zgargan bo'lsa, natija ham aynan `ilovani-qurish/AI.md` papkasida (papka strukturasi bilan) berilsin — root'ga tashlab qo'yilmasin, nomi o'zgartirilmasin.
+3. **Bir nechta fayl o'zgargan bo'lsa** — har birini o'z path'ida alohida ber (yoki kichik zip qilsang, faqat o'sha fayllarni papka strukturasi bilan, boshqa hech narsasiz).
+4. **Sabab:** loyiha 143MB+, ichida `.git`, `darslik.pdf`, 240+ PNG bor. Bitta `.md` faylni o'zgartirib, butun loyihani qayta yuborish — vaqt, token, hajm isrofi. Odam faqat o'sha faylni olib, o'z joyiga qo'yishi kerak.
+
+Qisqa buyruq shakli:
+> "AI.md ni o'zgartir, lekin menga faqat o'sha faylni, `ilovani-qurish/AI.md` path'ida ber — boshqa hech narsa kerak emas."
+
+---
+
 ## 7. STATUS.md ni yangilash
 
 Har dars tayyor bo‘lgach `STATUS.md` ni yangilang:
