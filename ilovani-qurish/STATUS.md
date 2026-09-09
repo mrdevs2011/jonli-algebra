@@ -1,7 +1,7 @@
 # Loyiha holati — Jonli Algebra
 
 **Oxirgi yangilanish:** 2026-09-09  
-**Holat:** 1–10-§ to‘liq tayyor; barcha data.json 1-dars strukturasi bilan 100% mos
+**Holat:** 1–11-§ to‘liq tayyor; barcha data.json 1-dars strukturasi bilan 100% mos
 
 ---
 
@@ -10,46 +10,35 @@
 | Ko‘rsatkich              | Qiymat              |
 |--------------------------|---------------------|
 | Jami darslar (reja)      | 38                  |
-| Fizik mavjud dars papkasi| 10 / 38             |
-| Tayyor (`readyIds`)      | 10 / 38             |
-| O‘tilgan (localStorage)  | 0                   |
+| Fizik mavjud dars papkasi| 11 / 38             |
+| Tayyor (`readyIds`)      | 11 / 38             |
 
 ---
 
-## Struktura tekshiruvi (1-dars etalon)
+## Tayyor darslar
 
-Barcha 1–10: top-level maydonlar bir xil  
-`id, bob, paragraf, title, lead, prev, next, agenda, sahna, kirish, reja, qoida, savollar, eslabQol, kitob, doska, mashqlar, xulosa, xulosaBoard`
-
-| § | kitob | doska | sahna |
-|---|-------|-------|-------|
-| 1 | ✓ | ✓ | abc-parabola |
-| 2 | ✓ | ✓ | x2-parabola |
-| 3 | ✓ (qo‘shildi) | ✓ (qo‘shildi) | abc-parabola |
-| 4 | ✓ | ✓ | abc-parabola |
-| 5 | ✓ | ✓ | graph-steps |
-| 6 | ✓ (qo‘shildi) | ✓ (qo‘shildi) | sign-line |
-| 7 | ✓ | ✓ | ineq-parabola |
-| 8 | ✓ | ✓ | sign-chain |
-| 9 | ✓ (qo‘shildi) | ✓ (qo‘shildi) | domain-line |
-| 10 | ✓ | ✓ | mono-parabola |
+| § | Nom | Sahna |
+|---|-----|-------|
+| 1 | Kvadrat funksiyaning ta'rifi | abc-parabola |
+| 2 | y = x² | x2-parabola |
+| 3 | y = ax² | abc-parabola |
+| 4 | y = ax² + bx + c | abc-parabola |
+| 5 | Grafikni yasash | graph-steps |
+| 6 | Kvadrat tengsizlik | sign-line |
+| 7 | Tengsizlikni grafik bilan | ineq-parabola |
+| 8 | Intervallar usuli | sign-chain |
+| 9 | Aniqlanish sohasi | domain-line |
+| 10 | O‘sish va kamayish | mono-parabola |
+| 11 | Juftlik va toqlik | even-odd |
 
 ```js
 function readyIds() {
-  return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 }
 ```
 
 ---
 
-## Oxirgi o‘zgarish
-
-- 3, 6, 9: `kitob` + `doska` majburiy bloklari to‘ldirildi (PNG + steps)
-- 5: `example` → `sahna.example` (top-level olib tashlandi)
-- 8: `roots` → `sahna.roots` (top-level olib tashlandi)
-
----
-
 ## Keyingi dars
 
-**11-§** — Funksiyaning juftligi va toqligi
+**12-§** — Daraja qatnashgan tenglama va tengsizlik
