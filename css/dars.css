@@ -23,6 +23,127 @@
   margin: 0 0 8px;
 }
 
+/* Dars rejasi — 45 daqiqalik agenda va taymer */
+.block-agenda {
+  margin: 18px 0 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 18px;
+  border-left: 4px solid #5b6e8c;
+}
+
+.agenda-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.block-agenda h2 {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.agenda-timer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.agenda-timer #agendaClock {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  min-width: 4.2ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.agenda-timer.is-warning #agendaClock { color: var(--accent); }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+}
+
+.agenda-steps {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.agenda-steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.agenda-step-time {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  min-width: 4.5ch;
+}
+
+.agenda-step-name {
+  font-size: 0.98rem;
+}
+
+.agenda-steps li.is-active {
+  background: #fff3d6;
+}
+
+.agenda-steps li.is-active .agenda-step-time {
+  color: #8a6300;
+  font-weight: 700;
+}
+
+.agenda-steps li.is-done {
+  opacity: 0.45;
+}
+
+.agenda-steps li.is-done .agenda-step-name {
+  text-decoration: line-through;
+}
+
+/* Darslikdan mashqlar bloki */
+.block-mashq { border-left: 4px solid var(--gold); }
+
+.mashq-intro {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin-bottom: 10px !important;
+}
+
+.mashq-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.mashq-list p { margin: 0; }
+
+.mashq-sub {
+  color: var(--ink-soft);
+  margin-top: 4px !important;
+}
+
+@media (max-width: 560px) {
+  .agenda-head { flex-direction: column; align-items: stretch; }
+  .agenda-timer { justify-content: space-between; }
+}
+
 /* Sahna — interaktiv chizma joyi */
 .stage {
   margin: 22px 0;
@@ -426,3 +547,17 @@
 .board-mode .kitob-sahifalar { gap: 18px; margin-top: 16px; }
 .board-mode .kitob-sahifa { width: 190px; font-size: 1rem; }
 .board-mode .kitob-sahifa img { border-radius: 14px; border-width: 2px; }
+
+/* Dars rejasi — doska rejimida katta, orqadan ko'rinadigan */
+.board-mode .block-agenda { padding: 24px 28px; border-radius: 24px; border-width: 2px; }
+.board-mode .block-agenda h2 { font-size: 1.02rem; letter-spacing: 0.12em; }
+.board-mode .agenda-timer #agendaClock { font-size: 2.2rem; }
+.board-mode .agenda-timer .btn { padding: 12px 20px; font-size: 1.05rem; }
+.board-mode .agenda-step-time { font-size: 1.15rem; min-width: 5.5ch; }
+.board-mode .agenda-step-name { font-size: 1.25rem; }
+.board-mode .agenda-steps li { padding: 12px 14px; }
+
+.board-mode .block-mashq { padding: 24px 28px; border-radius: 24px; border-width: 2px; }
+.board-mode .mashq-intro { font-size: 1.1rem; }
+.board-mode .mashq-list p { font-size: 1.22rem; line-height: 1.6; }
+.board-mode .mashq-sub { font-size: 1.1rem; }

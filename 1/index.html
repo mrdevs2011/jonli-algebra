@@ -75,6 +75,25 @@
       <h1 class="dars-title">Kvadrat funksiyaning ta'rifi</h1>
       <p class="lead">Nima uchun y = ax² + bx + c kvadrat funksiya deyiladi.</p>
 
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps">
+          <li data-min="5"><span class="agenda-step-time">5 daq</span><span class="agenda-step-name">Kirish — o'tgan mavzuni eslash</span></li>
+          <li data-min="10"><span class="agenda-step-time">10 daq</span><span class="agenda-step-name">Sahna — slayderlar bilan jonli ko'rsatish (doskada)</span></li>
+          <li data-min="8"><span class="agenda-step-time">8 daq</span><span class="agenda-step-name">Qoida — ta'rifni birga chiqarish</span></li>
+          <li data-min="7"><span class="agenda-step-time">7 daq</span><span class="agenda-step-name">Savollar — sinf ovoz bilan javob beradi</span></li>
+          <li data-min="10"><span class="agenda-step-time">10 daq</span><span class="agenda-step-name">Darslikdan mashqlar — daftarga yechish</span></li>
+          <li data-min="5"><span class="agenda-step-time">5 daq</span><span class="agenda-step-name">Eslab qol — xulosa va uyga vazifa</span></li>
+        </ol>
+      </section>
+
       <section class="stage is-live" id="sahna" aria-label="Interaktiv chizma: a, b, c slayderlari va grafik">
         <div class="sahna1-grid">
           <p class="sahna1-formula">
@@ -157,6 +176,21 @@
             </a>
           </div>
         </div>
+
+        <div class="block block-mashq">
+          <h2>Darslikdan mashqlar · 6-bet</h2>
+          <p class="mashq-intro">Daftarga yeching. O'qituvchi doskada tekshiradi.</p>
+          <ol class="mashq-list">
+            <li>
+              <p><strong>1-mashq (og'zaki).</strong> Quyidagilardan qaysilari kvadrat funksiya:</p>
+              <p class="mashq-sub">1) y = 2x² + x + 3; &nbsp; 2) y = 3x² − 1; &nbsp; 3) y = 5x + 1; &nbsp; 4) y = x³ + 7x − 1; &nbsp; 5) y = 4x²; &nbsp; 6) y = −3x² + 2x?</p>
+            </li>
+            <li>
+              <p><strong>2-mashq.</strong> x ning shunday haqiqiy qiymatlarini topingki, y = x² − x − 3 kvadrat funksiya quyidagi qiymatni qabul qilsin:</p>
+              <p class="mashq-sub">1) −1 ga; &nbsp; 2) −3 ga; &nbsp; 3) −13/4 ga; &nbsp; 4) −5 ga.</p>
+            </li>
+          </ol>
+        </div>
       </section>
     </main>
 
@@ -182,6 +216,7 @@
 
   <script src="../js/progress.js"></script>
   <script src="../js/board.js"></script>
+  <script src="../js/agenda.js"></script>
   <script>
     (function () {
       "use strict";
@@ -361,101 +396,6 @@
       if (window.KA && KA.onLessonOpen) KA.onLessonOpen(1);
     })();
   </script>
-  <script>
-    (function () {
-      var LESSON_NUM = 1;
-      var ALL_PAGES = [
-        { src: '../1/kitob-5.png', bet: 5, lesson: 1 },
-        { src: '../1/kitob-6.png', bet: 6, lesson: 1 },
-        { src: '../2/kitob-7.png', bet: 7, lesson: 2 },
-        { src: '../3/kitob-10.png', bet: 10, lesson: 3 },
-        { src: '../4/kitob-14.png', bet: 14, lesson: 4 },
-        { src: '../5/kitob-18.png', bet: 18, lesson: 5 },
-        { src: '../6/kitob-24.png', bet: 24, lesson: 6 },
-        { src: '../7/kitob-28.png', bet: 28, lesson: 7 },
-        { src: '../8/kitob-32.png', bet: 32, lesson: 8 },
-        { src: '../9/kitob-37.png', bet: 37, lesson: 9 },
-        { src: '../10/kitob-41.png', bet: 41, lesson: 10 },
-        { src: '../11/kitob-46.png', bet: 46, lesson: 11 },
-        { src: '../12/kitob-51.png', bet: 51, lesson: 12 },
-        { src: '../13/kitob-68.png', bet: 68, lesson: 13 },
-        { src: '../14/kitob-72.png', bet: 72, lesson: 14 },
-        { src: '../15/kitob-77.png', bet: 77, lesson: 15 },
-        { src: '../16/kitob-80.png', bet: 80, lesson: 16 },
-        { src: '../17/kitob-93.png', bet: 93, lesson: 17 },
-        { src: '../18/kitob-97.png', bet: 97, lesson: 18 },
-        { src: '../19/kitob-103.png', bet: 103, lesson: 19 },
-        { src: '../20/kitob-109.png', bet: 109, lesson: 20 },
-        { src: '../21/kitob-112.png', bet: 112, lesson: 21 },
-        { src: '../22/kitob-117.png', bet: 117, lesson: 22 },
-        { src: '../23/kitob-120.png', bet: 120, lesson: 23 },
-        { src: '../24/kitob-121.png', bet: 121, lesson: 24 },
-        { src: '../25/kitob-126.png', bet: 126, lesson: 25 },
-        { src: '../26/kitob-129.png', bet: 129, lesson: 26 },
-        { src: '../27/kitob-135.png', bet: 135, lesson: 27 },
-        { src: '../28/kitob-150.png', bet: 150, lesson: 28 },
-        { src: '../29/kitob-153.png', bet: 153, lesson: 29 },
-        { src: '../30/kitob-158.png', bet: 158, lesson: 30 },
-        { src: '../31/kitob-162.png', bet: 162, lesson: 31 },
-        { src: '../32/kitob-167.png', bet: 167, lesson: 32 },
-        { src: '../33/kitob-171.png', bet: 171, lesson: 33 },
-        { src: '../34/kitob-186.png', bet: 186, lesson: 34 },
-        { src: '../35/kitob-190.png', bet: 190, lesson: 35 },
-        { src: '../36/kitob-194.png', bet: 194, lesson: 36 },
-        { src: '../37/kitob-198.png', bet: 198, lesson: 37 },
-        { src: '../38/kitob-206.png', bet: 206, lesson: 38 }
-      ];
-      var links = Array.prototype.map.call(document.querySelectorAll('.kitob-sahifa'), function (a) {
-        return a.getAttribute('href');
-      });
-      if (!links.length) return;
-
-      var lb = document.getElementById('kitobLightbox');
-      var lbImg = document.getElementById('kitobLightboxImg');
-      var lbClose = document.getElementById('kitobLightboxClose');
-      var prevBtn = document.getElementById('kitobPrev');
-      var nextBtn = document.getElementById('kitobNext');
-      var navLabel = document.getElementById('kitobNavLabel');
-      var idx = 0;
-
-      function render() {
-        var p = ALL_PAGES[idx];
-        lbImg.src = (p.lesson === LESSON_NUM) ? ('kitob-' + p.bet + '.png') : p.src;
-        lbImg.alt = p.bet + '-bet';
-        navLabel.textContent = p.bet + '-bet · ' + p.lesson + '-§ (' + (idx + 1) + '/' + ALL_PAGES.length + ')';
-        prevBtn.disabled = idx === 0;
-        nextBtn.disabled = idx === ALL_PAGES.length - 1;
-      }
-
-      document.querySelectorAll('.kitob-sahifa').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          e.preventDefault();
-          var href = a.getAttribute('href');
-          var betMatch = href.match(/kitob-(\d+)\.png/);
-          var bet = betMatch ? parseInt(betMatch[1], 10) : null;
-          var found = -1;
-          for (var i = 0; i < ALL_PAGES.length; i++) {
-            if (ALL_PAGES[i].lesson === LESSON_NUM && ALL_PAGES[i].bet === bet) { found = i; break; }
-          }
-          idx = found >= 0 ? found : 0;
-          render();
-          lb.classList.add('is-open');
-        });
-      });
-
-      prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(); } });
-      nextBtn.addEventListener('click', function () { if (idx < ALL_PAGES.length - 1) { idx++; render(); } });
-
-      function closeLb() { lb.classList.remove('is-open'); lbImg.src = ''; }
-      lbClose.addEventListener('click', closeLb);
-      lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
-      document.addEventListener('keydown', function (e) {
-        if (!lb.classList.contains('is-open')) return;
-        if (e.key === 'Escape') closeLb();
-        if (e.key === 'ArrowLeft' && idx > 0) { idx--; render(); }
-        if (e.key === 'ArrowRight' && idx < ALL_PAGES.length - 1) { idx++; render(); }
-      });
-    })();
-  </script>
+  <script src="../js/kitob-full.js"></script>
 </body>
 </html>
