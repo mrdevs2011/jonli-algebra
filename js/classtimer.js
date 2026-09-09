@@ -26,9 +26,34 @@
       clockEl.classList.toggle("is-up", remaining <= 0);
     }
 
+    function beep(freq, dur) {
+      try {
+        var Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        if (!beep.ctx) beep.ctx = new Ctx();
+        var ctx = beep.ctx;
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        gain.gain.value = 0.06;
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + dur);
+      } catch (e) {}
+      if (navigator.vibrate) navigator.vibrate(200);
+    }
+
     function tick() {
       remaining--;
       render();
+      // Vaqt tugaganda bir marta signal — sinfda hamma eshitishi uchun.
+      if (remaining === 0) {
+        beep(440, 0.18);
+        window.setTimeout(function () { beep(440, 0.18); }, 260);
+        window.setTimeout(function () { beep(660, 0.28); }, 520);
+      }
     }
 
     function start() {
