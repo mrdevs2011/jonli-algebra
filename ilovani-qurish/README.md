@@ -2,7 +2,7 @@
 
 Bu papka **Jonli Algebra** loyihasini qurish va saqlash uchun.
 
-Asosiy dars fayllari (`1/` … `38/`, `css/`, `js/`) ildizda qoladi.  
+Asosiy dars fayllari (`lessons/math/9/1/` … `38/`, `css/`, `js/`) ildizda qoladi.  
 Bu yerda faqat **qurish jarayoni** hujjatlari.
 
 ## Fayllar
@@ -23,4 +23,4 @@ Bu yerda faqat **qurish jarayoni** hujjatlari.
 3. `ARCHITECTURE.md` — tuzilma
 4. Kerak bo‘lsa `CONVENTIONS.md` va `CHECKLIST.md`
 
-Asosiy o‘quvchi yoriqnomasi: `../YORIQNOMA.md`
+Asosiy o‘quvchi yoriqnomasi: `YORIQNOMA.md`

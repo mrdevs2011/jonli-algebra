@@ -82,7 +82,7 @@ js/
   darslar.js        38 darsning nomlari va qisqa izohlari
   progress.js       readyIds + localStorage progress
   dashboard.js      bosh sahifani chizadi
-1/index.html … 38/index.html
+lessons/math/9/1/index.html … 38/index.html
 ```
 
 Har dars o‘z papkasida yashaydi. Umumiy uslub faqat CSS dan keladi.

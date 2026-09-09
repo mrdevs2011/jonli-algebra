@@ -1,7 +1,7 @@
 # Loyiha holati — Jonli Algebra
 
-**Oxirgi yangilanish:** 2026-09-08  
-**Holat:** 1-§ yozildi, poydevor **mustahkam**
+**Oxirgi yangilanish:** 2026-09-09  
+**Holat:** faqat 1-§ mavjud, 2–38 tozalandi — qaytadan asl manba (kitob) asosida quriladi
 
 ---
 
@@ -9,17 +9,29 @@
 
 | Ko‘rsatkich              | Qiymat              |
 |--------------------------|---------------------|
-| Jami darslar             | 38                  |
-| Poydevor (shablon)       | 38 / 38             |
+| Jami darslar (reja)      | 38                  |
+| Fizik mavjud dars papkasi| 1 / 38              |
 | Tayyor (`readyIds`)      | 1 / 38              |
 | O‘tilgan (localStorage)  | 0                   |
 | Qurish hujjatlari        | `ilovani-qurish/`   |
 
 ---
 
+## Muhim: 2–38 papkalar o'chirildi (2026-09-09)
+
+Eski 2–38 papkalari `data.json`siz, to'ldirilmagan shablon holida edi
+(faqat sarlavha/lead/kitob-bet, qoida/savol/mashq yo'q). Ular butunlay
+o'chirildi. Har biri endi qaytadan, **darslikning (`kitob/kitob-N.png`)
+tegishli sahifasidan** haqiqiy mazmun bilan, dars-dars, `data.json` +
+`build/build.py` orqali quriladi — xuddi 1-§ qanday qurilgan bo'lsa shunday.
+
+Root fayllar (`index.html`, `js/`, `css/`, `build/`, `kitob/`) bunga tegishli emas, o'zgarmadi.
+
+---
+
 ## Poydevor mustahkamligi
 
-- [x] 1–38 papkalar bir xil, toza shablon
+- [x] 1-§ — data.json + build.py orqali quriladigan yangi arxitektura ishlaydi
 - [x] CSS: focus-visible, reduced-motion, mobil, theme-color
 - [x] JS: escapeHtml, xato ushlash, `"use strict"`, onLessonOpen
 - [x] Progress: xavfsiz localStorage
@@ -27,6 +39,7 @@
 - [x] Dashboard xato holatida tushunarli xabar
 - [x] Meta description + theme-color
 - [x] Sahna `aria-label` va `.is-live` holati tayyor
+- [ ] 2–38 — hali qurilmagan, kitob manbasidan dars-dars quriladi
 
 ---
 

@@ -30,11 +30,11 @@
 - Xatolikni yutib yuborish (try/catch) — private mode uchun
 - Interaktivlik oddiy va tushunarli bo‘lsin
 
-## Dars ichidagi bloklar — ENDI `N/data.json` ORQALI (2026-09-09 dan)
+## Dars ichidagi bloklar — ENDI `lessons/math/9/N/data.json` ORQALI (2026-09-09 dan)
 
-**`N/index.html` endi qo‘lda tahrirlanmaydi.** U `build/dars-template.html`
+**`lessons/math/9/N/index.html` endi qo‘lda tahrirlanmaydi.** U `build/dars-template.html`
 dan `python3 build/build.py N` bilan avtomatik quriladi. Dars mazmuni
-faqat `N/data.json` da yoziladi:
+faqat `lessons/math/9/N/data.json` da yoziladi:
 
 ```json
 {
@@ -48,7 +48,7 @@ faqat `N/data.json` da yoziladi:
 }
 ```
 
-To‘liq maydonlar ro‘yxati uchun `1/data.json`ga qarang — u ishlaydigan namuna.
+To‘liq maydonlar ro‘yxati uchun `lessons/math/9/1/data.json`ga qarang — u ishlaydigan namuna.
 JSON o‘zgartirilgach, albatta:
 
 ```bash

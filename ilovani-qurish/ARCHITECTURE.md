@@ -6,15 +6,15 @@
 2. **Holat** — `js/progress.js` (`readyIds` + localStorage)
 3. **Ko‘rinish**
    - Dashboard: `index.html` + `js/dashboard.js`
-   - Dars: `N/index.html` (shablon, o‘zgarmaydi) + `N/data.json` (mazmun) + `css/dars.css`
+   - Dars: `lessons/math/9/N/index.html` (shablon, o‘zgarmaydi) + `lessons/math/9/N/data.json` (mazmun) + `css/dars.css`
 4. **Uslub** — `css/base.css` (umumiy), `dashboard.css`, `dars.css`
 5. **Sahna komponentlari** — `js/sahna-*.js` (masalan `sahna-abc-parabola.js`), `data.json`dagi `sahna.type` orqali tanlanadi
 6. **Qurish hujjatlari** — `ilovani-qurish/`
 
-## Dars papkasi ichida (N/) — YANGI (2026-09-09)
+## Dars papkasi ichida (lessons/math/9/N/) — YANGI (2026-09-09)
 
 ```
-N/
+lessons/math/9/N/
   index.html      ← BUILD QILINGAN fayl. Qo‘lda tahrirlanmaydi.
   data.json       ← Darsning butun mazmuni (sof JSON). Shu faylni tahrirlaysiz.
   png/            ← Shu darsning rasmlari (kitob-bet, masala croplari).
@@ -22,7 +22,7 @@ N/
 
 `index.html` endi 38 ta darsning barchasida **bir xil, umumiy shablon**
 (`build/dars-template.html` dan quriladi). U hech qanday matn/rasm/savol
-saqlamaydi — faqat `N/data.json`ni o‘qib chizadi.
+saqlamaydi — faqat `lessons/math/9/N/data.json`ni o‘qib chizadi.
 
 **Nega fetch() emas:** loyiha `file://` orqali, internetsiz ochilishi shart.
 Brauzer xavfsizlik siyosati (CORS) `file://` da `fetch("data.json")`ni
@@ -37,8 +37,8 @@ python3 build/build.py       # barcha darslarni qayta quradi
 python3 build/build.py 4     # faqat 4-darsni quradi
 ```
 
-`N/data.json`ni o‘zgartirgandan keyin shu buyruqni ishga tushirmasangiz,
-`N/index.html` eskirgan holicha qoladi.
+`lessons/math/9/N/data.json`ni o‘zgartirgandan keyin shu buyruqni ishga tushirmasangiz,
+`lessons/math/9/N/index.html` eskirgan holicha qoladi.
 
 ## Qoidalar
 
@@ -50,12 +50,12 @@ python3 build/build.py 4     # faqat 4-darsni quradi
 
 ## Dars ochilish oqimi (YANGI)
 
-1. `N/data.json` yoziladi — matn, savollar, doska qadamlari, `sahna` konfiguratsiyasi
+1. `lessons/math/9/N/data.json` yoziladi — matn, savollar, doska qadamlari, `sahna` konfiguratsiyasi
 2. Agar mavjud sahna turi (masalan `abc-parabola`) yetarli bo‘lmasa,
    `js/sahna-<yangi-tur>.js` yoziladi va `window.KA_SAHNA["<tur>"] = function(stage, cfg) {...}`
    sifatida ro‘yxatdan o‘tkaziladi (`js/sahna-abc-parabola.js` namuna)
-3. Rasmlar `N/png/` ichiga qo‘yiladi
-4. `python3 build/build.py N` — `N/index.html` quriladi
+3. Rasmlar `lessons/math/9/N/png/` ichiga qo‘yiladi
+4. `python3 build/build.py N` — `lessons/math/9/N/index.html` quriladi
 5. Sinovdan o‘tadi (`build/test-render.js N` — jsdom bilan avtomatik tekshiruv, ixtiyoriy)
 6. `readyIds` ga `N` qo‘shiladi
 7. `STATUS.md` yangilanadi

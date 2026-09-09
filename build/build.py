@@ -12,7 +12,7 @@ lekin siz hali ham N/data.json faylini alohida, sof JSON sifatida tahrirlaysiz.
 
 Ishlatish:
     python3 build/build.py            # o'zgargan/barcha darslarni qayta quradi
-    python3 build/build.py 1          # faqat 1-darsni quradi
+    python3 build/build.py 1          # faqat 1-darsni quradi (lessons/math/9/1)
 """
 import json
 import sys
@@ -20,6 +20,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = ROOT / "build" / "dars-template.html"
+# Hozircha faqat 9-sinf algebra. Kelajakda boshqa fan/sinf qo'shilsa,
+# shu yerga ro'yxat qilinadi (masalan LESSONS_ROOTS = [.../math/9, .../geometry/9]).
+LESSONS_ROOT = ROOT / "lessons" / "math" / "9"
 TOKEN = "__DARS_DATA_JSON__"
 
 
@@ -49,10 +52,10 @@ def main():
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
 
     if len(sys.argv) > 1:
-        targets = [ROOT / arg for arg in sys.argv[1:]]
+        targets = [LESSONS_ROOT / arg for arg in sys.argv[1:]]
     else:
         targets = sorted(
-            (p for p in ROOT.iterdir() if p.is_dir() and p.name.isdigit()),
+            (p for p in LESSONS_ROOT.iterdir() if p.is_dir() and p.name.isdigit()),
             key=lambda p: int(p.name),
         )
 

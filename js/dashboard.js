@@ -15,6 +15,10 @@
   var counts = KA.counts();
   var percent = counts.total ? Math.round((counts.ready / counts.total) * 100) : 0;
 
+  // Hozircha faqat 9-sinf algebra. Kelajakda boshqa fan/sinf qo'shilsa,
+  // KA_DARSLAR ga "path" maydoni qo'shib, shu yerda ishlatiladi.
+  var LESSONS_BASE = "lessons/math/9/";
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -41,7 +45,7 @@
     var rows = lessons.map(function (d) {
       var state = KA.state(d.id);
       return (
-        '<a class="lesson" href="' + d.id + '/">' +
+        '<a class="lesson" href="' + LESSONS_BASE + d.id + '/">' +
           '<div class="lesson-num">' + escapeHtml(d.paragraf) + "</div>" +
           "<div>" +
             "<h3>" + escapeHtml(d.nom) + "</h3>" +
@@ -82,5 +86,5 @@
     "</section>" +
     '<nav class="toc" aria-label="Boblar">' + toc + "</nav>" +
     chapters +
-    '<p class="note">Har kartochka o‘z papkasiga olib boradi: <code>./1/</code> … <code>./38/</code>. Qurish hujjatlari: <code>ilovani-qurish/</code></p>';
+    '<p class="note">Har kartochka o‘z papkasiga olib boradi: <code>./lessons/math/9/1/</code> … <code>./lessons/math/9/38/</code>. Qurish hujjatlari: <code>ilovani-qurish/</code></p>';
 })();

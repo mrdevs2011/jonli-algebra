@@ -2,8 +2,9 @@ const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const path = require("path");
 
-const lessonDir = process.argv[2] || "1";
+const lessonNum = process.argv[2] || "1";
 const root = path.resolve(__dirname, "..");
+const lessonDir = path.join("lessons", "math", "9", lessonNum);
 const url = "file://" + path.join(root, lessonDir, "index.html");
 
 const errors = [];

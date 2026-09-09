@@ -6,6 +6,11 @@ Tartib — Alimov, Xolmuhamedov, Mirzaahmedov (2019) mundarijasi.
 Bu kitobning elektron nusxasi emas. Matn ko‘chirilmagan.  
 Har dars o‘z so‘zi va chizmasi bilan yoziladi.
 
+> **Hozircha faqat algebra, lekin shunday mo‘ljallanган:** papka tuzilmasi
+> (`lessons/<fan>/<sinf>/`) ataylab umumiy qilib qurilgan — vaqti kelib
+> boshqa fanlar (fizika, geometriya, kimyo...) ham xuddi shu naqsh bilan
+> qo‘shilishi mumkin. Loyihaning uzoq muddatli nomi: **AURA**.
+
 ---
 
 ## Qanday ochiladi
@@ -20,39 +25,43 @@ Har dars o‘z so‘zi va chizmasi bilan yoziladi.
 index.html          boshqaruv paneli
 css/                umumiy ko‘rinish
 js/                 dars ro‘yxati va progress
-1/index.html        1-§
-2/index.html        2-§
-…
-38/index.html       38-§
+build/              data.json → index.html quruvchi (build.py, shablon, tekshiruv)
+kitob/              darslikning barcha 240 sahifasi (manba rasmlar)
+lessons/
+  math/
+    9/              9-sinf algebra
+      1/            1-§ — data.json + index.html (build qilingan) + png/
+      2/ … 38/      hali yo‘q — har biri kitob/ manbasidan dars-dars quriladi
 ```
 
-Dashboarddagi havola: `./4/` → `4/index.html`.
+Kelajakda boshqa fan/sinf qo‘shilsa (masalan `lessons/geometry/9/` yoki `lessons/math/10/`), shu tuzilma davom ettiriladi.
+
+Dashboarddagi havola: `./lessons/math/9/4/` → `lessons/math/9/4/index.html` (dars yozilgach paydo bo‘ladi).
 
 ---
 
 ## Hozirgi holat (poydevor)
 
-- 38 ta dars papkasi tayyor (1–38)
-- Har birida bir xil, toza shablon: sahna + reja/qoida/holat
+- Faqat **1-§** (`lessons/math/9/1/`) to‘liq yozilgan va build qilingan (`data.json` → `build/build.py` → `index.html`)
+- 2–38 papkalar **hali mavjud emas** — eski, to‘ldirilmagan shablonlari o‘chirildi (2026-09-09)
 - Dashboard ishlaydi, progress `localStorage` da saqlanadi
-- Hozircha hech qaysi dars “tayyor” deb belgilanmagan (`readyIds = []`)
-- Yoriqnoma (`YORIQNOMA.md`) to‘liq yozilgan
+- Yoriqnoma (`ilovani-qurish/YORIQNOMA.md`) to‘liq yozilgan
 
-**Keyingi qadam:** birinchi darsni (tavsiya: 4-§) 1–2 kunda puxta yozish.
+**Keyingi qadam:** har bir darsni `kitob/kitob-N.png` sahifasidan haqiqiy mazmun bilan, dars-dars, 1-§dagi kabi qayta qurish.
 
 ---
 
 ## Qanday dars qo‘shiladi
 
-1. Shu kunning paragrafini oching, masalan `4/index.html`.
-2. `#sahna` ichiga faqat o‘sha darsning interaktiv chizmasini yozing.
-3. Pastdagi bloklarni shu darsga moslab yozing (kirish, qoida, savollar, eslab qol).
-4. `block-kitob` ichidagi bet raqami va `kitob-<bet>.png` rasm(lar) to‘g‘riligini tekshiring (batafsil: `ilovani-qurish/CONVENTIONS.md`).
+1. `kitob/kitob-N.png` — shu darsning darslikdagi sahifasini oching (manba).
+2. `lessons/math/9/N/data.json` yozing (1-§ namuna): title, lead, qoida, savollar, doska masalalari, mashqlar, xulosa.
+3. Rasmlar kerak bo‘lsa `lessons/math/9/N/png/` ga qo‘yiladi (kitobdan crop qilingan).
+4. `python3 build/build.py N` — `lessons/math/9/N/index.html` shundan quriladi.
 5. Dars tayyor bo‘lsa `js/progress.js` ichidagi `readyIds` ga raqamni qo‘shing.
 
-Boshqa 37 papkaga tegilmaydi.
+Boshqa darslar papkalariga tegilmaydi.
 
-Batafsil tartib → **YORIQNOMA.md**
+Batafsil tartib → **ilovani-qurish/YORIQNOMA.md**
 
 ---
 
