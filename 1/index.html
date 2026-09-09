@@ -148,11 +148,11 @@
           <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong>1-§, 5–6-betlar</strong>.</p>
           <div class="kitob-sahifalar">
             <a class="kitob-sahifa" href="kitob-5.png">
-              <img src="kitob-5.png" alt="Darslik, 5-bet" loading="lazy" width="620" height="877">
+              <img src="kitob-5.png" alt="Darslik, 5-bet" loading="lazy" width="500" height="638">
               <span>5-bet · kattalashtirish</span>
             </a>
             <a class="kitob-sahifa" href="kitob-6.png">
-              <img src="kitob-6.png" alt="Darslik, 6-bet" loading="lazy" width="620" height="877">
+              <img src="kitob-6.png" alt="Darslik, 6-bet" loading="lazy" width="500" height="638">
               <span>6-bet · kattalashtirish</span>
             </a>
           </div>
@@ -186,6 +186,7 @@
   </div>
 
   <script src="../js/progress.js"></script>
+  <script src="../js/board.js"></script>
   <script>
     (function () {
       "use strict";
@@ -415,7 +416,6 @@
       if (!links.length) return;
 
       var lb = document.getElementById('kitobLightbox');
-      var wrap = document.getElementById('kitobPageWrap');
       var lbImg = document.getElementById('kitobLightboxImg');
       var lbClose = document.getElementById('kitobLightboxClose');
       var prevBtn = document.getElementById('kitobPrev');
@@ -423,23 +423,13 @@
       var navLabel = document.getElementById('kitobNavLabel');
       var idx = 0;
 
-      function render(flip) {
-        var go = function () {
-          var p = ALL_PAGES[idx];
-          lbImg.src = (p.lesson === LESSON_NUM) ? ('kitob-' + p.bet + '.png') : p.src;
-          lbImg.alt = p.bet + '-bet';
-          navLabel.textContent = p.bet + '-bet · ' + p.lesson + '-§ (' + (idx + 1) + '/' + ALL_PAGES.length + ')';
-          prevBtn.disabled = idx === 0;
-          nextBtn.disabled = idx === ALL_PAGES.length - 1;
-        };
-        if (flip) {
-          wrap.classList.remove('is-flip');
-          void wrap.offsetWidth;
-          wrap.classList.add('is-flip');
-          setTimeout(go, 170);
-        } else {
-          go();
-        }
+      function render() {
+        var p = ALL_PAGES[idx];
+        lbImg.src = (p.lesson === LESSON_NUM) ? ('kitob-' + p.bet + '.png') : p.src;
+        lbImg.alt = p.bet + '-bet';
+        navLabel.textContent = p.bet + '-bet · ' + p.lesson + '-§ (' + (idx + 1) + '/' + ALL_PAGES.length + ')';
+        prevBtn.disabled = idx === 0;
+        nextBtn.disabled = idx === ALL_PAGES.length - 1;
       }
 
       document.querySelectorAll('.kitob-sahifa').forEach(function (a) {
@@ -453,13 +443,13 @@
             if (ALL_PAGES[i].lesson === LESSON_NUM && ALL_PAGES[i].bet === bet) { found = i; break; }
           }
           idx = found >= 0 ? found : 0;
-          render(false);
+          render();
           lb.classList.add('is-open');
         });
       });
 
-      prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(true); } });
-      nextBtn.addEventListener('click', function () { if (idx < ALL_PAGES.length - 1) { idx++; render(true); } });
+      prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(); } });
+      nextBtn.addEventListener('click', function () { if (idx < ALL_PAGES.length - 1) { idx++; render(); } });
 
       function closeLb() { lb.classList.remove('is-open'); lbImg.src = ''; }
       lbClose.addEventListener('click', closeLb);
@@ -467,8 +457,8 @@
       document.addEventListener('keydown', function (e) {
         if (!lb.classList.contains('is-open')) return;
         if (e.key === 'Escape') closeLb();
-        if (e.key === 'ArrowLeft' && idx > 0) { idx--; render(true); }
-        if (e.key === 'ArrowRight' && idx < ALL_PAGES.length - 1) { idx++; render(true); }
+        if (e.key === 'ArrowLeft' && idx > 0) { idx--; render(); }
+        if (e.key === 'ArrowRight' && idx < ALL_PAGES.length - 1) { idx++; render(); }
       });
     })();
   </script>

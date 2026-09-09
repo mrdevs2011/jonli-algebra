@@ -207,3 +207,80 @@ a { color: inherit; }
     width: calc(100% - 24px);
   }
 }
+
+/* =========================================================
+   DOSKA REJIMI (elektron doska / UHB uchun)
+   html.board-mode klassi js/board.js orqali qo'shiladi.
+   ========================================================= */
+
+.btn-board {
+  background: var(--accent-2);
+  color: var(--white);
+  border-color: var(--accent-2);
+  font-weight: 600;
+}
+.btn-board:hover { background: #245a41; }
+.btn-board[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+html.board-mode {
+  /* Katta ekrandan uzoqdan o'qish uchun butun masshtabni oshiramiz */
+  font-size: 132%;
+  /* Kontrastni kuchaytiramiz — proyektor/panel yorug'ligida ham aniq ko'rinsin */
+  --ink: #0d120e;
+  --ink-soft: #2e372f;
+  --line-strong: #9c8e72;
+  --paper: #f8f4ea;
+  --white: #ffffff;
+  --shadow: 0 14px 36px rgba(13, 18, 14, 0.14);
+}
+
+.board-mode .wrap {
+  width: min(1560px, calc(100% - 48px));
+}
+
+.board-mode .site-header {
+  padding: 30px 0 24px;
+  gap: 18px 22px;
+}
+
+.board-mode .mark {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  border-width: 2px;
+}
+.board-mode .mark svg { width: 34px; height: 34px; }
+
+.board-mode .brand-name { font-size: 1.5rem; }
+.board-mode .brand-name small { font-size: 0.92rem; }
+
+.board-mode .header-meta { font-size: 1.05rem; line-height: 1.5; }
+
+/* Touch-birinchi: kamida ~56-60px bosiladigan zona */
+.board-mode .btn {
+  padding: 15px 24px;
+  font-size: 1.08rem;
+  min-height: 56px;
+  border-width: 2px;
+  border-radius: 999px;
+}
+
+.board-mode .pill {
+  font-size: 0.98rem;
+  padding: 8px 16px;
+}
+
+.board-mode .site-footer {
+  font-size: 1.1rem;
+  margin-top: 72px;
+  padding-top: 26px;
+  border-top-width: 2px;
+}
+.board-mode .site-footer a {
+  padding: 12px 10px;
+  display: inline-block;
+  min-height: 48px;
+}

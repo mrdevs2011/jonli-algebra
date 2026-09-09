@@ -173,3 +173,44 @@
 .stats-num {
   font-variant-numeric: tabular-nums;
 }
+
+/* =========================================================
+   DOSKA REJIMI — bosh sahifa (dashboard)
+   ========================================================= */
+
+.board-mode .hero { gap: 36px; padding: 16px 0 44px; }
+.board-mode .hero p { font-size: 1.25rem; max-width: 62ch; }
+
+.board-mode .stats { padding: 24px 24px 20px; border-width: 2px; border-radius: 26px; }
+.board-mode .stats-label { font-size: 0.9rem; }
+.board-mode .stats-num { font-size: 3.4rem; }
+.board-mode .bar { height: 12px; }
+
+.board-mode .toc { gap: 12px; margin-bottom: 36px; }
+.board-mode .toc a {
+  padding: 12px 18px;
+  font-size: 1.05rem;
+  border-width: 2px;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.board-mode .chapter { margin-bottom: 42px; border-radius: 28px; border-width: 2px; }
+.board-mode .chapter-head { padding: 24px 24px 20px; gap: 20px; border-bottom-width: 2px; }
+.board-mode .roman { font-size: 2.5rem; }
+.board-mode .chapter-head h2 { font-size: 1.5rem; }
+.board-mode .chapter-head p { font-size: 1.08rem; }
+
+.board-mode .lessons { padding: 10px; }
+.board-mode .lesson {
+  padding: 18px 16px;
+  border-radius: 20px;
+  gap: 16px;
+  min-height: 64px;
+}
+.board-mode .lesson-num { font-size: 1.3rem; }
+.board-mode .lesson h3 { font-size: 1.22rem; }
+.board-mode .lesson p { font-size: 1.02rem; }
+
+.board-mode .note { font-size: 1.1rem; margin: 12px 0 48px; }
