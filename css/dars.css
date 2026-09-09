@@ -155,11 +155,11 @@
     repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(196,185,166,0.35) 24px),
     repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(196,185,166,0.28) 24px);
   display: grid;
-  place-items: center;
+  place-items: stretch;
   padding: 24px;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .stage strong {
@@ -182,6 +182,15 @@
   box-shadow: var(--shadow);
   padding: 16px;
   text-align: left;
+  overflow: visible;
+  min-height: 0;
+}
+
+.sahna-fallback {
+  margin: 24px auto !important;
+  max-width: 40ch;
+  color: #8a4038;
+  text-align: center;
 }
 
 /* Dars matn bloki */
@@ -857,6 +866,7 @@
     .sahna1-graf {
       width: 100%;
       height: auto;
+      min-height: 220px;
       display: block;
       background: var(--white);
       border-radius: 14px;

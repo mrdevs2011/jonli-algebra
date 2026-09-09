@@ -10,121 +10,173 @@
 /* ---- manba: js/features/agenda.js ---- */
 // Dars rejasi — 45 daqiqalik taymer va bosqichlar
 // Har bir dars sahifasida #agenda ichida qayta ishlatiladi.
+// MUHIM: qadamlar dars-render.js tomonidan keyin chiziladi, shuning
+// uchun bu fayl DARHOL ishlamaydi — window.KA_AGENDA.init() chaqiriladi.
 (function () {
   "use strict";
 
-  var wrap = document.getElementById("agenda");
-  if (!wrap) return;
-
-  var clockEl = document.getElementById("agendaClock");
-  var toggleBtn = document.getElementById("agendaToggle");
-  var resetBtn = document.getElementById("agendaReset");
-  var timerBox = wrap.querySelector(".agenda-timer");
-  var stepsEl = document.getElementById("agendaSteps");
-  var steps = Array.prototype.slice.call(stepsEl.querySelectorAll("li"));
-
-  var TOTAL_SECONDS = steps.reduce(function (sum, li) {
-    return sum + parseInt(li.getAttribute("data-min"), 10) * 60;
-  }, 0);
-
-  // Har bosqichning boshlanish soniyasi (o'tgan vaqt hisobida)
-  var cumulative = 0;
-  var boundaries = steps.map(function (li) {
-    var start = cumulative;
-    cumulative += parseInt(li.getAttribute("data-min"), 10) * 60;
-    return { start: start, end: cumulative };
-  });
-
-  var remaining = TOTAL_SECONDS;
-  var running = false;
-  var intervalId = null;
+  var state = null;
 
   function fmt(sec) {
     if (sec < 0) sec = 0;
     var m = Math.floor(sec / 60);
     var s = sec % 60;
-    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    return (m < 10 ? "0" + m : String(m)) + ":" + (s < 10 ? "0" + s : String(s));
   }
 
-  function elapsed() {
-    return TOTAL_SECONDS - remaining;
+  function bindStepClicks() {
+    if (!state) return;
+    state.steps.forEach(function (li, i) {
+      if (li.getAttribute("data-agenda-bound") === "1") return;
+      li.setAttribute("data-agenda-bound", "1");
+      li.addEventListener("click", function () {
+        state.remaining = state.total - state.boundaries[i].start;
+        paintClock();
+        paintSteps();
+      });
+      li.style.cursor = "pointer";
+    });
+  }
+
+  function readSteps() {
+    var stepsEl = document.getElementById("agendaSteps");
+    var steps = stepsEl
+      ? Array.prototype.slice.call(stepsEl.querySelectorAll("li"))
+      : [];
+    var total = steps.reduce(function (sum, li) {
+      return sum + (parseInt(li.getAttribute("data-min"), 10) || 0) * 60;
+    }, 0);
+    if (!total) total = 45 * 60;
+    var cumulative = 0;
+    var boundaries = steps.map(function (li) {
+      var start = cumulative;
+      cumulative += (parseInt(li.getAttribute("data-min"), 10) || 0) * 60;
+      return { start: start, end: cumulative };
+    });
+    return { steps: steps, total: total, boundaries: boundaries };
   }
 
   function paintSteps() {
-    var el = elapsed();
-    boundaries.forEach(function (b, i) {
-      var li = steps[i];
+    if (!state) return;
+    var el = state.total - state.remaining;
+    state.boundaries.forEach(function (b, i) {
+      var li = state.steps[i];
+      if (!li) return;
       li.classList.remove("is-active", "is-done");
-      if (el >= b.end) {
-        li.classList.add("is-done");
-      } else if (el >= b.start && el < b.end) {
-        li.classList.add("is-active");
-      }
+      if (el >= b.end) li.classList.add("is-done");
+      else if (el >= b.start && el < b.end) li.classList.add("is-active");
     });
   }
 
   function paintClock() {
-    clockEl.textContent = fmt(remaining);
-    if (timerBox) timerBox.classList.toggle("is-warning", remaining <= 300 && remaining > 0);
+    if (!state || !state.clockEl) return;
+    state.clockEl.textContent = fmt(state.remaining);
+    if (state.timerBox) {
+      state.timerBox.classList.toggle(
+        "is-warning",
+        state.remaining <= 300 && state.remaining > 0
+      );
+    }
   }
 
   function tick() {
-    if (remaining <= 0) {
+    if (!state) return;
+    if (state.remaining <= 0) {
       stop();
-      remaining = 0;
+      state.remaining = 0;
       paintClock();
       paintSteps();
       return;
     }
-    remaining -= 1;
+    state.remaining -= 1;
     paintClock();
     paintSteps();
   }
 
   function start() {
-    if (running) return;
-    running = true;
-    toggleBtn.textContent = "To'xtatish";
-    intervalId = setInterval(tick, 1000);
+    if (!state || state.running) return;
+    if (state.remaining <= 0) state.remaining = state.total;
+    state.running = true;
+    state.toggleBtn.textContent = "To'xtatish";
+    state.intervalId = setInterval(tick, 1000);
   }
 
   function stop() {
-    running = false;
-    toggleBtn.textContent = "Davom etish";
-    if (intervalId) {
-      clearInterval(intervalId);
-      intervalId = null;
+    if (!state) return;
+    state.running = false;
+    state.toggleBtn.textContent = "Davom etish";
+    if (state.intervalId) {
+      clearInterval(state.intervalId);
+      state.intervalId = null;
     }
   }
 
   function reset() {
+    if (!state) return;
     stop();
-    remaining = TOTAL_SECONDS;
-    toggleBtn.textContent = "Boshlash";
+    state.remaining = state.total;
+    state.toggleBtn.textContent = "Boshlash";
     paintClock();
     paintSteps();
   }
 
-  toggleBtn.addEventListener("click", function () {
-    if (running) stop();
-    else start();
-  });
+  function init() {
+    var wrap = document.getElementById("agenda");
+    if (!wrap) return;
 
-  resetBtn.addEventListener("click", reset);
+    var clockEl = document.getElementById("agendaClock");
+    var toggleBtn = document.getElementById("agendaToggle");
+    var resetBtn = document.getElementById("agendaReset");
+    if (!clockEl || !toggleBtn) return;
 
-  // Bosqichga qo'lda bosib o'tish — o'qituvchi rejadan tezroq yoki
-  // sekinroq borsa, taymerni shu bosqichga moslab qo'yadi.
-  steps.forEach(function (li, i) {
-    li.addEventListener("click", function () {
-      remaining = TOTAL_SECONDS - boundaries[i].start;
-      paintClock();
-      paintSteps();
-    });
-    li.style.cursor = "pointer";
-  });
+    var meta = readSteps();
+    var keepRemaining = state && state.running ? state.remaining : meta.total;
 
-  paintClock();
-  paintSteps();
+    if (state && state.intervalId) {
+      clearInterval(state.intervalId);
+      state.intervalId = null;
+    }
+
+    state = {
+      clockEl: clockEl,
+      toggleBtn: toggleBtn,
+      resetBtn: resetBtn,
+      timerBox: wrap.querySelector(".agenda-timer"),
+      steps: meta.steps,
+      total: meta.total,
+      boundaries: meta.boundaries,
+      remaining: keepRemaining > meta.total ? meta.total : keepRemaining,
+      running: false,
+      intervalId: null
+    };
+
+    if (!toggleBtn.getAttribute("data-agenda-bound")) {
+      toggleBtn.setAttribute("data-agenda-bound", "1");
+      toggleBtn.addEventListener("click", function () {
+        if (state.running) stop();
+        else start();
+      });
+    }
+    if (resetBtn && !resetBtn.getAttribute("data-agenda-bound")) {
+      resetBtn.setAttribute("data-agenda-bound", "1");
+      resetBtn.addEventListener("click", reset);
+    }
+
+    bindStepClicks();
+    paintClock();
+    paintSteps();
+  }
+
+  window.KA_AGENDA = { init: init };
+
+  function boot() {
+    init();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 
 /* ---- manba: js/features/board.js ---- */
@@ -220,15 +272,26 @@
 /* ---- manba: js/features/classtimer.js ---- */
 /* Jonli Algebra — Sinf birga yechadi (taymer)
    Barcha darslarda bir xil ishlaydi: #classtimerClock / #classtimerToggle
-   va h.k. ID'lari sahifada bo'lsa, avtomatik ulanadi. Lesson-specific
-   ma'lumot kerak emas — shuning uchun to'liq umumiy fayl. */
+   va h.k. ID'lari sahifada bo'lsa, avtomatik ulanadi. */
 (function () {
-  document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  var started = false;
+
+  function pad2(n) {
+    n = Math.abs(n);
+    return (n < 10 ? "0" : "") + String(n);
+  }
+
+  function init() {
     var clockEl = document.getElementById("classtimerClock");
     var toggleBtn = document.getElementById("classtimerToggle");
     var resetBtn = document.getElementById("classtimerReset");
     var presetBtns = document.querySelectorAll(".classtimer-presets [data-secs]");
     if (!clockEl || !toggleBtn) return;
+    if (toggleBtn.getAttribute("data-classtimer-bound") === "1") return;
+    toggleBtn.setAttribute("data-classtimer-bound", "1");
+    started = true;
 
     var totalSecs = 60;
     var remaining = totalSecs;
@@ -238,7 +301,7 @@
     function fmt(s) {
       var m = Math.floor(Math.abs(s) / 60);
       var sec = Math.abs(s) % 60;
-      return (s < 0 ? "-" : "") + String(m).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
+      return (s < 0 ? "-" : "") + pad2(m) + ":" + pad2(sec);
     }
 
     function render() {
@@ -268,7 +331,6 @@
     function tick() {
       remaining--;
       render();
-      // Vaqt tugaganda bir marta signal — sinfda hamma eshitishi uchun.
       if (remaining === 0) {
         beep(440, 0.18);
         window.setTimeout(function () { beep(440, 0.18); }, 260);
@@ -287,10 +349,12 @@
       running = false;
       toggleBtn.textContent = "Davom ettirish";
       window.clearInterval(timer);
+      timer = null;
     }
 
     toggleBtn.addEventListener("click", function () {
-      if (running) stop(); else start();
+      if (running) stop();
+      else start();
     });
 
     if (resetBtn) {
@@ -302,13 +366,15 @@
       });
     }
 
-    presetBtns.forEach(function (btn) {
+    Array.prototype.forEach.call(presetBtns, function (btn) {
       btn.addEventListener("click", function () {
         stop();
         toggleBtn.textContent = "Boshlash";
-        totalSecs = parseInt(btn.getAttribute("data-secs"), 10);
+        totalSecs = parseInt(btn.getAttribute("data-secs"), 10) || 60;
         remaining = totalSecs;
-        presetBtns.forEach(function (b) { b.classList.remove("is-active"); });
+        Array.prototype.forEach.call(presetBtns, function (b) {
+          b.classList.remove("is-active");
+        });
         btn.classList.add("is-active");
         render();
       });
@@ -317,80 +383,64 @@
     var defaultPreset = document.querySelector('.classtimer-presets [data-secs="60"]');
     if (defaultPreset) defaultPreset.classList.add("is-active");
     render();
-  });
+  }
+
+  window.KA_CLASSTIMER = { init: init };
+
+  function boot() { init(); }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 
 /* ---- manba: js/features/kitob-full.js ---- */
-// Darslikning barcha sahifalari — 1 dan 240 gacha.
-// Har bir dars sahifasidagi "Darslikda" blokidagi havolalar shu ro'yxat orqali
-// to'liq kitobni (oldinga/orqaga, tugma yoki barmoq bilan surib) varaqlashga imkon beradi.
+// Darslik sahifalari lightbox.
+// Havolalar dars-render.js'dan KEYIN paydo bo'ladi, shuning uchun
+// window.KA_KITOB.init() qayta chaqiriladi.
 (function () {
   "use strict";
 
   var TOTAL_PAGES = 240;
-  var links = document.querySelectorAll(".kitob-sahifa");
-  if (!links.length) return;
-
-  var lb = document.getElementById("kitobLightbox");
-  var lbImg = document.getElementById("kitobLightboxImg");
-  var lbClose = document.getElementById("kitobLightboxClose");
-  var prevBtn = document.getElementById("kitobPrev");
-  var nextBtn = document.getElementById("kitobNext");
-  var navLabel = document.getElementById("kitobNavLabel");
-  var pageWrap = document.getElementById("kitobPageWrap");
-  if (!lb) return;
-
-  // Yuklanayotganda ko'rinadigan spinner + varaq belgisi
-  var loader = document.createElement("div");
-  loader.className = "kitob-loader";
-  loader.innerHTML =
-    '<span class="kitob-loader-page">' +
-    '<span class="kitob-loader-corner"></span>' +
-    "</span>";
-  pageWrap.appendChild(loader);
-
-  var idx = 0; // 0-based; bet raqami = idx + 1
-
-  // Bitta vaqtda faqat bitta o'tish (transition) ketishi kerak — aks holda
-  // tez-tez bosilganda animatsiyalar bir-birining ustidan chiqib "gijjjik" bo'lib qoladi.
-  var reqId = 0;          // har bir render() chaqiruvining o'z raqami (stale javoblarni chetlab o'tish uchun)
-  var showLoaderTimer = null;   // spinner faqat sekin yuklansa ko'rinadi (tez cache'da miltillamasin)
-  var hideFlipTimer = null;     // flip klassini olib tashlovchi yagona faol taymer
+  var bound = false;
+  var idx = 0;
+  var reqId = 0;
+  var showLoaderTimer = null;
+  var hideFlipTimer = null;
+  var lb, lbImg, lbClose, prevBtn, nextBtn, navLabel, pageWrap;
 
   function pageSrc(bet) {
-    return "../kitob/kitob-" + bet + ".png";
+    return "../../../../kitob/kitob-" + bet + ".png";
   }
 
   function setNavDisabled(disabled) {
-    // O'tish ketayotganda tugma/swipe'larni vaqtincha bloklaymiz —
-    // shu bitta qoida butun "funny animation" muammosini yo'qotadi.
+    if (!prevBtn || !nextBtn) return;
     prevBtn.disabled = disabled || idx === 0;
     nextBtn.disabled = disabled || idx === TOTAL_PAGES - 1;
   }
 
-  function render(direction) {
+  function render(direction, explicitSrc) {
+    if (!lbImg || !pageWrap) return;
     var bet = idx + 1;
-    var myReq = ++reqId; // shu chaqiruvga tegishli "bilet"
+    var myReq = ++reqId;
 
     clearTimeout(showLoaderTimer);
     clearTimeout(hideFlipTimer);
     pageWrap.classList.remove("flip-left", "flip-right");
     setNavDisabled(true);
 
-    // Spinnerni darrov ko'rsatmaymiz — 90ms ichida rasm kelsa, spinner umuman ko'rinmaydi.
-    // Aynan shu miltillashni oldini oladi (lokal rasm deyarli bir zumda yuklanadi).
     showLoaderTimer = window.setTimeout(function () {
       if (myReq === reqId) pageWrap.classList.add("is-loading");
     }, 90);
 
     var img = new Image();
     img.onload = function () {
-      if (myReq !== reqId) return; // eskirgan (stale) javob — e'tiborsiz qoldiramiz
+      if (myReq !== reqId) return;
       clearTimeout(showLoaderTimer);
       lbImg.src = img.src;
       lbImg.alt = bet + "-bet";
       pageWrap.classList.remove("is-loading");
-
       if (direction) {
         var flipClass = direction === "next" ? "flip-left" : "flip-right";
         pageWrap.classList.add(flipClass);
@@ -403,75 +453,125 @@
     img.onerror = function () {
       if (myReq !== reqId) return;
       clearTimeout(showLoaderTimer);
+      if (explicitSrc && img.src.indexOf(explicitSrc) === -1) {
+        img.src = explicitSrc;
+        return;
+      }
       pageWrap.classList.remove("is-loading");
       setNavDisabled(false);
     };
-    img.src = pageSrc(bet);
-
-    navLabel.textContent = bet + "-bet · (" + bet + "/" + TOTAL_PAGES + ")";
+    img.src = explicitSrc || pageSrc(bet);
+    if (navLabel) navLabel.textContent = bet + "-bet · (" + bet + "/" + TOTAL_PAGES + ")";
   }
 
-  function goNext() { if (!nextBtn.disabled && idx < TOTAL_PAGES - 1) { idx++; render("next"); } }
-  function goPrev() { if (!prevBtn.disabled && idx > 0) { idx--; render("prev"); } }
+  function goNext() {
+    if (nextBtn && !nextBtn.disabled && idx < TOTAL_PAGES - 1) {
+      idx++;
+      render("next");
+    }
+  }
+  function goPrev() {
+    if (prevBtn && !prevBtn.disabled && idx > 0) {
+      idx--;
+      render("prev");
+    }
+  }
 
-  links.forEach(function (a) {
-    a.addEventListener("click", function (e) {
-      e.preventDefault();
-      var href = a.getAttribute("href");
-      var betMatch = href.match(/kitob-(\d+)\.png/);
-      var bet = betMatch ? parseInt(betMatch[1], 10) : 1;
-      idx = Math.min(Math.max(bet - 1, 0), TOTAL_PAGES - 1);
-      render();
-      lb.classList.add("is-open");
+  function init() {
+    var links = document.querySelectorAll(".kitob-sahifa");
+    lb = document.getElementById("kitobLightbox");
+    lbImg = document.getElementById("kitobLightboxImg");
+    lbClose = document.getElementById("kitobLightboxClose");
+    prevBtn = document.getElementById("kitobPrev");
+    nextBtn = document.getElementById("kitobNext");
+    navLabel = document.getElementById("kitobNavLabel");
+    pageWrap = document.getElementById("kitobPageWrap");
+    if (!lb || !pageWrap) return;
+
+    if (!pageWrap.querySelector(".kitob-loader")) {
+      var loader = document.createElement("div");
+      loader.className = "kitob-loader";
+      loader.innerHTML =
+        '<span class="kitob-loader-page"><span class="kitob-loader-corner"></span></span>';
+      pageWrap.appendChild(loader);
+    }
+
+    Array.prototype.forEach.call(links, function (a) {
+      if (a.getAttribute("data-kitob-bound") === "1") return;
+      a.setAttribute("data-kitob-bound", "1");
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var href = a.getAttribute("href");
+        var betMatch = href && href.match(/kitob-(\d+)/);
+        var bet = betMatch ? parseInt(betMatch[1], 10) : 1;
+        idx = Math.min(Math.max(bet - 1, 0), TOTAL_PAGES - 1);
+        render(null, href);
+        lb.classList.add("is-open");
+      });
     });
-  });
 
-  prevBtn.addEventListener("click", goPrev);
-  nextBtn.addEventListener("click", goNext);
+    if (bound) return;
+    bound = true;
 
-  function closeLb() { lb.classList.remove("is-open"); lbImg.src = ""; }
-  lbClose.addEventListener("click", closeLb);
-  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
-  document.addEventListener("keydown", function (e) {
-    if (!lb.classList.contains("is-open")) return;
-    if (e.key === "Escape") closeLb();
-    if (e.key === "ArrowLeft") goPrev();
-    if (e.key === "ArrowRight") goNext();
-  });
+    if (prevBtn) prevBtn.addEventListener("click", goPrev);
+    if (nextBtn) nextBtn.addEventListener("click", goNext);
 
-  // Barmoq bilan surib varaqlash (swipe)
-  var touchStartX = null;
-  var touchStartY = null;
+    function closeLb() {
+      lb.classList.remove("is-open");
+      if (lbImg) lbImg.src = "";
+    }
+    if (lbClose) lbClose.addEventListener("click", closeLb);
+    lb.addEventListener("click", function (e) {
+      if (e.target === lb) closeLb();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeLb();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    });
 
-  pageWrap.addEventListener("touchstart", function (e) {
-    var t = e.touches[0];
-    touchStartX = t.clientX;
-    touchStartY = t.clientY;
-  }, { passive: true });
+    var touchStartX = null;
+    var touchStartY = null;
+    pageWrap.addEventListener("touchstart", function (e) {
+      var t = e.touches[0];
+      touchStartX = t.clientX;
+      touchStartY = t.clientY;
+    }, { passive: true });
+    pageWrap.addEventListener("touchend", function (e) {
+      if (touchStartX === null) return;
+      var t = e.changedTouches[0];
+      var dx = t.clientX - touchStartX;
+      var dy = t.clientY - touchStartY;
+      touchStartX = null;
+      touchStartY = null;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+      if (dx < 0) goNext();
+      else goPrev();
+    }, { passive: true });
 
-  pageWrap.addEventListener("touchend", function (e) {
-    if (touchStartX === null) return;
-    var t = e.changedTouches[0];
-    var dx = t.clientX - touchStartX;
-    var dy = t.clientY - touchStartY;
-    touchStartX = null;
-    touchStartY = null;
-    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
-    if (dx < 0) goNext(); else goPrev();
-  }, { passive: true });
+    var mouseDownX = null;
+    pageWrap.addEventListener("mousedown", function (e) {
+      mouseDownX = e.clientX;
+    });
+    pageWrap.addEventListener("mouseup", function (e) {
+      if (mouseDownX === null) return;
+      var dx = e.clientX - mouseDownX;
+      mouseDownX = null;
+      if (Math.abs(dx) < 60) return;
+      if (dx < 0) goNext();
+      else goPrev();
+    });
+  }
 
-  // Sichqoncha bilan sudrab ham varaqlash (desktop)
-  var mouseDownX = null;
-  pageWrap.addEventListener("mousedown", function (e) {
-    mouseDownX = e.clientX;
-  });
-  pageWrap.addEventListener("mouseup", function (e) {
-    if (mouseDownX === null) return;
-    var dx = e.clientX - mouseDownX;
-    mouseDownX = null;
-    if (Math.abs(dx) < 60) return;
-    if (dx < 0) goNext(); else goPrev();
-  });
+  window.KA_KITOB = { init: init };
+
+  function boot() { init(); }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 
 /* ---- manba: js/features/picker.js ---- */

@@ -242,9 +242,23 @@
     var builder = window.KA_SAHNA && window.KA_SAHNA[d.sahna.type];
     if (!builder) {
       console.error("Noma'lum sahna turi:", d.sahna.type);
+      stage.insertAdjacentHTML(
+        "beforeend",
+        '<p class="sahna-fallback">Vizualizator yuklanmadi (' +
+          String(d.sahna.type || "?") +
+          "). Sahifani yangilang.</p>"
+      );
       return;
     }
-    builder(stage, d.sahna);
+    try {
+      builder(stage, d.sahna);
+    } catch (err) {
+      console.error("Sahna xatosi:", err);
+      stage.insertAdjacentHTML(
+        "beforeend",
+        '<p class="sahna-fallback">Vizualizator ishlamadi. Sahifani yangilang.</p>'
+      );
+    }
   }
 
   function init() {
@@ -262,6 +276,9 @@
     renderMashqlar(d);
     renderXulosa(d);
 
+    if (window.KA_AGENDA && KA_AGENDA.init) KA_AGENDA.init();
+    if (window.KA_CLASSTIMER && KA_CLASSTIMER.init) KA_CLASSTIMER.init();
+    if (window.KA_KITOB && KA_KITOB.init) KA_KITOB.init();
     if (window.KA_SAHNA_EXPAND) window.KA_SAHNA_EXPAND.init();
     if (window.KA && KA.onLessonOpen) KA.onLessonOpen(d.id);
   }

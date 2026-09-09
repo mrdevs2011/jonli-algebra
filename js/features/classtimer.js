@@ -1,14 +1,25 @@
 /* Jonli Algebra — Sinf birga yechadi (taymer)
    Barcha darslarda bir xil ishlaydi: #classtimerClock / #classtimerToggle
-   va h.k. ID'lari sahifada bo'lsa, avtomatik ulanadi. Lesson-specific
-   ma'lumot kerak emas — shuning uchun to'liq umumiy fayl. */
+   va h.k. ID'lari sahifada bo'lsa, avtomatik ulanadi. */
 (function () {
-  document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  var started = false;
+
+  function pad2(n) {
+    n = Math.abs(n);
+    return (n < 10 ? "0" : "") + String(n);
+  }
+
+  function init() {
     var clockEl = document.getElementById("classtimerClock");
     var toggleBtn = document.getElementById("classtimerToggle");
     var resetBtn = document.getElementById("classtimerReset");
     var presetBtns = document.querySelectorAll(".classtimer-presets [data-secs]");
     if (!clockEl || !toggleBtn) return;
+    if (toggleBtn.getAttribute("data-classtimer-bound") === "1") return;
+    toggleBtn.setAttribute("data-classtimer-bound", "1");
+    started = true;
 
     var totalSecs = 60;
     var remaining = totalSecs;
@@ -18,7 +29,7 @@
     function fmt(s) {
       var m = Math.floor(Math.abs(s) / 60);
       var sec = Math.abs(s) % 60;
-      return (s < 0 ? "-" : "") + String(m).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
+      return (s < 0 ? "-" : "") + pad2(m) + ":" + pad2(sec);
     }
 
     function render() {
@@ -48,7 +59,6 @@
     function tick() {
       remaining--;
       render();
-      // Vaqt tugaganda bir marta signal — sinfda hamma eshitishi uchun.
       if (remaining === 0) {
         beep(440, 0.18);
         window.setTimeout(function () { beep(440, 0.18); }, 260);
@@ -67,10 +77,12 @@
       running = false;
       toggleBtn.textContent = "Davom ettirish";
       window.clearInterval(timer);
+      timer = null;
     }
 
     toggleBtn.addEventListener("click", function () {
-      if (running) stop(); else start();
+      if (running) stop();
+      else start();
     });
 
     if (resetBtn) {
@@ -82,13 +94,15 @@
       });
     }
 
-    presetBtns.forEach(function (btn) {
+    Array.prototype.forEach.call(presetBtns, function (btn) {
       btn.addEventListener("click", function () {
         stop();
         toggleBtn.textContent = "Boshlash";
-        totalSecs = parseInt(btn.getAttribute("data-secs"), 10);
+        totalSecs = parseInt(btn.getAttribute("data-secs"), 10) || 60;
         remaining = totalSecs;
-        presetBtns.forEach(function (b) { b.classList.remove("is-active"); });
+        Array.prototype.forEach.call(presetBtns, function (b) {
+          b.classList.remove("is-active");
+        });
         btn.classList.add("is-active");
         render();
       });
@@ -97,5 +111,14 @@
     var defaultPreset = document.querySelector('.classtimer-presets [data-secs="60"]');
     if (defaultPreset) defaultPreset.classList.add("is-active");
     render();
-  });
+  }
+
+  window.KA_CLASSTIMER = { init: init };
+
+  function boot() { init(); }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();

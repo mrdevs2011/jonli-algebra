@@ -1,118 +1,170 @@
 // Dars rejasi — 45 daqiqalik taymer va bosqichlar
 // Har bir dars sahifasida #agenda ichida qayta ishlatiladi.
+// MUHIM: qadamlar dars-render.js tomonidan keyin chiziladi, shuning
+// uchun bu fayl DARHOL ishlamaydi — window.KA_AGENDA.init() chaqiriladi.
 (function () {
   "use strict";
 
-  var wrap = document.getElementById("agenda");
-  if (!wrap) return;
-
-  var clockEl = document.getElementById("agendaClock");
-  var toggleBtn = document.getElementById("agendaToggle");
-  var resetBtn = document.getElementById("agendaReset");
-  var timerBox = wrap.querySelector(".agenda-timer");
-  var stepsEl = document.getElementById("agendaSteps");
-  var steps = Array.prototype.slice.call(stepsEl.querySelectorAll("li"));
-
-  var TOTAL_SECONDS = steps.reduce(function (sum, li) {
-    return sum + parseInt(li.getAttribute("data-min"), 10) * 60;
-  }, 0);
-
-  // Har bosqichning boshlanish soniyasi (o'tgan vaqt hisobida)
-  var cumulative = 0;
-  var boundaries = steps.map(function (li) {
-    var start = cumulative;
-    cumulative += parseInt(li.getAttribute("data-min"), 10) * 60;
-    return { start: start, end: cumulative };
-  });
-
-  var remaining = TOTAL_SECONDS;
-  var running = false;
-  var intervalId = null;
+  var state = null;
 
   function fmt(sec) {
     if (sec < 0) sec = 0;
     var m = Math.floor(sec / 60);
     var s = sec % 60;
-    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    return (m < 10 ? "0" + m : String(m)) + ":" + (s < 10 ? "0" + s : String(s));
   }
 
-  function elapsed() {
-    return TOTAL_SECONDS - remaining;
+  function bindStepClicks() {
+    if (!state) return;
+    state.steps.forEach(function (li, i) {
+      if (li.getAttribute("data-agenda-bound") === "1") return;
+      li.setAttribute("data-agenda-bound", "1");
+      li.addEventListener("click", function () {
+        state.remaining = state.total - state.boundaries[i].start;
+        paintClock();
+        paintSteps();
+      });
+      li.style.cursor = "pointer";
+    });
+  }
+
+  function readSteps() {
+    var stepsEl = document.getElementById("agendaSteps");
+    var steps = stepsEl
+      ? Array.prototype.slice.call(stepsEl.querySelectorAll("li"))
+      : [];
+    var total = steps.reduce(function (sum, li) {
+      return sum + (parseInt(li.getAttribute("data-min"), 10) || 0) * 60;
+    }, 0);
+    if (!total) total = 45 * 60;
+    var cumulative = 0;
+    var boundaries = steps.map(function (li) {
+      var start = cumulative;
+      cumulative += (parseInt(li.getAttribute("data-min"), 10) || 0) * 60;
+      return { start: start, end: cumulative };
+    });
+    return { steps: steps, total: total, boundaries: boundaries };
   }
 
   function paintSteps() {
-    var el = elapsed();
-    boundaries.forEach(function (b, i) {
-      var li = steps[i];
+    if (!state) return;
+    var el = state.total - state.remaining;
+    state.boundaries.forEach(function (b, i) {
+      var li = state.steps[i];
+      if (!li) return;
       li.classList.remove("is-active", "is-done");
-      if (el >= b.end) {
-        li.classList.add("is-done");
-      } else if (el >= b.start && el < b.end) {
-        li.classList.add("is-active");
-      }
+      if (el >= b.end) li.classList.add("is-done");
+      else if (el >= b.start && el < b.end) li.classList.add("is-active");
     });
   }
 
   function paintClock() {
-    clockEl.textContent = fmt(remaining);
-    if (timerBox) timerBox.classList.toggle("is-warning", remaining <= 300 && remaining > 0);
+    if (!state || !state.clockEl) return;
+    state.clockEl.textContent = fmt(state.remaining);
+    if (state.timerBox) {
+      state.timerBox.classList.toggle(
+        "is-warning",
+        state.remaining <= 300 && state.remaining > 0
+      );
+    }
   }
 
   function tick() {
-    if (remaining <= 0) {
+    if (!state) return;
+    if (state.remaining <= 0) {
       stop();
-      remaining = 0;
+      state.remaining = 0;
       paintClock();
       paintSteps();
       return;
     }
-    remaining -= 1;
+    state.remaining -= 1;
     paintClock();
     paintSteps();
   }
 
   function start() {
-    if (running) return;
-    running = true;
-    toggleBtn.textContent = "To'xtatish";
-    intervalId = setInterval(tick, 1000);
+    if (!state || state.running) return;
+    if (state.remaining <= 0) state.remaining = state.total;
+    state.running = true;
+    state.toggleBtn.textContent = "To'xtatish";
+    state.intervalId = setInterval(tick, 1000);
   }
 
   function stop() {
-    running = false;
-    toggleBtn.textContent = "Davom etish";
-    if (intervalId) {
-      clearInterval(intervalId);
-      intervalId = null;
+    if (!state) return;
+    state.running = false;
+    state.toggleBtn.textContent = "Davom etish";
+    if (state.intervalId) {
+      clearInterval(state.intervalId);
+      state.intervalId = null;
     }
   }
 
   function reset() {
+    if (!state) return;
     stop();
-    remaining = TOTAL_SECONDS;
-    toggleBtn.textContent = "Boshlash";
+    state.remaining = state.total;
+    state.toggleBtn.textContent = "Boshlash";
     paintClock();
     paintSteps();
   }
 
-  toggleBtn.addEventListener("click", function () {
-    if (running) stop();
-    else start();
-  });
+  function init() {
+    var wrap = document.getElementById("agenda");
+    if (!wrap) return;
 
-  resetBtn.addEventListener("click", reset);
+    var clockEl = document.getElementById("agendaClock");
+    var toggleBtn = document.getElementById("agendaToggle");
+    var resetBtn = document.getElementById("agendaReset");
+    if (!clockEl || !toggleBtn) return;
 
-  // Bosqichga qo'lda bosib o'tish — o'qituvchi rejadan tezroq yoki
-  // sekinroq borsa, taymerni shu bosqichga moslab qo'yadi.
-  steps.forEach(function (li, i) {
-    li.addEventListener("click", function () {
-      remaining = TOTAL_SECONDS - boundaries[i].start;
-      paintClock();
-      paintSteps();
-    });
-    li.style.cursor = "pointer";
-  });
+    var meta = readSteps();
+    var keepRemaining = state && state.running ? state.remaining : meta.total;
 
-  paintClock();
-  paintSteps();
+    if (state && state.intervalId) {
+      clearInterval(state.intervalId);
+      state.intervalId = null;
+    }
+
+    state = {
+      clockEl: clockEl,
+      toggleBtn: toggleBtn,
+      resetBtn: resetBtn,
+      timerBox: wrap.querySelector(".agenda-timer"),
+      steps: meta.steps,
+      total: meta.total,
+      boundaries: meta.boundaries,
+      remaining: keepRemaining > meta.total ? meta.total : keepRemaining,
+      running: false,
+      intervalId: null
+    };
+
+    if (!toggleBtn.getAttribute("data-agenda-bound")) {
+      toggleBtn.setAttribute("data-agenda-bound", "1");
+      toggleBtn.addEventListener("click", function () {
+        if (state.running) stop();
+        else start();
+      });
+    }
+    if (resetBtn && !resetBtn.getAttribute("data-agenda-bound")) {
+      resetBtn.setAttribute("data-agenda-bound", "1");
+      resetBtn.addEventListener("click", reset);
+    }
+
+    bindStepClicks();
+    paintClock();
+    paintSteps();
+  }
+
+  window.KA_AGENDA = { init: init };
+
+  function boot() {
+    init();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
