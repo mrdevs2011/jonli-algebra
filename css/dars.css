@@ -838,3 +838,259 @@
   from { opacity: 0; transform: scale(0.97); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* ============================================================
+   Umumiy sahna/doska komponentlari — abc-parabola sahna turi va
+   doska-namuna bloki uchun (js/sahna-abc-parabola.js, js/dars-render.js).
+   Ilgari har darsda alohida <style> ichida takrorlanardi;
+   endi umumiy komponent bo'lgani uchun bu yerga ko'chirildi.
+   ============================================================ */
+    /* Faqat shu darsga tegishli qo'shimcha uslub — umumiy fayllarga tegilmadi */
+    .sahna-stage { position: relative; }
+
+    .sahna1-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      width: 100%;
+    }
+    .sahna1-graf {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: var(--white);
+      border-radius: 14px;
+    }
+    .sahna1-formula {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 3.6vw, 1.6rem);
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .sahna1-formula .term-a { color: var(--accent); font-weight: 700; }
+    .sahna1-formula .term-b { color: var(--accent-2); font-weight: 700; }
+    .sahna1-formula .term-c { color: var(--gold); font-weight: 700; }
+
+    /* Formuladagi raqamlar — surish (drag) yoki oq/pastga tugma bilan o'zgartsa bo'ladi */
+    .term-value {
+      display: inline-block;
+      position: relative;
+      cursor: ew-resize;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      padding: 1px 5px;
+      border-radius: 8px;
+      border-bottom: 2px dotted currentColor;
+      opacity: 0.92;
+      transition: background-color 0.15s ease, transform 0.12s ease;
+    }
+    .term-value:hover,
+    .term-value:focus-visible { background: rgba(74, 85, 76, 0.09); outline: none; }
+    .term-value.is-dragging {
+      background: rgba(74, 85, 76, 0.16);
+      transform: scale(1.14);
+      border-bottom-style: solid;
+    }
+    .term-value.is-pulse { animation: termPulse 0.28s ease; }
+    @keyframes termPulse {
+      0% { transform: scale(1); }
+      45% { transform: scale(1.22); }
+      100% { transform: scale(1); }
+    }
+    .sahna1-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      opacity: 0.75;
+      margin: -4px 0 0;
+    }
+    .sahna1-hint svg { flex-shrink: 0; opacity: 0.8; }
+
+    .sahna1-note {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      min-height: 1.4em;
+    }
+    .sahna1-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 16px;
+    }
+    .sahna1-controls .control label span { font-weight: 700; }
+    .sahna1-controls .control:nth-child(1) label span { color: var(--accent); }
+    .sahna1-controls .control:nth-child(2) label span { color: var(--accent-2); }
+    .sahna1-controls .control:nth-child(3) label span { color: var(--gold); }
+    @media (max-width: 560px) {
+      .sahna1-controls { grid-template-columns: 1fr; }
+    }
+
+    /* Kattalashtirish tugmasi — sahna burchagida */
+    .sahna-expand-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background-color 0.15s ease, transform 0.15s ease;
+    }
+    .sahna-expand-btn:hover { background: var(--paper); transform: scale(1.06); }
+    .sahna-expand-btn:active { transform: scale(0.94); }
+    .sahna-expand-btn svg { transition: transform 0.2s ease; }
+
+    /* Kengaytirilgan (butun ekran) rejim — har qanday qurilmada scrollsiz sig'adi */
+    .sahna-stage.sahna-expanded {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      margin: 0;
+      border-radius: 0;
+      background: var(--paper);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+      /* JS orqali hisoblangan --vh — dvh ba'zi brauzer/webview'larda noto'g'ri
+         qiymat berishi mumkin, shuning uchun shu ANIQ pikselli hisob asosiy. */
+      height: calc(var(--vh, 1vh) * 100);
+      box-sizing: border-box;
+      /* Ichkaridagi kontent qanchalik oshib ketmasin, sahifa hech qachon scroll
+         bo'lmasligi uchun shu yerda "kesib tashlanadi" — bu qoida bo'lmasa,
+         overflow tashqariga chiqib, butun sahifa scroll bo'lib qolardi. */
+      overflow: hidden;
+      overscroll-behavior: contain;
+      animation: sahnaFadeIn 0.22s ease;
+    }
+    .sahna-stage.sahna-closing {
+      animation: sahnaFadeOut 0.2s ease forwards;
+    }
+    @keyframes sahnaFadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes sahnaFadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.97); }
+    }
+    .sahna-stage.sahna-expanded .sahna1-grid {
+      width: 100%;
+      max-width: 980px;
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .sahna-stage.sahna-expanded .sahna1-formula {
+      flex: 0 0 auto;
+      font-size: clamp(1.2rem, 3.4vw, 2.1rem);
+      margin: 4px 0 0;
+    }
+    .sahna-stage.sahna-expanded .sahna1-hint { flex: 0 0 auto; }
+    .sahna-stage.sahna-expanded .sahna1-graf {
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .sahna-stage.sahna-expanded .sahna1-note { flex: 0 0 auto; margin: 0; font-size: clamp(0.85rem, 1.6vw, 1.05rem); }
+    .sahna-stage.sahna-expanded .sahna1-controls {
+      flex: 0 0 auto;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 12px;
+    }
+    .sahna-stage.sahna-expanded .control-desc { display: none; }
+    .sahna-stage.sahna-expanded .control label { font-size: 1rem; }
+    .sahna-stage.sahna-expanded .sahna-expand-btn { top: max(10px, env(safe-area-inset-top)); right: max(10px, env(safe-area-inset-right)); }
+    /* Juda past bo'yli ekranlar (kichik telefon, gorizontal) — tavsif va maslahat matnini olib, joy tejaymiz */
+    @media (max-height: 480px) {
+      .sahna-stage.sahna-expanded .sahna1-hint { display: none; }
+      .sahna-stage.sahna-expanded .sahna1-formula { font-size: clamp(1rem, 3vw, 1.5rem); margin-top: 0; }
+      .sahna-stage.sahna-expanded .sahna1-controls { gap: 4px 10px; }
+      .sahna-stage.sahna-expanded .sahna1-grid { gap: 6px; }
+    }
+    /* iOS Safari'da faqat body{overflow:hidden} scroll'ni to'liq bloklamaydi —
+       shuning uchun html elementini ham qulflaymiz. */
+    html.sahna-lock, body.sahna-lock {
+      overflow: hidden;
+      height: 100%;
+      overscroll-behavior: none;
+    }
+
+    /* Doskada namuna yechish — faqat shu darsga tegishli */
+    .block-doska { border-left: 4px solid var(--accent-2); }
+    .doska-intro { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 14px !important; }
+
+    .doska-masala {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .doska-masala:first-of-type { border-top: none; padding-top: 0; }
+
+    .doska-masala-img { display: flex; flex-direction: column; gap: 6px; }
+    .doska-img { display: block; text-decoration: none; }
+    .doska-img img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .doska-img:hover img { transform: scale(1.015); box-shadow: 0 10px 24px rgba(26,34,28,0.16); }
+    .doska-img-cap { font-size: 0.78rem; color: var(--ink-soft); text-align: center; }
+
+    .doska-steps-list { margin: 0; padding-left: 20px; display: grid; gap: 10px; }
+    .doska-steps-list li {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.2s ease;
+    }
+    .doska-steps-list li.is-shown { opacity: 1; max-height: none; }
+
+    .doska-steps-controls { display: flex; gap: 10px; margin-top: 12px; }
+    .doska-steps-static p { margin: 0; color: var(--ink-soft); }
+    .doska-masala-tarif { background: var(--paper); border-radius: 14px; padding: 12px 14px; }
+    .doska-masala-tarif .doska-masala-img { align-self: center; }
+
+    @media (max-width: 720px) {
+      .doska-masala { grid-template-columns: 1fr; }
+    }
+
+    /* Doska rejimida (o'qituvchi to'liq ekran) — kattaroq matn */
+    .board-mode .doska-steps-list li { font-size: 1.12rem; line-height: 1.6; }
+    .board-mode .doska-steps-controls .btn { font-size: 1.05rem; padding: 10px 18px; }
+
+    /* Kirish — "nega kerak" motivatsion kirish gapi, sokin uslubda ajratilgan */
+    .kirish-nega {
+      background: var(--paper);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-style: italic;
+      color: var(--ink);
+    }
+
