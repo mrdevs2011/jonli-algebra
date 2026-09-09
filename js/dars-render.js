@@ -154,6 +154,10 @@
       var box = el("div", { class: "doska-masala" + (isStatic ? " doska-masala-tarif" : "") });
       if (!isStatic) box.setAttribute("data-doska", "");
 
+      if (m.kirish) {
+        box.appendChild(el("p", { class: "doska-masala-kirish" }, m.kirish));
+      }
+
       var imgWrap = el("div", { class: "doska-masala-img" });
       var a = el("a", { href: m.img, target: "_blank", rel: "noopener", class: "doska-img" });
       a.appendChild(el("img", { src: m.img, alt: m.alt, loading: "lazy", width: m.width, height: m.height }));

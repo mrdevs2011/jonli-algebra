@@ -1099,6 +1099,14 @@
     }
     .doska-masala:first-of-type { border-top: none; padding-top: 0; }
 
+    .doska-masala-kirish {
+      grid-column: 1 / -1;
+      margin: 0 0 2px !important;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.98rem;
+    }
+
     .doska-masala-img { display: flex; flex-direction: column; gap: 6px; }
     .doska-img { display: block; text-decoration: none; }
     .doska-img img {
