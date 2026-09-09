@@ -52,7 +52,7 @@
           <h2>Darslikda</h2>
           <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong>30-§, 158-bet</strong>.</p>
           <div class="kitob-sahifalar">
-            <a class="kitob-sahifa" href="kitob-158.png" target="_blank" rel="noopener">
+            <a class="kitob-sahifa" href="kitob-158.png">
               <img src="kitob-158.png" alt="Darslik, 158-bet" loading="lazy" width="620" height="877">
               <span>158-bet · kattalashtirish</span>
             </a>
@@ -72,9 +72,130 @@
       <a href="../31/">31-dars</a>
     </footer>
   </div>
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish">✕</button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet">‹</button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet">›</button>
+      </div>
+    </div>
+  </div>
+
   <script src="../js/progress.js"></script>
   <script>
     if (window.KA && KA.onLessonOpen) KA.onLessonOpen(30);
+  </script>
+  <script>
+    (function () {
+      var LESSON_NUM = 30;
+      var ALL_PAGES = [
+        { src: '../1/kitob-5.png', bet: 5, lesson: 1 },
+        { src: '../1/kitob-6.png', bet: 6, lesson: 1 },
+        { src: '../2/kitob-7.png', bet: 7, lesson: 2 },
+        { src: '../3/kitob-10.png', bet: 10, lesson: 3 },
+        { src: '../4/kitob-14.png', bet: 14, lesson: 4 },
+        { src: '../5/kitob-18.png', bet: 18, lesson: 5 },
+        { src: '../6/kitob-24.png', bet: 24, lesson: 6 },
+        { src: '../7/kitob-28.png', bet: 28, lesson: 7 },
+        { src: '../8/kitob-32.png', bet: 32, lesson: 8 },
+        { src: '../9/kitob-37.png', bet: 37, lesson: 9 },
+        { src: '../10/kitob-41.png', bet: 41, lesson: 10 },
+        { src: '../11/kitob-46.png', bet: 46, lesson: 11 },
+        { src: '../12/kitob-51.png', bet: 51, lesson: 12 },
+        { src: '../13/kitob-68.png', bet: 68, lesson: 13 },
+        { src: '../14/kitob-72.png', bet: 72, lesson: 14 },
+        { src: '../15/kitob-77.png', bet: 77, lesson: 15 },
+        { src: '../16/kitob-80.png', bet: 80, lesson: 16 },
+        { src: '../17/kitob-93.png', bet: 93, lesson: 17 },
+        { src: '../18/kitob-97.png', bet: 97, lesson: 18 },
+        { src: '../19/kitob-103.png', bet: 103, lesson: 19 },
+        { src: '../20/kitob-109.png', bet: 109, lesson: 20 },
+        { src: '../21/kitob-112.png', bet: 112, lesson: 21 },
+        { src: '../22/kitob-117.png', bet: 117, lesson: 22 },
+        { src: '../23/kitob-120.png', bet: 120, lesson: 23 },
+        { src: '../24/kitob-121.png', bet: 121, lesson: 24 },
+        { src: '../25/kitob-126.png', bet: 126, lesson: 25 },
+        { src: '../26/kitob-129.png', bet: 129, lesson: 26 },
+        { src: '../27/kitob-135.png', bet: 135, lesson: 27 },
+        { src: '../28/kitob-150.png', bet: 150, lesson: 28 },
+        { src: '../29/kitob-153.png', bet: 153, lesson: 29 },
+        { src: '../30/kitob-158.png', bet: 158, lesson: 30 },
+        { src: '../31/kitob-162.png', bet: 162, lesson: 31 },
+        { src: '../32/kitob-167.png', bet: 167, lesson: 32 },
+        { src: '../33/kitob-171.png', bet: 171, lesson: 33 },
+        { src: '../34/kitob-186.png', bet: 186, lesson: 34 },
+        { src: '../35/kitob-190.png', bet: 190, lesson: 35 },
+        { src: '../36/kitob-194.png', bet: 194, lesson: 36 },
+        { src: '../37/kitob-198.png', bet: 198, lesson: 37 },
+        { src: '../38/kitob-206.png', bet: 206, lesson: 38 }
+      ];
+      var links = Array.prototype.map.call(document.querySelectorAll('.kitob-sahifa'), function (a) {
+        return a.getAttribute('href');
+      });
+      if (!links.length) return;
+
+      var lb = document.getElementById('kitobLightbox');
+      var wrap = document.getElementById('kitobPageWrap');
+      var lbImg = document.getElementById('kitobLightboxImg');
+      var lbClose = document.getElementById('kitobLightboxClose');
+      var prevBtn = document.getElementById('kitobPrev');
+      var nextBtn = document.getElementById('kitobNext');
+      var navLabel = document.getElementById('kitobNavLabel');
+      var idx = 0;
+
+      function render(flip) {
+        var go = function () {
+          var p = ALL_PAGES[idx];
+          lbImg.src = (p.lesson === LESSON_NUM) ? ('kitob-' + p.bet + '.png') : p.src;
+          lbImg.alt = p.bet + '-bet';
+          navLabel.textContent = p.bet + '-bet · ' + p.lesson + '-§ (' + (idx + 1) + '/' + ALL_PAGES.length + ')';
+          prevBtn.disabled = idx === 0;
+          nextBtn.disabled = idx === ALL_PAGES.length - 1;
+        };
+        if (flip) {
+          wrap.classList.remove('is-flip');
+          void wrap.offsetWidth;
+          wrap.classList.add('is-flip');
+          setTimeout(go, 170);
+        } else {
+          go();
+        }
+      }
+
+      document.querySelectorAll('.kitob-sahifa').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var href = a.getAttribute('href');
+          var betMatch = href.match(/kitob-(\d+)\.png/);
+          var bet = betMatch ? parseInt(betMatch[1], 10) : null;
+          var found = -1;
+          for (var i = 0; i < ALL_PAGES.length; i++) {
+            if (ALL_PAGES[i].lesson === LESSON_NUM && ALL_PAGES[i].bet === bet) { found = i; break; }
+          }
+          idx = found >= 0 ? found : 0;
+          render(false);
+          lb.classList.add('is-open');
+        });
+      });
+
+      prevBtn.addEventListener('click', function () { if (idx > 0) { idx--; render(true); } });
+      nextBtn.addEventListener('click', function () { if (idx < ALL_PAGES.length - 1) { idx++; render(true); } });
+
+      function closeLb() { lb.classList.remove('is-open'); lbImg.src = ''; }
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowLeft' && idx > 0) { idx--; render(true); }
+        if (e.key === 'ArrowRight' && idx < ALL_PAGES.length - 1) { idx++; render(true); }
+      });
+    })();
   </script>
 </body>
 </html>
