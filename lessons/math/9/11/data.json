@@ -62,7 +62,7 @@
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">Qog‘ozni o‘rtadan buklab, chap tomon o‘ngga yopishsa — simmetriya. Funksiya grafigida ham shunday: ba’zida <strong>Oy o‘qi</strong> bo‘ylab, ba’zida <strong>koordinatlar boshi</strong> atrofida. Bugun shu ikki holatni ajratamiz.</p>",
+    "<p class=\"kirish-nega\">2-§ da y = x² uchun y(−x) = (−x)² = x² = y(x) ekanini, ya’ni chap qanotning o‘ng qanotning ko‘zgusi ekanini ko‘rgan edik. Bugun shu g‘oyani umumlashtiramiz. Qog‘ozni o‘rtadan buklab, chap tomon o‘ngga yopishsa — simmetriya. Funksiya grafigida ham shunday: ba’zida <strong>Oy o‘qi</strong> bo‘ylab, ba’zida <strong>koordinatlar boshi</strong> atrofida. Bugun shu ikki holatni ajratamiz.</p>",
     "<p>Sahnada uch tur: <strong>juft</strong> (y = x²), <strong>toq</strong> (y = x³), <strong>hech qaysi</strong> (y = x² + x). x nuqtasini suring — jufti qayerga tushishini ko‘ring.</p>"
   ],
   "reja": "Juft: y(−x)=y(x). Toq: y(−x)=−y(x).",

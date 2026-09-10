@@ -18,7 +18,7 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — ikki shart bitta juftlik"
+      "name": "Kirish — 12-§ ni bir jumlada eslash"
     },
     {
       "min": 10,
@@ -68,7 +68,7 @@
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">Maydonning yuzi kvadrat formula bilan, perimetri esa to‘g‘ri chiziq bilan beriladi. Ikkalasi bir vaqtda bajarilishi kerak bo‘lsa — bu endi bitta tenglama emas, <strong>sistema</strong>. Bugun kvadrat qatnashgan eng sodda sistemani grafik va algebra bilan yechamiz.</p>",
+    "<p class=\"kirish-nega\">1–12-§ larda (I bobda) kvadrat tenglama va tengsizlikni bitta shart bilan yechishni o‘rgandik. Endi ikkinchi bobni boshlaymiz: maydonning yuzi kvadrat formula bilan, perimetri esa to‘g‘ri chiziq bilan beriladi. Ikkalasi bir vaqtda bajarilishi kerak bo‘lsa — bu endi bitta tenglama emas, <strong>sistema</strong>. Bugun kvadrat qatnashgan eng sodda sistemani grafik va algebra bilan yechamiz.</p>",
     "<p>Sahnada qizil chiziq — <strong>parabola y = x²</strong>, ko‘k chiziq — <strong>y = mx + k</strong>. Ularning yonib turgan nuqtalari — sistemaning yechimlari. m yoki k ni o‘zgartiring: ba’zan ikkita nuqta, ba’zan bitta (tegish), ba’zan umuman yo‘q.</p>"
   ],
   "reja": "Parabola va to‘g‘ri chiziqning kesishish nuqtalari — sistemaning yechimlari. Almashtirish: x² = mx + k.",

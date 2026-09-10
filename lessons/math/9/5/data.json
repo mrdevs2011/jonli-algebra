@@ -68,7 +68,7 @@
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">Parabolani chizish — rasm solishga o'xshaydi: avval markazni belgilaysiz, keyin o'qni, keyin bir-ikki tayanch nuqtani, oxirida chiziqni tortasiz. Tartib bo'lmasa, nuqtalar savdo-sotiqqa aylanadi. Bugun shu tartib — <strong>besh qadam</strong>.</p>",
+    "<p class=\"kirish-nega\">4-§ da uchining formulasi <strong>x₀ = −b/(2a)</strong> ekanini ko'rdik. Bugun shu formuladan foydalanib, parabolani boshidan oxirigacha to'liq chizishni o'rganamiz. Parabolani chizish — rasm solishga o'xshaydi: avval markazni belgilaysiz, keyin o'qni, keyin bir-ikki tayanch nuqtani, oxirida chiziqni tortasiz. Tartib bo'lmasa, nuqtalar savdo-sotiqqa aylanadi. Bugun shu tartib — <strong>besh qadam</strong>.</p>",
     "<p>Yuqorida namuna: <strong>y = x² − 2x − 3</strong>. Qadamni birma-bir yoqing. Formula keyin keladi — avval chizmada nima paydo bo'lishini ko'ring.</p>"
   ],
   "reja": "Har qadam alohida yonadi: uch, o'q, nollar, juft nuqtalar, chiziq.",

@@ -66,7 +66,7 @@
     ]
   },
   "kirish": [
-    "<p class=\"kirish-nega\">Grafik har doim qo'lda emas. Lekin nollar o'qni bo'laklarga kesadi — va har bo'lakda ifoda o'z ishorasini saqlaydi. Shu zanjirni chizsangiz, tengsizlik yechimi ko'rinib qoladi. Bu — <strong>intervallar usuli</strong>.</p>",
+    "<p class=\"kirish-nega\">7-§ da tengsizlikni parabolaning eskizini chizib yechdik. Lekin grafik har doim qo'lda emas. Baxtiga, nollar o'qni bo'laklarga kesadi — va har bo'lakda ifoda o'z ishorasini saqlaydi. Shu zanjirni chizsangiz, tengsizlik yechimi ko'rinib qoladi, eskiz chizmasdan ham. Bu — <strong>intervallar usuli</strong>.</p>",
     "<p>Yuqorida namuna: <strong>(x + 3)(x − 1) < 0</strong>. x ni suring. Chapda plus, o'rtada minus, o'ngda yana plus. Qat'iy tengsizlik bo'lgani uchun −3 va 1 nuqtalari teshik.</p>"
   ],
   "reja": "Nollar o'qni kesadi. Ishora zanjiri yonadi. Yechim — kerakli ishora turgan oraliqlar.",

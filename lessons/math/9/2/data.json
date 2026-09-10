@@ -60,7 +60,7 @@
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">Suv favvorasidan chiqqan tomchi avval yuqoriga ko'tariladi, keyin egilib pastga tushadi. Eng sodda bunday yo'lning formulasi — faqat <strong>y = x²</strong>. Bugun shu bitta formulani nuqta-nuqta yig'amiz va nima uchun chap tomon o'ngga o'xshashini ko'ramiz.</p>",
+    "<p class=\"kirish-nega\">1-§ da kvadrat funksiyaning umumiy ko'rinishi <strong>y = ax² + bx + c</strong> ekanini ko'rdik. Bugun uning eng sodda holatini — faqat <strong>y = x²</strong> ni — batafsil o'rganamiz. Suv favvorasidan chiqqan tomchi avval yuqoriga ko'tariladi, keyin egilib pastga tushadi — eng sodda bunday yo'lning formulasi ham aynan shu. Bugun shu bitta formulani nuqta-nuqta yig'amiz va nima uchun chap tomon o'ngga o'xshashini ko'ramiz.</p>",
     "<p>Yuqorida <strong>x</strong> ni suring. Nuqta parabola bo'ylab yuradi, Oy ning narigi tomonida esa uning <em>jufti</em> yonadi. Ikkalasining balandligi bir xil — chunki (−x)² = x². Avval shu chizmani ko'ring, keyin qoida o'zi keladi.</p>"
   ],
   "reja": "Nuqtalar jadvalidan parabola yig'iladi. Uchi va simmetriya o'qi jonlanadi.",
