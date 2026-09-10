@@ -183,6 +183,10 @@
     "masalalar": [
       {
         "caption": "1-masala · 24-bet",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: to'g'ri to'rtburchak tomonlarini orttirish masalasi, x² + 5x − 6 > 0 tengsizlikka keltirilishi, kitob, 24-bet",
+        "width": 640,
+        "height": 320,
         "steps": [
           "x² + 5x − 6 = (x + 6)(x − 1).",
           "x > 0 sharti bilan (x + 6) > 0 → x − 1 > 0 → x > 1.",
@@ -190,7 +194,11 @@
         ]
       },
       {
-        "caption": "2-masala · 25-bet",
+        "caption": "2-masala · 24–25-bet",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: x² − 5x + 6 > 0 tengsizlikni ko'paytuvchilarga ajratib, ikki sistema orqali yechish, kitob, 24–25-bet",
+        "width": 640,
+        "height": 663,
         "steps": [
           "Ikkala ko‘paytuvchi musbat: x > 3.",
           "Ikkala manfiy: x < 2.",
@@ -199,10 +207,14 @@
       },
       {
         "caption": "3-masala · 26-bet",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: −3x² − 5x + 2 > 0 tengsizlikni −1 ga ko'paytirib, ildizlar 1/3 va −2 orqali yechish, kitob, 26-bet",
+        "width": 640,
+        "height": 710,
         "steps": [
-          "−1 ga ko‘paytirib: 3x² − 5x + 2 < 0.",
-          "Ildizlar: 2/3 va 1. Ko‘paytuvchilar: 3(x − 2/3)(x − 1) < 0.",
-          "Yechim: (2/3; 1)."
+          "−3x² − 5x + 2 > 0 ni −1 ga ko‘paytirib: 3x² + 5x − 2 < 0.",
+          "Ildizlar: x₁ = 1/3, x₂ = −2. Ko‘paytuvchilar: 3(x − 1/3)(x + 2) < 0.",
+          "Yechim: (−2; 1/3)."
         ]
       }
     ]

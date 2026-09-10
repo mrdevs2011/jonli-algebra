@@ -26,8 +26,9 @@ Ishni **1-dars** (`lessons/math/9/1/`)da qilingan namunadagidek — piksel daraj
 - Gridni ko'rib, har bir masala uchun:
   - **top** — matnning eng yuqori qismidan ~3-6px yuqorida (harf boshi kesilmasin, lekin ortiqcha bo'sh joy ham qolmasin)
   - **bottom** — matnning eng past qismidan (nuqta, ▲ belgisi) ~3-6px pastda
-  - **left** — mavjud `left` qiymatini o'zgartirmasdan saqlab qoling, gorizontal (`left` va `right`) chegaralarga tegmang
-  - **right** — mavjud `right` qiymatini o'zgartirmasdan saqlab qoling, faqat yuqori va pastki chegaralarni moslang
+  - **left** — HECH QACHON o'zgartirmang, doim `0`. Gorizontal chegaralarga umuman tegmang.
+  - **right** — HECH QACHON o'zgartirmang, doim sahifaning to'liq eni (masalan 640). Gorizontal chegaralarga umuman tegmang.
+  - **QATʼIY QOIDA:** har bir crop faqat `top`/`bottom` bo'yicha farqlanadi. `left`/`right` barcha masalalar, barcha darslar uchun bir xil (0, to'liq sahifa eni) — bu maydonlarga tegish TAQIQLANADI.
 - Bir sahifadagi barcha masalalar uchun bir xil `left`/`right` qiymatini ishlating (matn ustuni bir joyda), faqat `top`/`bottom` har biriga xos.
 
 ### 4. Crop qilish va tekshirish (iterativ)
