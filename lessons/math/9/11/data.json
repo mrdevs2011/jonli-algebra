@@ -18,7 +18,7 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — simmetriya nima"
+      "name": "Kirish — 2-§ (y=x²) ni eslash"
     },
     {
       "min": 12,
@@ -135,21 +135,33 @@
     "masalalar": [
       {
         "caption": "Ta’rif · 47-bet",
+        "img": "png/tarif-47.png",
+        "alt": "Juft funksiya ta’rifi: y(−x) = y(x), misollar y = x⁴ va y = 1/x², kitob, 47-bet",
+        "width": 640,
+        "height": 145,
         "steps": [
-          "y(−x) = y(x) ⇒ juft. Misollar: y = x⁴, y = |x|.",
+          "y(−x) = y(x) ⇒ juft. Misollar: y = x⁴, y = 1/x².",
           "Grafik Oy o‘qiga bukiladi."
         ]
       },
       {
         "caption": "Ta’rif · 48-bet",
+        "img": "png/tarif-48.png",
+        "alt": "Toq funksiya ta’rifi: y(−x) = −y(x), misollar y = x⁵ va y = 1/x³, kitob, 48-bet",
+        "width": 640,
+        "height": 145,
         "steps": [
-          "y(−x) = −y(x) ⇒ toq. Misollar: y = x³, y = 1/x (x ≠ 0).",
+          "y(−x) = −y(x) ⇒ toq. Misollar: y = x⁵, y = 1/x³ (x ≠ 0).",
           "Grafik koordinatlar boshiga nisbatan simmetrik.",
           "Chap qismni 180° aylantirib o‘ngga yotqazish mumkin."
         ]
       },
       {
         "caption": "Misollar · 49-bet",
+        "img": "png/misollar-49.png",
+        "alt": "y = ∛x grafigini x ≥ 0 uchun nuqtalar bilan, so‘ngra simmetriya yordamida x < 0 uchun qurish, 40-rasm, kitob, 49-bet",
+        "width": 640,
+        "height": 227,
         "steps": [
           "Avval x ≥ 0 uchun nuqtalar, keyin simmetriya bilan x < 0.",
           "y = ∛x — toq; barcha ℝ da aniqlangan."
@@ -167,7 +179,7 @@
       },
       {
         "title": "107.",
-        "body": "Berilgan funksiyalar juftmi, toqmi, yoki hech qaysimi — aniqlang."
+        "body": "y = x; y = x²; y = x² + x; y = x² − x funksiyalar berilgan. x > 0 uchun grafigini yasab, x < 0 qismini shunday quringki, natija a) juft, b) toq funksiya bo‘lsin. Har birini bitta formula bilan yozing."
       }
     ]
   },

@@ -6,7 +6,7 @@
   },
   "paragraf": "12-§",
   "title": "Daraja qatnashgan tenglama va tengsizlik",
-  "lead": "Ildiz va daraja qachon ishlaydi.",
+  "lead": "Darajaning oshish-kamayishi tengsizlikni yechadi. Ildiz bilan ishlaganda chet ildizdan ehtiyot bo'ling.",
   "prev": {
     "href": "../11/",
     "label": "11-dars"
@@ -18,15 +18,15 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — o'tgan mavzuni eslash"
+      "name": "Kirish — 11-§ (y=x⁵, y=x⁴) ni eslash"
     },
     {
       "min": 10,
-      "name": "Sahna — ruxsat etilgan sohani ko'rsatish (doskada)"
+      "name": "Sahna — ildizli ifodaning ruxsat etilgan sohasi va chet ildiz"
     },
     {
       "min": 8,
-      "name": "Qoida — ildiz va daraja shartlarini chiqarish"
+      "name": "Qoida — daraja monotonligi va tekshirish shartlari"
     },
     {
       "min": 7,
@@ -44,8 +44,8 @@
   "sahna": {
     "type": "domain-line",
     "mode": "sqrt",
-    "ariaLabel": "√f(x) yoki daraja qatnashgan ifodaning ruxsat etilgan sohasi son o'qida",
-    "hint": "a ni suring — ildiz osti qayerda ≥ 0 ekanini ko'ring",
+    "ariaLabel": "√(x − a) ifodaning ruxsat etilgan sohasi son o'qida",
+    "hint": "a ni suring — ildiz osti qayerda ≥ 0 ekanini ko'ring, shu soha tashqarisidagi yechim chet ildiz bo'ladi",
     "vars": {
       "a": {
         "min": -4,
@@ -56,160 +56,171 @@
       }
     },
     "notes": {
-      "sqrt": "√(x − a) faqat x ≥ a da mavjud. a dan chapda ifoda haqiqiy emas (teshilgan).",
+      "sqrt": "√(x − a) faqat x ≥ a da mavjud. Tenglamani kvadratga ko'targanda topilgan ildiz shu sohadan tashqarida chiqsa — u chet ildiz, javobga kirmaydi.",
       "recip": "1/(x − a) faqat x ≠ a da mavjud. a nuqtasi teshilgan (bo'luvchi nol).",
       "abs": "|x − a| barcha haqiqiy x da aniqlangan."
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">9-§ da aniqlanish sohasini — ifoda haqiqiy son beradigan x lar to'plamini — o'rgangan edik, jumladan √f(x) uchun f(x) ≥ 0 shartini. Bugun shu shartdan foydalanib, ildiz yoki daraja qatnashgan tenglama va tengsizlikni yechamiz. Telefoningizda yorug'lik kuchini o'zgartirganda yoki o'yinda masofani hisoblaganda ba'zan ildiz yoki daraja chiqadi. Lekin har qanday sonning ildizi ham, juft darajasi ham har doim ishlamaydi — ba'zi joylarda ifoda umuman ma'nosiz. Bugun shu <strong>ruxsat etilgan soha</strong>ni avval chizib, keyin tenglama yoki tengsizlikni yechamiz.</p>",
-    "<p>Yuqoridagi slayderni siljiting. <strong>a</strong> o'zgaganda ildiz ostidagi ifoda qayerda ≥ 0 bo'lishini ko'ring. Chap tomonda teshik — u yerda √ haqiqiy son bermaydi. Shu sohani topmasdan tenglama yechish xato javob beradi.</p>"
+    "<p class=\"kirish-nega\">11-§ da <strong>y = x⁵</strong> toq, <strong>y = x⁴</strong> esa juft funksiya ekanini ko'rgan edik. Bugun aynan shu ikkala funksiyaning o'sish xossalaridan foydalanib tenglama va tengsizlik yechamiz. Lekin ildiz qatnashgan tenglamada ehtiyot bo'ling: ikkala tomonni kvadratga ko'tarsak, ba'zan asl tenglamaga mos kelmaydigan — <strong>chet</strong> — ildiz chiqib qolishi mumkin.</p>",
+    "<p>Yuqoridagi slayderni suring. √(x − a) qaysi x larda haqiqiy son berishini ko'ring — aynan shu soha tashqarisida chiqqan \"yechim\" chet ildiz bo'lib qoladi, uni javobdan chiqarib tashlash kerak.</p>"
   ],
-  "reja": "Avval ruxsat etilgan soha (D), keyin tenglama yoki tengsizlik. Ildiz osti ≥ 0, juft daraja uchun asos ≥ 0 yoki ≤ 0 qoidalariga e'tibor.",
-  "qoida": "<p><strong>Daraja yoki ildiz qatnashgan tenglama/tengsizlik</strong>ni yechishda birinchi qadam — <strong>ruxsat etilgan soha</strong>ni topish.</p><p>• √f(x) mavjud bo'lishi uchun <strong>f(x) ≥ 0</strong>.<br>• x<sup>n</sup> (n juft) uchun asos istalgan, lekin tenglikda ildiz olishda ehtiyot.<br>• √g(x) = a ko'rinishida: a ≥ 0 va g(x) = a², qo'shimcha g(x) ≥ 0 tekshiriladi.<br>• √g(x) &lt; a (a &gt; 0) da: 0 ≤ g(x) &lt; a².</p><p>Yechimni topgach, uni ruxsat etilgan sohaga solishtirish shart — tashqaridagi ildizlar tashlab ketiladi.</p>",
+  "reja": "1) xⁿ (n toq) barcha x da o'sadi — bitta tekshiruv nuqtasi yetarli. 2) xⁿ (n juft) x≥0 da o'sadi, x≤0 da kamayadi — ikki tomonlama chegara chiqadi. 3) Grafik kesishuvi orqali tenglama yechish mumkin. 4) Ildizni kvadratga ko'targanda — albatta tekshirish.",
+  "qoida": "<p><strong>1)</strong> y = x<sup>n</sup> (n — toq) barcha haqiqiy x da o'sadi: shu bois x<sup>n</sup> &gt; c tengsizligi bitta tekshiruv nuqtasi (masalan x = ⁿ√c) orqali yechiladi.</p><p><strong>2)</strong> y = x<sup>n</sup> (n — juft) x ≥ 0 da o'sadi, x ≤ 0 da kamayadi — shu bois x<sup>n</sup> ≤ c (c &gt; 0) tengsizligi ikki tomonlama chegara beradi: −ⁿ√c ≤ x ≤ ⁿ√c.</p><p><strong>3)</strong> Ba'zi tenglamalarni ikkita funksiyaning grafigini bitta chizmada yasab, kesishish nuqtasining absissasi orqali (taqribiy yoki aniq) yechish mumkin.</p><p><strong>4)</strong> Ildizli tenglamada ikkala tomonni kvadratga ko'targanda <strong>chet ildizlar</strong> paydo bo'lishi mumkin — topilgan har bir ildizni asl tenglamaga qo'yib tekshirish SHART.</p>",
   "savollar": [
     {
-      "savol": "√(x − 2) ifodasi qayerda aniqlangan?",
+      "savol": "x⁵ > 32 tengsizligining yechimi qaysi?",
       "variantlar": [
+        "x > 2",
         "x < 2",
-        "x ≥ 2",
-        "x ≠ 2"
-      ],
-      "togri": 1
-    },
-    {
-      "savol": "√(x + 1) = 3 tenglamasining yechimi qaysi?",
-      "variantlar": [
-        "x = 8",
-        "x = 2",
-        "x = −1"
+        "x = 2"
       ],
       "togri": 0
     },
     {
-      "savol": "√x < 2 tengsizligining yechimi?",
+      "savol": "x⁴ ≤ 81 tengsizligining yechimi qaysi?",
       "variantlar": [
-        "x < 4",
-        "0 ≤ x < 4",
-        "x > 4"
+        "x ≤ 3",
+        "−3 ≤ x ≤ 3",
+        "x ≥ −3"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "√(2 − x²) = x tenglamasini kvadratga ko'targanda x = −1 ham chiqadi. U berilgan tenglamaning ildizimi?",
+      "variantlar": [
+        "Ha, chunki (−1)² = 1",
+        "Yo'q — tekshirsak chap qism ≥ 0, o'ng qism −1 bo'lib teng emas, demak chet ildiz",
+        "Ha, chunki 2 − x² ≥ 0"
       ],
       "togri": 1
     }
   ],
   "eslabQol": [
-    "Avval ruxsat etilgan soha (D) — keyin tenglama/tengsizlik.",
-    "√f(x) uchun f(x) ≥ 0 shart; yechimni D ga solishtirish majburiy.",
-    "√g = a (a ≥ 0) → g = a² va g ≥ 0; a < 0 bo'lsa yechim yo'q."
+    "y = x<sup>n</sup> (n toq) — barcha x da o'sadi; n juft — x ≥ 0 da o'sadi, x ≤ 0 da kamayadi.",
+    "Ikki funksiya grafigi kesishgan nuqtaning absissasi — tenglama ildizi.",
+    "Ildizli tenglamani kvadratga ko'targanda chet ildiz chiqishi mumkin — natijani asl tenglamaga qo'yib albatta tekshiring."
   ],
   "kitob": {
-    "betlar": "51–56-betlar",
+    "betlar": "51–53-betlar",
     "sahifalar": [
       {
         "img": "../../../../kitob/kitob-51.png",
         "bet": "51-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-52.png",
         "bet": "52-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-53.png",
         "bet": "53-bet",
         "width": 640,
-        "height": 790
-      },
-      {
-        "img": "../../../../kitob/kitob-54.png",
-        "bet": "54-bet",
-        "width": 640,
-        "height": 790
-      },
-      {
-        "img": "../../../../kitob/kitob-55.png",
-        "bet": "55-bet",
-        "width": 640,
-        "height": 790
-      },
-      {
-        "img": "../../../../kitob/kitob-56.png",
-        "bet": "56-bet",
-        "width": 640,
-        "height": 790
+        "height": 758
       }
     ]
   },
   "doska": {
-    "intro": "Ildiz va daraja — avval ruxsat etilgan soha.",
+    "intro": "Darajali funksiyaning xossalaridan foydalanib, kitobdagi 4 ta masalani ketma-ket yechamiz.",
     "masalalar": [
       {
-        "caption": "1-masala · 52-bet",
+        "caption": "1-masala · 51-bet",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: x⁵ > 32 tengsizlikni y=x⁵ funksiyaning o'sishidan foydalanib yechish, javob x>2, kitob, 51-bet",
+        "width": 640,
+        "height": 112,
         "steps": [
-          "√(x − 3) = 2. Avval a ≥ 0: 2 ≥ 0 — yechim bo'lishi mumkin.",
-          "Ikkala tomonni kvadratga ko'taramiz: x − 3 = 4 → x = 7.",
-          "Tekshirish: √(7 − 3) = √4 = 2. Yechim x = 7 ∈ D (D: x ≥ 3)."
+          "x⁵ > 32 tengsizlikni yechamiz. y = x⁵ funksiya barcha haqiqiy x da aniqlangan va o'sadi.",
+          "y(2) = 2⁵ = 32. Funksiya o'suvchi bo'lgani uchun x > 2 bo'lganda y(x) > 32.",
+          "Javob: <strong>x > 2</strong>."
         ]
       },
       {
-        "caption": "2-masala · 53-bet",
+        "caption": "2-masala · 51-bet",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: x⁴ ≤ 81 tengsizlikni y=x⁴ funksiyaning x<0 da kamayishi, x>0 da o'sishidan foydalanib yechish, javob −3≤x≤3, 41-rasm, kitob, 51-bet",
+        "width": 640,
+        "height": 482,
         "steps": [
-          "√x ≤ 3. Ruxsat etilgan soha: x ≥ 0.",
-          "0 ≤ √x ≤ 3 → 0 ≤ x ≤ 9.",
-          "Yechim: [0; 9]."
+          "x⁴ ≤ 81 tengsizlikni yechamiz. y = x⁴ funksiya x < 0 da kamayadi, x > 0 da o'sadi.",
+          "x⁴ = 81 tenglama ikkita haqiqiy ildizga ega: x₁ = −3, x₂ = 3.",
+          "x ≤ 0 bo'lganda kamayish tufayli −3 ≤ x ≤ 0 yechim beradi; x ≥ 0 bo'lganda o'sish tufayli 0 ≤ x ≤ 3 yechim beradi (41-rasm).",
+          "Javob: <strong>−3 ≤ x ≤ 3</strong>."
         ]
       },
       {
-        "caption": "3-masala · 54-bet",
+        "caption": "3-masala · 51–52-bet",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: 3/x = x²+1 tenglamani y=3/x va y=x²+1 grafiklarini bitta chizmada yasab, kesishish nuqtasi orqali yechish, javob x≈1,2, 42-rasm, kitob, 51–52-bet",
+        "width": 640,
+        "height": 690,
         "steps": [
-          "x² = 4 → x = ±2.",
-          "√(x²) = |x| ekanini eslang — ba'zi hollarda mutlaq qiymat chiqadi.",
-          "Tengsizlikda ishora va juft/toq darajani ajratib yechish."
+          "3/x = x² + 1 tenglamani funksiyalar grafiklari yordamida yechamiz: y = 3/x va y = x² + 1 ni bitta koordinatalar tekisligida yasaymiz (42-rasm).",
+          "x < 0 bo'lganda tenglama ildizga ega emas: 3/x < 0, lekin x² + 1 > 0 — chap va o'ng qism hech qachon teng bo'lmaydi.",
+          "x > 0 bo'lganda ikkala funksiya grafigi bitta nuqtada kesishadi; 42-rasmdan ko'rinadiki, kesishish nuqtasining absissasi x₁ ≈ 1,2.",
+          "x > x₁ bo'lganda y = 3/x kamayadi, y = x² + 1 esa o'sadi, shu sababli grafiklar boshqa kesishmaydi; xuddi shu sababdan 0 < x < x₁ da ham kesishmaydi.",
+          "Javob: <strong>x₁ ≈ 1,2</strong>."
+        ]
+      },
+      {
+        "caption": "4-masala · 52–53-bet",
+        "img": "png/4-masala.png",
+        "alt": "4-masala: √(2−x²) = x irratsional tenglamani ikkala tomonni kvadratga ko'tarib yechish, x=−1 chet ildiz ekanini tekshirish, javob x=1, kitob, 52–53-bet",
+        "width": 640,
+        "height": 666,
+        "steps": [
+          "√(2 − x²) = x tenglamani yechamiz. Ikkala tomonni kvadratga ko'tarib, 2 − x² = x² tenglamaga kelamiz.",
+          "Bundan x² = 1, ya'ni x₁,₂ = ±1 — ammo bular hozircha faqat kvadratga ko'tarilgan tenglamaning ildizlari, tekshirish kerak.",
+          "x = 1 bo'lganda: √(2 − 1²) = √1 = 1 — chap va o'ng qism teng, demak x = 1 — asl tenglamaning ildizi.",
+          "x = −1 bo'lganda: chap qism √(2 − (−1)²) = √1 = 1, o'ng qism esa −1. 1 ≠ −1, demak x = −1 asl tenglamaning ildizi bo'la olmaydi — bu <strong>chet ildiz</strong>.",
+          "Javob: <strong>x = 1</strong>. Ikkala tomonni kvadratga ko'tarishda chet ildiz paydo bo'lishi mumkin — natijani doim asl tenglamaga qo'yib tekshirish zarur."
         ]
       }
     ]
   },
   "mashqlar": {
-    "betlar": "55–56-betlar",
-    "intro": "Daftarga yeching. Avval ruxsat etilgan sohani yozing.",
+    "betlar": "54–56-betlar",
+    "intro": "Daftarga yeching. Juft/toq darajaning o'sish-kamayishidan foydalaning; ildizli ifodada topilgan yechimni albatta tekshiring.",
     "items": [
       {
-        "title": "1-mashq (og'zaki).",
-        "body": "Quyidagi ifodalarning ruxsat etilgan sohasini toping:",
-        "sub": "1) √(x − 5); &nbsp; 2) √(4 − x); &nbsp; 3) 1/√(x + 1)."
+        "title": "110.",
+        "body": "Tengsizlikni yeching:",
+        "sub": "1) x⁷ > 1; &nbsp; 2) x³ ≤ 27; &nbsp; 3) y³ ≥ 64; &nbsp; 4) y³ < 125; &nbsp; 5) x⁴ ≤ 16; &nbsp; 6) x⁴ > 625; &nbsp; 7) x⁵ ≤ 243; &nbsp; 8) x⁶ ≥ 64."
       },
       {
-        "title": "2-mashq.",
-        "body": "Tenglamalarni yeching:",
-        "sub": "1) √(x + 2) = 3; &nbsp; 2) √(2x − 1) = 5; &nbsp; 3) √(x − 1) = −2."
+        "title": "118.",
+        "body": "Tengsizlikni yeching:",
+        "sub": "1) (x − 1)³ > 1; &nbsp; 2) (x + 5)³ > 8; &nbsp; 3) (2x − 3)⁷ ≥ 1; &nbsp; 4) (3x − 5)⁷ < 1; &nbsp; 5) (3 − x)⁴ > 256; &nbsp; 6) (4 − x)⁴ > 81."
       },
       {
-        "title": "3-mashq.",
-        "body": "Tengsizliklarni yeching va son o'qida tasvirlang:",
-        "sub": "1) √x > 2; &nbsp; 2) √(x − 1) ≤ 3; &nbsp; 3) √(5 − x) ≥ 1."
+        "title": "124.",
+        "body": "Irratsional tengsizlikni yeching (topilgan yechimni ruxsat etilgan soha bilan solishtirib tekshiring):",
+        "sub": "1) √(x − 2) > 3; &nbsp; 2) √(x − 2) ≤ 1; &nbsp; 3) √(2 − x) ≥ x; &nbsp; 4) √(2 − x) < x; &nbsp; 5) √(5x + 11) > x + 3; &nbsp; 6) √(x + 3) ≤ x + 1."
       }
     ]
   },
   "xulosa": [
-    "<strong>Ruxsat etilgan soha</strong> — ifoda haqiqiy son beradigan x lar to'plami. Uni avval topish shart.",
-    "√f(x) mavjud bo'lishi uchun <strong>f(x) ≥ 0</strong>.",
-    "√g(x) = a tenglamasi: a ≥ 0 bo'lsa g(x) = a² (va g ≥ 0); a < 0 bo'lsa yechim yo'q.",
-    "√g(x) < a (a > 0): 0 ≤ g(x) < a²; yechimni D bilan kesishma qilish."
+    "y = x<sup>n</sup> (n toq) barcha x da o'sadi — x<sup>n</sup> &gt; c tengsizligi bitta tekshiruv nuqtasi bilan yechiladi.",
+    "y = x<sup>n</sup> (n juft) x ≥ 0 da o'sadi, x ≤ 0 da kamayadi — x<sup>n</sup> ≤ c (c&gt;0) ikki tomonlama chegara beradi: −ⁿ√c ≤ x ≤ ⁿ√c.",
+    "Ikkita funksiya grafigining kesishish nuqtasi orqali ham tenglama yechish mumkin.",
+    "Ildizli tenglamani kvadratga ko'targanda <strong>chet ildizlar</strong> paydo bo'lishi mumkin — yechimni asl tenglamaga qo'yib tekshirish shart."
   ],
   "xulosaBoard": [
     {
-      "html": "<strong>Avval D</strong> &nbsp;&mdash;&nbsp; <span>ruxsat etilgan soha</span>"
+      "html": "<strong>n toq</strong> &nbsp;&mdash;&nbsp; <span>barcha x da o'sadi</span>"
     },
     {
-      "html": "√f(x) → <span class=\"term-a\">f(x) ≥ 0</span>"
+      "html": "<strong>n juft</strong> &nbsp;&mdash;&nbsp; <span>x≥0 o'sadi, x≤0 kamayadi</span>"
     },
     {
-      "html": "√g = a (a ≥ 0) → <span>g = a²</span>"
+      "html": "Grafik kesishuvi → <span class=\"term-a\">tenglama ildizi</span>"
     },
     {
-      "html": "Yechimni <span class=\"term-b\">D</span> ga solishtirish"
+      "html": "Kvadratga ko'tarish → <span class=\"term-b\">chet ildizni tekshir</span>"
     }
   ]
 }
