@@ -5,8 +5,8 @@
     "nom": "Tenglamalar va tengsizliklar sistemalari"
   },
   "paragraf": "14-§",
-  "title": "Sistemani yechishning turli usullari",
-  "lead": "Almashtirish, qo‘shish, grafik usullari.",
+  "title": "Tenglamalar sistemasini yechishning turli usullari",
+  "lead": "Bir xil ko‘rinishga ega bo‘lmagan sistemalarni hadma-had qo‘shish, ifodalab almashtirish va bo‘lish orqali sodda sistemaga keltirib yechamiz.",
   "prev": {
     "href": "../13/",
     "label": "13-dars"
@@ -18,19 +18,19 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — oddiy sistema misoli"
+      "name": "Kirish — 13-§ ni bir jumlada eslash"
     },
     {
       "min": 10,
-      "name": "Sahna — bir sistema, uch usul (doskada)"
+      "name": "Sahna — parabola va chiziq kesishadi (sodda model)"
     },
     {
       "min": 8,
-      "name": "Qoida — usullarni solishtirish"
+      "name": "Qoida — hadma-had qo‘shish, ifodalash, bo‘lish usullari"
     },
     {
       "min": 7,
-      "name": "Savollar — qaysi usul qulay?"
+      "name": "Savollar — sinf ovoz bilan javob beradi"
     },
     {
       "min": 10,
@@ -56,138 +56,156 @@
     },
     "notes": {
       "graph": "Grafik usul: ikki chiziq kesishishi — yechim nuqtasi",
-      "subst": "Almashtirish: bir tenglamadan x ni ifodalab, ikkinchisiga qo‘yamiz",
-      "add": "Qo‘shish (ayirish): koeffitsientlarni tenglashtirib, bir o‘zgaruvchini yo‘qotamiz"
+      "subst": "Almashtirish: bir tenglamadan ifodalab, ikkinchisiga qo‘yamiz",
+      "add": "Hadma-had qo‘shish: ikkala tenglamani qo‘shib, sodda tenglama hosil qilamiz"
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">13-§ da kvadrat qatnashgan sistemani almashtirish usuli bilan, ya’ni bir ifodani ikkinchisiga qo‘yib yechdik. Bugun oddiy (chiziqli) sistemalarga qaytib, almashtirishdan tashqari yana ikkita usulni ko‘ramiz. Ikki shart bir vaqtda bajarilishi kerak — masalan, ikki do‘stning yoshi yig‘indisi 30, farqi 4. Bitta javob topish uchun bir necha yo‘l bor: chizib ko‘rish, birini ikkinchisiga almashtirish yoki qo‘shib yuborish. Bugun shu uch usulni bir sistema ustida solishtiramiz.</p>",
-    "<p>Yuqoridagi sahna bir xil sistemani uch xil usulda yechib ko‘rsatadi. Har bir usul oxirida bir xil javobga olib keladi — lekin qaysi biri tezroq yoki qulayroq ekanini o‘zingiz tanlaysiz.</p>"
+    "<p class=\"kirish-nega\">13-§ da ikkinchi darajali tenglama qatnashgan sistemalarni o‘rniga qo‘yish va Vyetning teskari teoremasi bilan yechdik. Bugun bitta qadam oldinga o‘tamiz: ba'zi sistemalarda o‘zgaruvchini ochiqchasiga ifodalab bo‘lmaydi — masalan ikkala tenglamada ham <strong>ikkita noma'lumning ko'paytmasi</strong> (xy) qatnashsa. Bunday holda tenglamalarni <strong>hadma-had qo‘shib yoki bo‘lib</strong>, yangi, sodda sistema hosil qilamiz.</p>",
+    "<p>Sahnadagi qizil chiziq — parabola y = x², ko‘k chiziq — y = mx + k — bu sistemaning eng sodda modeli, 13-§ dagi bilan bir xil. m yoki k ni o‘zgartiring: kesishish nuqtalari sistemaning yechimini ko‘rsatadi. Kitobdagi haqiqiy 4 masala boshqacha ko‘rinishda (ikkita noma'lumli, ko'paytma va kublar bilan) bo‘ladi, lekin g‘oya bir xil: ikki tenglamani birlashtirib, sodda sistema hosil qilamiz.</p>"
   ],
-  "reja": "Bir sistema — uch usul: grafik, almashtirish, qo‘shish. Har biri o‘z afzalligiga ega.",
-  "qoida": "<p><strong>Tenglamalar sistemasi</strong>ni yechishning asosiy usullari:</p><ul><li><strong>Grafik usul</strong> — har bir tenglama grafigini chizamiz, kesishish nuqtasi yechim.</li><li><strong>Almashtirish usuli</strong> — bir tenglamadan bir o‘zgaruvchini ifodalab, ikkinchisiga qo‘yamiz.</li><li><strong>Qo‘shish (ayirish) usuli</strong> — tenglamalarni qo‘shib yoki ayirib, bir o‘zgaruvchini yo‘qotamiz.</li></ul><p>Barcha usullar to‘g‘ri yechim beradi; qulayligi tenglamalar ko‘rinishiga bog‘liq.</p>",
+  "reja": "1) Ba'zan ikkala tenglamada ham bir xil ifoda (masalan xy) qatnashsa, ularni hadma-had qo'shib yoki ayirib soddalashtiramiz. 2) Ba'zan bitta tenglamadan o'zgaruvchini (masalan y²) ifodalab, ikkinchisiga qo'yamiz. 3) Ikkala tenglamani bir-biriga bo'lish ham ba'zan yangi, sodda munosabat beradi. 4) Har doim topilgan yechimni asl sistemaga qo'yib tekshiramiz — ba'zan chet ildiz yoki mumkin bo'lmagan holat (masalan manfiy son kvadrat ildiz ostida) chiqadi.",
+  "qoida": "<p><strong>1) Hadma-had qo‘shish/ayirish:</strong> agar ikkala tenglamada bir xil ifoda (masalan xy) bo‘lsa, tenglamalarni qo‘shib yoki ayirib, shu ifodani yo‘qotamiz — natijada bitta o‘zgaruvchi (yoki x+y, x−y kabi yangi ifoda) uchun oddiy kvadrat tenglama hosil bo‘ladi.</p><p><strong>2) Ifodalab almashtirish:</strong> agar bitta tenglamadan biror ifodani (masalan y²) osongina ifodalash mumkin bo‘lsa, uni ikkinchi tenglamaga qo‘yamiz.</p><p><strong>3) Hadma-had bo‘lish:</strong> ikkala tenglamada bir xil ko‘paytuvchi (masalan x²y−xy² = xy(x−y)) bo‘lsa, tenglamalarni bir-biriga bo‘lib, yangi sodda munosabat (masalan x−y uchun) topamiz.</p><p><strong>4)</strong> Har bir usulda ham oxirida topilgan qiymatlarni asl sistemaga qo‘yib tekshiring — ba'zan ildiz ostida manfiy son chiqib, haqiqiy yechim bo‘lmasligi mumkin (2-masaladagi kabi).</p>",
   "savollar": [
     {
-      "savol": "x + y = 5, x − y = 1 sistemasini yechishda eng qulay usul qaysi?",
+      "savol": "{ x+y+2xy=10, x+y−2xy=−2 } sistemasida ikkala tenglamani qo‘shsak, nima hosil bo‘ladi?",
       "variantlar": [
-        "Faqat grafik",
-        "Almashtirish yoki qo‘shish",
-        "Faqat almashtirish"
-      ],
-      "togri": 1
-    },
-    {
-      "savol": "Almashtirish usulida nima qilinadi?",
-      "variantlar": [
-        "Tenglamalarni qo‘shamiz",
-        "Bir o‘zgaruvchini ifodalab, ikkinchisiga qo‘yamiz",
-        "Faqat grafik chizamiz"
-      ],
-      "togri": 1
-    },
-    {
-      "savol": "Grafik usulda yechim nima?",
-      "variantlar": [
-        "Ikki chiziq kesishish nuqtasi",
-        "Faqat x o‘qi bilan kesishish",
-        "Parabola uchi"
+        "2x+2y=8, ya'ni x+y=4",
+        "4xy=12, ya'ni xy=3",
+        "2x+2y+4xy=8"
       ],
       "togri": 0
+    },
+    {
+      "savol": "{ x−y²=3, xy²=28 } sistemasida birinchi tenglamadan y² ni ifodalab (y²=x−3), ikkinchisiga qo‘ysak, qanday tenglama chiqadi?",
+      "variantlar": [
+        "x²−28=0",
+        "x(x−3)=28, ya'ni x²−3x−28=0",
+        "x−3=28"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "{ x³−y³=7, x²y−xy²=2 } sistemasida ikkinchi tenglama xy(x−y)=2 ko‘rinishida. Sistemani yechish uchun keyingi qadam nima?",
+      "variantlar": [
+        "Ikkala tenglamani qo‘shish",
+        "Birinchi tenglamani ikkinchisiga bo‘lish (x³−y³ ni (x−y)(x²+xy+y²) orqali)",
+        "x va y ni alohida noldan hisoblash"
+      ],
+      "togri": 1
     }
   ],
   "eslabQol": [
-    "Bir sistema uchta usul bilan yechilishi mumkin: <strong>grafik</strong>, <strong>almashtirish</strong>, <strong>qo‘shish</strong>.",
-    "Almashtirish — bir o‘zgaruvchini ifodalab, ikkinchisiga qo‘yish.",
-    "Qo‘shish usuli — koeffitsientlarni tenglashtirib, o‘zgaruvchini yo‘qotish."
+    "Ba'zi sistemalarni hadma-had <strong>qo‘shib yoki ayirib</strong> soddalashtirish mumkin — ayniqsa bir xil ifoda (xy kabi) ikkala tenglamada bo‘lsa.",
+    "Ba'zan bitta tenglamadan ifodani (masalan y²) ifodalab, ikkinchisiga qo‘yamiz.",
+    "Kublar ayirmasi qatnashsa, tenglamalarni bir-biriga <strong>bo‘lish</strong> yangi sodda munosabat beradi. Javobni doim tekshiring — chet ildiz yoki mumkin bo‘lmagan holat chiqishi mumkin."
   ],
   "kitob": {
-    "betlar": "57–58-betlar",
+    "betlar": "72–73-betlar",
     "sahifalar": [
       {
-        "img": "../../../../kitob/kitob-57.png",
-        "bet": "57-bet",
+        "img": "../../../../kitob/kitob-72.png",
+        "bet": "72-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
-        "img": "../../../../kitob/kitob-58.png",
-        "bet": "58-bet",
+        "img": "../../../../kitob/kitob-73.png",
+        "bet": "73-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       }
     ]
   },
   "doska": {
-    "intro": "Kitobdagi masalalar — o‘qituvchi doskada shu tartibda yechib ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
+    "intro": "Kitobdagi 4 ta masala — o‘qituvchi doskada shu tartibda yechib ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
     "masalalar": [
       {
-        "caption": "1-masala · 57-bet",
+        "caption": "1-masala · 72-bet",
         "steps": [
-          "Sistema: <strong>{ x + y = 7;  x − y = 3 }</strong>.",
-          "Qo‘shish usuli: ikkala tenglamani qo‘shamiz: 2x = 10 → <strong>x = 5</strong>.",
-          "Birinchi tenglamaga qo‘yamiz: 5 + y = 7 → <strong>y = 2</strong>.",
-          "Tekshirish: 5 − 2 = 3 — to‘g‘ri."
-        ]
+          "Sistema: <strong>{ x+y+2xy=10 ; x+y−2xy=−2 }</strong>. Ikkala tenglamada ham x+y va 2xy qatnashadi — hadma-had qo‘shamiz.",
+          "Qo‘shsak: 2x+2y=8, bundan <strong>y=4−x</strong>. Bu ifodani sistemaning ixtiyoriy (masalan ikkinchi) tenglamasiga qo‘yamiz.",
+          "x+(4−x)−2x(4−x)=−2 → 4−8x+2x²=−2 → <strong>2x²−8x+6=0</strong> → x²−4x+3=0 → x₁=1, x₂=3.",
+          "y=4−x ekanligidan y₁=3, y₂=1.",
+          "Javob: <strong>(1; 3)</strong> va <strong>(3; 1)</strong>."
+        ],
+        "img": "png/1-masala.png",
+        "alt": "1-masala: x+y+2xy=10, x+y−2xy=−2 sistemani hadma-had qo‘shib y=4−x topib yechish, javob (1;3) va (3;1), kitob, 72-bet",
+        "width": 640,
+        "height": 294
       },
       {
-        "caption": "2-masala · 57-bet",
+        "caption": "2-masala · 72–73-bet",
         "steps": [
-          "Sistema: <strong>{ y = 2x − 1;  3x + y = 11 }</strong>.",
-          "Almashtirish: ikkinchi tenglamaga y ni qo‘yamiz: 3x + (2x − 1) = 11 → 5x − 1 = 11 → 5x = 12 → <strong>x = 2,4</strong>.",
-          "y = 2·2,4 − 1 = <strong>3,8</strong>."
-        ]
+          "Sistema: <strong>{ x−y²=3 ; xy²=28 }</strong>. Birinchi tenglamadan <strong>y²=x−3</strong> ni ifodalaymiz.",
+          "Ikkinchi tenglamaga qo‘yamiz: x(x−3)=28 → <strong>x²−3x−28=0</strong> → x₁=7, x₂=−4.",
+          "y²=x−3 ga qo‘yib tekshiramiz: x=7 bo‘lsa y²=4, ya'ni y=2 yoki y=−2 — ikkalasi ham haqiqiy.",
+          "x=−4 bo‘lsa y²=−7<0 — haqiqiy ildiz mavjud emas, bu holat rad etiladi.",
+          "Javob: <strong>(7; 2)</strong> va <strong>(7; −2)</strong>."
+        ],
+        "img": "png/2-masala.png",
+        "alt": "2-masala: x−y²=3, xy²=28 sistemani y²=x−3 ifodalab yechish, x=−4 chet holat rad etiladi, javob (7;2) va (7;−2), kitob, 72–73-bet",
+        "width": 640,
+        "height": 370
       },
       {
-        "caption": "3-masala · 58-bet",
+        "caption": "3-masala · 73-bet",
         "steps": [
-          "Sistema: <strong>{ y = x + 1;  y = −x + 5 }</strong>.",
-          "Birinchi chiziq: uchi (0,1), nishabi 1.",
-          "Ikkinchi chiziq: uchi (0,5), nishabi −1.",
-          "Kesishish: x + 1 = −x + 5 → 2x = 4 → <strong>x = 2, y = 3</strong>."
-        ]
+          "Sistema: <strong>{ x+y=12 ; 1/x+1/y=3/8 }</strong>. Ikkinchi tenglamani umumiy maxrajga keltiramiz: <strong>(x+y)/xy=3/8</strong>.",
+          "x+y=12 ni qo‘yamiz: 12/xy=3/8, bundan <strong>xy=32</strong>.",
+          "Endi sodda sistema hosil bo‘ldi: <strong>{ x+y=12 ; xy=32 }</strong> — bu Vyetning teskari teoremasi bilan yechiladi (13-§ da ko‘rganimizdek).",
+          "x va y sonlari z²−12z+32=0 tenglamaning ildizlari: z₁=4, z₂=8.",
+          "Javob: <strong>(4; 8)</strong> va <strong>(8; 4)</strong>."
+        ],
+        "img": "png/3-masala.png",
+        "alt": "3-masala: x+y=12, 1/x+1/y=3/8 sistemani xy=32 ga keltirib Vyetning teskari teoremasi bilan yechish, javob (4;8) va (8;4), kitob, 73-bet",
+        "width": 640,
+        "height": 374
+      },
+      {
+        "caption": "4-masala · 73-bet",
+        "steps": [
+          "Sistema: <strong>{ x³−y³=7 ; x²y−xy²=2 }</strong>. Ikkinchi tenglamani ko‘paytuvchiga ajratamiz: <strong>xy(x−y)=2</strong>.",
+          "x≠0, y≠0, x−y≠0 ekanligini hisobga olib, birinchi tenglamani ikkinchisiga <strong>bo‘lamiz</strong>: (x³−y³)/(x²y−xy²) = 7/2.",
+          "x³−y³=(x−y)(x²+xy+y²) ekanidan foydalanib, chap tomonni soddalashtiramiz.",
+          "Hosil bo‘lgan sodda sistema orqali x va y topiladi — natija tekshirilib, asl sistemaga mos ekanligiga ishonch hosil qilinadi."
+        ],
+        "img": "png/4-masala.png",
+        "alt": "4-masala: x³−y³=7, x²y−xy²=2 sistemani xy(x−y)=2 ko‘rinishiga keltirib, tenglamalarni bo‘lish usuli bilan yechish, kitob, 73-bet",
+        "width": 640,
+        "height": 186
       }
     ]
   },
   "mashqlar": {
-    "betlar": "58-bet",
-    "intro": "Daftarga yeching. O‘qituvchi doskada tekshiradi.",
+    "betlar": "72-bet",
+    "intro": "Daftarga yeching: hadma-had qo'shish/ayirish, ifodalab almashtirish yoki bo'lish usullaridan mosini tanlang. Javobni asl sistemaga qo'yib tekshiring.",
     "items": [
       {
-        "title": "1-mashq.",
-        "body": "Quyidagi sistemani almashtirish usuli bilan yeching:",
-        "sub": "{ x + 2y = 8;  y = 3x − 1 }"
-      },
-      {
-        "title": "2-mashq.",
-        "body": "Qo‘shish usuli bilan yeching:",
-        "sub": "{ 2x + y = 7;  3x − y = 8 }"
-      },
-      {
-        "title": "3-mashq.",
-        "body": "Grafik usul bilan yeching va tekshiring:",
-        "sub": "{ y = 2x − 3;  y = −x + 3 }"
+        "title": "164.",
+        "body": "To‘g‘ri to‘rtburchak shaklidagi maydonni 1 km uzunlikdagi devor bilan o‘rab olish kerak. Agar maydonning yuzi 6 ha bo‘lsa, uning bo‘yi va eni qanday bo‘lishi kerak?",
+        "sub": ""
       }
     ]
   },
   "xulosa": [
-    "<strong>Sistemani yechish</strong>ning asosiy usullari: grafik, almashtirish, qo‘shish (ayirish).",
-    "Grafik usul — ko‘rgazmali, lekin taxminiy bo‘lishi mumkin.",
-    "Almashtirish — bir o‘zgaruvchini ifodalash qulay bo‘lsa yaxshi.",
-    "Qo‘shish — koeffitsientlar qarama-qarshi yoki tenglashtirilsa tez.",
-    "Har doim yechimni tekshirish kerak."
+    "<strong>Hadma-had qo‘shish/ayirish</strong> — ikkala tenglamada bir xil ifoda (masalan xy) bo‘lsa, ularni qo‘shib yoki ayirib sodda tenglama hosil qilamiz.",
+    "Bitta tenglamadan ifodani (masalan y²) ifodalab, ikkinchisiga qo‘yish ham ishlaydi.",
+    "Kublar ayirmasi/yig'indisi qatnashganda tenglamalarni bir-biriga <strong>bo‘lish</strong> foydali.",
+    "Har doim topilgan yechimni asl sistemaga qo‘yib tekshirish shart — chet ildiz yoki mumkin bo‘lmagan holat chiqishi mumkin."
   ],
   "xulosaBoard": [
     {
-      "html": "<strong>Grafik</strong> — kesishish nuqtasi"
+      "html": "Bir xil ifoda (xy) bor bo‘lsa → <strong>qo‘shish/ayirish</strong>"
     },
     {
-      "html": "<strong>Almashtirish</strong> — ifodalab qo‘yish"
+      "html": "Ifodalab bo‘lsa → <strong>almashtirish</strong>"
     },
     {
-      "html": "<strong>Qo‘shish</strong> — o‘zgaruvchini yo‘qotish"
+      "html": "Kublar bo‘lsa → <strong>bo‘lish</strong> usuli"
     },
     {
-      "html": "Barcha usullar bir xil javob beradi"
+      "html": "Javobni doim asl sistemaga qo‘yib tekshir"
     }
   ]
 }
