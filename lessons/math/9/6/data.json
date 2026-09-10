@@ -69,10 +69,10 @@
   },
   "kirish": [
     "<p class=\"kirish-nega\">5-§ da parabolani yasashda nollarni — grafik Ox o'qini kesib o'tadigan nuqtalarni — topishni ko'rdik. Bugun shu nollardan foydalanib, parabola qachon Ox dan yuqorida yoki pastda turishini aniqlaymiz. To'g'ri to'rtburchak tomonlarini biroz uzaytirganda yuzi qancha oshadi? Yoki raketa qachon ma'lum balandlikdan yuqorida bo'ladi? Bunday savollar tenglama emas, <strong>tengsizlik</strong> beradi. Bugun eng muhim turi — <strong>kvadrat tengsizlik</strong> ni yechamiz.</p>",
-    "<p>Yuqoridagi son o'qida ikkita ildizni suring. Ko'paytma (x − r₁)(x − r₂) qayerda musbat, qayerda manfiy ekanini ko'ring. Aynan shu ishora zanjiri — kvadrat tengsizlikni yechishning asosiy usuli.</p>"
+    "<p>Yuqoridagi son o'qida ikkita ildizni suring. Ko'paytma (x − r₁)(x − r₂) qayerda musbat, qayerda manfiy ekanini ko'ring. Bugun bu ishorani ko'paytuvchilarning har biri musbat yoki har biri manfiy bo'lgan holatlarni sistema sifatida yechib aniqlaymiz.</p>"
   ],
   "reja": "Kvadrat tengsizlikni ko'paytuvchilarga ajratib, ishora zanjiri (son o'qi) yordamida yechamiz.",
-  "qoida": "<p><strong>Kvadrat tengsizlik</strong> — chap tomonda kvadrat funksiya, o'ng tomonda 0 turgan tengsizlik (masalan, ax² + bx + c > 0).</p><p>Yechish tartibi:</p><ol><li>Agar a < 0 bo'lsa, ikkala tomonni −1 ga ko'paytirib a ni musbat qilamiz (ishora o'zgaradi).</li><li>ax² + bx + c = 0 tenglamani yechamiz — ildizlar r₁, r₂.</li><li>Ko'paytuvchilarga ajratamiz: a(x − r₁)(x − r₂) ≷ 0.</li><li>Son o'qida ishora zanjirini chizamiz: ildizlardan tashqarida bir xil ishora, orasida qarama-qarshi.</li></ol><p>Natija — interval(lar).</p>",
+  "qoida": "<p><strong>Kvadrat tengsizlik</strong> — chap qismida kvadrat funksiya, o'ng qismida nol turgan tengsizlik (masalan, ax² + bx + c > 0).</p><p>Agar <strong>ax² + bx + c = 0</strong> kvadrat tenglama ikkita turli x₁, x₂ ildizga ega bo'lsa, u holda <strong>ax² + bx + c > 0</strong> va <strong>ax² + bx + c < 0</strong> kvadrat tengsizliklarni yechishni, kvadrat tengsizlikning chap qismini ko'paytuvchilarga ajratib (a(x − x₁)(x − x₂)), birinchi darajali tengsizliklar sistemasini yechishga keltirish mumkin: ko'paytuvchilarning har biri musbat (yoki har biri manfiy) bo'lgan holni alohida sistema sifatida yechib, natijalarni birlashtiramiz.</p>",
   "savollar": [
     {
       "savol": "(x − 1)(x − 4) > 0 tengsizlikning yechimi qaysi?",
@@ -179,7 +179,7 @@
     ]
   },
   "doska": {
-    "intro": "Kvadrat tengsizlikni ko‘paytuvchilar ishorasi bilan yechish — doskada.",
+    "intro": "Kvadrat tengsizlikni sistema usuli bilan yechish — doskada.",
     "masalalar": [
       {
         "caption": "1-masala · 24-bet",

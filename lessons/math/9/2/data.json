@@ -173,28 +173,31 @@
     ]
   },
   "mashqlar": {
-    "betlar": "9-bet (taxminiy — asl kitob sahifasi mavjud emas, tasdiqlash kerak)",
-    "intro": "Diqqat: quyidagi mashqlar 9-bet skani yo'qligi sababli tasdiqlanmagan taxminiy matn. Kitobning 9-betini tekshirib, asl mashqlarni tasdiqlang yoki almashtiring.",
+    "betlar": "9-bet",
     "items": [
       {
-        "title": "1-mashq.",
-        "body": "y = x² grafigidan foydalanib taxminiy qiymatni toping:",
-        "sub": "a) y(2,5); &nbsp; b) y(−1,5)."
+        "title": "8-mashq.",
+        "body": "y = x² funksiyaning grafigini millimetrli qog'ozda yasang. Grafik bo'yicha:",
+        "sub": "1) x = 0,8; x = 1,5; x = 1,9; x = −2,3; x = −1,5 bo'lganda y ning qiymatini taqriban toping; 2) agar y = 2; y = 3; y = 4,5; y = 6,5 bo'lsa, x ning qiymatini taqriban toping."
       },
       {
-        "title": "2-mashq.",
-        "body": "Grafikdan (yoki xossadan) yeching:",
-        "sub": "a) x² = 1; &nbsp; b) x² = 9; &nbsp; c) x² = 5; &nbsp; d) x² = −4."
+        "title": "9-mashq.",
+        "body": "y = x² funksiya grafigini yasamasdan: A(2; 6), B(−1; 1), C(12; 144), D(−3; −9) nuqtalardan qaysilari parabolaga tegishli bo'lishini aniqlang."
       },
       {
-        "title": "3-mashq.",
-        "body": "Grafikdan tengsizlikni yeching:",
-        "sub": "a) x² > 1; &nbsp; b) x² ≥ 4; &nbsp; c) x² < 9; &nbsp; d) x² ≤ 0; &nbsp; e) x² > −1."
+        "title": "10-mashq.",
+        "body": "(Og'zaki.) A(3; 9), B(−5; 25), C(4; 15), D(√3; 3) nuqtalarga ordinatalar o'qiga nisbatan simmetrik bo'lgan nuqtalarni toping.",
+        "sub": "Bu nuqtalar y = x² funksiyaning grafigiga tegishli bo'ladimi?"
       },
       {
-        "title": "4-mashq.",
-        "body": "y = x² ning berilgan oraliqdagi qiymatlar to'plamini toping:",
-        "sub": "a) [0,5; 2]; &nbsp; b) [−2; −0,5]; &nbsp; c) [−2; 2]."
+        "title": "11-mashq.",
+        "body": "(Og'zaki.) y = x² funksiyaning qiymatlarini",
+        "sub": "1) x = 2,5 va x = 3 1/3;   2) x = 0,4 va x = 0,3;   3) x = −0,2 va x = −0,1;   4) x = 4,1 va x = −5,2 bo'lganda taqqoslang."
+      },
+      {
+        "title": "12-mashq.",
+        "body": "y = x² parabolaning:",
+        "sub": "1) y = 25;   2) y = 5;   3) y = −x;   4) y = 2x;   5) y = 3 − 2x;   6) y = 2x − 1 to'g'ri chiziq bilan kesishish nuqtalarining koordinatalarini toping."
       }
     ]
   },

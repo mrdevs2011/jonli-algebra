@@ -180,13 +180,52 @@
     ]
   },
   "mashqlar": {
-    "betlar": "72-bet",
-    "intro": "Daftarga yeching: hadma-had qo'shish/ayirish, ifodalab almashtirish yoki bo'lish usullaridan mosini tanlang. Javobni asl sistemaga qo'yib tekshiring.",
+    "betlar": "76-bet",
+    "intro": "Tenglamalar sistemasini yeching (165−175):",
     "items": [
       {
-        "title": "164.",
-        "body": "To‘g‘ri to‘rtburchak shaklidagi maydonni 1 km uzunlikdagi devor bilan o‘rab olish kerak. Agar maydonning yuzi 6 ha bo‘lsa, uning bo‘yi va eni qanday bo‘lishi kerak?",
-        "sub": ""
+        "title": "165-mashq.",
+        "sub": "1) {xy − x + y = 7, xy + x − y = 13};   2) {xy − 2(x+y) = 7, xy + x + y = 29}."
+      },
+      {
+        "title": "166-mashq.",
+        "sub": "1) {(x−1)(y−1) = 2, x + y = 5};   2) {(x−2)(y+1) = 1, x − y = 3}."
+      },
+      {
+        "title": "167-mashq.",
+        "sub": "1) {2x + 3y = 3, 4x² − 9y² = 27};   2) {x − y = 5, √x − √y = 1}."
+      },
+      {
+        "title": "168-mashq.",
+        "sub": "1) {x² + y² = 34, xy = 15};   2) {x² + y² = 25, xy = 12}."
+      },
+      {
+        "title": "169-mashq.",
+        "sub": "1) {2x − 3y = 1, 2x² − xy − 3y² = 3};   2) {x³ + y³ = 133, x + y = 7};   3) {2x² − 2xy + x = −9, 2y − 3x = 1};   4) {x² + 6xy + 8yx² = 91, x + 3y − 10 = 0}."
+      },
+      {
+        "title": "170-mashq.",
+        "sub": "1) {x² + y² = 10, xy = 3};   2) {x² − xy + y² = 19, xy = 15};   3) {x² + 4xy + y² = 94, xy = 15};   4) {x² − 6xy + y² = 8, xy = 7}."
+      },
+      {
+        "title": "171-mashq.",
+        "sub": "1) {1/x + 1/y = 1, x + y = 4};   2) {(x+y)/(x−y) = 3/2, xy = 80};   3) {x − y = 3, 1/x − 1/y = −0,3};   4) {x + y = 9, 1/x + 1/y = 0,5}."
+      },
+      {
+        "title": "172-mashq.",
+        "sub": "1) {x² − y = 7, x²y = 18};   2) {2x² + y = 3, x²y − 1 = 0};   3) {x² − y² = 12, x² + y² = 20};   4) {x² − y² = 21, x² + y² = 29}."
+      },
+      {
+        "title": "173-mashq.",
+        "sub": "1) {x³ + y³ = 28, xy² + x²y = 12};   2) {xy² + xy³ = 10, x + xy = 10}."
+      },
+      {
+        "title": "174-mashq.",
+        "sub": "1) {x³ + 27y³ = 54, x² − 3xy + 9y² = 9};   2) {x² − xy + y² = 19, x² + xy + y² = 49}."
+      },
+      {
+        "title": "175-mashq.",
+        "sub": "1) {x + y = 41, √(x/y) + √(y/x) = 41/20};   2) {x + y = 10, √x + √y = 4}."
       }
     ]
   },
