@@ -1,4 +1,4 @@
-# ROADMAP — jonli_algebra darslarni to'g'irlash (5,6,8,10,12,13,14)
+ # ROADMAP — jonli_algebra darslarni to'g'irlash (5,6,8,10,12,13,14)
 
 Manba: `kitob/kitob-N.png`. Har dars uchun: sahna + kirish + qoida + doska + xulosaBoard + kitob.betlar/sahifalar — HAMMASI bir xil haqiqiy misolga mos bo'lishi SHART. Keyin crop.md bo'yicha rasm qirqiladi.
 
