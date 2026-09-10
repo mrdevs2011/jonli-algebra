@@ -202,7 +202,11 @@
           "Topilgan nuqtalar orqali silliq egri chiziq o'tkaziladi (3-rasm).",
           "y = 2x² va y = x² solishtiriladi: aynan bir x da y = 2x² ning qiymati y = x² dan 2 marta ortiq.",
           "Xulosa: y = 2x² grafigi, y = x² grafigini <strong>Ox'dan Oy o'qi bo'yicha 2 marta cho'zish</strong> bilan hosil qilinadi, deyiladi."
-        ]
+        ],
+        "img": "png/1-masala.png",
+        "alt": "1-masala: y = 2x² funksiyaning qiymatlar jadvali va y = x² bilan taqqoslash, kitob, 10-bet",
+        "width": 640,
+        "height": 310
       },
       {
         "caption": "2-masala · 10–11-bet",
@@ -213,7 +217,11 @@
           "Nuqtalar orqali silliq chiziq o'tkaziladi (4-rasm).",
           "y = ½x² va y = x² solishtiriladi: har bir nuqtada ordinata 2 marta kamaytirilgan.",
           "Xulosa: y = ½x² grafigi, y = x² grafigini <strong>Ox'dan Oy o'qi bo'yicha 2 marta siqish</strong> bilan hosil qilinadi, deyiladi."
-        ]
+        ],
+        "img": "png/2-masala.png",
+        "alt": "2-masala: y = ½x² funksiyaning grafigi, 3- va 4-rasmlar bilan taqqoslash, kitob, 10–11-bet",
+        "width": 640,
+        "height": 568
       },
       {
         "caption": "3-masala · 11-bet",
@@ -223,12 +231,20 @@
           "y = −x² va y = x² taqqoslanadi: aynan bir x da bu funksiyalarning qiymatlari modul bo'yicha teng, lekin ishorasi qarama-qarshi.",
           "Xulosa: y = −x² grafigi, y = x² grafigini <strong>Ox o'qiga nisbatan simmetrik ko'chirish</strong> bilan hosil qilinadi (5-rasm).",
           "Shunga o'xshab, y = −½x² grafigi ham y = ½x² grafigiga Ox o'qiga nisbatan simmetrikdir (6-rasm)."
-        ]
+        ],
+        "img": "png/3-masala.png",
+        "alt": "3-masala: y = −x² va y = −½x² grafiklarining Ox o'qiga nisbatan simmetrikligi, kitob, 11-bet",
+        "width": 640,
+        "height": 209
       },
       {
         "caption": "Ta'rif va fokus · 12-bet",
         "kirish": "Uchta masaladan keyin, umumiy ta'rifni chiqaramiz.",
-        "static": "<strong>Ta'rif:</strong> y = ax² funksiyaning grafigi ham (a ≠ 0 bo'lganda) <strong>parabola</strong> deb ataladi. a > 0 bo'lganda parabolaning tarmoqlari yuqoriga, a < 0 bo'lganda esa pastga yo'nalgan. Bundan tashqari, y = ax² parabolaning <strong>fokusi</strong> (0; 1/4a) nuqtada joylashgan."
+        "static": "<strong>Ta'rif:</strong> y = ax² funksiyaning grafigi ham (a ≠ 0 bo'lganda) <strong>parabola</strong> deb ataladi. a > 0 bo'lganda parabolaning tarmoqlari yuqoriga, a < 0 bo'lganda esa pastga yo'nalgan. Bundan tashqari, y = ax² parabolaning <strong>fokusi</strong> (0; 1/4a) nuqtada joylashgan.",
+        "img": "png/tarif.png",
+        "alt": "Ta'rif: y = ax² funksiyaning grafigi parabola, fokusi (0; 1/4a), kitob, 12-bet",
+        "width": 640,
+        "height": 130
       },
       {
         "caption": "Xossalar · 12-bet",
@@ -237,12 +253,20 @@
           "<strong>1)</strong> a > 0 bo'lsa, y = ax² funksiya x ≠ 0 da musbat qiymatlar qabul qiladi; a < 0 bo'lsa, manfiy qiymatlar qabul qiladi. Qiymati faqat x = 0 bo'lganda 0 ga teng.",
           "<strong>2)</strong> y = ax² parabola ordinatalar o'qiga nisbatan simmetrik bo'ladi.",
           "<strong>3)</strong> a > 0 bo'lsa, funksiya x > 0 da o'sadi, x ≤ 0 da kamayadi. a < 0 bo'lsa, x ≥ 0 da kamayadi, x ≤ 0 da o'sadi."
-        ]
+        ],
+        "img": "png/xossalar.png",
+        "alt": "y = ax² funksiyaning asosiy xossalari (1, 2, 3), kitob, 12-bet",
+        "width": 640,
+        "height": 289
       },
       {
         "caption": "Grafik xulosasi · 13-bet",
         "kirish": "Xossalarni grafik orqali ham yakunlab ko'ramiz.",
-        "static": "Yuqoridagi barcha xossalarni grafikdan bevosita ko'rish mumkin (7- va 8-rasmlar): a > 0 bo'lganda tarmoqlar yuqoriga (7-rasm), a < 0 bo'lganda pastga (8-rasm) yo'nalgan."
+        "static": "Yuqoridagi barcha xossalarni grafikdan bevosita ko'rish mumkin (7- va 8-rasmlar): a > 0 bo'lganda tarmoqlar yuqoriga (7-rasm), a < 0 bo'lganda pastga (8-rasm) yo'nalgan.",
+        "img": "png/grafik-xulosasi.png",
+        "alt": "7- va 8-rasmlar: a > 0 va a < 0 bo'lgandagi parabola tarmoqlari, kitob, 13-bet",
+        "width": 640,
+        "height": 260
       }
     ]
   }
