@@ -76,7 +76,7 @@
     "<p>Yuqoridagi slayderlarni siljiting. <strong>a</strong> ni nolga tenglashtiring — egri chiziq to'g'ri chiziqqa aylanadi. Demak, <strong>a</strong> shu formulani aynan <em>kvadrat</em> funksiya qiladigan yagona harf. <strong>b</strong> va <strong>c</strong> esa faqat uni suradi, shaklini o'zgartirmaydi.</p>"
   ],
   "reja": "Formula qismlari a, b, c ga ajraladi. a = 0 bo'lsa chiziqli funksiya qoladi.",
-  "qoida": "<p><strong>y = ax² + bx + c</strong> ko'rinishidagi funksiya <strong>kvadrat funksiya</strong> deyiladi, bunda <strong>a, b, c</strong> — berilgan sonlar va <strong>a ≠ 0</strong>. Aynan x² had — ya'ni x ning ikkinchi darajasi — bu funksiyaga nom beradi. Agar a = 0 bo'lsa, x² had yo'qoladi va qoladigan y = bx + c allaqachon chiziqli funksiya, kvadrat emas.</p>",
+  "qoida": "<p><strong>y = ax² + bx + c</strong> ko'rinishidagi funksiya <strong>kvadrat funksiya</strong> deyiladi, bunda <strong>a, b, c</strong> — berilgan sonlar va <strong>a ≠ 0</strong>. Aynan x² had — ya'ni x ning ikkinchi darajasi — bu funksiyaga nom beradi. Agar a = 0 bo'lsa, x² had yo'qoladi va qoladigan y = bx + c allaqachon chiziqli funksiya, kvadrat emas. Bu funksiyaning grafigi <strong>parabola</strong> deyiladi — uni keyingi darslarda batafsil o'rganamiz.</p>",
   "savollar": [
     {
       "savol": "y = 3x² − 5x + 2 funksiyada a nechaga teng?",
@@ -118,19 +118,19 @@
         "img": "../../../../kitob/kitob-5.png",
         "bet": "5-bet",
         "width": 640,
-        "height": 761
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-6.png",
         "bet": "6-bet",
         "width": 640,
-        "height": 756
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-7.png",
         "bet": "7-bet",
         "width": 640,
-        "height": 761
+        "height": 758
       }
     ]
   },

@@ -168,25 +168,25 @@
         "img": "../../../../kitob/kitob-10.png",
         "bet": "10-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-11.png",
         "bet": "11-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-12.png",
         "bet": "12-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-13.png",
         "bet": "13-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       }
     ]
   },
