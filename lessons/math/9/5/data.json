@@ -72,7 +72,7 @@
     "<p>Yuqorida namuna: <strong>y = x² − 4x + 3</strong>. Qadamni birma-bir yoqing. Formula keyin keladi — avval chizmada nima paydo bo'lishini ko'ring.</p>"
   ],
   "reja": "Har qadam alohida yonadi: uch, o'q, nollar, juft nuqtalar, chiziq.",
-  "qoida": "<p>y = ax² + bx + c grafigini yasash tartibi: <strong>1)</strong> uchni toping — x<sub>v</sub> = −b/(2a), y<sub>v</sub> = y(x<sub>v</sub>); <strong>2)</strong> simmetriya o'qini chizing — x = x<sub>v</sub>; <strong>3)</strong> D ≥ 0 bo'lsa nollarni qo'ying; <strong>4)</strong> (0; c) va uning juftini, kerak bo'lsa yana 1–2 nuqtani qo'ying; <strong>5)</strong> nuqtalarni ravon chiziq bilan tutashtiring. D < 0 bo'lsa 3-qadam tushib qoladi — parabola Ox ni kesmaydi.</p>",
+  "qoida": "<p>y = ax² + bx + c grafigini yasash tartibi: <strong>1)</strong> uchni toping — x<sub>v</sub> = −b/(2a), y<sub>v</sub> = y(x<sub>v</sub>); <strong>2)</strong> simmetriya o'qini chizing — x = x<sub>v</sub>; <strong>3)</strong> D ≥ 0 bo'lsa (bu yerda <strong>D = b² − 4ac</strong> — diskriminant) nollarni qo'ying; <strong>4)</strong> (0; c) va uning juftini, kerak bo'lsa yana 1–2 nuqtani qo'ying; <strong>5)</strong> nuqtalarni ravon chiziq bilan tutashtiring. D < 0 bo'lsa 3-qadam tushib qoladi — parabola Ox ni kesmaydi.</p>",
   "savollar": [
     {
       "savol": "y = x² − 6x + 8 uchun uchi qayerda?",

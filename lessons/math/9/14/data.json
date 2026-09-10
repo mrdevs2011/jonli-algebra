@@ -163,15 +163,17 @@
         "height": 374
       },
       {
-        "caption": "4-masala · 73-bet",
+        "caption": "4-masala · 73–74-bet",
         "steps": [
           "Sistema: <strong>{ x³−y³=7 ; x²y−xy²=2 }</strong>. Ikkinchi tenglamani ko‘paytuvchiga ajratamiz: <strong>xy(x−y)=2</strong>.",
           "x≠0, y≠0, x−y≠0 ekanligini hisobga olib, birinchi tenglamani ikkinchisiga <strong>bo‘lamiz</strong>: (x³−y³)/(x²y−xy²) = 7/2.",
-          "x³−y³=(x−y)(x²+xy+y²) ekanidan foydalanib, chap tomonni soddalashtiramiz.",
-          "Hosil bo‘lgan sodda sistema orqali x va y topiladi — natija tekshirilib, asl sistemaga mos ekanligiga ishonch hosil qilinadi."
+          "x³−y³=(x−y)(x²+xy+y²) ekanidan foydalanib soddalashtiramiz: (x²+xy+y²)/(xy) = 7/2, bundan <strong>2x²−5xy+2y²=0</strong>.",
+          "Buni x ga nisbatan kvadrat tenglama deb qaraymiz: x = (5y ± √(25y²−16y²))/4 = (5y±3y)/4. Bundan <strong>x₁=2y</strong> yoki <strong>x₂=y/2</strong>.",
+          "x=2y bo‘lsa, birinchi tenglamaga qo‘yamiz: 8y³−y³=7 → y³=1 → y=1, x=2. x=y/2 bo‘lsa: y³/8−y³=7 → y³=−8 → y=−2, x=−1.",
+          "Javob: <strong>(2; 1)</strong> va <strong>(−1; −2)</strong>."
         ],
         "img": "png/4-masala.png",
-        "alt": "4-masala: x³−y³=7, x²y−xy²=2 sistemani xy(x−y)=2 ko‘rinishiga keltirib, tenglamalarni bo‘lish usuli bilan yechish, kitob, 73-bet",
+        "alt": "4-masala: x³−y³=7, x²y−xy²=2 sistemani xy(x−y)=2 ko‘rinishiga keltirib, tenglamalarni bo‘lish usuli bilan yechish, kitob, 73–74-bet",
         "width": 640,
         "height": 186
       }
