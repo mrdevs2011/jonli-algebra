@@ -223,9 +223,9 @@
       {
         "caption": "9–12-rasm · 15-bet",
         "kirish": "Endi shu ko'chirishni rasmlarda ko'ramiz.",
-        "static": "9-rasm — o'ngga ko'chirish; 10-rasm — 1-masala grafigi (o'ngga 1, yuqoriga 2); 11-rasm — chapga ko'chirish; 12-rasm — pastga ko'chirish. Har birida parabola shakli saqlanadi, faqat uchi siljiydi.",
+        "static": "9-rasm — 1-masalaning o'z jadval grafigi (18, 11, 6, 2, −1 qiymatlar bilan); 10-rasm — y = x² dan y = (x − 1)² ga o'ngga ko'chirish; 11-rasm — y = (x − 1)² dan y = (x − 1)² + 2 ga yuqoriga ko'chirish; 12-rasm — y = x² va y = (x − 1)² + 2 ning yakuniy taqqoslashi. Har birida parabola shakli saqlanadi, faqat uchi siljiydi.",
         "img": "png/9-12-rasm.png",
-        "alt": "9, 10, 11, 12-rasmlar: parabolaning turli yo'nalishlarga parallel ko'chirilishi, 15-bet",
+        "alt": "9-rasm: 1-masala grafigi; 10-rasm: y=x²dan y=(x−1)²ga o'ngga ko'chirish; 11-rasm: y=(x−1)²dan y=(x−1)²+2ga yuqoriga ko'chirish; 12-rasm: y=x² va y=(x−1)²+2 taqqoslash, 15-bet",
         "width": 640,
         "height": 395
       },
