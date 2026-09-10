@@ -51,6 +51,7 @@ FEATURE_TOGGLES = {
     "classtimer": "html",
     "xulosaBoard": "html",
     "board": "js",
+    "whiteboard": "js",
 }
 
 
