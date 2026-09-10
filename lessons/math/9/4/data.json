@@ -214,12 +214,20 @@
           "Qiymatlar jadvali tuziladi: x = −1, 0, 1, 2, 3 uchun y hisoblanadi (x=1 → y=2, x=2 → y=3, x=3 → y=6).",
           "To'la kvadrat ajratiladi: x² − 2x + 3 = (x − 1)² + 2.",
           "Xulosa: y = x² − 2x + 3 grafigi y = x² grafigini <strong>o'ngga 1 ga va yuqoriga 2 ga</strong> parallel ko'chirish bilan hosil qilinadi. Uchi (1; 2)."
-        ]
+        ],
+        "img": "png/1-masala.png",
+        "alt": "1-masala: y = x² − 2x + 3 funksiyaning qiymatlar jadvali va yechim jarayoni, 14-bet",
+        "width": 640,
+        "height": 480
       },
       {
         "caption": "9–12-rasm · 15-bet",
         "kirish": "Endi shu ko'chirishni rasmlarda ko'ramiz.",
-        "static": "9-rasm — o'ngga ko'chirish; 10-rasm — 1-masala grafigi (o'ngga 1, yuqoriga 2); 11-rasm — chapga ko'chirish; 12-rasm — pastga ko'chirish. Har birida parabola shakli saqlanadi, faqat uchi siljiydi."
+        "static": "9-rasm — o'ngga ko'chirish; 10-rasm — 1-masala grafigi (o'ngga 1, yuqoriga 2); 11-rasm — chapga ko'chirish; 12-rasm — pastga ko'chirish. Har birida parabola shakli saqlanadi, faqat uchi siljiydi.",
+        "img": "png/9-12-rasm.png",
+        "alt": "9, 10, 11, 12-rasmlar: parabolaning turli yo'nalishlarga parallel ko'chirilishi, 15-bet",
+        "width": 640,
+        "height": 395
       },
       {
         "caption": "Parallel ko'chirish · 15-bet",
@@ -228,12 +236,20 @@
           "y = x² − 2x + 3 grafigi y = x² grafigini Ox o'qi bo'yicha 1 ga o'ngga va Oy o'qi bo'yicha 2 ga yuqoriga parallel ko'chirish orqali hosil qilinadi.",
           "Umumiy holda y = ax² + bx + c ifodasida ham to'la kvadrat ajratiladi.",
           "Avval a qavsga chiqariladi: y = a(x² + (b/a)x) + c, so'ng qavs ichida to'la kvadrat yoziladi."
-        ]
+        ],
+        "img": "png/parallel-kochirish.png",
+        "alt": "Parallel ko'chirish xulosasi va umumiy holga o'tish, 15-bet",
+        "width": 640,
+        "height": 200
       },
       {
         "caption": "Qoida · 16-bet",
         "kirish": "Endi formulani oxirigacha yozamiz.",
-        "static": "<strong>Qoida:</strong> y = a(x + b/(2a))² + (c − b²/(4a)). Bunda x₀ = −b/(2a), y₀ = (4ac − b²)/(4a). Demak y = a(x − x₀)² + y₀. Grafik — y = ax² parabolasini parallel ko'chirish; uchi (x₀; y₀)."
+        "static": "<strong>Qoida:</strong> y = a(x + b/(2a))² + (c − b²/(4a)). Bunda x₀ = −b/(2a), y₀ = (4ac − b²)/(4a). Demak y = a(x − x₀)² + y₀. Grafik — y = ax² parabolasini parallel ko'chirish; uchi (x₀; y₀).",
+        "img": "png/qoida.png",
+        "alt": "Qoida: to'la kvadrat ajratish orqali uchi (x₀; y₀) formulasi, 16-bet",
+        "width": 640,
+        "height": 410
       },
       {
         "caption": "2-masala · 16-bet",
@@ -243,7 +259,11 @@
           "x₀ = −b/(2a) = −(−1)/(2·2) = 1/4.",
           "y₀ = (4ac − b²)/(4a) = [4·2·(−3) − 1]/(4·2) = (−24 − 1)/8 = −25/8.",
           "Javob: uchi (1/4; −25/8)."
-        ]
+        ],
+        "img": "png/2-masala.png",
+        "alt": "2-masala: y = 2x² − x − 3 parabolaning uchini topish, 16-bet",
+        "width": 640,
+        "height": 200
       },
       {
         "caption": "3-masala · 16–17-bet",
@@ -253,7 +273,11 @@
           "Uchi (x₀; y₀) = (−1; 2) bo'lgani uchun y = a(x + 1)² + 2 yoziladi.",
           "(−2; 5) ni qo'yamiz: 5 = a(−2 + 1)² + 2 → 5 = a + 2 → a = 3.",
           "Javob: y = 3(x + 1)² + 2."
-        ]
+        ],
+        "img": "png/3-masala.png",
+        "alt": "3-masala: (−2; 5) nuqta va uchi (−1; 2) orqali parabola tenglamasini topish, 16–17-bet",
+        "width": 640,
+        "height": 290
       }
     ]
   }
