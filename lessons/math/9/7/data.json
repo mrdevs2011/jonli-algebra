@@ -142,21 +142,33 @@
           "y = 2x² − x − 1, a = 2 > 0 → tarmoqlar yuqoriga.",
           "2x² − x − 1 = 0 ildizlari: x₁ = −1/2, x₂ = 1.",
           "Parabola Ox ni shu nuqtalarda kesadi. y < 0 — ildizlar orasida: (−1/2; 1)."
-        ]
+        ],
+        "img": "png/1-masala.png",
+        "alt": "1-masala: 2x² − x − 1 ≤ 0 tengsizlikni grafik yordamida yechish, ildizlar −1/2 va 1, kitob, 28-bet",
+        "width": 640,
+        "height": 425
       },
       {
         "caption": "2-masala · 29-bet",
         "steps": [
           "4x² + 4x + 1 = (2x + 1)², bitta ildiz x = −1/2 (urinish).",
           "a > 0, tarmoqlar yuqoriga → y ≥ 0 hamma joyda, y > 0 esa x ≠ −1/2."
-        ]
+        ],
+        "img": "png/2-masala.png",
+        "alt": "2-masala: 4x² + 4x + 1 > 0 tengsizlik, parabola Ox o'qiga urinadi (x=−1/2), kitob, 29-bet",
+        "width": 640,
+        "height": 301
       },
       {
         "caption": "3-masala · 30-bet",
         "steps": [
           "a = −1 < 0 → tarmoqlar pastga. Diskriminant manfiy — Ox ni kesmaydi.",
           "Parabola butunlay Ox dan pastda → y < 0 barcha x da (ℝ)."
-        ]
+        ],
+        "img": "png/3-masala.png",
+        "alt": "3-masala: −x² + x − 1 < 0 tengsizlik, parabola butunlay Ox dan pastda, kitob, 30-bet",
+        "width": 640,
+        "height": 163
       }
     ]
   },

@@ -18,7 +18,7 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — funksiya nima ekanini eslash"
+      "name": "Kirish — 8-§ dagi maxraj noli holatini eslash"
     },
     {
       "min": 12,
@@ -176,15 +176,23 @@
     "masalalar": [
       {
         "caption": "1-masala · 38-bet",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: to'rtta funksiyaning aniqlanish sohasini topish — 2x²+3x+5, √(x−1), 1/(x+2), ⁴√((x+2)/(x−2)), kitob, 38-bet",
+        "width": 640,
+        "height": 449,
         "steps": [
-          "y = 2x² + 3x + 6 — barcha x (ℝ).",
+          "y = 2x² + 3x + 5 — barcha x (ℝ).",
           "y = √(x − 1) — x ≥ 1.",
           "y = 1/(x + 2) — x ≠ −2.",
-          "y = √(x² − 4) — |x| ≥ 2."
+          "y = ⁴√((x+2)/(x−2)) — x ≤ −2, x > 2."
         ]
       },
       {
         "caption": "2–3-masala · 39-bet",
+        "img": "png/2-3-masala.png",
+        "alt": "2-masala: y=|x| aniqlanish sohasi va grafigi; 3-masala: y=|x−2|−1 grafigi, kitob, 39-bet",
+        "width": 640,
+        "height": 699,
         "steps": [
           "y = |x| barcha ℝ da aniqlangan; grafik V shaklida.",
           "y = |x − 2| − 1: o‘ngga 2, pastga 1 siljish."

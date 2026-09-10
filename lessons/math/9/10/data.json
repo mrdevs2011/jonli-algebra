@@ -6,7 +6,7 @@
   },
   "paragraf": "10-§",
   "title": "Funksiyaning o‘sishi va kamayishi",
-  "lead": "Qaysi oraliqda grafik ko‘tariladi yoki tushadi. Uchdan chap va o‘ng rang bilan ajraladi.",
+  "lead": "Qaysi oraliqda grafik ko‘tariladi yoki tushadi. Daraja ko‘rsatkichi r ning ishorasiga bog‘liq.",
   "prev": {
     "href": "../9/",
     "label": "9-dars"
@@ -18,15 +18,15 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — uchi eslash"
+      "name": "Kirish — darajali funksiya y = x^r"
     },
     {
       "min": 12,
-      "name": "Sahna — chap/o‘ng rang, o‘sadi/kamayadi"
+      "name": "Sahna — r musbat/manfiy, o‘sadi/kamayadi"
     },
     {
       "min": 8,
-      "name": "Qoida — ta’rif va parabola uchun xulosa"
+      "name": "Qoida — ta’rif va y=x^r uchun xulosa"
     },
     {
       "min": 7,
@@ -42,72 +42,63 @@
     }
   ],
   "sahna": {
-    "type": "mono-parabola",
-    "ariaLabel": "Parabola: o‘sish va kamayish oraliklari uchi atrofida",
-    "hint": "a ni musbat/manfiy qiling — chap va o‘ng tomon ranglari almasinadi. b uchi joyini siljitadi",
+    "type": "power-growth",
+    "ariaLabel": "y = x^r darajali funksiya grafigi: r ishorasiga qarab o‘sish yoki kamayish",
+    "hint": "r ni suring — musbat bo‘lsa o‘sadi, manfiy bo‘lsa kamayadi",
     "vars": {
-      "a": {
+      "r": {
         "min": -3,
         "max": 3,
         "step": 0.5,
-        "value": 1,
-        "desc": "tarmoqlar"
-      },
-      "b": {
-        "min": -6,
-        "max": 6,
-        "step": 1,
-        "value": -2,
-        "desc": "uchi (x₀ = −b/2a)"
-      },
-      "c": {
-        "min": -5,
-        "max": 5,
-        "step": 1,
-        "value": 0,
-        "desc": "siljish"
+        "value": 2,
+        "desc": "daraja ko‘rsatkichi"
       }
+    },
+    "notes": {
+      "positive": "r = {r} &gt; 0. y = x^r funksiya x ≥ 0 oraliqda o‘sadi.",
+      "negative": "r = {r} &lt; 0. y = x^r funksiya x &gt; 0 oraliqda kamayadi.",
+      "zero": "r = 0 bo‘lsa, y = x⁰ = 1 — o‘zgarmas funksiya."
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">4-§ da uchining formulasi x₀ = −b/(2a) ekanini ko‘rgan edik. Bugun shu uchdan foydalanib, parabolaning qaysi qismida grafik ko‘tarilib, qaysi qismida tushishini aniqlaymiz. Parabola uchi — burilish nuqtasi. Undan <strong>chapda</strong> grafik bir tomonga, <strong>o‘ngda</strong> boshqa tomonga harakat qiladi. Bugun shu ikki tomonni rang bilan ajratib, «o'sadi» va «kamayadi» degan so‘zlarni grafik tiliga o‘tkazamiz.</p>",
-    "<p>Slayderlarda <strong>a</strong> ni o‘zgartiring: musbat bo‘lsa chapda kamayadi, o‘ngda o‘sadi; manfiy bo‘lsa — aksincha. <strong>b</strong> uchi joyini siljitadi, lekin qoida o‘zgarmaydi.</p>"
+    "<p class=\"kirish-nega\">9-§ da funksiyaning aniqlanish sohasini ko‘rgan edik. Endi <strong>darajali funksiya</strong> y = x^r (r — istalgan haqiqiy son) x ortganda qanday o‘zgarishini o‘rganamiz. Javob — r ning ishorasiga bog‘liq: musbat r da funksiya o‘sadi, manfiy r da kamayadi.</p>",
+    "<p>Yuqorida namuna: <strong>y = x^r</strong>. r ni suring. r musbat bo‘lganda grafik x ≥ 0 da yuqoriga ko‘tariladi (o‘sadi), r manfiy bo‘lganda esa x &gt; 0 da pastga tushadi (kamayadi).</p>"
   ],
-  "reja": "Ta’rif → uchi → chap/o‘ng oraliqlar.",
-  "qoida": "<p>Agar oraliqdagi istalgan x₁ &lt; x₂ uchun f(x₁) &lt; f(x₂) bo‘lsa, funksiya shu oraliqda <strong>o'suvchi</strong>; f(x₁) &gt; f(x₂) bo‘lsa — <strong>kamayuvchi</strong> deyiladi.</p><p><strong>y = ax² + bx + c</strong> (a ≠ 0) uchun uchi x₀ = −b/(2a):</p><ul style=\"margin:0.4em 0 0.6em 1.2em;padding:0\"><li>a &gt; 0: (−∞; x₀] da kamayadi, [x₀; +∞) da o‘sadi;</li><li>a &lt; 0: (−∞; x₀] da o‘sadi, [x₀; +∞) da kamayadi.</li></ul>",
+  "reja": "Darajali funksiya → o‘suvchi/kamayuvchi ta’rifi → r ishorasi.",
+  "qoida": "<p>Agar oraliqdagi istalgan x₁ &lt; x₂ uchun f(x₁) &lt; f(x₂) bo‘lsa, funksiya shu oraliqda <strong>o'suvchi</strong>; f(x₁) &gt; f(x₂) bo‘lsa — <strong>kamayuvchi</strong> deyiladi.</p><p><strong>y = x^r</strong> darajali funksiya uchun:</p><ul style=\"margin:0.4em 0 0.6em 1.2em;padding:0\"><li>r &gt; 0: funksiya x ≥ 0 oraliqda o‘suvchi;</li><li>r &lt; 0: funksiya x &gt; 0 oraliqda kamayuvchi.</li></ul>",
   "savollar": [
     {
-      "savol": "y = x² − 4x + 3 uchun o‘sish oralig‘i?",
+      "savol": "y = x⁵ funksiya x ≥ 0 oraliqda qanday?",
       "variantlar": [
-        "(−∞; 2]",
-        "[2; +∞)",
-        "(−∞; +∞)"
+        "O‘suvchi",
+        "Kamayuvchi",
+        "O‘zgarmas"
+      ],
+      "togri": 0
+    },
+    {
+      "savol": "y = x⁻² funksiya x &gt; 0 oraliqda qanday?",
+      "variantlar": [
+        "O‘suvchi",
+        "Kamayuvchi",
+        "O‘zgarmas"
       ],
       "togri": 1
     },
     {
-      "savol": "a < 0 bo‘lsa, uchi chapida funksiya qanday?",
+      "savol": "y = √x (ya’ni r = 1/2) haqida qaysi to‘g‘ri?",
       "variantlar": [
-        "Kamayadi",
-        "O‘sadi",
-        "O‘zgarmaydi"
+        "x ≥ 0 da aniqlangan va o‘suvchi",
+        "x &gt; 0 da aniqlangan va kamayuvchi",
+        "Barcha x da aniqlangan va o‘zgarmas"
       ],
-      "togri": 1
-    },
-    {
-      "savol": "x₀ = −b/(2a) nima?",
-      "variantlar": [
-        "Nol",
-        "Uchining abssissasi",
-        "Eng katta ildiz"
-      ],
-      "togri": 1
+      "togri": 0
     }
   ],
   "eslabQol": [
-    "O‘suvchi: x₁ &lt; x₂ ⇒ f(x₁) &lt; f(x₂).",
-    "Parabolada chegara — <strong>uchi</strong> (x₀).",
-    "a&gt;0: chapda ↓, o‘ngda ↑; a&lt;0: chapda ↑, o‘ngda ↓."
+    "O‘suvchi: x₁ &lt; x₂ ⇒ f(x₁) &lt; f(x₂). Kamayuvchi: x₁ &lt; x₂ ⇒ f(x₁) &gt; f(x₂).",
+    "y = x^r: r&gt;0 bo‘lsa x ≥ 0 da o‘sadi; r&lt;0 bo‘lsa x &gt; 0 da kamayadi.",
+    "r&lt;0 bo‘lganda x = 0 aniqlanish sohasiga kirmaydi."
   ],
   "kitob": {
     "betlar": "41–43-betlar",
@@ -116,63 +107,103 @@
         "img": "../../../../kitob/kitob-41.png",
         "bet": "41-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-42.png",
         "bet": "42-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
         "img": "../../../../kitob/kitob-43.png",
         "bet": "43-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       }
     ]
   },
   "doska": {
-    "intro": "Ta’rif va parabola misoli — doskada birga.",
+    "intro": "Darajali funksiya tushunchasi va o‘sish/kamayish ta’riflari — doskada birma-bir.",
     "masalalar": [
       {
-        "caption": "Ta’rif · 42-bet",
+        "caption": "§10 kirish · 41-bet",
+        "img": "png/kirish41.png",
+        "alt": "10-§ sarlavhasi va darajali funksiya y=x^r ta'rifi, aniqlanish sohasi r turiga qarab, kitob, 41-bet",
+        "width": 640,
+        "height": 458,
         "steps": [
-          "x₁ &lt; x₂ va f(x₁) &lt; f(x₂) ⇒ o‘suvchi.",
-          "x₁ &lt; x₂ va f(x₁) &gt; f(x₂) ⇒ kamayuvchi.",
-          "y = x²: x &lt; 0 da kamayadi, x &gt; 0 da o‘sadi (uchi 0)."
+          "y = x va y = x² — bularning umumiy ko‘rinishi <strong>y = x^r</strong>, bunda r — berilgan son. Bu <strong>darajali funksiya</strong> deyiladi.",
+          "r natural son (r = 1, 2, 3, …) bo‘lsa, funksiya barcha haqiqiy x larda aniqlangan.",
+          "r manfiy butun son bo‘lsa, funksiya x ≠ 0 bo‘lgan barcha qiymatlarda aniqlangan.",
+          "r kasr son bo‘lsa (masalan r = 1/2, ya’ni y = √x), aniqlanish sohasi odatda x ≥ 0 bilan cheklanadi."
+        ]
+      },
+      {
+        "caption": "Ta’rif · o‘suvchi/kamayuvchi funksiya · 42-bet",
+        "img": "png/tarif42.png",
+        "alt": "O'suvchi va kamayuvchi funksiya ta'riflari (x₂>x₁ shartiga ko'ra), kitob, 42-bet",
+        "width": 640,
+        "height": 223,
+        "steps": [
+          "Agar oraliqdagi istalgan x₁, x₂ uchun x₂ &gt; x₁ dan y(x₂) &gt; y(x₁) kelib chiqsa, funksiya shu oraliqda <strong>o‘suvchi</strong> deyiladi.",
+          "Agar x₂ &gt; x₁ dan y(x₂) &lt; y(x₁) kelib chiqsa, funksiya <strong>kamayuvchi</strong> deyiladi.",
+          "Masalan, y = x funksiya butun son o‘qida o‘sadi; y = x² esa x &gt; 0 da o‘sadi, x &lt; 0 da kamayadi."
+        ]
+      },
+      {
+        "caption": "Ta’rif · r ishorasiga bog‘liq o‘sish/kamayish · 43-bet",
+        "img": "png/tarif43.png",
+        "alt": "r>0 bo'lsa x≥0 da o'sadi, r<0 bo'lsa x>0 da kamayadi qoidalari va grafiklar (34-, 35-rasm), kitob, 43-bet",
+        "width": 640,
+        "height": 711,
+        "steps": [
+          "Agar r &gt; 0 bo‘lsa, y = x^r darajali funksiya x ≥ 0 oraliqda <strong>o‘sadi</strong>.",
+          "Masalan, y = √x va y = x^(3/2) — ikkalasi ham x ≥ 0 da o‘sadi (34-rasm).",
+          "Agar r &lt; 0 bo‘lsa, y = x^r funksiya x &gt; 0 oraliqda <strong>kamayadi</strong> (masalan y = 1/√x, 35-rasm)."
         ]
       }
     ]
   },
   "mashqlar": {
-    "betlar": "44–45-betlar (kitob)",
-    "intro": "Daftarga: parabola uchun o‘sish/kamayish oraliqlarini yozing.",
+    "betlar": "45-bet",
+    "intro": "Daftarga: har birida avval funksiya turini (r qanday) aniqlang, keyin o‘sish/kamayish oralig‘ini yozing.",
     "items": [
       {
-        "title": "Misollar.",
-        "body": "y = −x² + 6x − 5; y = 2x² + 4x + 1; y = (x − 3)² + 1 uchun o‘sish va kamayish oraliqlarini toping."
+        "title": "1-mashq (90-masala).",
+        "body": "Funksiyaning o‘sish va kamayish oraliqlarini toping:",
+        "sub": "1) y = 2x + 3; &nbsp; 3) y = x² + 2; &nbsp; 6) y = (2 + x)²."
+      },
+      {
+        "title": "2-mashq (91-masala, og‘zaki).",
+        "body": "Funksiya x &gt; 0 oraliqda o‘sadimi yoki kamayadimi?",
+        "sub": "1) y = x^(3/7); &nbsp; 3) y = x^(−√2); &nbsp; 4) y = x^(√3)."
+      },
+      {
+        "title": "3-mashq (93-masala).",
+        "body": "Tenglamaning musbat ildizini toping:",
+        "sub": "1) x^(1/2) = 3; &nbsp; 3) x^(−1/4) = 2; &nbsp; 5) x^(5/6) = 32."
       }
     ]
   },
   "xulosa": [
     "O‘suvchi / kamayuvchi — oraliqda argument oshganda funksiya qiymati oshishi yoki kamayishi.",
-    "Kvadrat funksiyada chegara — <strong>uchi</strong> x₀ = −b/(2a).",
-    "a&gt;0: kamayadi (−∞; x₀], o‘sadi [x₀; +∞).",
-    "a&lt;0: aksincha."
+    "Darajali funksiya <strong>y = x^r</strong> — r ishorasi o‘sish/kamayishni belgilaydi.",
+    "r &gt; 0: x ≥ 0 oraliqda o‘sadi.",
+    "r &lt; 0: x &gt; 0 oraliqda kamayadi."
   ],
   "xulosaBoard": [
     {
       "html": "x₁ &lt; x₂ ⇒ f(x₁) ? f(x₂)"
     },
     {
-      "html": "Chegara: <strong>x₀ = −b/(2a)</strong>"
+      "html": "y = x^r"
     },
     {
-      "html": "a&gt;0: ↓ chap · ↑ o‘ng"
+      "html": "r&gt;0: x≥0 da <strong>o‘sadi</strong>"
     },
     {
-      "html": "a&lt;0: ↑ chap · ↓ o‘ng"
+      "html": "r&lt;0: x&gt;0 da <strong>kamayadi</strong>"
     }
   ]
 }

@@ -43,41 +43,41 @@
   ],
   "sahna": {
     "type": "sign-chain",
-    "ariaLabel": "Son o'qida ishora zanjiri: (x+3)(x−1) < 0",
+    "ariaLabel": "Son o'qida (x − 1)(x − 3) ishora zanjiri",
     "hint": "x ni suring — har oraliqda ko'paytmaning ishorasi o'zgaradi",
     "vars": {
       "x": {
-        "min": -5.5,
-        "max": 3.5,
+        "min": -1,
+        "max": 5,
         "step": 0.5,
-        "value": -1,
+        "value": 0,
         "desc": "tekshiruv nuqtasi"
       }
     },
     "notes": {
-      "left": "x = {x} < −3. Ikkala qavs manfiy, ko'paytma musbat. Bu oraliq yechim emas.",
-      "mid": "x = {x} −3 va 1 orasida. Qavslar turli ishorali — ko'paytma manfiy. Shu oraliq yechim.",
-      "right": "x = {x} > 1. Ikkala qavs musbat, ko'paytma musbat. Bu oraliq yechim emas.",
-      "root": "x = {x} — ko'paytma nol. Tengsizlik qat'iy (<), shuning uchun ildiz kirmaydi."
+      "left": "x = {x} < 1. Ikkala qavs manfiy, ko'paytma musbat: x² − 4x + 3 > 0.",
+      "mid": "x = {x} — 1 va 3 orasida. Qavslar turli ishorali, ko'paytma manfiy: x² − 4x + 3 < 0.",
+      "right": "x = {x} > 3. Ikkala qavs musbat, ko'paytma musbat: x² − 4x + 3 > 0.",
+      "root": "x = {x} — ko'paytma nol, funksiya aynan shu nuqtada 0 ga teng."
     },
     "roots": [
-      -3,
-      1
+      1,
+      3
     ]
   },
   "kirish": [
     "<p class=\"kirish-nega\">7-§ da tengsizlikni parabolaning eskizini chizib yechdik. Lekin grafik har doim qo'lda emas. Baxtiga, nollar o'qni bo'laklarga kesadi — va har bo'lakda ifoda o'z ishorasini saqlaydi. Shu zanjirni chizsangiz, tengsizlik yechimi ko'rinib qoladi, eskiz chizmasdan ham. Bu — <strong>intervallar usuli</strong>.</p>",
-    "<p>Yuqorida namuna: <strong>(x + 3)(x − 1) < 0</strong>. x ni suring. Chapda plus, o'rtada minus, o'ngda yana plus. Qat'iy tengsizlik bo'lgani uchun −3 va 1 nuqtalari teshik.</p>"
+    "<p>Yuqorida namuna: <strong>x² − 4x + 3</strong>, ildizlari 1 va 3. x ni suring. Chapda va o'ngda plus, o'rtada minus — aynan shu ishora zanjiri ifodaning istalgan nuqtadagi belgisini beradi.</p>"
   ],
   "reja": "Nollar o'qni kesadi. Ishora zanjiri yonadi. Yechim — kerakli ishora turgan oraliqlar.",
   "qoida": "<p>Intervallar usuli: <strong>1)</strong> ifodani ko'paytuvchilarga ajrating; <strong>2)</strong> nollarni (va maxraj nollarini) o'qqa qo'ying — ular o'qni oraliqlarga bo'ladi; <strong>3)</strong> har oraliqdan bitta tekshiruv nuqtasi olib ishorani yozing. Ishoralar odatda almashadi. Yechim — tengsizlik so'ragan ishora turgan oraliqlar. Qat'iy tengsizlikda ildizlar kirmaydi; maxraj noli hech qachon kirmaydi.</p>",
   "savollar": [
     {
-      "savol": "(x + 3)(x − 1) < 0 yechimi qaysi?",
+      "savol": "(x − 1)(x − 3) < 0 yechimi qaysi?",
       "variantlar": [
-        "x ∈ (−3; 1)",
-        "x ∈ (−∞; −3) ∪ (1; +∞)",
-        "x ∈ [−3; 1]"
+        "x ∈ (1; 3)",
+        "x ∈ (−∞; 1) ∪ (3; +∞)",
+        "x ∈ [1; 3]"
       ],
       "togri": 0
     },
@@ -106,37 +106,31 @@
     "Maxraj noli — teshik. Qat'iy tengsizlikda sur'at noli ham teshik."
   ],
   "kitob": {
-    "betlar": "26–30-betlar",
+    "betlar": "32–35-betlar",
     "sahifalar": [
       {
-        "img": "../../../../kitob/kitob-26.png",
-        "bet": "26-bet",
+        "img": "../../../../kitob/kitob-32.png",
+        "bet": "32-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
-        "img": "../../../../kitob/kitob-27.png",
-        "bet": "27-bet",
+        "img": "../../../../kitob/kitob-33.png",
+        "bet": "33-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
-        "img": "../../../../kitob/kitob-28.png",
-        "bet": "28-bet",
+        "img": "../../../../kitob/kitob-34.png",
+        "bet": "34-bet",
         "width": 640,
-        "height": 790
+        "height": 758
       },
       {
-        "img": "../../../../kitob/kitob-29.png",
-        "bet": "29-bet",
+        "img": "../../../../kitob/kitob-35.png",
+        "bet": "35-bet",
         "width": 640,
-        "height": 790
-      },
-      {
-        "img": "../../../../kitob/kitob-30.png",
-        "bet": "30-bet",
-        "width": 640,
-        "height": 790
+        "height": 758
       }
     ]
   },
@@ -144,70 +138,93 @@
     "intro": "Avval zanjir qoidasini ochamiz, keyin kitobdagi 4 ta misolni o'qda yechamiz.",
     "masalalar": [
       {
-        "caption": "Usul · 26-bet",
+        "caption": "Usul · 32-bet",
+        "img": "png/usul.png",
+        "alt": "8-§ Intervallar usuli sarlavhasi va kirish jumlasi, kitob, 32-bet",
+        "width": 640,
+        "height": 86,
         "steps": [
-          "Ifodani ko'paytuvchilarga ajratamiz — har ko'paytuvchining noli o'qda nuqta.",
-          "Nuqtalar o'qni oraliqlarga kesadi. Har oraliqdan bitta son olib, ishorani yozamiz.",
-          "Zanjir odatda almashadi. Kerakli ishora turgan oraliq — yechim.",
-          "Tengsizlik qat'iymi-yo'qmi: ildiz kirasizmi yoki teshik qolasizmi — shundan keladi."
+          "Ifodani ko'paytuvchilarga ajratamiz, nollarini topamiz — ular sonlar o'qini oraliqlarga bo'ladi.",
+          "Har oraliqdan bitta tekshiruv nuqtasi olib, shu nuqtada ifodaning ishorasini aniqlaymiz.",
+          "Bitta noldan o'tganda mos ko'paytuvchi ishorasi almashadi — shu sabab qo'shni oraliqlarda ko'pincha umumiy ishora almashadi.",
+          "Shu tarzda chiqqan ishora zanjiri — <strong>intervallar usuli</strong> deb ataladi."
         ]
       },
       {
-        "caption": "1-misol · 26–27-bet",
+        "caption": "1-misol · 32–33-bet",
+        "img": "png/1-misol.png",
+        "alt": "1-misol: x² − 4x + 3 uchhadning ishorasini intervallar usuli bilan aniqlash, ildizlar 1 va 3, kitob, 32–33-bet",
+        "width": 640,
+        "height": 445,
         "steps": [
-          "x² + 2x − 3 = (x + 3)(x − 1). Nollar: x = −3 va x = 1.",
-          "Oraliqlar: (−∞; −3), (−3; 1), (1; +∞). Ishoralar: + &nbsp; − &nbsp; +.",
-          "Bizga manfiy kerak (< 0) — o'rta oraliq.",
-          "Qat'iy tengsizlik: −3 va 1 kirmaydi. Javob: <strong>x ∈ (−3; 1)</strong>."
+          "x ning qanday qiymatlarida x² − 4x + 3 musbat, qanday qiymatlarida manfiy ekanini aniqlaymiz.",
+          "x² − 4x + 3 = 0 ning ildizlari: x₁ = 1, x₂ = 3. Demak x² − 4x + 3 = (x − 1)(x − 3).",
+          "1 va 3 nuqtalari o'qni uchta oraliqqa bo'ladi: x < 1, 1 < x < 3, x > 3.",
+          "x > 3 da ikkala ko'paytuvchi musbat. Har nuqtadan o'tganda bitta ko'paytuvchi ishorasini o'zgartiradi, shu bois ishora almashib boradi.",
+          "Javob: x < 1 yoki x > 3 da <strong>x² − 4x + 3 > 0</strong>; 1 < x < 3 da <strong>x² − 4x + 3 < 0</strong>."
         ]
       },
       {
-        "caption": "2-misol · 27–28-bet",
+        "caption": "2-misol · 34-bet",
+        "img": "png/2-misol.png",
+        "alt": "2-misol: x³ − x < 0 tengsizlikni x(x−1)(x+1) ko'paytuvchilariga ajratib yechish, kitob, 34-bet",
+        "width": 640,
+        "height": 457,
         "steps": [
-          "Nollar: 2x − 1 = 0 → x = 1/2; x + 3 = 0 → x = −3.",
-          "Ishoralar: + &nbsp; − &nbsp; +  (chapdan o'ngga, a musbat).",
-          "≥ 0 — musbat oraliqlar va ildizlar ham kiradi.",
-          "Javob: <strong>x ∈ (−∞; −3] ∪ [1/2; +∞)</strong>."
+          "x³ − x < 0 tengsizlikni yechamiz. Chap qismni ko'paytuvchilarga ajratamiz: x³ − x = x(x² − 1) = x(x − 1)(x + 1).",
+          "Nollar: −1, 0, 1 — o'qni to'rtta oraliqqa bo'ladi.",
+          "x > 1 da uchala ko'paytuvchi musbat. Har nol orqali o'tganda ishora almashadi.",
+          "Javob: <strong>x < −1</strong> yoki <strong>0 < x < 1</strong>."
         ]
       },
       {
-        "caption": "3-misol · 28-bet",
+        "caption": "3-misol · 34–35-bet",
+        "img": "png/3-misol.png",
+        "alt": "3-misol: (x²−9)(x+3)(x−2) > 0 tengsizlikni (x+3)²(x−2)(x−3) ko'rinishida yechish, kitob, 34–35-bet",
+        "width": 640,
+        "height": 390,
         "steps": [
-          "Sur'at noli: x = 2. Maxraj noli: x = −1 — bu nuqta <strong>hech qachon</strong> yechimga kirmaydi.",
-          "O'qda −1 teshik, 2 esa ≥ bo'lgani uchun to'la nuqta.",
-          "Ishora zanjiri shu ikki nuqta atrofida chiziladi.",
-          "Javob: <strong>x ∈ (−1; 2]</strong>."
+          "(x² − 9)(x + 3)(x − 2) > 0. x² − 9 = (x − 3)(x + 3) ekanini hisobga olsak: (x + 3)²(x − 2)(x − 3) > 0.",
+          "(x + 3)² har doim ≥ 0, x ≠ −3 da esa qat'iy musbat — shu x larda ishora faqat (x − 2)(x − 3) ga bog'liq.",
+          "x = −3 da chap qism 0 bo'ladi — qat'iy tengsizlikka bu yechim emas.",
+          "(x − 2)(x − 3) > 0 ni intervallar usuli bilan yechib: x < 2 yoki x > 3.",
+          "Javob: <strong>x < −3</strong>, <strong>−3 < x < 2</strong> yoki <strong>x > 3</strong>."
         ]
       },
       {
-        "caption": "4-misol · 29–30-bet",
+        "caption": "4-misol · 35-bet",
+        "img": "png/4-misol.png",
+        "alt": "4-misol: (x²+2x−3)/(x²−3x−4) ≥ 0 kasrli tengsizlikni intervallar usuli bilan yechish, kitob, 35-bet",
+        "width": 640,
+        "height": 441,
         "steps": [
-          "Avval hammasi bir tomonga: x/(x−1) + 1/(x+1) − 1 ≤ 0.",
-          "Umumiy maxraj (x−1)(x+1). Soddalashgach: (2x + 1)/((x−1)(x+1)) ≤ 0.",
-          "Nuqtalar: x = −1/2 (sur'at), x = ±1 (maxraj, teshik).",
-          "Zanjirdan: <strong>x ∈ (−1; −1/2] ∪ (1; +∞)</strong>."
+          "(x² + 2x − 3)/(x² − 3x − 4) ≥ 0. Sur'at va maxrajni ko'paytuvchilarga ajratamiz: (x + 3)(x − 1)/((x + 1)(x − 4)) ≥ 0.",
+          "Nollar: sur'atniki −3 va 1, maxrajniki −1 va 4 — jami to'rtta nuqta o'qni beshta oraliqqa bo'ladi.",
+          "Maxraj noli (−1 va 4) hech qachon yechimga kirmaydi — bu nuqtalarda ifoda aniqlanmagan.",
+          "Ishora zanjirini chizib, ≥ 0 bo'lgan oraliqlarni tanlaymiz.",
+          "Javob: <strong>x ≤ −3</strong>, <strong>−1 < x ≤ 1</strong> yoki <strong>x > 4</strong>."
         ]
       }
     ]
   },
   "mashqlar": {
-    "betlar": "29–30-betlar",
+    "betlar": "35–36-betlar",
     "intro": "Har birida avval nollarni o'qqa qo'ying, keyin ishora zanjirini yozing.",
     "items": [
       {
-        "title": "1-mashq.",
-        "body": "Intervallar usuli bilan yeching:",
-        "sub": "1) x² − 5x + 4 > 0; &nbsp; 2) (x − 2)(x + 1) ≤ 0; &nbsp; 3) (2x + 3)(x − 4) < 0."
+        "title": "1-mashq (og'zaki).",
+        "body": "x = 5 qiymat tengsizlikning yechimi bo'lishini ko'rsating:",
+        "sub": "1) (x − 1)(x − 3) > 0; &nbsp; 2) (x + 2)(x + 5) > 0; &nbsp; 3) (x − 7)(x − 10) > 0; &nbsp; 4) (x + 1)(x − 4) > 0."
       },
       {
         "title": "2-mashq.",
-        "body": "Kasrli tengsizlikni yeching (maxraj noli teshik):",
-        "sub": "1) (x − 3)/(x + 2) ≥ 0; &nbsp; 2) x/(x − 1) < 0; &nbsp; 3) (2 − x)/(x + 5) ≤ 0."
+        "body": "Intervallar usuli bilan yeching:",
+        "sub": "1) (x + 2)(x − 7) < 0; &nbsp; 2) (x + 5)(x − 8) < 0; &nbsp; 3) (x − 2)(x + 0,5) < 0."
       },
       {
         "title": "3-mashq.",
-        "body": "Avval bir tomonga yig'ing, keyin zanjir chizing:",
-        "sub": "x/(x − 2) ≥ 1/(x + 1)."
+        "body": "Kasrli tengsizlikni yeching (maxraj noli teshik):",
+        "sub": "1) (x − 2)/(x + 5) > 0; &nbsp; 2) (x − 4)/(x + 3) < 0; &nbsp; 3) (3,5 + x)/(x − 7) ≤ 0."
       }
     ]
   },
