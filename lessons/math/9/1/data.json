@@ -140,6 +140,10 @@
       {
         "caption": "1-masala · 6-bet",
         "kirish": "Keling, 1-masalani ko'rib chiqamiz.",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: y = x² − 5x + 6 funksiyaning x = −2, 0, 3 dagi qiymatlari, kitob, 6-bet",
+        "width": 570,
+        "height": 134,
         "steps": [
           "Formula: <strong>y(x) = x² − 5x + 6</strong>. x o'rniga har bir qiymatni birma-bir qo'yamiz.",
           "<strong>x = −2</strong>: y(−2) = (−2)² − 5·(−2) + 6 = 4 + 10 + 6 = <strong>20</strong>.<details class=\"xato-ovchisi\"><summary>Ko'pchilik shu yerda xato qiladi — bosib ko'ring</summary><p>Ba'zi o'quvchilar <strong>(−2)² = −4</strong> deb yozadi. Bu xato: manfiy sonni kvadratga oshirganda ishora <strong>yo'qoladi</strong> — (−2)·(−2) = <strong>+4</strong>. Doskada shu joyni sinfdan so'rab tekshirib o'ting.</p></details>",
@@ -150,6 +154,10 @@
       {
         "caption": "2-masala · 6-bet",
         "kirish": "Endi 2-masalaga o'tamiz.",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: y = x² + 4x − 5 kvadrat funksiya 7, −9, −8, 0 qiymatlarni qabul qiladigan x larni topish, kitob, 6-bet",
+        "width": 570,
+        "height": 288,
         "steps": [
           "Formula: <strong>y = x² + 4x − 5</strong>. Har bir qiymat uchun tenglama tuzamiz: y ni shu songa tenglaymiz.",
           "<strong>y = 7</strong>: x² + 4x − 5 = 7 → x² + 4x − 12 = 0. x₁,₂ = −2 ± √(4+12) = −2 ± 4 → x₁ = 2, x₂ = −6.",
@@ -161,11 +169,19 @@
       {
         "caption": "Ta'rif · 6-bet",
         "kirish": "2-masaladan chiqqan xulosaga alohida to'xtalib o'tamiz.",
+        "img": "png/tarif.png",
+        "alt": "Funksiyaning nollari ta'rifi, kitob, 6-bet",
+        "width": 570,
+        "height": 59,
         "static": "<strong>Muhim tushuncha:</strong> yuqoridagi 2-masalaning oxirgi qismida (y = 0) topilgan x₁ = 1 va x₂ = −5 — funksiyaning qiymati nolga teng bo'ladigan x lar. Bunday x lar <strong>funksiyaning nollari</strong> deyiladi. 3-masala aynan shuni topishni so'raydi."
       },
       {
         "caption": "3-masala · 6-bet",
         "kirish": "Va nihoyat, 3-masalani ko'rib chiqamiz.",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: y = x² − 3x funksiyaning nollarini topish, kitob, 6-bet",
+        "width": 570,
+        "height": 44,
         "steps": [
           "Nollarni topish uchun <strong>y = 0</strong> qo'yamiz: x² − 3x = 0.",
           "Umumiy ko'paytuvchi x ni qavsdan chiqaramiz: <strong>x(x − 3) = 0</strong>.",
