@@ -141,7 +141,7 @@
         "steps": [
           "y = 2x² − x − 1, a = 2 > 0 → tarmoqlar yuqoriga.",
           "2x² − x − 1 = 0 ildizlari: x₁ = −1/2, x₂ = 1.",
-          "Parabola Ox ni shu nuqtalarda kesadi. y < 0 — ildizlar orasida: (−1/2; 1)."
+          "Parabola Ox ni shu nuqtalarda kesadi. y ≤ 0 — ildizlar orasida, chegaralar bilan: [−1/2; 1]."
         ],
         "img": "png/1-masala.png",
         "alt": "1-masala: 2x² − x − 1 ≤ 0 tengsizlikni grafik yordamida yechish, ildizlar −1/2 va 1, kitob, 28-bet",
