@@ -5,8 +5,8 @@
   "use strict";
 
   var STORAGE_PREFIX = "jonli-algebra-wb-";
-  var BG = "#0d0d0d";
-  var COLORS = ["#ffffff", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
+  var BG = "#ffffff";
+  var COLORS = ["#222222", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
 
   function featureEnabled() {
     try {
@@ -36,35 +36,56 @@
       "#kaWbFab:hover{transform:scale(1.08);box-shadow:0 8px 28px rgba(0,0,0,.22)}" +
       "#kaWbFab:active{transform:scale(.95)}" +
       "#kaWbFab svg{width:22px;height:22px;pointer-events:none}" +
-      "#kaWbOverlay{position:fixed;inset:0;z-index:9500;display:none;flex-direction:column;background:#0d0d0d}" +
-      "#kaWbOverlay.is-open{display:flex}" +
-      "#kaWbBar{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:10px 14px;" +
-      "background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06)}" +
-      "#kaWbBar button{font:inherit;font-size:13px;font-weight:500;border:none;background:transparent;" +
-      "color:rgba(255,255,255,.7);border-radius:10px;padding:8px 12px;cursor:pointer;" +
-      "transition:background .15s,color .15s}" +
-      "#kaWbBar button:hover{background:rgba(255,255,255,.08);color:#fff}" +
-      "#kaWbBar button.is-on{background:rgba(255,255,255,.12);color:#fff}" +
-      "#kaWbBar .ka-sep{width:1px;height:18px;background:rgba(255,255,255,.1);margin:0 4px;flex-shrink:0}" +
-      "#kaWbColors{display:flex;gap:6px;align-items:center}" +
-      "#kaWbColors button{width:20px;height:20px;border-radius:50%;padding:0;" +
-      "border:2px solid transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}" +
-      "#kaWbColors button.is-on{border-color:#fff;transform:scale(1.18)}" +
-      "#kaWbSize{width:70px;height:3px;accent-color:#fff;cursor:pointer}" +
-      "#kaWbFs{width:36px;height:36px;padding:0!important;display:grid;place-items:center;" +
-      "border-radius:8px!important;flex-shrink:0}" +
-      "#kaWbFs svg{width:16px;height:16px;pointer-events:none}" +
-      "#kaWbBack{margin-left:auto!important;background:rgba(255,255,255,.1)!important;" +
-      "color:#fff!important;border-radius:10px!important;padding:8px 14px!important}" +
-      "#kaWbBack:hover{background:rgba(255,255,255,.18)!important}" +
-      "#kaWbStage{flex:1 1 auto;position:relative;overflow:hidden;touch-action:none;" +
+      "#kaWbOverlay{position:fixed;inset:0;z-index:9500;display:none;" +
+      "background:#f2f2f2;padding:22px}" +
+      "#kaWbOverlay.is-open{display:flex;flex-direction:column}" +
+      "#kaWbFrame{position:relative;flex:1;display:flex;flex-direction:column;" +
+      "background:#ffffff;border:2.5px solid #2f3a56;border-radius:26px;overflow:hidden;" +
+      "box-shadow:0 12px 40px rgba(0,0,0,.12)}" +
+      "#kaWbStage{position:relative;flex:1;touch-action:none;" +
       "-webkit-user-select:none;user-select:none}" +
       "#kaWbCanvas{display:block;width:100%;height:100%;cursor:crosshair;" +
       "touch-action:none;-webkit-user-select:none;user-select:none}" +
+      "#kaWbTop{position:absolute;top:14px;right:14px;z-index:2;display:flex;gap:8px}" +
+      "#kaWbTop button{width:38px;height:38px;border:1.5px solid #2f3a56;border-radius:10px;padding:0;" +
+      "background:#ffffff;color:#2f3a56;display:grid;place-items:center;cursor:pointer;" +
+      "transition:background .15s,transform .15s}" +
+      "#kaWbTop button:hover{background:#f0f0f0}" +
+      "#kaWbTop button:active{transform:scale(.92)}" +
+      "#kaWbTop svg{width:18px;height:18px;pointer-events:none}" +
+      "#kaWbBar{flex-shrink:0;display:flex;align-items:stretch;" +
+      "border-top:2.5px solid #2f3a56;background:#fff;overflow-x:auto}" +
+      "#kaWbBar .ka-tool{width:56px;height:56px;flex-shrink:0;border:none;" +
+      "border-right:1.5px solid #d8d8d8;padding:0;" +
+      "background:#ffffff;color:#2f3a56;display:grid;place-items:center;cursor:pointer;" +
+      "transition:background .15s,color .15s}" +
+      "#kaWbBar .ka-tool svg{width:20px;height:20px;pointer-events:none}" +
+      "#kaWbBar .ka-tool:hover{background:#f0f0f0}" +
+      "#kaWbBar .ka-tool.is-on{background:#2f3a56;color:#fff}" +
+      "#kaWbBar .ka-sep{width:1.5px;background:#d8d8d8;flex-shrink:0}" +
+      "#kaWbColors{display:flex;align-items:center;justify-content:center;" +
+      "gap:6px;padding:0 10px;flex-shrink:0;border-right:1.5px solid #d8d8d8}" +
+      "#kaWbColors button{width:20px;height:20px;border-radius:50%;padding:0;flex-shrink:0;" +
+      "border:2px solid transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.22);cursor:pointer;" +
+      "transition:transform .15s,border-color .15s}" +
+      "#kaWbColors button:hover{transform:scale(1.1)}" +
+      "#kaWbColors button.is-on{border-color:#2f3a56;transform:scale(1.16)}" +
+      "#kaWbSize{flex-shrink:0;width:70px;height:4px;margin:0 12px;border-radius:2px;cursor:pointer;" +
+      "-webkit-appearance:none;appearance:none;background:#d8d8d8}" +
+      "#kaWbSize::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;" +
+      "background:#2f3a56;cursor:pointer}" +
+      "#kaWbSize::-moz-range-thumb{width:14px;height:14px;border:none;border-radius:50%;" +
+      "background:#2f3a56;cursor:pointer}" +
       "@media(max-width:560px){" +
       "#kaWbFab{right:16px;bottom:18px;width:48px;height:48px}" +
-      "#kaWbBar{padding:8px 10px;gap:4px;overflow-x:auto}" +
-      "#kaWbBar button{padding:6px 10px;font-size:12px}" +
+      "#kaWbOverlay{padding:10px}" +
+      "#kaWbFrame{border-radius:18px}" +
+      "#kaWbTop{top:10px;right:10px}" +
+      "#kaWbTop button{width:34px;height:34px;border-radius:9px}" +
+      "#kaWbBar .ka-tool{width:46px;height:46px}" +
+      "#kaWbColors{padding:0 6px;gap:4px}" +
+      "#kaWbColors button{width:17px;height:17px}" +
+      "#kaWbSize{width:44px;margin:0 6px}" +
       "}";
     var s = document.createElement("style");
     s.id = "ka-wb-styles";
@@ -81,6 +102,20 @@
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
     '<path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/>' +
     '<path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>';
+  var ICON_CLOSE =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+  var ICON_PEN =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>';
+  var ICON_ERASER =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="m7 21-4.3-4.3c-.94-.94-.94-2.46 0-3.4l9.6-9.6c.94-.94 2.46-.94 3.4 0l5.3 5.3c.94.94.94 2.46 0 3.4L13 21"/>' +
+    '<path d="M22 21H7"/><path d="m5 11 9 9"/></svg>';
+  var ICON_TRASH =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>' +
+    '<path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>';
 
   function createUI() {
     injectStyles();
@@ -113,23 +148,32 @@
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-label", "Doska");
     overlay.innerHTML =
-      '<div id="kaWbBar">' +
-      '<button type="button" data-tool="pen" class="is-on">Chizish</button>' +
-      '<button type="button" data-tool="eraser">O\'chirish</button>' +
-      '<span class="ka-sep"></span>' +
-      '<div id="kaWbColors">' +
-      colorHtml +
-      "</div>" +
-      '<span class="ka-sep"></span>' +
-      '<input type="range" id="kaWbSize" min="2" max="28" value="4" title="Qalinlik">' +
-      '<span class="ka-sep"></span>' +
-      '<button type="button" id="kaWbClear">Tozalash</button>' +
+      '<div id="kaWbFrame">' +
+      '<div id="kaWbStage"><canvas id="kaWbCanvas"></canvas></div>' +
+      '<div id="kaWbTop">' +
       '<button type="button" id="kaWbFs" title="Fullscreen" aria-label="Fullscreen">' +
       ICON_FS_ENTER +
       "</button>" +
-      '<button type="button" id="kaWbBack">Yopish</button>' +
+      '<button type="button" id="kaWbBack" title="Yopish" aria-label="Yopish">' +
+      ICON_CLOSE +
+      "</button>" +
       "</div>" +
-      '<div id="kaWbStage"><canvas id="kaWbCanvas"></canvas></div>';
+      '<div id="kaWbBar">' +
+      '<button type="button" class="ka-tool is-on" data-tool="pen" title="Chizish" aria-label="Chizish">' +
+      ICON_PEN +
+      "</button>" +
+      '<button type="button" class="ka-tool" data-tool="eraser" title="O\'chirish" aria-label="O\'chirish">' +
+      ICON_ERASER +
+      "</button>" +
+      '<div id="kaWbColors">' +
+      colorHtml +
+      "</div>" +
+      '<input type="range" id="kaWbSize" min="2" max="28" value="4" title="Qalinlik">' +
+      '<button type="button" id="kaWbClear" class="ka-tool" title="Tozalash" aria-label="Tozalash">' +
+      ICON_TRASH +
+      "</button>" +
+      "</div>" +
+      "</div>";
     document.body.appendChild(overlay);
 
     return {
