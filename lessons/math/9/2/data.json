@@ -122,6 +122,10 @@
       {
         "caption": "Jadval va ta'rif · 7-bet",
         "kirish": "Keling, avval jadval va ta'rifni ko'rib chiqamiz.",
+        "img": "png/jadval-va-tarif.png",
+        "alt": "y = x² qiymatlar jadvali va parabola ta'rifi, kitob, 7-bet",
+        "width": 640,
+        "height": 254,
         "steps": [
           "Jadval tuziladi: x = −4...4 uchun y = x² hisoblanadi (masalan x=3 → y=9, x=4 → y=16).",
           "Jadvaldagi nuqtalar tekislikka tushiriladi va silliq chiziq bilan tutashtiriladi — <strong>1-rasm</strong> hosil bo'ladi.",
@@ -131,6 +135,10 @@
       {
         "caption": "Xossa 1 · 7–8-bet",
         "kirish": "Endi funksiyaning 1-xossasini ko'rib chiqamiz.",
+        "img": "png/xossa1.png",
+        "alt": "1-xossa: y = x² parabola koordinatalar boshidan o'tadi va Ox ga urinadi, kitob, 7–8-bet",
+        "width": 640,
+        "height": 138,
         "steps": [
           "y = x² funksiyaning xossalari ko'rib chiqiladi.",
           "<strong>1)</strong> x ≠ 0 bo'lganda qiymati musbat, x = 0 bo'lganda nolga teng. Demak, parabola koordinatalar boshidan o'tadi, qolgan barcha nuqtalari esa abssissalar o'qidan yuqorida yotadi.",
@@ -140,6 +148,10 @@
       {
         "caption": "Xossa 2–3 · 8-bet",
         "kirish": "Endi 2- va 3-xossalarni ko'rib chiqamiz.",
+        "img": "png/xossa2-3.png",
+        "alt": "2- va 3-xossalar: Oy ga nisbatan simmetriklik, o'suvchi/kamayuvchi oraliqlar, kitob, 8-bet",
+        "width": 640,
+        "height": 234,
         "steps": [
           "<strong>2)</strong> Grafik ordinatalar o'qiga nisbatan simmetrik, chunki (−x)² = x². Masalan, y(−3) = y(3) = 9 (1-rasm). Shuning uchun Oy — <strong>parabolaning simmetriya o'qi</strong>; o'qning parabola bilan kesishish nuqtasi — <strong>parabolaning uchi</strong>.",
           "<strong>3)</strong> x ≥ 0 bo'lganda x ortishi bilan y ham ortadi — funksiya bu oraliqda <strong>o'suvchi</strong>. x ≤ 0 bo'lganda esa x ortishi bilan y kamayadi — funksiya bu oraliqda <strong>kamayuvchi</strong>."
@@ -148,6 +160,10 @@
       {
         "caption": "Masala (tugallanmagan) · 8-bet",
         "kirish": "Va nihoyat, masalani ko'rib chiqamiz.",
+        "img": "png/masala.png",
+        "alt": "Masala: y = x² parabola bilan y = x + 6 to'g'ri chiziqning kesishish nuqtalarini topish, kitob, 8-bet",
+        "width": 640,
+        "height": 114,
         "steps": [
           "<strong>Masala.</strong> y = x² parabola bilan y = x + 6 to'g'ri chiziqning kesishish nuqtalari koordinatalarini toping.",
           "Kesishish nuqtalari — sistemaning yechimlari: { y = x², y = x + 6.",

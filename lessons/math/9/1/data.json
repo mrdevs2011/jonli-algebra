@@ -142,7 +142,7 @@
         "kirish": "Keling, 1-masalani ko'rib chiqamiz.",
         "img": "png/1-masala.png",
         "alt": "1-masala: y = x² − 5x + 6 funksiyaning x = −2, 0, 3 dagi qiymatlari, kitob, 6-bet",
-        "width": 570,
+        "width": 640,
         "height": 134,
         "steps": [
           "Formula: <strong>y(x) = x² − 5x + 6</strong>. x o'rniga har bir qiymatni birma-bir qo'yamiz.",
@@ -156,7 +156,7 @@
         "kirish": "Endi 2-masalaga o'tamiz.",
         "img": "png/2-masala.png",
         "alt": "2-masala: y = x² + 4x − 5 kvadrat funksiya 7, −9, −8, 0 qiymatlarni qabul qiladigan x larni topish, kitob, 6-bet",
-        "width": 570,
+        "width": 640,
         "height": 288,
         "steps": [
           "Formula: <strong>y = x² + 4x − 5</strong>. Har bir qiymat uchun tenglama tuzamiz: y ni shu songa tenglaymiz.",
@@ -171,7 +171,7 @@
         "kirish": "2-masaladan chiqqan xulosaga alohida to'xtalib o'tamiz.",
         "img": "png/tarif.png",
         "alt": "Funksiyaning nollari ta'rifi, kitob, 6-bet",
-        "width": 570,
+        "width": 640,
         "height": 59,
         "static": "<strong>Muhim tushuncha:</strong> yuqoridagi 2-masalaning oxirgi qismida (y = 0) topilgan x₁ = 1 va x₂ = −5 — funksiyaning qiymati nolga teng bo'ladigan x lar. Bunday x lar <strong>funksiyaning nollari</strong> deyiladi. 3-masala aynan shuni topishni so'raydi."
       },
@@ -180,7 +180,7 @@
         "kirish": "Va nihoyat, 3-masalani ko'rib chiqamiz.",
         "img": "png/3-masala.png",
         "alt": "3-masala: y = x² − 3x funksiyaning nollarini topish, kitob, 6-bet",
-        "width": 570,
+        "width": 640,
         "height": 44,
         "steps": [
           "Nollarni topish uchun <strong>y = 0</strong> qo'yamiz: x² − 3x = 0.",
