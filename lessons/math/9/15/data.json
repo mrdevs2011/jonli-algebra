@@ -50,7 +50,7 @@
         "min": -4,
         "max": 2,
         "step": 0.5,
-        "value": -1,
+        "value": -1.3333333333333333,
         "desc": "chiziqli chegara: x ≥ c"
       }
     },
@@ -60,7 +60,7 @@
   },
   "kirish": [
     "<p class=\"kirish-nega\">14-§ da tenglamalar sistemasini hadma-had qo'shish, ifodalab almashtirish va bo'lish usullari bilan yechdik — u yerda javob nuqta juftliklari (x; y) edi. Bugun shartlar tenglama emas, <strong>tengsizlik</strong>: ikkala tengsizlik ham bir vaqtda bajarilishi kerak. Bunday yozuv <strong>tengsizliklar sistemasi</strong> deyiladi. Yechim endi nuqta emas, balki ikkala yechim to'plamining <strong>umumiy qismi</strong> (kesishmasi) — son o'qidagi oraliq yoki oraliqlar birlashmasi.</p>",
-    "<p>Sahnada yuqori qator — 6-§ dagi 2-masala: <strong>x² − 5x + 6 > 0</strong> (ildizlar 2 va 3, yechim (−∞; 2) ∪ (3; +∞)). Pastki qator — chiziqli chegara <strong>x ≥ c</strong>. c ni suring: qizil-jigarrang chiziq faqat ikkala qator ham «yonib» turgan joyda qoladi. Kitobdagi 1-masala aynan c = −1 holati.</p>"
+    "<p>Sahnada yuqori qator — 6-§ dagi 2-masala: <strong>x² − 5x + 6 > 0</strong> (ildizlar 2 va 3, yechim (−∞; 2) ∪ (3; +∞)). Pastki qator — chiziqli chegara <strong>x ≥ c</strong>. c ni suring: qizil-jigarrang chiziq faqat ikkala qator ham «yonib» turgan joyda qoladi. Kitobdagi 1-masala aynan c = −4/3 (ya'ni −1⅓) holati.</p>"
   ],
   "reja": "1) Tengsizliklar sistemasi — ikkala tengsizlik bir vaqtda. 2) Har bir tengsizlik alohida yechiladi (kvadratini 6-§ usuli bilan). 3) Ikkala yechim bitta son o'qida chiziladi. 4) Sistemaning yechimi — shu ikki to'plamning kesishmasi. 5) Modul qatnashgan tengsizlik ikki tomonlama tengsizlikka, u esa sistemaga keltiriladi. 6) Aniqlanish sohasi ham tengsizliklar sistemasi beradi.",
   "qoida": "<p><strong>Tengsizliklar sistemasi</strong> — bir nechta tengsizlikning barchasi bir vaqtda bajarilishi kerak bo'lgan shart. Yechim — har bir tengsizlikni qanoatlantiruvchi sonlar to'plamining <strong>umumiy qismi</strong> (kesishmasi).</p><p><strong>1) Har birini alohida yech:</strong> kvadrat tengsizlikni 6-§ dagi kabi ildizlari orqali (parabola tarmoqlari qayerga qarab ochilganini hisobga olib) yechamiz; chiziqli tengsizlikni oddiy qoida bilan.</p><p><strong>2) Bitta son o'qida chiz:</strong> har bir yechim to'plamini o'z qatoriga (yoki bir o'qqa turli chiziq bilan) tushiramiz. Uch nuqta yopiq (●, ≤/≥) yoki ochiq (○, </>) bo'lishi kerak.</p><p><strong>3) Kesishmani ol:</strong> faqat ikkala chiziq ham qoplagan oraliqlar qoladi. Bo'sh qolsa — sistemaning yechimi yo'q.</p><p><strong>4) Modul:</strong> |f(x)| < a (a > 0) tengsizlik −a < f(x) < a ikki tomonlama tengsizlikka, u esa ikkita tengsizlikdan iborat sistemaga tengkuchli.</p><p><strong>5) Aniqlanish sohasi:</strong> ildiz ostidagi ifoda manfiy bo'lmasligi kerak — bu ham tengsizliklar sistemasini beradi (9-§ dagi g'oya, endi sistema sifatida).</p>",
@@ -134,14 +134,14 @@
       {
         "caption": "1-masala · 77–78-bet",
         "steps": [
-          "Sistema: <strong>{ x² − 5x + 6 > 0 ; x + 1 ≥ 0 }</strong>. Birinchisi kvadrat, ikkinchisi chiziqli.",
+          "Sistema: <strong>{ x² − 5x + 6 > 0 ; 3x + 4 ≥ 0 }</strong>. Birinchisi kvadrat, ikkinchisi chiziqli.",
           "Birinchi tengsizlik — 6-§ dagi 2-masala bilan bir xil: (x − 2)(x − 3) > 0. Tarmoqlar yuqoriga, shuning uchun yechim <strong>x < 2</strong> va <strong>x > 3</strong>, ya'ni (−∞; 2) ∪ (3; +∞).",
-          "Ikkinchi tengsizlik chiziqli: x + 1 ≥ 0 → <strong>x ≥ −1</strong>.",
-          "Ikkala yechimni bitta son o'qida chizamiz (44-rasm). Kesishma: [−1; 2) va (3; +∞).",
-          "Javob: <strong>−1 ≤ x < 2, x > 3</strong> yoki <strong>[−1; 2) ∪ (3; +∞)</strong>."
+          "Ikkinchi tengsizlik chiziqli: 3x + 4 ≥ 0 → <strong>x ≥ −4/3</strong> (yoki −1⅓).",
+          "Ikkala yechimni bitta son o'qida chizamiz (44-rasm). Kesishma: [−4/3; 2) va (3; +∞).",
+          "Javob: <strong>−1⅓ ≤ x < 2, x > 3</strong> yoki <strong>[−4/3; 2) ∪ (3; +∞)</strong>."
         ],
         "img": "png/1-masala.png",
-        "alt": "1-masala: x²−5x+6>0 va chiziqli tengsizlik sistemasi, 44-rasm, javob −1≤x<2 va x>3, kitob, 77–78-bet",
+        "alt": "1-masala: {x²−5x+6>0; 3x+4≥0} sistemasi, 44-rasm, javob −1⅓≤x<2 va x>3, kitob, 77–78-bet",
         "width": 640,
         "height": 500
       },
@@ -163,15 +163,15 @@
       {
         "caption": "3-masala · 79-bet",
         "steps": [
-          "Funksiya: <strong>y = √(3x² − x − 14) + √(−2x)</strong>. Ildiz osti manfiy bo'lmasligi kerak.",
-          "Aniqlanish sohasi sistema: <strong>{ 3x² − x − 14 ≥ 0 ; −2x ≥ 0 }</strong>.",
+          "Funksiya: <strong>y = √(3x² − x − 14) + √(−x)</strong>. Ildiz osti manfiy bo'lmasligi kerak.",
+          "Aniqlanish sohasi sistema: <strong>{ 3x² − x − 14 ≥ 0 ; −x ≥ 0 }</strong>.",
           "Diskriminant: D = 1 + 168 = 169, ildizlar x₁ = −2, x₂ = 7/3. Tarmoqlar yuqoriga, shuning uchun 3x² − x − 14 ≥ 0 yechimi <strong>x ≤ −2</strong> va <strong>x ≥ 7/3</strong>.",
-          "Ikkinchi tengsizlikni −1 ga ko'paytiramiz (belgi o'zgaradi): <strong>x ≤ 0</strong>.",
+          "Ikkinchi tengsizlik: −x ≥ 0 → <strong>x ≤ 0</strong>.",
           "Kesishma (46-rasm): faqat x ≤ −2 qismi qoladi (7/3 > 0, u x ≤ 0 bilan kesishmaydi).",
           "Javob: <strong>x ≤ −2</strong> yoki <strong>(−∞; −2]</strong>."
         ],
         "img": "png/3-masala.png",
-        "alt": "3-masala: y=√(3x²−x−14)+√(−2x) aniqlanish sohasi, 46-rasm, javob x≤−2, kitob, 79-bet",
+        "alt": "3-masala: y=√(3x²−x−14)+√(−x) aniqlanish sohasi, 46-rasm, javob x≤−2, kitob, 79-bet",
         "width": 640,
         "height": 550
       }

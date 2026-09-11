@@ -149,13 +149,13 @@
       {
         "caption": "2-masala · 81-bet",
         "steps": [
-          "Isbotlash kerak: <strong>√(ab) ≥ 2ab/(a+b)</strong> (a > 0, b > 0) — o‘rta geometrik ≥ o‘rta garmonik.",
+          "Isbotlash kerak: <strong>√(ab) ≥ 2 / (1/a + 1/b)</strong> (a > 0, b > 0) — o‘rta geometrik ≥ o‘rta garmonik.",
+          "Eslatma: 2 / (1/a + 1/b) = 2ab/(a+b), shuning uchun bu GM ≥ HM tengsizligi.",
           "1-masaladagi (AM-GM) tengsizlikdan foydalanamiz: (a+b)/2 ≥ √(ab).",
-          "Ikkala tomonni 2ab/(a+b) ga bo‘lish (musbat) yoki ekvivalent o‘zgartirishlar bilan GM ≥ HM chiqadi.",
-          "Tenglik yana a = b da."
+          "Surati o‘zgarmay, maxraji kichrayganda musbat kasr kattalashishidan foydalanib isbotlanadi. Tenglik yana a = b da."
         ],
         "img": "png/2-masala.png",
-        "alt": "2-masala: GM ≥ HM tengsizligini 1-masala asosida isbotlash, kitob 81-bet",
+        "alt": "2-masala: √(ab) ≥ 2/(1/a+1/b) (GM ≥ HM) ni 1-masala asosida isbotlash, kitob 81-bet",
         "width": 640,
         "height": 257
       },
