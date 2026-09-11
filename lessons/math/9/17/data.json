@@ -1,0 +1,260 @@
+{
+  "id": 17,
+  "bob": {
+    "roman": "III",
+    "nom": "Trigonometriya elementlari"
+  },
+  "paragraf": "17-§",
+  "title": "Burchakning radian o'lchovi",
+  "lead": "Daraja o'rniga yoy uzunligi: 1 radian — radiusga teng yoyni tortib turgan markaziy burchak.",
+  "prev": {
+    "href": "../16/",
+    "label": "16-dars"
+  },
+  "next": {
+    "href": "../18/",
+    "label": "18-dars"
+  },
+  "agenda": [
+    {
+      "min": 5,
+      "name": "Kirish — yangi bob: burchakni yoy uzunligi bilan o'lchash"
+    },
+    {
+      "min": 10,
+      "name": "Sahna — birlik aylana va burchak (t)"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — 1 rad, gradus↔radian, yoy uzunligi"
+    },
+    {
+      "min": 7,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 10,
+      "name": "Darslikdan mashqlar — daftarga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "unit-circle",
+    "ariaLabel": "Interaktiv: birlik aylanada burchak o'zgarganda cos va sin qiymatlari",
+    "hint": "t slayderini siljiting — nuqta aylanada yuradi, cos t va sin t yangilanadi",
+    "vars": {
+      "t": {
+        "min": 0,
+        "max": 360,
+        "step": 5,
+        "value": 30,
+        "desc": "burchak (gradus) — keyinroq radianga o'tamiz"
+      }
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">Oldingi bobda tenglamalar va tengsizliklar sistemalarini yechishni o‘rgandik. Endi yangi bobga — <strong>trigonometriya elementlariga</strong> o‘tamiz. Birinchi tushuncha: burchakni faqat gradusda emas, balki <strong>yoy uzunligi</strong> orqali o‘lchash. Bu o‘lchov <strong>radian</strong> deb ataladi.</p>",
+    "<p>Sahnada birlik aylana (radius = 1) ko‘rsatilgan. t slayderini o‘zgartiring: nuqta aylanada yuradi, uning absissasi cos t, ordinatasi sin t bo‘ladi. Hozircha t gradusda berilgan — keyinroq xuddi shu burchakni radianda ifodalashni o‘rganamiz. Kitobdagi 1–4-masalalar esa aynan gradus ↔ radian o‘girish va yoy uzunligini hisoblashga bag‘ishlangan.</p>"
+  ],
+  "reja": "1) 1 radian nima ekanini ta'riflaymiz — radiusga teng yoyni tortib turgan markaziy burchak. 2) Gradusdan radianga va aksincha o'tish formulalarini chiqaramiz. 3) Yoy uzunligi formulasi l = R·α (α radian) ni qo'llaymiz. 4) Doiraviy sektor yuzini isbotlaymiz. 5) Eng ko'p uchraydigan burchaklarning ikkala o'lchovini yodda tutamiz.",
+  "qoida": "<p><strong>1 radian (1 rad)</strong> — radiusi R bo‘lgan aylanada uzunligi R ga teng yoyni tortib turgan markaziy burchak. Birlik aylanada (R = 1) yoy uzunligi burchakning o‘ziga teng.</p><p><strong>Gradus ↔ radian:</strong></p><ul><li>α radian = α · (180/π) gradus ≈ α · 57,3°</li><li>α gradus = α · (π/180) radian</li></ul><p>Masalan: π rad = 180°, π/2 rad = 90°, π/3 rad = 60°, π/4 rad = 45°, π/6 rad = 30°.</p><p><strong>Yoy uzunligi:</strong> radiusi R, markaziy burchagi α (radian) bo‘lgan yoy uchun <strong>l = R · α</strong>.</p><p><strong>Doiraviy sektor yuzi:</strong> S = (1/2) · R² · α (0 ≤ α ≤ 2π).</p><p>Odatda burchak radianda berilganda «rad» so‘zi tushirib qoldiriladi.</p>",
+  "savollar": [
+    {
+      "savol": "1 radian nima?",
+      "variantlar": [
+        "90° ga teng burchak",
+        "Radiusga teng yoyni tortib turgan markaziy burchak",
+        "To‘liq aylana (360°)"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "π radian necha gradusga teng?",
+      "variantlar": [
+        "90°",
+        "180°",
+        "360°"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "Radiusi R = 2, markaziy burchagi α = π/3 (rad) bo‘lgan yoy uzunligi qancha?",
+      "variantlar": [
+        "2π/3",
+        "π/3",
+        "6"
+      ],
+      "togri": 0
+    },
+    {
+      "savol": "45° burchakning radian o‘lchovi qanday?",
+      "variantlar": [
+        "π/2",
+        "π/4",
+        "π/6"
+      ],
+      "togri": 1
+    }
+  ],
+  "eslabQol": [
+    "<strong>1 rad</strong> — radiusga teng yoyni tortib turgan markaziy burchak.",
+    "α rad = α · (180/π)° ≈ α · 57,3°; α° = α · (π/180) rad.",
+    "Yoy uzunligi: <strong>l = R · α</strong> (α radian).",
+    "Sektor yuzi: <strong>S = ½ R² α</strong>. Eng muhim juftliklar: π ↔ 180°, π/2 ↔ 90°, π/3 ↔ 60°, π/4 ↔ 45°, π/6 ↔ 30°."
+  ],
+  "kitob": {
+    "betlar": "93–96-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-93.png",
+        "bet": "93-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-94.png",
+        "bet": "94-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-95.png",
+        "bet": "95-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-96.png",
+        "bet": "96-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 4 ta asosiy misol — o‘qituvchi doskada shu tartibda yechib ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
+    "masalalar": [
+      {
+        "caption": "1-masala · 95-bet",
+        "steps": [
+          "Berilgan: 1) π rad; 2) π/2 rad; 3) 3π/4 rad. Gradus o‘lchovini toping.",
+          "Formula: α rad = α · (180/π)°.",
+          "1) π · (180/π) = <strong>180°</strong>.",
+          "2) (π/2) · (180/π) = <strong>90°</strong>.",
+          "3) (3π/4) · (180/π) = <strong>135°</strong>.",
+          "Javob: 180°; 90°; 135°."
+        ],
+        "alt": "1-masala: π, π/2, 3π/4 radianlarni gradusga o‘girish (180°, 90°, 135°), kitob 95-bet",
+        "img": "png/1-masala.png",
+        "width": 640,
+        "height": 125
+      },
+      {
+        "caption": "2-masala · 95-bet",
+        "steps": [
+          "Berilgan: 1) 45°; 2) 15°. Radian o‘lchovini toping.",
+          "Formula: α° = α · (π/180) rad.",
+          "1) 45 · (π/180) = <strong>π/4</strong> rad.",
+          "2) 15 · (π/180) = <strong>π/12</strong> rad.",
+          "Javob: π/4; π/12."
+        ],
+        "alt": "2-masala: 45° va 15° ni radianga o‘girish (π/4, π/12), kitob 95-bet",
+        "img": "png/2-masala.png",
+        "width": 640,
+        "height": 97
+      },
+      {
+        "caption": "3-masala · 96-bet",
+        "steps": [
+          "Shahar soati minut milining uchi radiusi R = 0,8 m bo‘lgan aylana bo‘ylab harakat qiladi. 15 minutda qancha yo‘l bosadi?",
+          "15 minut — to‘liq soatning 1/4 qismi → burchak = (1/4)·2π = <strong>π/2</strong> rad.",
+          "Yoy uzunligi: l = R · α = 0,8 · (π/2) ≈ 0,8 · 1,57 ≈ <strong>1,256 m ≈ 1,3 m</strong>.",
+          "Javob: taxminan 1,3 m."
+        ],
+        "alt": "3-masala: soat mili 15 min da yoy uzunligi R=0,8 m, l≈1,3 m, kitob 96-bet",
+        "img": "png/3-masala.png",
+        "width": 640,
+        "height": 170
+      },
+      {
+        "caption": "4-masala · 96-bet",
+        "steps": [
+          "Radiusi R bo‘lgan doiraviy sektor α rad burchakka ega (0 < α < π). Uning yuzi S = (1/2) R² α ekanini isbotlang.",
+          "To‘liq doira (2π rad) yuzi π R². Shuning uchun 1 rad ga mos sektor yuzi π R² / 2π = R² / 2.",
+          "Demak α rad li sektor yuzi: <strong>S = α · (R² / 2) = (1/2) R² α</strong>.",
+          "Isbot tugadi."
+        ],
+        "alt": "4-masala: doiraviy sektor yuzi S = (1/2)R²α isboti, kitob 96-bet",
+        "img": "png/4-masala.png",
+        "width": 640,
+        "height": 212
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "96–97-betlar",
+    "intro": "Mashqlar (213–221):",
+    "items": [
+      {
+        "title": "213-mashq.",
+        "sub": "Graduslarda ifodalangan burchakning radian o‘lchovini toping: 1) 40°; 2) 120°; 3) 105°; 4) 150°; 5) 75°; 6) 32°; 7) 100°; 8) 140°."
+      },
+      {
+        "title": "214-mashq.",
+        "sub": "Radianlarda ifodalangan burchakning gradus o‘lchovini toping: 1) π/5; 2) π/3; 3) 2π/3; 4) 5π/6; 5) π/2; 6) π/4; 7) 1,5; 8) 0,36; 9) 3π/4; 10) 4,5."
+      },
+      {
+        "title": "215-mashq.",
+        "sub": "Sonni 0,01 gacha aniqlikda yozing (π ≈ 3,14)."
+      },
+      {
+        "title": "216-mashq.",
+        "sub": "Sonlarni taqqoslang: 1) π/2 va 2; 2) 2π va 6,7; 3) π va 3,1; 4) π va 4,8; 5) −π/2 va −1,5; 6) −3π va −√10."
+      },
+      {
+        "title": "217-mashq. (Og‘zaki)",
+        "sub": "a) Teng tomonli uchburchak; b) teng yonli to‘g‘ri burchakli uchburchak; d) kvadrat; e) muntazam oltiburchak burchaklarining gradus va radian o‘lchovlarini aniqlang."
+      },
+      {
+        "title": "218-mashq.",
+        "sub": "Agar aylananing 0,36 m uzunlikdagi yoyini 0,9 rad li markaziy burchak tortib tursa, aylana radiusini hisoblang."
+      },
+      {
+        "title": "219-mashq.",
+        "sub": "Agar aylananing radiusi 1,5 cm ga teng bo‘lsa, uzunligi 3 cm bo‘lgan yoyni tortib turgan burchakning radian o‘lchovini toping."
+      },
+      {
+        "title": "220-mashq.",
+        "sub": "Doiraviy sektor yoyini π/2 rad li burchak tortib turadi. Agar doiraning radiusi 1 cm ga teng bo‘lsa, sektorning yuzini toping."
+      },
+      {
+        "title": "221-mashq.",
+        "sub": "Doiraning radiusi 2,5 cm ga teng, doiraviy sektorning yuzi esa 6,25 cm² ga teng. Shu sektor yoyini tortib turgan burchakni (radian) toping."
+      }
+    ]
+  },
+  "xulosa": [
+    "<strong>1 rad</strong> — radiusga teng yoyni tortib turgan markaziy burchak.",
+    "α rad ↔ α · (180/π)°; α° ↔ α · (π/180) rad.",
+    "Yoy uzunligi: <strong>l = R · α</strong> (α radian).",
+    "Sektor yuzi: <strong>S = ½ R² α</strong>.",
+    "Asosiy juftliklar: π = 180°, π/2 = 90°, π/3 = 60°, π/4 = 45°, π/6 = 30°."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "1 rad = radius uzunligidagi yoy"
+    },
+    {
+      "html": "α rad = α · (180/π)°"
+    },
+    {
+      "html": "l = R · α &nbsp;|&nbsp; S = ½ R² α"
+    },
+    {
+      "html": "π ↔ 180°, π/2 ↔ 90°, π/4 ↔ 45°"
+    }
+  ]
+}

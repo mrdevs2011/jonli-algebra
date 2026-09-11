@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":18,"bob":{"roman":"III","nom":"Trigonometriya elementlari"},"paragraf":"18-§","title":"Nuqtani koordinatalar boshi atrofida burish","lead":"Birlik aylananing P(1; 0) nuqtasini α radian burchakka burish orqali har bir haqiqiy songa aylanadagi yagona nuqta mos keladi. α + 2πk bir xil nuqtani beradi.","prev":{"href":"../17/","label":"17-dars"},"next":{"href":"../19/","label":"19-dars"},"agenda":[{"min":5,"name":"Kirish — 17-§ (radian o‘lchov va birlik aylana) ni eslash"},{"min":10,"name":"Sahna — P(1; 0) nuqtani α ga burish (unit-circle)"},{"min":8,"name":"Qoida — musbat/manfiy burish, α + 2πk bir xil nuqta"},{"min":7,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":10,"name":"Darslikdan mashqlar — daftarga yechish"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"unit-circle","ariaLabel":"Interaktiv: birlik aylana, P(1;0) nuqtani α burchakka burish","hint":"Slayderni siljiting — nuqta aylanada harakatlanadi, cos va sin qiymatlari o‘zgaradi","vars":{"t":{"min":-360,"max":720,"step":15,"value":90,"desc":"burchak (gradus) — keyin radian bilan ishlaymiz"}}},"kirish":["<p class=\"kirish-nega\">17-§ da burchakning <strong>radian o‘lchovi<\/strong>ni kiritdik: radiusga teng yoyni tortib turgan markaziy burchak 1 radian. Son to‘g‘ri chizig‘ini birlik aylanaga o‘rab, har bir haqiqiy songa aylanadagi nuqta mos kelishini ko‘rdik. Bugun shu moslikni <strong>burish<\/strong> tushunchasi orqali aniqroq ifodalaymiz: P(1; 0) nuqtani α radian burchakka burib hosil bo‘ladigan nuqta.<\/p>","<p>Sahnada birlik aylana (radius = 1, markaz — koordinata boshi) chizilgan. Qizil nuqta — P(1; 0). Slayder α ni o‘zgartirganda nuqta aylanada harakatlanadi. Musbat α — soat mili yo‘nalishiga qarama-qarshi, manfiy α — soat mili yo‘nalishida. Bu darsda asosiy g‘oya: har bir haqiqiy α ga yagona nuqta mos keladi, lekin bir xil nuqtaga cheksiz ko‘p α + 2πk mos keladi.<\/p>"],"reja":"1) Birlik aylana nima ekanini eslaymiz (radius 1, markaz O). 2) P(1; 0) nuqtani α > 0 radian burchakka (soat mili qarama-qarshi) va α < 0 (soat mili yo‘nalishi) burishni aniqlaymiz. 3) α = 0 da nuqta o‘z o‘rnida qoladi. 4) α va α + 2πk bir xil nuqtani berishini ko‘rsatamiz. 5) Aniq misollar: π/2 → (0;1), −π/2 → (0;−1), π → (−1;0) va h.k. 6) Berilgan nuqtani hosil qiluvchi barcha burchaklarni yozish.","qoida":"<p><strong>Birlik aylana<\/strong> — radiusi 1 ga teng, markazi koordinata boshida joylashgan aylana.<\/p><p><strong>Burish ta’rifi:<\/strong> P(1; 0) nuqtani α radian burchakka burish — nuqta birlik aylana bo‘ylab |α| uzunlikdagi yo‘lni bosib o‘tadi. α > 0 bo‘lsa soat mili yo‘nalishiga qarama-qarshi, α < 0 bo‘lsa soat mili yo‘nalishida. α = 0 da nuqta o‘z o‘rnida qoladi.<\/p><p><strong>Asosiy xossa:<\/strong> agar α = α₀ + 2πk (k — istalgan butun son) bo‘lsa, α ga burish α₀ ga burishdagi nuqtaning ayni o‘zini beradi. Demak, birlik aylananing har bir nuqtasiga cheksiz ko‘p burchak (α + 2πk) mos keladi.<\/p><p><strong>Namuna:<\/strong> π/2 → (0; 1); −π/2 → (0; −1); π → (−1; 0); 2π → (1; 0).<\/p>","savollar":[{"savol":"P(1; 0) nuqtani π/2 radian burchakka (musbat) burishda qaysi nuqta hosil bo‘ladi?","variantlar":["(0; 1)","(0; −1)","(−1; 0)"],"togri":0},{"savol":"P(1; 0) nuqtani −π/2 radian burchakka burishda qaysi nuqta hosil bo‘ladi?","variantlar":["(0; 1)","(0; −1)","(1; 0)"],"togri":1},{"savol":"Bir xil nuqtani beradigan burchaklar qanday farq qiladi?","variantlar":["α va α + πk","α va α + 2πk (k — butun son)","α va α + k"],"togri":1}],"eslabQol":["Birlik aylana — radius 1, markaz O.","Musbat α — soat mili qarama-qarshi, manfiy α — soat mili yo‘nalishi.","α va α + 2πk bir xil nuqtani beradi (k ∈ ℤ).","Har bir haqiqiy α ga yagona nuqta mos keladi, lekin bir nuqtaga cheksiz α mos keladi."],"kitob":{"betlar":"97–101-betlar","sahifalar":[{"img":"../../../../kitob/kitob-97.png","bet":"97-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-98.png","bet":"98-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-99.png","bet":"99-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-100.png","bet":"100-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-101.png","bet":"101-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi asosiy tushunchalar va 2 ta masala — o‘qituvchi doskada shu tartibda yoritadi. Har birida rasm (kitobdan) va yoniga tushuntirish bor.","masalalar":[{"caption":"Ta’rif va rasmlar · 98-bet","steps":["Birlik aylana — radiusi 1, markazi koordinata boshi O bo‘lgan aylana.","P(1; 0) nuqtani α radian burchakka burish: nuqta aylanada |α| uzunlikdagi yo‘lni bosadi.","α > 0 — soat mili yo‘nalishiga <strong>qarama-qarshi<\/strong> (50-rasm).","α < 0 — soat mili yo‘nalishida (51-rasm).","α = 0 — nuqta o‘z o‘rnida qoladi.","Misollar: π/2 → (0; 1); −π/2 → (0; −1); π → (−1; 0); 3π/2 → (0; −1).","Asosiy xossa: agar α = α₀ + 2πk (k ∈ ℤ) bo‘lsa, α ga burish α₀ ga burishdagi nuqtaning o‘zini beradi."],"img":"png/tarif-98.png","alt":"Birlik aylana, 50–53-rasmlar va burish ta’rifi (α>0, α<0), kitob 98-bet","width":640,"height":680},{"caption":"1-masala · 101-bet","steps":["P(1; 0) nuqtani: 1) <strong>7π<\/strong>; 2) <strong>−5π/2<\/strong> burchakka burishdan hosil bo‘lgan nuqta koordinatalarini toping.","1) 7π = π + 2π·3 → π ga burishdagi nuqta, ya’ni <strong>(−1; 0)<\/strong>.","2) −5π/2 = −π/2 − 2π → −π/2 ga burishdagi nuqta, ya’ni <strong>(0; −1)<\/strong>."],"img":"png/1-masala.png","alt":"1-masala: P(1;0) ni 7π va −5π/2 ga burish, javob (−1;0) va (0;−1), kitob 101-bet","width":640,"height":213},{"caption":"2-masala · 101-bet","steps":["<strong>(√3/2; 1/2)<\/strong> nuqtani hosil qilish uchun P(1; 0) nuqtani burish kerak bo‘lgan barcha burchaklarni yozing.","NOM to‘g‘ri burchakli uchburchakdan (58-rasm) NOM burchak <strong>π/6<\/strong> ga teng.","Demak, barcha burchaklar: <strong>π/6 + 2πk<\/strong>, k ∈ ℤ."],"img":"png/2-masala.png","alt":"2-masala: (√3/2; 1/2) nuqtasini beruvchi barcha burchaklar π/6 + 2πk, kitob 101-bet","width":640,"height":260}]},"mashqlar":{"betlar":"102-bet","intro":"Birlik aylananing P(1; 0) nuqtasini berilgan burchakka burish natijasida hosil bo‘lgan nuqtalarni toping (222–228):","items":[{"title":"222-mashq.","sub":"1) 90°; 2) −π; 3) 180°; 4) 3π/2; 5) 270°; 6) 2π burchakka burish natijasida hosil bo‘lgan nuqtalar koordinatalarini toping."},{"title":"223-mashq.","sub":"P(1; 0) nuqtani: π/6; 2π/3; −π/3; 5π/6; 7π/6; −π/4; 3π/4; −5π/4 burchakka burish natijasida hosil bo‘lgan nuqtani belgilang."},{"title":"224-mashq.","sub":"P(1; 0) nuqtani: π/4 + 2π; 2π/3; −π/6; −3π/4; 7π/2; 450° burchakka burish natijasida hosil bo‘lgan nuqta joylashgan choragni aniqlang."},{"title":"225-mashq.","sub":"P(1; 0) nuqtani: 5π/3; −2π/3; −5π/6; 5π; 540°; 810°; −3π/2; 450° burchakka burish natijasida hosil bo‘lgan nuqta koordinatalarini toping."},{"title":"226-mashq.","sub":"1) (−1; 0); 2) (1; 0); 3) (0; 1); 4) (0; −1) nuqtalarni hosil qilish uchun P(1; 0) nuqtani burish kerak bo‘lgan barcha burchaklarni yozing."},{"title":"227-mashq.","sub":"P(1; 0) nuqtani berilgan: 1) 1; 2) 2,75; 3) 3,16; 4) 4,95; 5) 1,8 burchakka burish natijasida hosil bo‘lgan nuqta joylashgan choragni toping."},{"title":"228-mashq.","sub":"Agar a = 6,7; 9,85; 4π/3; 7π/2; 4π/3; 2π/3 bo‘lsa, a = x + 2πk tenglik bajariladigan x sonni (0 ≤ x < 2π) va k natural sonni toping."}]},"xulosa":["Birlik aylana — radius 1, markaz koordinata boshi.","P(1; 0) ni α ga burish: musbat — qarama-qarshi soat mili, manfiy — soat mili yo‘nalishi.","α va α + 2πk (k ∈ ℤ) bir xil nuqtani beradi.","Har bir haqiqiy α ga yagona nuqta mos keladi; bir nuqtaga cheksiz ko‘p burchak mos keladi."],"xulosaBoard":[{"html":"Birlik aylana: R = 1, markaz O"},{"html":"α > 0 → soat mili <strong>qarama-qarshi<\/strong>"},{"html":"α < 0 → soat mili <strong>yo‘nalishi<\/strong>"},{"html":"α ≡ α + 2πk (bir xil nuqta)"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

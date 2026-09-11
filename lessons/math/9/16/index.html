@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":16,"bob":{"roman":"II","nom":"Tenglamalar va tengsizliklar sistemalari"},"paragraf":"16-§","title":"Sodda tengsizliklarni isbotlash","lead":"Nima uchun ba'zi tengsizliklar doim rost? Isbotlashning oddiy usullari.","prev":{"href":"../15/","label":"15-dars"},"next":{"href":"../17/","label":"17-dars"},"agenda":[{"min":5,"name":"Kirish — 15-§ (tengsizliklar sistemasi) ni bir jumlada eslash"},{"min":8,"name":"Sahna — a + 1/a − 2 ≥ 0 (ayirma noldan yuqorida)"},{"min":10,"name":"Qoida — to‘g‘ridan-to‘g‘ri, oldingi isbotga tayanib, ziddiyat"},{"min":7,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":10,"name":"Darslikdan mashqlar — daftarga yechish"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"am-gm-ineq","ariaLabel":"Interaktiv: a + 1/a − 2 funksiyasining ishorasi (a > 0)","hint":"a ni o‘zgartiring — ayirma doim noldan katta yoki teng","vars":{"a":{"min":0.2,"max":5,"step":0.1,"value":1,"desc":"musbat son (a > 0)"}},"notes":{"positive":"a > 0 da a + 1/a − 2 ≥ 0 (tenglik faqat a = 1 da)","zero":"a = 1 da ayirma = 0","locked":"a ≤ 0 bu darsda ko‘rilmaydi (1/a aniqlanmagan)"}},"kirish":["<p class=\"kirish-nega\">15-§ da kvadrat tengsizliklar sistemasini yechdik — ikki shartning umumiy qismini topdik. Bugun boshqa savol: ba'zi tengsizliklar <strong>har doim<\/strong> rost ekanini qanday isbotlaymiz? Masalan, ikkita musbat sonning o‘rta arifmetigi o‘rta geometrigidan kichik emasligi. Buni faqat misol bilan emas, umuman isbotlash kerak.<\/p>","<p>Sahnada a + 1/a − 2 ifodasini ko‘rasiz (a > 0). Slayderni suring: ayirma hech qachon manfiy bo‘lmaydi. Aynan shu g‘oya — ayirma yoki kvadrat noldan kichik emasligi — isbotlashning asosiy vositalaridan biri.<\/p>"],"reja":"1) To‘g‘ridan-to‘g‘ri isbot: ifodani (√a − √b)² ≥ 0 ko‘rinishiga keltirish. 2) Oldingi isbotga tayanib yangi tengsizlikni chiqarish (GM ≥ HM). 3) Ziddiyat usuli: teskarisini faraz qilib, imkonsiz holatga kelish. 4) Amaliy misol (tarozi) orqali isbotni qo‘llash.","qoida":"<p><strong>1) To‘g‘ridan-to‘g‘ri isbot:<\/strong> isbotlanishi kerak bo‘lgan tengsizlikni ekvivalent ko‘rinishga keltiramiz, masalan (√a − √b)² ≥ 0. Bu kvadrat hech qachon manfiy emas, shuning uchun asl tengsizlik ham rost.<\/p><p><strong>2) Oldingi isbotga tayanish:<\/strong> allaqachon isbotlangan tengsizlikdan foydalanib yangisini chiqaramiz (masalan AM-GM dan GM-HM).<\/p><p><strong>3) Ziddiyat (teskarisini faraz qilish):<\/strong> tengsizlik yolg‘on deb faraz qilamiz va mantiqiy ziddiyatga (masalan (a−1)² < 0) kelamiz. Demak asl faraz noto‘g‘ri, tengsizlik rost.<\/p><p><strong>4)<\/strong> Tenglik belgisi qachon o‘rinli ekanini alohida tekshiring (odatda a = b yoki a = 1 holatida).<\/p>","savollar":[{"savol":"(√a − √b)² ≥ 0 dan qanday tengsizlik kelib chiqadi (a > 0, b > 0)?","variantlar":["a + b ≥ 2√(ab), ya'ni (a+b)/2 ≥ √(ab)","a + b ≤ 2√(ab)","a − b ≥ 2√(ab)"],"togri":0},{"savol":"a > 0 da a + 1/a ≥ 2 tengsizligini ziddiyat usuli bilan isbotlashda nima deb faraz qilinadi?","variantlar":["a + 1/a > 2","a + 1/a < 2 (keyin (a−1)² < 0 chiqadi)","a = 1"],"togri":1},{"savol":"Rostlanmagan tarozida (yelkalar a ≠ b) xaridor ikki marta 1 kg deb tortib olsa, umumiy massa qanday bo‘ladi?","variantlar":["Aniq 2 kg","a/b + b/a ≥ 2 kg (sotuvchi zarar ko‘radi)","Har doim 2 kg dan kam"],"togri":1}],"eslabQol":["To‘g‘ridan-to‘g‘ri isbot: ifodani <strong>(√a − √b)² ≥ 0<\/strong> yoki shunga o‘xshash kvadratga keltirish.","Ziddiyat usuli: teskarisini faraz qilib, imkonsiz holat (manfiy kvadrat) chiqarish.","AM-GM: <strong>(a+b)/2 ≥ √(ab)<\/strong> (a, b > 0), tenglik faqat a = b da.","a + 1/a ≥ 2 (a > 0), tenglik faqat a = 1 da."],"kitob":{"betlar":"80–83-betlar","sahifalar":[{"img":"../../../../kitob/kitob-80.png","bet":"80-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-81.png","bet":"81-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-82.png","bet":"82-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-83.png","bet":"83-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 4 ta masala — o‘qituvchi doskada shu tartibda isbotlab ko‘rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.","masalalar":[{"caption":"1-masala · 80–81-bet","steps":["Isbotlash kerak: <strong>(a + b)/2 ≥ √(ab)<\/strong> (a > 0, b > 0).","Chap tomonni o‘ng tomonga olib o‘tamiz: a + b − 2√(ab) ≥ 0.","Bu ifoda aynan <strong>(√a − √b)²<\/strong> ga teng. Kvadrat hech qachon manfiy emas → tengsizlik rost.","Tenglik belgisi faqat √a = √b, ya'ni <strong>a = b<\/strong> da o‘rinli."],"img":"png/1-masala.png","alt":"1-masala: AM-GM tengsizligi (a+b)/2 ≥ √(ab) ni (√a−√b)² ≥ 0 orqali isbotlash, kitob 80–81-bet","width":640,"height":366},{"caption":"2-masala · 81-bet","steps":["Isbotlash kerak: <strong>√(ab) ≥ 2ab/(a+b)<\/strong> (a > 0, b > 0) — o‘rta geometrik ≥ o‘rta garmonik.","1-masaladagi (AM-GM) tengsizlikdan foydalanamiz: (a+b)/2 ≥ √(ab).","Ikkala tomonni 2ab/(a+b) ga bo‘lish (musbat) yoki ekvivalent o‘zgartirishlar bilan GM ≥ HM chiqadi.","Tenglik yana a = b da."],"img":"png/2-masala.png","alt":"2-masala: GM ≥ HM tengsizligini 1-masala asosida isbotlash, kitob 81-bet","width":640,"height":257},{"caption":"3-masala · 81–82-bet","steps":["Isbotlash kerak: <strong>a + 1/a ≥ 2<\/strong> (a > 0).","Ziddiyat usuli: faraz qilaylik a + 1/a < 2.","Ikkala tomonni a (>0) ga ko‘paytiramiz: a² + 1 < 2a → <strong>(a − 1)² < 0<\/strong>.","Bu imkonsiz (har qanday haqiqiy sonning kvadrati ≥ 0). Demak faraz yolg‘on, asl tengsizlik rost. Tenglik a = 1 da."],"img":"png/3-masala.png","alt":"3-masala: a + 1/a ≥ 2 ni ziddiyat usuli bilan isbotlash, (a−1)² < 0 imkonsiz, kitob 81–82-bet","width":640,"height":403},{"caption":"4-masala · 82-bet","steps":["Rostlanmagan tarozi (yelkalar a ≠ b). Xaridor birinchi marta 1 kg deb tortadi → haqiqiy massa x = a/b.","Ikkinchi marta tosh va olma o‘rinlarini almashtirib yana 1 kg deb tortadi → y = b/a.","Jami olingan massa: x + y = a/b + b/a.","AM-GM dan: a/b + b/a ≥ 2 (tenglik faqat a = b da). Demak xaridor ≥ 2 kg oldi → <strong>sotuvchi zarar ko‘radi<\/strong>."],"img":"png/4-masala.png","alt":"4-masala: rostlanmagan tarozi masalasi, a/b + b/a ≥ 2, sotuvchi zarar ko‘radi, kitob 82-bet","width":640,"height":600}]},"mashqlar":{"betlar":"83-bet","intro":"Tengsizliklarni isbotlang (183–189):","items":[{"title":"183-mashq.","sub":"Ixtiyoriy haqiqiy a, b, x larda tengsizliklarning o‘rinli ekanligini isbotlang (4 ta variant)."},{"title":"184-mashq.","sub":"Agar ab > 0 bo‘lsa, tengsizlikni isbotlang."},{"title":"185-mashq.","sub":"Agar a > −1, a ≠ 0 bo‘lsa, tengsizlikni isbotlang."},{"title":"186-mashq.","sub":"a ≥ 0, b ≥ 0 va a ≠ b bo‘lsa, (√a + √b)² va 2√2(a + b)√(ab) larning qaysi biri katta?"},{"title":"187-mashq.","sub":"(a+1)(a+2)(a+3)(a+6) ≥ 96 a² (a > 0) ni isbotlang."},{"title":"188-mashq.","sub":"a > 0 da (a + 4)/2 ≥ 3√(a²/4) yoki shunga o‘xshash ni isbotlang."},{"title":"189-mashq.","sub":"a, b, c, d musbat bo‘lsa, (a+c)/(b+d) ≥ min(a/b, c/d) tipidagi tengsizlikni isbotlang."}]},"xulosa":["<strong>To‘g‘ridan-to‘g‘ri isbot<\/strong> — ifodani (√a − √b)² yoki shunga o‘xshash ≥ 0 ko‘rinishiga keltirish.","<strong>Ziddiyat usuli<\/strong> — teskarisini faraz qilib, imkonsiz holatga (manfiy kvadrat) kelish.","AM-GM: (a+b)/2 ≥ √(ab) (a,b > 0), tenglik a = b da.","a + 1/a ≥ 2 (a > 0), tenglik a = 1 da. Bu ikki tengsizlik ko‘p masalalarning asosi."],"xulosaBoard":[{"html":"To‘g‘ridan-to‘g‘ri: <strong>(√a − √b)² ≥ 0<\/strong>"},{"html":"Ziddiyat: teskarisini faraz qil → imkonsiz"},{"html":"AM-GM: <strong>(a+b)/2 ≥ √(ab)<\/strong>"},{"html":"a + 1/a ≥ 2 (a > 0)"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+{
+  "id": 15,
+  "bob": {
+    "roman": "II",
+    "nom": "Tenglamalar va tengsizliklar sistemalari"
+  },
+  "paragraf": "15-§",
+  "title": "Ikkinchi darajali bir noma'lumli tengsizliklar sistemalari",
+  "lead": "Ikkita tengsizlik bir vaqtda: har birini alohida yechamiz, keyin yechim to'plamlarining umumiy qismini (kesishmasini) olamiz.",
+  "prev": {
+    "href": "../14/",
+    "label": "14-dars"
+  },
+  "next": {
+    "href": "../16/",
+    "label": "16-dars"
+  },
+  "agenda": [
+    {
+      "min": 5,
+      "name": "Kirish — 14-§ ni bir jumlada eslash"
+    },
+    {
+      "min": 10,
+      "name": "Sahna — ikki oraliq ustma-ust, kesishma qoladi"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — tengsizliklar sistemasi va kesishma"
+    },
+    {
+      "min": 7,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 10,
+      "name": "Darslikdan mashqlar — daftarga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "ineq-intersect",
+    "ariaLabel": "Interaktiv: kvadrat va chiziqli tengsizlik yechimlarining kesishmasi",
+    "hint": "c ni suring — ikki yechimning kesishmasi o'zgaradi",
+    "vars": {
+      "c": {
+        "min": -4,
+        "max": 2,
+        "step": 0.5,
+        "value": -1,
+        "desc": "chiziqli chegara: x ≥ c"
+      }
+    },
+    "notes": {
+      "inter": "Kesishma (c = {c}): {inter}"
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">14-§ da tenglamalar sistemasini hadma-had qo'shish, ifodalab almashtirish va bo'lish usullari bilan yechdik — u yerda javob nuqta juftliklari (x; y) edi. Bugun shartlar tenglama emas, <strong>tengsizlik</strong>: ikkala tengsizlik ham bir vaqtda bajarilishi kerak. Bunday yozuv <strong>tengsizliklar sistemasi</strong> deyiladi. Yechim endi nuqta emas, balki ikkala yechim to'plamining <strong>umumiy qismi</strong> (kesishmasi) — son o'qidagi oraliq yoki oraliqlar birlashmasi.</p>",
+    "<p>Sahnada yuqori qator — 6-§ dagi 2-masala: <strong>x² − 5x + 6 > 0</strong> (ildizlar 2 va 3, yechim (−∞; 2) ∪ (3; +∞)). Pastki qator — chiziqli chegara <strong>x ≥ c</strong>. c ni suring: qizil-jigarrang chiziq faqat ikkala qator ham «yonib» turgan joyda qoladi. Kitobdagi 1-masala aynan c = −1 holati.</p>"
+  ],
+  "reja": "1) Tengsizliklar sistemasi — ikkala tengsizlik bir vaqtda. 2) Har bir tengsizlik alohida yechiladi (kvadratini 6-§ usuli bilan). 3) Ikkala yechim bitta son o'qida chiziladi. 4) Sistemaning yechimi — shu ikki to'plamning kesishmasi. 5) Modul qatnashgan tengsizlik ikki tomonlama tengsizlikka, u esa sistemaga keltiriladi. 6) Aniqlanish sohasi ham tengsizliklar sistemasi beradi.",
+  "qoida": "<p><strong>Tengsizliklar sistemasi</strong> — bir nechta tengsizlikning barchasi bir vaqtda bajarilishi kerak bo'lgan shart. Yechim — har bir tengsizlikni qanoatlantiruvchi sonlar to'plamining <strong>umumiy qismi</strong> (kesishmasi).</p><p><strong>1) Har birini alohida yech:</strong> kvadrat tengsizlikni 6-§ dagi kabi ildizlari orqali (parabola tarmoqlari qayerga qarab ochilganini hisobga olib) yechamiz; chiziqli tengsizlikni oddiy qoida bilan.</p><p><strong>2) Bitta son o'qida chiz:</strong> har bir yechim to'plamini o'z qatoriga (yoki bir o'qqa turli chiziq bilan) tushiramiz. Uch nuqta yopiq (●, ≤/≥) yoki ochiq (○, </>) bo'lishi kerak.</p><p><strong>3) Kesishmani ol:</strong> faqat ikkala chiziq ham qoplagan oraliqlar qoladi. Bo'sh qolsa — sistemaning yechimi yo'q.</p><p><strong>4) Modul:</strong> |f(x)| < a (a > 0) tengsizlik −a < f(x) < a ikki tomonlama tengsizlikka, u esa ikkita tengsizlikdan iborat sistemaga tengkuchli.</p><p><strong>5) Aniqlanish sohasi:</strong> ildiz ostidagi ifoda manfiy bo'lmasligi kerak — bu ham tengsizliklar sistemasini beradi (9-§ dagi g'oya, endi sistema sifatida).</p>",
+  "savollar": [
+    {
+      "savol": "{ x² − 5x + 6 > 0, x ≥ −1 } sistemasida birinchi tengsizlikning yechimi qanday?",
+      "variantlar": [
+        "(−∞; 2) ∪ (3; +∞)",
+        "[2; 3]",
+        "(−1; 2)"
+      ],
+      "togri": 0
+    },
+    {
+      "savol": "Yuqoridagi ikkala yechimning kesishmasi nima?",
+      "variantlar": [
+        "[−1; 2] ∪ [3; +∞)",
+        "[−1; 2) ∪ (3; +∞)",
+        "(−∞; −1] ∪ [2; 3]"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "|x² − x − 1| < 1 tengsizlik qanday sistemaga tengkuchli?",
+      "variantlar": [
+        "{ x² − x − 2 < 0, x(x − 1) > 0 }",
+        "{ x² − x − 1 < 1, x > 0 }",
+        "{ x² − x − 1 > −1 }"
+      ],
+      "togri": 0
+    }
+  ],
+  "eslabQol": [
+    "Tengsizliklar sistemasi yechimi — har bir tengsizlik yechimining <strong>kesishmasi</strong>, birlashmasi emas.",
+    "Avval har bir tengsizlikni alohida yech, keyin bitta son o'qida ustma-ust chiz.",
+    "|f(x)| < a (a > 0) → −a < f(x) < a → ikkita tengsizlikdan iborat sistema.",
+    "Ildiz ostidagi ifoda ≥ 0 — aniqlanish sohasi ham sistema beradi. Uch nuqtani yopiq/ochiqligini unutma."
+  ],
+  "kitob": {
+    "betlar": "77–80-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-77.png",
+        "bet": "77-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-78.png",
+        "bet": "78-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-79.png",
+        "bet": "79-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-80.png",
+        "bet": "80-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 3 ta masala — o'qituvchi doskada shu tartibda yechib ko'rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.",
+    "masalalar": [
+      {
+        "caption": "1-masala · 77–78-bet",
+        "steps": [
+          "Sistema: <strong>{ x² − 5x + 6 > 0 ; x + 1 ≥ 0 }</strong>. Birinchisi kvadrat, ikkinchisi chiziqli.",
+          "Birinchi tengsizlik — 6-§ dagi 2-masala bilan bir xil: (x − 2)(x − 3) > 0. Tarmoqlar yuqoriga, shuning uchun yechim <strong>x < 2</strong> va <strong>x > 3</strong>, ya'ni (−∞; 2) ∪ (3; +∞).",
+          "Ikkinchi tengsizlik chiziqli: x + 1 ≥ 0 → <strong>x ≥ −1</strong>.",
+          "Ikkala yechimni bitta son o'qida chizamiz (44-rasm). Kesishma: [−1; 2) va (3; +∞).",
+          "Javob: <strong>−1 ≤ x < 2, x > 3</strong> yoki <strong>[−1; 2) ∪ (3; +∞)</strong>."
+        ],
+        "img": "png/1-masala.png",
+        "alt": "1-masala: x²−5x+6>0 va chiziqli tengsizlik sistemasi, 44-rasm, javob −1≤x<2 va x>3, kitob, 77–78-bet",
+        "width": 640,
+        "height": 500
+      },
+      {
+        "caption": "2-masala · 78–79-bet",
+        "steps": [
+          "Tengsizlik: <strong>|x² − x − 1| < 1</strong>. Bu ikki tomonlama tengsizlikka tengkuchli: <strong>−1 < x² − x − 1 < 1</strong>.",
+          "Sistema hosil bo'ladi: <strong>{ x² − x − 2 < 0 ; x² − x > 0 }</strong>.",
+          "Birinchi: D = 1 + 8 = 9, ildizlar x = −1 va x = 2. Tarmoqlar yuqoriga, shuning uchun x² − x − 2 < 0 yechimi <strong>−1 < x < 2</strong>.",
+          "Ikkinchi: x(x − 1) > 0 → yechim <strong>x < 0</strong> va <strong>x > 1</strong>.",
+          "Kesishma (45-rasm): (−1; 0) ∪ (1; 2).",
+          "Javob: <strong>−1 < x < 0, 1 < x < 2</strong>."
+        ],
+        "img": "png/2-masala.png",
+        "alt": "2-masala: |x²−x−1|<1 ni sistemaga keltirish, 45-rasm, javob −1<x<0 va 1<x<2, kitob, 78–79-bet",
+        "width": 640,
+        "height": 718
+      },
+      {
+        "caption": "3-masala · 79-bet",
+        "steps": [
+          "Funksiya: <strong>y = √(3x² − x − 14) + √(−2x)</strong>. Ildiz osti manfiy bo'lmasligi kerak.",
+          "Aniqlanish sohasi sistema: <strong>{ 3x² − x − 14 ≥ 0 ; −2x ≥ 0 }</strong>.",
+          "Diskriminant: D = 1 + 168 = 169, ildizlar x₁ = −2, x₂ = 7/3. Tarmoqlar yuqoriga, shuning uchun 3x² − x − 14 ≥ 0 yechimi <strong>x ≤ −2</strong> va <strong>x ≥ 7/3</strong>.",
+          "Ikkinchi tengsizlikni −1 ga ko'paytiramiz (belgi o'zgaradi): <strong>x ≤ 0</strong>.",
+          "Kesishma (46-rasm): faqat x ≤ −2 qismi qoladi (7/3 > 0, u x ≤ 0 bilan kesishmaydi).",
+          "Javob: <strong>x ≤ −2</strong> yoki <strong>(−∞; −2]</strong>."
+        ],
+        "img": "png/3-masala.png",
+        "alt": "3-masala: y=√(3x²−x−14)+√(−2x) aniqlanish sohasi, 46-rasm, javob x≤−2, kitob, 79-bet",
+        "width": 640,
+        "height": 550
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "80-bet",
+    "intro": "Tengsizliklar sistemasi va modul (176−182):",
+    "items": [
+      {
+        "title": "176-mashq.",
+        "sub": "Tengsizliklar sistemasini yeching: 1) {3x² + 5x − 2 < 0, 4x + 9 > 0}; 2) {3x² + 5x − 2 < 0, 2x + 7 < 0}."
+      },
+      {
+        "title": "177-mashq.",
+        "sub": "Tengsizlikni yeching: 1) |x² − 6x| < 27; 2) |x² + 6x| < 27; 3) |x² − 4x| < 12; 4) x² − 4x < 12."
+      },
+      {
+        "title": "178-mashq.",
+        "sub": "Tengsizliklar sistemalari (x² + x − 6 qatnashgan juftliklar)."
+      },
+      {
+        "title": "179-mashq.",
+        "sub": "Tengsizliklar sistemalari (x² − 3x + 2 va x² + x − 6 qatnashgan juftliklar)."
+      },
+      {
+        "title": "180-mashq.",
+        "sub": "Tengsizliklar sistemalari (7x − x² va x² qatnashgan juftliklar)."
+      },
+      {
+        "title": "181-mashq.",
+        "sub": "Tengsizliklar sistemalari (−x² + x + 20 va x² + 4x qatnashgan juftliklar)."
+      },
+      {
+        "title": "182-mashq.",
+        "sub": "Funksiyaning aniqlanish sohasini toping: 1) y = √(−x² − 6x − 8) + √(x + 2); 2) 80-betdagi ikkinchi ildizli ifoda."
+      }
+    ]
+  },
+  "xulosa": [
+    "<strong>Tengsizliklar sistemasi</strong> yechimi — har bir tengsizlik yechimining kesishmasi.",
+    "Avval alohida yech, keyin bitta son o'qida ustma-ust chiz, umumiy qismni ol.",
+    "|f(x)| < a → −a < f(x) < a → sistema.",
+    "Aniqlanish sohasi (ildiz osti ≥ 0) ham sistema beradi. Uch nuqta yopiq yoki ochiq bo'lishini tekshir."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "Sistema yechimi = yechimlarning <strong>kesishmasi</strong>"
+    },
+    {
+      "html": "Har birini alohida yech → bitta o'qda chiz"
+    },
+    {
+      "html": "|f| < a → ikki tomonlama → sistema"
+    },
+    {
+      "html": "Ildiz osti ≥ 0 — ham sistema"
+    }
+  ]
+}

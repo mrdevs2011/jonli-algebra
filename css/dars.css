@@ -878,6 +878,9 @@
       letter-spacing: 0.01em;
     }
     .sahna1-formula .term-a { color: var(--accent); font-weight: 700; }
+    .sgn-pos { color: #2e7d32; font-weight: 700; }
+    .sgn-neg { color: #c62828; font-weight: 700; }
+    .sgn-zero { color: #757575; font-weight: 700; }
     .sahna1-formula .term-b { color: var(--accent-2); font-weight: 700; }
     .sahna1-formula .term-c { color: var(--gold); font-weight: 700; }
 

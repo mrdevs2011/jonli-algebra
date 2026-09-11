@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":21,"bob":{"roman":"III","nom":"Trigonometriya elementlari"},"paragraf":"21-§","title":"Ayni bir burchakning sinusi, kosinusi va tangensi orasidagi munosabatlar","lead":"Bitta burchakning sinusi, kosinusi va tangensi bir-biriga bog'langan — birortasini bilib, qolganlarini hisoblab topamiz.","prev":{"href":"../20/","label":"20-dars"},"next":{"href":"../22/","label":"22-dars"},"agenda":[{"min":5,"name":"Kirish — 20-§ (sin/cos ishoralari) ni eslash"},{"min":10,"name":"Sahna — birlik aylanada M(cosα; sinα) nuqta"},{"min":10,"name":"Qoida — sin²α+cos²α=1 va undan chiqadigan formulalar"},{"min":8,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":10,"name":"Darslikdan mashqlar — daftarga yechish"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"unit-circle","ariaLabel":"Interaktiv: birlik aylanada burchak va uning sinusi, kosinusi","hint":"t ni suring — M nuqta aylana bo'ylab yuradi, cos t va sin t qiymatlari o'zgaradi","vars":{"t":{"min":0,"max":360,"step":5,"value":30,"desc":"burchak (gradus)"}},"notes":{"q1":"1-chorak: cos t &gt; 0, sin t &gt; 0 — ikkalasi ham musbat","q2":"2-chorak: cos t &lt; 0, sin t &gt; 0","q3":"3-chorak: cos t &lt; 0, sin t &lt; 0 — ikkalasi ham manfiy","q4":"4-chorak: cos t &gt; 0, sin t &lt; 0"}},"kirish":["<p class=\"kirish-nega\">20-§ da ko‘rdik: birlik aylanada nuqta qaysi chorakda turishiga qarab sinα va cosα ning ishorasi o‘zgaradi — masalan uchinchi chorakda ikkalasi ham manfiy, birinchi chorakda ikkalasi ham musbat edi. Lekin ishora — bu hali yarim ma’lumot. Bugun savol boshqacha: agar sinα (yoki cosα, yoki tgα) ning aniq <strong>qiymati<\/strong> ma’lum bo‘lsa, qolgan ikkitasini qanday <strong>hisoblab topish<\/strong> mumkin?<\/p>","<p>Sahnada — xuddi 18-19-§lardagi kabi — birlik aylana va unda yuruvchi M(cosα; sinα) nuqta. t slayderini suring: nuqta koordinatalari o‘zgaradi, lekin ular doim bitta shartni qanoatlantiradi — chunki M nuqta aylanaga tegishli. Aynan shu shart bugungi barcha formulalarning boshlanish nuqtasi bo‘ladi.<\/p>"],"reja":"1) Birlik aylanada M(x;y) nuqta uchun x=cosα, y=sinα, va M nuqta aylanaga tegishli bo'lgani uchun x²+y²=1 — bundan asosiy trigonometrik ayniyat sin²α+cos²α=1 kelib chiqadi. 2) Bu ayniyatdan sinα ni cosα orqali (yoki aksincha) ildiz ostida ifodalash mumkin — ammo ildiz oldidagi ishora burchak qaysi chorakda ekaniga (20-§) qarab tanlanadi. 3) tgα va ctgα ta'rifidan (tgα=sinα/cosα, ctgα=cosα/sinα) ko'paytirib tgα·ctgα=1 kelib chiqadi — ular bir-birining teskarisi. 4) sin²α+cos²α=1 ni cos²α ga bo'lib, 1+tg²α=1/cos²α ayniyatini olamiz — bu orqali tgα dan cosα ni yoki aksincha topish mumkin, sinα ishtirokisiz.","qoida":"<p><strong>1) Asosiy trigonometrik ayniyat.<\/strong> Birlik aylananing M(x;y) nuqtasi α burchakka mos kelsa, ta'rifga ko'ra x=cosα, y=sinα. M nuqta aylanaga tegishli bo'lgani uchun x²+y²=1 tenglamani qanoatlantiradi. Demak:<\/p><p class=\"formula\">sin²α + cos²α = 1&nbsp;&nbsp;(1)<\/p><p>Bu tenglik α ning istalgan qiymatida bajariladi, shuning uchun <strong>ayniyat<\/strong> deyiladi (ikki tomoni doim teng bo'lgan tenglik).<\/p><p><strong>2) Sinusni kosinus orqali, kosinusni sinus orqali ifodalash.<\/strong> (1) dan:<\/p><p class=\"formula\">sinα = ±√(1−cos²α)&nbsp;&nbsp;(2) &nbsp;&nbsp;&nbsp; cosα = ±√(1−sin²α)&nbsp;&nbsp;(3)<\/p><p>Ildiz oldidagi ishora <strong>burchak qaysi chorakda ekaniga<\/strong> (20-§) qarab tanlanadi — masalan burchak ikkinchi chorakda bo'lsa, sinα&gt;0, shuning uchun (2) da &laquo;+&raquo; olinadi.<\/p><p><strong>3) Tangens va kotangens orasidagi bog'lanish.<\/strong> Ta'rifga ko'ra tgα=sinα/cosα, ctgα=cosα/sinα. Bu ikkalasini ko'paytirsak:<\/p><p class=\"formula\">tgα · ctgα = 1&nbsp;&nbsp;(4)<\/p><p>Bundan: tgα = 1/ctgα (5), ctgα = 1/tgα (6) — ya'ni ular bir-birining teskari sonlari.<\/p><p><strong>4) Tangens bilan kosinus orasidagi bog'lanish.<\/strong> (1) tenglikning ikkala qismini cos²α ga bo'lsak (cosα≠0 deb):<\/p><p class=\"formula\">1 + tg²α = 1/cos²α&nbsp;&nbsp;(7)<\/p><p>Bu formula tgα dan cosα ni yoki cosα dan tgα ni topishga imkon beradi — sinαni bilish shart emas.<\/p>","savollar":[{"savol":"sinα = −4/5 ma'lum. cosα ni topish uchun qaysi formuladan foydalanamiz?","variantlar":["cosα = ±√(1−sin²α)","sinα = ±√(1−cos²α)","cosα = 1/sinα"],"togri":0},{"savol":"α uchinchi chorakda (π<α<3π/2) joylashgan. cosα = ±√(1−sin²α) formulada qaysi ishora olinadi?","variantlar":["+ (chunki uchinchi chorakda cosα>0)","− (chunki uchinchi chorakda cosα<0)","Ishorani aniqlab bo'lmaydi"],"togri":1},{"savol":"tgα=3 ma'lum. sinαsiz, faqat (7) formuladan foydalanib nimani darhol topish mumkin?","variantlar":["ctgα ni","cos²α ni (1+tg²α=1/cos²α orqali)","α burchakning o'zini gradusda"],"togri":1}],"eslabQol":["<strong>Asosiy trigonometrik ayniyat:<\/strong> sin²α + cos²α = 1 — bu birlik aylananing M(cosα; sinα) nuqtasi x²+y²=1 tenglamani qanoatlantirishidan kelib chiqadi.","sinα va cosα ni bir-biri orqali topganda ildiz oldidagi ishorani <strong>burchak qaysi chorakda<\/strong> ekaniga (20-§) qarab tanlaymiz.","tgα · ctgα = 1 — ular bir-birining teskarisi. 1 + tg²α = 1/cos²α — tgα bilan cosα orasidagi bog'lanish, sinαsiz ham ishlaydi."],"kitob":{"betlar":"112–115-betlar","sahifalar":[{"img":"../../../../kitob/kitob-112.png","bet":"112-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-113.png","bet":"113-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-114.png","bet":"114-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-115.png","bet":"115-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi barcha 6 ta namunaviy masala — o'qituvchi doskada shu tartibda yechib ko'rsatadi, har biri (1)-(7) formulalardan birini ishlatadi.","masalalar":[{"caption":"1-masala · 113-bet","steps":["Berilgan: <strong>cosα = −3/5<\/strong>, <strong>π &lt; α &lt; 3π/2<\/strong> (uchinchi chorak). sinα ni topish kerak.","(2) formuladan foydalanamiz: sinα = ±√(1−cos²α).","Uchinchi chorakda sinα &lt; 0 bo'lgani uchun ildiz oldiga &laquo;−&raquo; ishorasini qo'yamiz.","sinα = −√(1−9/25) = −√(16/25) = <strong>−4/5<\/strong>."],"img":"png/1-masala.png","alt":"1-masala: cosα=−3/5, π<α<3π/2 bo'lganda sinα=−4/5 topish, (2) formuladan foydalanib, kitob, 113-bet","width":640,"height":169},{"caption":"2-masala · 113-bet","steps":["Berilgan: <strong>sinα = 1/3<\/strong>, <strong>−π/2 &lt; α &lt; 0<\/strong> (to'rtinchi chorak). cosα ni topish kerak.","(3) formuladan foydalanamiz: cosα = ±√(1−sin²α).","To'rtinchi chorakda cosα &gt; 0 bo'lgani uchun ildiz oldiga &laquo;+&raquo; ishorasini qo'yamiz.","cosα = √(1−1/9) = √(8/9) = <strong>2√2/3<\/strong>."],"img":"png/2-masala.png","alt":"2-masala: sinα=1/3, −π/2<α<0 bo'lganda cosα=2√2/3 topish, (3) formuladan foydalanib, kitob, 113-bet","width":640,"height":143},{"caption":"3-masala · 114-bet","steps":["Berilgan: <strong>tgα = 13<\/strong>. ctgα ni topish kerak.","(6) formuladan foydalanamiz: ctgα = 1/tgα.","ctgα = 1/13 — bu yerda burchak qaysi chorakda ekani ahamiyatsiz, chunki (6) faqat tgα va ctgα ni bog'laydi, ular ishorasi doim bir xil.","Javob: ctgα = <strong>1/13<\/strong>."],"img":"png/3-masala.png","alt":"3-masala: tgα=13 bo'lganda (6) formuladan ctgα=1/13 topish, kitob, 114-bet","width":640,"height":62},{"caption":"4-masala · 114-bet","steps":["Berilgan: <strong>sinα = 0,8<\/strong>, <strong>π/2 &lt; α &lt; π<\/strong> (ikkinchi chorak). tgα ni topish kerak.","Avval (3) formuladan cosα ni topamiz. Ikkinchi chorakda cosα &lt; 0, shuning uchun &laquo;−&raquo; ishora:","cosα = −√(1−0,64) = −√0,36 = −0,6.","Endi ta'rifdan: tgα = sinα/cosα = 0,8/(−0,6) = <strong>−4/3<\/strong>."],"img":"png/4-masala.png","alt":"4-masala: sinα=0,8, π/2<α<π bo'lganda avval cosα=−0,6, so'ng tgα=−4/3 topish, kitob, 114-bet","width":640,"height":191},{"caption":"5-masala · 115-bet","steps":["Berilgan: <strong>cosα = −3/5<\/strong>, <strong>π/2 &lt; α &lt; π<\/strong> (ikkinchi chorak). tgα ni topish kerak.","(7) formuladan foydalanamiz: tg²α = 1/cos²α − 1.","tg²α = 1/(9/25) − 1 = 25/9 − 1 = 16/9.","Ikkinchi chorakda tangens manfiy bo'lgani uchun (20-§): tgα = <strong>−4/3<\/strong>."],"img":"png/5-masala.png","alt":"5-masala: cosα=−3/5, π/2<α<π bo'lganda (7) formuladan tgα=−4/3 topish, kitob, 115-bet","width":640,"height":142},{"caption":"6-masala · 115-bet","steps":["Berilgan: <strong>tgα = 3<\/strong>, <strong>π &lt; α &lt; 3π/2<\/strong> (uchinchi chorak). cosα ni topish kerak.","(7) formuladan foydalanamiz: cos²α = 1/(1+tg²α) = 1/(1+9) = 1/10.","Uchinchi chorakda cosα &lt; 0 bo'lgani uchun ildiz oldiga &laquo;−&raquo; ishorasini qo'yamiz.","cosα = <strong>−√0,1<\/strong>."],"img":"png/6-masala.png","alt":"6-masala: tgα=3, π<α<3π/2 bo'lganda (7) formuladan cosα=−√0,1 topish, kitob, 115-bet","width":640,"height":144}]},"mashqlar":{"betlar":"116-bet","intro":"Amallarni bajaring (255−262):","items":[{"title":"255-mashq.","sub":"Agar: 1) cosα=5/13 va 3π/2<α<2π bo'lsa, sinα va tgα ni; 2) sinα=0,8 va π/2<α<π bo'lsa, cosα va tgα ni; 3) cosα=−3/5 va π/2<α<π bo'lsa, sinα, tgα va ctgα ni; 4) sinα=−2/5 va π<α<3π/2 bo'lsa, cosα, tgα va ctgα ni; 5) tgα=15/8 va π<α<3π/2 bo'lsa, sinα va cosα ni; 6) ctgα=−3 va 3π/2<α<2π bo'lsa, sinα va cosα ni hisoblang."},{"title":"256-mashq.","sub":"Asosiy trigonometrik ayniyat yordamida tengliklar bir vaqtda bajarilishi yoki bajarilmasligini aniqlang: 1) sinα=1 va cosα=1; 2) sinα=0 va cosα=−1; 3) sinα=−4/5 va cosα=−3/5; 4) sinα=1/3 va cosα=−1/2."},{"title":"257-mashq.","sub":"Tengliklar bir vaqtda bajarilishi mumkinmi: 1) sinα=1/5 va tgα=1/√24; 2) ctgα=√7/3 va cosα=3/4?"},{"title":"258-mashq.","sub":"Aytaylik, to'g'ri burchakli uchburchakning burchaklaridan biri α bo'lsin. Agar sinα=2√10/11 bo'lsa, cosα va tgα ni toping."},{"title":"259-mashq.","sub":"Teng yonli uchburchakning uchidagi burchagining tangensi 2√2 ga teng. Shu burchakning kosinusini toping."},{"title":"260-mashq.","sub":"Agar cos⁴α−sin⁴α=1/8 bo'lsa, cosα ni toping."},{"title":"261-mashq.","sub":"1) sinα=2√3/5 bo'lsa, cosα ni toping; 2) cosα=−1/√5 bo'lsa, sinα ni toping."},{"title":"262-mashq.","sub":"tgα=2 ekanligi ma'lum. Ifodaning qiymatini toping: 1) (ctgα+tgα)/(ctgα−tgα); 2) (sinα−cosα)/(sinα+cosα); 3) (2sinα+3cosα)/(3sinα−5cosα); 4) (sin2α−2cos2α)/(sin²α−cos²α); 5) (3sinα−2cosα)/(4sinα+cosα); 6) (3sin²α+cos²α)/(2sin²α−cos²α)."}]},"xulosa":["<strong>Asosiy trigonometrik ayniyat:<\/strong> sin²α + cos²α = 1 — birlik aylananing M(cosα; sinα) nuqtasi x²+y²=1 tenglamani qanoatlantirishidan kelib chiqadi.","sinα ↔ cosα formulalarida ildiz oldidagi ishora burchakning choragiga (20-§) bog'liq.","tgα · ctgα = 1 — bir-birining teskarisi.","1 + tg²α = 1/cos²α — tgα va cosα orasidagi to'g'ridan-to'g'ri bog'lanish, sinαsiz ham ishlaydi."],"xulosaBoard":[{"html":"sin²α + cos²α = <strong>1<\/strong>"},{"html":"Ishora → burchak qaysi <strong>chorakda<\/strong> ekaniga qarab"},{"html":"tgα · ctgα = <strong>1<\/strong>"},{"html":"1 + tg²α = <strong>1/cos²α<\/strong>"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

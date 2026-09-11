@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":15,"bob":{"roman":"II","nom":"Tenglamalar va tengsizliklar sistemalari"},"paragraf":"15-§","title":"Ikkinchi darajali bir noma'lumli tengsizliklar sistemalari","lead":"Ikkita tengsizlik bir vaqtda: har birini alohida yechamiz, keyin yechim to'plamlarining umumiy qismini (kesishmasini) olamiz.","prev":{"href":"../14/","label":"14-dars"},"next":{"href":"../16/","label":"16-dars"},"agenda":[{"min":5,"name":"Kirish — 14-§ ni bir jumlada eslash"},{"min":10,"name":"Sahna — ikki oraliq ustma-ust, kesishma qoladi"},{"min":8,"name":"Qoida — tengsizliklar sistemasi va kesishma"},{"min":7,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":10,"name":"Darslikdan mashqlar — daftarga yechish"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"ineq-intersect","ariaLabel":"Interaktiv: kvadrat va chiziqli tengsizlik yechimlarining kesishmasi","hint":"c ni suring — ikki yechimning kesishmasi o'zgaradi","vars":{"c":{"min":-4,"max":2,"step":0.5,"value":-1,"desc":"chiziqli chegara: x ≥ c"}},"notes":{"inter":"Kesishma (c = {c}): {inter}"}},"kirish":["<p class=\"kirish-nega\">14-§ da tenglamalar sistemasini hadma-had qo'shish, ifodalab almashtirish va bo'lish usullari bilan yechdik — u yerda javob nuqta juftliklari (x; y) edi. Bugun shartlar tenglama emas, <strong>tengsizlik<\/strong>: ikkala tengsizlik ham bir vaqtda bajarilishi kerak. Bunday yozuv <strong>tengsizliklar sistemasi<\/strong> deyiladi. Yechim endi nuqta emas, balki ikkala yechim to'plamining <strong>umumiy qismi<\/strong> (kesishmasi) — son o'qidagi oraliq yoki oraliqlar birlashmasi.<\/p>","<p>Sahnada yuqori qator — 6-§ dagi 2-masala: <strong>x² − 5x + 6 > 0<\/strong> (ildizlar 2 va 3, yechim (−∞; 2) ∪ (3; +∞)). Pastki qator — chiziqli chegara <strong>x ≥ c<\/strong>. c ni suring: qizil-jigarrang chiziq faqat ikkala qator ham «yonib» turgan joyda qoladi. Kitobdagi 1-masala aynan c = −1 holati.<\/p>"],"reja":"1) Tengsizliklar sistemasi — ikkala tengsizlik bir vaqtda. 2) Har bir tengsizlik alohida yechiladi (kvadratini 6-§ usuli bilan). 3) Ikkala yechim bitta son o'qida chiziladi. 4) Sistemaning yechimi — shu ikki to'plamning kesishmasi. 5) Modul qatnashgan tengsizlik ikki tomonlama tengsizlikka, u esa sistemaga keltiriladi. 6) Aniqlanish sohasi ham tengsizliklar sistemasi beradi.","qoida":"<p><strong>Tengsizliklar sistemasi<\/strong> — bir nechta tengsizlikning barchasi bir vaqtda bajarilishi kerak bo'lgan shart. Yechim — har bir tengsizlikni qanoatlantiruvchi sonlar to'plamining <strong>umumiy qismi<\/strong> (kesishmasi).<\/p><p><strong>1) Har birini alohida yech:<\/strong> kvadrat tengsizlikni 6-§ dagi kabi ildizlari orqali (parabola tarmoqlari qayerga qarab ochilganini hisobga olib) yechamiz; chiziqli tengsizlikni oddiy qoida bilan.<\/p><p><strong>2) Bitta son o'qida chiz:<\/strong> har bir yechim to'plamini o'z qatoriga (yoki bir o'qqa turli chiziq bilan) tushiramiz. Uch nuqta yopiq (●, ≤/≥) yoki ochiq (○, <\/>) bo'lishi kerak.<\/p><p><strong>3) Kesishmani ol:<\/strong> faqat ikkala chiziq ham qoplagan oraliqlar qoladi. Bo'sh qolsa — sistemaning yechimi yo'q.<\/p><p><strong>4) Modul:<\/strong> |f(x)| < a (a > 0) tengsizlik −a < f(x) < a ikki tomonlama tengsizlikka, u esa ikkita tengsizlikdan iborat sistemaga tengkuchli.<\/p><p><strong>5) Aniqlanish sohasi:<\/strong> ildiz ostidagi ifoda manfiy bo'lmasligi kerak — bu ham tengsizliklar sistemasini beradi (9-§ dagi g'oya, endi sistema sifatida).<\/p>","savollar":[{"savol":"{ x² − 5x + 6 > 0, x ≥ −1 } sistemasida birinchi tengsizlikning yechimi qanday?","variantlar":["(−∞; 2) ∪ (3; +∞)","[2; 3]","(−1; 2)"],"togri":0},{"savol":"Yuqoridagi ikkala yechimning kesishmasi nima?","variantlar":["[−1; 2] ∪ [3; +∞)","[−1; 2) ∪ (3; +∞)","(−∞; −1] ∪ [2; 3]"],"togri":1},{"savol":"|x² − x − 1| < 1 tengsizlik qanday sistemaga tengkuchli?","variantlar":["{ x² − x − 2 < 0, x(x − 1) > 0 }","{ x² − x − 1 < 1, x > 0 }","{ x² − x − 1 > −1 }"],"togri":0}],"eslabQol":["Tengsizliklar sistemasi yechimi — har bir tengsizlik yechimining <strong>kesishmasi<\/strong>, birlashmasi emas.","Avval har bir tengsizlikni alohida yech, keyin bitta son o'qida ustma-ust chiz.","|f(x)| < a (a > 0) → −a < f(x) < a → ikkita tengsizlikdan iborat sistema.","Ildiz ostidagi ifoda ≥ 0 — aniqlanish sohasi ham sistema beradi. Uch nuqtani yopiq/ochiqligini unutma."],"kitob":{"betlar":"77–80-betlar","sahifalar":[{"img":"../../../../kitob/kitob-77.png","bet":"77-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-78.png","bet":"78-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-79.png","bet":"79-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-80.png","bet":"80-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 3 ta masala — o'qituvchi doskada shu tartibda yechib ko'rsatadi. Har birida rasm (kitobdan) va yoniga \"Keyingi qadam\" bilan ochiladigan tushuntirish bor.","masalalar":[{"caption":"1-masala · 77–78-bet","steps":["Sistema: <strong>{ x² − 5x + 6 > 0 ; x + 1 ≥ 0 }<\/strong>. Birinchisi kvadrat, ikkinchisi chiziqli.","Birinchi tengsizlik — 6-§ dagi 2-masala bilan bir xil: (x − 2)(x − 3) > 0. Tarmoqlar yuqoriga, shuning uchun yechim <strong>x < 2<\/strong> va <strong>x > 3<\/strong>, ya'ni (−∞; 2) ∪ (3; +∞).","Ikkinchi tengsizlik chiziqli: x + 1 ≥ 0 → <strong>x ≥ −1<\/strong>.","Ikkala yechimni bitta son o'qida chizamiz (44-rasm). Kesishma: [−1; 2) va (3; +∞).","Javob: <strong>−1 ≤ x < 2, x > 3<\/strong> yoki <strong>[−1; 2) ∪ (3; +∞)<\/strong>."],"img":"png/1-masala.png","alt":"1-masala: x²−5x+6>0 va chiziqli tengsizlik sistemasi, 44-rasm, javob −1≤x<2 va x>3, kitob, 77–78-bet","width":640,"height":500},{"caption":"2-masala · 78–79-bet","steps":["Tengsizlik: <strong>|x² − x − 1| < 1<\/strong>. Bu ikki tomonlama tengsizlikka tengkuchli: <strong>−1 < x² − x − 1 < 1<\/strong>.","Sistema hosil bo'ladi: <strong>{ x² − x − 2 < 0 ; x² − x > 0 }<\/strong>.","Birinchi: D = 1 + 8 = 9, ildizlar x = −1 va x = 2. Tarmoqlar yuqoriga, shuning uchun x² − x − 2 < 0 yechimi <strong>−1 < x < 2<\/strong>.","Ikkinchi: x(x − 1) > 0 → yechim <strong>x < 0<\/strong> va <strong>x > 1<\/strong>.","Kesishma (45-rasm): (−1; 0) ∪ (1; 2).","Javob: <strong>−1 < x < 0, 1 < x < 2<\/strong>."],"img":"png/2-masala.png","alt":"2-masala: |x²−x−1|<1 ni sistemaga keltirish, 45-rasm, javob −1<x<0 va 1<x<2, kitob, 78–79-bet","width":640,"height":718},{"caption":"3-masala · 79-bet","steps":["Funksiya: <strong>y = √(3x² − x − 14) + √(−2x)<\/strong>. Ildiz osti manfiy bo'lmasligi kerak.","Aniqlanish sohasi sistema: <strong>{ 3x² − x − 14 ≥ 0 ; −2x ≥ 0 }<\/strong>.","Diskriminant: D = 1 + 168 = 169, ildizlar x₁ = −2, x₂ = 7/3. Tarmoqlar yuqoriga, shuning uchun 3x² − x − 14 ≥ 0 yechimi <strong>x ≤ −2<\/strong> va <strong>x ≥ 7/3<\/strong>.","Ikkinchi tengsizlikni −1 ga ko'paytiramiz (belgi o'zgaradi): <strong>x ≤ 0<\/strong>.","Kesishma (46-rasm): faqat x ≤ −2 qismi qoladi (7/3 > 0, u x ≤ 0 bilan kesishmaydi).","Javob: <strong>x ≤ −2<\/strong> yoki <strong>(−∞; −2]<\/strong>."],"img":"png/3-masala.png","alt":"3-masala: y=√(3x²−x−14)+√(−2x) aniqlanish sohasi, 46-rasm, javob x≤−2, kitob, 79-bet","width":640,"height":550}]},"mashqlar":{"betlar":"80-bet","intro":"Tengsizliklar sistemasi va modul (176−182):","items":[{"title":"176-mashq.","sub":"Tengsizliklar sistemasini yeching: 1) {3x² + 5x − 2 < 0, 4x + 9 > 0}; 2) {3x² + 5x − 2 < 0, 2x + 7 < 0}."},{"title":"177-mashq.","sub":"Tengsizlikni yeching: 1) |x² − 6x| < 27; 2) |x² + 6x| < 27; 3) |x² − 4x| < 12; 4) x² − 4x < 12."},{"title":"178-mashq.","sub":"Tengsizliklar sistemalari (x² + x − 6 qatnashgan juftliklar)."},{"title":"179-mashq.","sub":"Tengsizliklar sistemalari (x² − 3x + 2 va x² + x − 6 qatnashgan juftliklar)."},{"title":"180-mashq.","sub":"Tengsizliklar sistemalari (7x − x² va x² qatnashgan juftliklar)."},{"title":"181-mashq.","sub":"Tengsizliklar sistemalari (−x² + x + 20 va x² + 4x qatnashgan juftliklar)."},{"title":"182-mashq.","sub":"Funksiyaning aniqlanish sohasini toping: 1) y = √(−x² − 6x − 8) + √(x + 2); 2) 80-betdagi ikkinchi ildizli ifoda."}]},"xulosa":["<strong>Tengsizliklar sistemasi<\/strong> yechimi — har bir tengsizlik yechimining kesishmasi.","Avval alohida yech, keyin bitta son o'qida ustma-ust chiz, umumiy qismni ol.","|f(x)| < a → −a < f(x) < a → sistema.","Aniqlanish sohasi (ildiz osti ≥ 0) ham sistema beradi. Uch nuqta yopiq yoki ochiq bo'lishini tekshir."],"xulosaBoard":[{"html":"Sistema yechimi = yechimlarning <strong>kesishmasi<\/strong>"},{"html":"Har birini alohida yech → bitta o'qda chiz"},{"html":"|f| < a → ikki tomonlama → sistema"},{"html":"Ildiz osti ≥ 0 — ham sistema"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>
