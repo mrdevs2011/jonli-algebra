@@ -11,13 +11,10 @@
     "href": "../21/",
     "label": "21-dars"
   },
-  "next": {
-    "href": "../23/",
-    "label": "23-dars"
-  },
+  "next": null,
   "agenda": [
     {
-      "min": 5,
+      "min": 4,
       "name": "Kirish — 21-§ (sin²α+cos²α=1 va tg, ctg formulalari) ni eslash"
     },
     {
@@ -25,11 +22,11 @@
       "name": "Sahna — birlik aylanada nuqta har doim aylanada qolishini ko'rish"
     },
     {
-      "min": 10,
+      "min": 9,
       "name": "Qoida — ayniyat nima va uni isbotlash usuli"
     },
     {
-      "min": 12,
+      "min": 9,
       "name": "Doska — 5 ta masalani birga isbotlash"
     },
     {
@@ -37,8 +34,8 @@
       "name": "Savollar — sinf ovoz bilan javob beradi"
     },
     {
-      "min": 10,
-      "name": "Darslikdan mashqlar — daftarga yechish"
+      "min": 5,
+      "name": "Darslikdan mashqlar — sinfda 1ta boshlanadi, qolgani uyga"
     },
     {
       "min": 5,

@@ -151,6 +151,30 @@
         "height": 680
       },
       {
+        "caption": "Radian/gradus jadvali · 99-bet",
+        "steps": [
+          "54-rasm jadvali: 0° dan 360° gacha (va manfiylari) burchaklarning radian va gradus qiymatlari yonma-yon.",
+          "Namuna: π/6 = 30°, π/4 = 45°, π/3 = 60°, π/2 = 90°, π = 180°, 3π/2 = 270°, 2π = 360°.",
+          "Manfiy tomon: −π/2 = −90°, −π = −180° — soat mili yo‘nalishidagi burishga mos."
+        ],
+        "img": "png/tarif-99.png",
+        "alt": "54-rasm: radian va gradus o‘lchovlari taqqoslash jadvali, kitob 99-bet",
+        "width": 640,
+        "height": 680
+      },
+      {
+        "caption": "α + 2πk xossasi vizual isbot · 100-bet",
+        "steps": [
+          "55–56-rasm: 9π/2 va −9π/2 burchaklarga burish — ikkalasi ham qo‘shimcha to‘la aylanishlardan (2π·k) keyin xuddi π/2 (yoki −π/2) ga burishdagi nuqtani beradi.",
+          "57-rasm (a,b): M nuqta α ga burishda qanday joylashgan bo‘lsa, α+2π va α−2π ga burishda ham AYNI shu joyda qoladi — chunki 2π to‘la bir aylanish.",
+          "Xulosa: nuqtaning joyi FAQAT α ning 2π ga bo‘lingandagi qoldig‘iga bog‘liq — shuning uchun α = α₀ + 2πk formula ishlaydi."
+        ],
+        "img": "png/tarif-100.png",
+        "alt": "55–57-rasm: α+2πk xossasining vizual isboti, kitob 100-bet",
+        "width": 640,
+        "height": 680
+      },
+      {
         "caption": "1-masala · 101-bet",
         "steps": [
           "P(1; 0) nuqtani: 1) <strong>7π</strong>; 2) <strong>−5π/2</strong> burchakka burishdan hosil bo‘lgan nuqta koordinatalarini toping.",
