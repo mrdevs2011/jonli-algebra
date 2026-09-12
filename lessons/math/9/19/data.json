@@ -146,7 +146,11 @@
           "sin(−π) va cos(−π) ni topish kerak. (1;0) nuqtani −π burchakka burganda u (−1; 0) nuqtaga o'tadi (59-rasm).",
           "(−1;0) nuqtaning ordinatasi 0, abssissasi −1.",
           "Javob: <strong>sin(−π) = 0, cos(−π) = −1</strong>."
-        ]
+        ],
+        "img": "png/1-masala.png",
+        "alt": "1-masala: sin(−π) va cos(−π) ni topish, 104-bet",
+        "width": 640,
+        "height": 64
       },
       {
         "caption": "2-masala · 104-bet",
@@ -155,7 +159,11 @@
           "sin270° va cos270° ni topish kerak. (1;0) nuqtani 270° ga burganda u (0; −1) nuqtaga o'tadi (60-rasm).",
           "(0;−1) nuqtaning abssissasi 0, ordinatasi −1.",
           "Javob: <strong>cos270° = 0, sin270° = −1</strong>."
-        ]
+        ],
+        "img": "png/2-masala.png",
+        "alt": "2-masala: sin270° va cos270° ni topish, 104-bet",
+        "width": 640,
+        "height": 70
       },
       {
         "caption": "3-masala · 105-bet",
@@ -165,7 +173,11 @@
           "Birlik aylanada ordinatasi nolga teng bo'lgan ikkita nuqta bor: (1;0) va (−1;0). Bu nuqtalar (1;0) nuqtani 0, π, 2π, ... va −π, −2π, ... burchaklarga burish bilan hosil qilinadi.",
           "Barcha bunday burchaklarni bitta formulada yozish uchun <strong>k ∈ Z</strong> (k — butun son) belgisidan foydalanamiz.",
           "Javob: <strong>t = πk, k ∈ Z</strong>."
-        ]
+        ],
+        "img": "png/3-masala.png",
+        "alt": "3-masala: sin t = 0 tenglamani yechish, 105-bet",
+        "width": 640,
+        "height": 320
       },
       {
         "caption": "4-masala · 105-bet",
@@ -174,7 +186,11 @@
           "cos t = 0 tenglamani yeching. Birlik aylanada abssissasi nolga teng bo'lgan ikkita nuqta bor: (0;1) va (0;−1).",
           "Bu nuqtalar (1;0) nuqtani π/2, π/2+π, π/2+2π va hokazo, shuningdek π/2−π, π/2−2π va hokazo burchaklarga burish bilan hosil qilinadi.",
           "Javob: <strong>t = π/2 + πk, k ∈ Z</strong>."
-        ]
+        ],
+        "img": "png/4-masala.png",
+        "alt": "4-masala: cos t = 0 tenglamani yechish, 105-bet",
+        "width": 640,
+        "height": 185
       },
       {
         "caption": "5-masala · 105-bet",
@@ -183,12 +199,20 @@
           "sin t = 1: birlik aylananing (0;1) nuqtasi birga teng ordinataga ega. Bu nuqta (1;0) nuqtani π/2 + 2πk, k∈Z burchakka burish bilan hosil qilinadi.",
           "cos t = 1: (1;0) nuqtani 2πk, k∈Z burchakka burganda uning abssissasi 1 bo'lib qoladi (nuqta o'ziga qaytadi).",
           "Javob: <strong>sin t = 1 bo'lganda t = π/2 + 2πk</strong>; <strong>cos t = 1 bo'lganda t = 2πk</strong>, k ∈ Z."
-        ]
+        ],
+        "img": "png/5-masala.png",
+        "alt": "5-masala: sin t = 1 va cos t = 1, 105-bet",
+        "width": 640,
+        "height": 200
       },
       {
         "caption": "Ta'rif (tg, ctg) · 106-bet",
         "kirish": "Tangens va kotangensni sinus/kosinus orqali kiritamiz.",
-        "static": "<strong>tg α = sin α / cos α</strong> (cos α ≠ 0 bo'lganda, ya'ni α ≠ π/2 + πk). <strong>ctg α = cos α / sin α</strong> (sin α ≠ 0 bo'lganda, ya'ni α ≠ πk). Masalan, tg(π/4) = sin(π/4)/cos(π/4) = (√2/2)/(√2/2) = 1. Kitobdagi jadvalda 0, π/6, π/4, π/3, π/2, π, 3π/2, 2π burchaklar uchun barcha to'rtta qiymat keltirilgan — shu jadval yodlab olinadi."
+        "static": "<strong>tg α = sin α / cos α</strong> (cos α ≠ 0 bo'lganda, ya'ni α ≠ π/2 + πk). <strong>ctg α = cos α / sin α</strong> (sin α ≠ 0 bo'lganda, ya'ni α ≠ πk). Masalan, tg(π/4) = sin(π/4)/cos(π/4) = (√2/2)/(√2/2) = 1. Kitobdagi jadvalda 0, π/6, π/4, π/3, π/2, π, 3π/2, 2π burchaklar uchun barcha to'rtta qiymat keltirilgan — shu jadval yodlab olinadi.",
+        "img": "png/tarif.png",
+        "alt": "Tangens va kotangens ta'riflari va qiymatlar jadvali, 106-bet",
+        "width": 640,
+        "height": 715
       },
       {
         "caption": "6-masala · 107-bet",
@@ -198,7 +222,11 @@
           "Jadvaldan: sin(π/6) = 1/2, cos(π/6) = √3/2, tg(π/4) = 1.",
           "4·(1/2) + √3·(√3/2) − 1 = 2 + 3/2 − 1.",
           "Javob: <strong>2,5</strong>."
-        ]
+        ],
+        "img": "png/6-masala.png",
+        "alt": "6-masala: 4sin(π/6)+√3cos(π/6)−tg(π/4) hisoblash, 107-bet",
+        "width": 640,
+        "height": 130
       }
     ]
   },
