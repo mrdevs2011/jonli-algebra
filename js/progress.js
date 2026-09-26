@@ -13,10 +13,10 @@
    * Tayyor darslar ro‘yxati.
    * Dars to‘liq yozilib, sinovdan o‘tgach shu yerga raqam qo‘shiladi.
    * Misol: return [1, 2, 3, 4, 5, 6];
-   * Hozir poydevor — hech narsa ochilmagan.
+   * 1–25 darslar tayyor (2026-09-26).
    */
   function readyIds() {
-    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
   }
 
   function read() {
