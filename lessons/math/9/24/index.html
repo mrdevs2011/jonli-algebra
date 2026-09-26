@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":24,"bob":{"roman":"III","nom":"Trigonometriya elementlari"},"paragraf":"24-§","title":"Qo'shish formulalari","lead":"Ikki burchak yig'indisi va ayirmasining sinus va kosinusini qanday hisoblashni o'rganamiz — birlik aylanada ketma-ket ikki burilish.","prev":{"href":"../23/","label":"23-dars"},"next":{"href":"../25/","label":"25-dars"},"agenda":[{"min":4,"name":"Kirish — 23-§ (α va −α formulalari) ni eslash"},{"min":8,"name":"Sahna — ikki ketma-ket burilish (α, keyin β) birlik aylanada"},{"min":8,"name":"Qoida — cos(α±β) va sin(α±β) formulalari"},{"min":10,"name":"Doska — formulalarni chiqarish va 4–6 masalani hisoblash"},{"min":5,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":5,"name":"Darslikdan mashqlar — sinfda 1ta boshlanadi, qolgani uyga"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"unit-circle","ariaLabel":"Interaktiv chizma: birlik aylanada α va α+β burchaklari — ikki ketma-ket burilish","hint":"Slayderni suring. Avval α burchakka, keyin β qo'shib α+β ga o'tamiz. Nuqta koordinatalari cos(α+β) va sin(α+β) ni beradi.","vars":{"t":{"min":0,"max":180,"step":5,"value":45,"desc":"burchak α (gradus)"}},"notes":{"q1":"α = {t}°. Birinchi burilish: nuqta (cosα; sinα).","q2":"Ikkinchi burilish (masalan +30°): yangi nuqta (cos(α+30°); sin(α+30°)).","q3":"cos(α+β) = cosα·cosβ − sinα·sinβ formulasi shu geometriyadan chiqadi.","q4":"Sinus uchun ham xuddi shunday: sin(α+β) = sinα·cosβ + cosα·sinβ."}},"kirish":["<p class=\"kirish-nega\">23-§da <strong>α va −α</strong> burchaklar uchun formulalarni chiqargan edik: sin(−α)=−sinα, cos(−α)=cosα. Bu simmetriya bugungi isbotlarda ham ishlatiladi. Bugun yangi savol: <strong>ikki ixtiyoriy burchak</strong>ning yig'indisi yoki ayirmasining sinus va kosinusi qanday ifodalanadi?</p>","<p>Sahnadagi slayderni suring. Avval α burchakka buramiz, keyin yana β qo'shamiz — natijada α+β hosil bo'ladi. Mana shu ketma-ket ikki burilish bugungi barcha formulalarning geometrik asosi.</p>"],"reja":"Birlik aylanada ketma-ket ikki burilishdan cos(α±β) va sin(α±β) formulalarini chiqaramiz, so'ng aniq misollarda qo'llaymiz.","qoida":"<p>Birlik aylanada P(1; 0) nuqtani avval α, keyin β burchakka (yoki −β) burib, α±β burchakli nuqta hosil qilamiz. Masofalar tengligidan va asosiy trigonometrik ayniyatdan quyidagi formulalar chiqadi:</p><p><strong>cos(α + β) = cosα cosβ − sinα sinβ</strong> &nbsp;(1)</p><p><strong>cos(α − β) = cosα cosβ + sinα sinβ</strong> &nbsp;(2)</p><p><strong>sin(α + β) = sinα cosβ + cosα sinβ</strong> &nbsp;(5)</p><p><strong>sin(α − β) = sinα cosβ − cosα sinβ</strong> &nbsp;(6)</p><p>Bu formulalar α va β ning istalgan qiymatlarida o'rinli. Ulardan foydalanib, ma'lum burchaklar (30°, 45°, 60°) yig'indisi yoki ayirmasining qiymatini topish mumkin.</p><p>Shuningdek, (1)–(4) dan maxsus holatlar chiqadi, masalan: cos(π/2 − α) = sinα, sin(π/2 − α) = cosα.</p>","savollar":[{"savol":"cos(α + β) formulasi qaysi?","variantlar":["cosα cosβ + sinα sinβ","cosα cosβ − sinα sinβ","sinα cosβ + cosα sinβ"],"togri":1},{"savol":"sin(α − β) formulasi qaysi?","variantlar":["sinα cosβ + cosα sinβ","sinα cosβ − cosα sinβ","cosα cosβ − sinα sinβ"],"togri":1},{"savol":"cos75° = cos(45°+30°) qiymati qancha?","variantlar":["(√6 + √2)/4","(√6 − √2)/4","√2/2"],"togri":1}],"eslabQol":["<strong>cos(α+β) = cosα cosβ − sinα sinβ</strong>","<strong>cos(α−β) = cosα cosβ + sinα sinβ</strong>","<strong>sin(α+β) = sinα cosβ + cosα sinβ</strong>","<strong>sin(α−β) = sinα cosβ − cosα sinβ</strong>","Ma'lum burchaklar (30°, 45°, 60°) yig'indisi/ayirmasi orqali yangi qiymatlar topiladi."],"kitob":{"betlar":"122–124-betlar","sahifalar":[{"img":"../../../../kitob/kitob-122.png","bet":"122-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-123.png","bet":"123-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-124.png","bet":"124-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 24-§ — qo'shish formulalarini chiqarish va misollar. Rasmlar crop.md bo'yicha keyin qo'shiladi.","masalalar":[{"caption":"1. cos(α+β) formulasi · 122-bet","kirish":"Birlik aylanada ketma-ket burilishdan cos(α+β) ni chiqaramiz.","img":"png/1-cos-plus.png","alt":"70-rasm va cos(α+β)=cosαcosβ−sinαsinβ formulasi, kitob 122-bet","width":640,"height":552,"steps":["P(1;0) ni α, −β va α+β burchaklarga burib M_α, M_−β, M_{α+β} hosil qilamiz.","△M_αOM_−β va △M_−βOM_{α+β} teng yonli va teng — asoslari teng.","Masofa formulasidan: (1−cos(α+β))² + sin²(α+β) = (cos(−β)−cosα)² + (sin(−β)−sinα)².","23-§dagi (1) va asosiy ayniyatdan: <strong>cos(α+β) = cosα cosβ − sinα sinβ</strong>."]},{"caption":"2. 1-masala: cos75° · 122-bet","kirish":"Formulani aniq qiymatga qo'llaymiz.","img":"png/2-cos75.png","alt":"1-masala: cos75°=cos(45°+30°) hisoblash, kitob 122-bet","width":640,"height":145,"steps":["cos75° = cos(45° + 30°).","(1) formula: cos45°·cos30° − sin45°·sin30°.","cos45°=sin45°=√2/2, cos30°=√3/2, sin30°=1/2.","Natija: (√2/2)(√3/2) − (√2/2)(1/2) = <strong>(√6 − √2)/4</strong>."]},{"caption":"3. cos(α−β) va 2-masala · 123-bet","kirish":"β ni −β ga almashtirib cos(α−β) chiqaramiz, cos15° hisoblaymiz.","img":"png/3-cos-minus.png","alt":"cos(α−β) formulasi va cos15° hisoblash, kitob 123-bet","width":640,"height":292,"steps":["(1) da β → −β: cos(α−β) = cosα cos(−β) − sinα sin(−β).","23-§: cos(−β)=cosβ, sin(−β)=−sinβ → <strong>cos(α−β) = cosα cosβ + sinα sinβ</strong>.","cos15° = cos(45°−30°) = cos45°cos30° + sin45°sin30° = <strong>(√6 + √2)/4</strong>."]},{"caption":"4. sin(α±β) formulalari · 123–124-bet","kirish":"cos(π/2 − γ) = sinγ dan foydalanib sinus formulalarini chiqaramiz.","img":"png/4-sin-plus.png","alt":"sin(α+β) va sin(α−β) formulalari, kitob 123-124-bet","width":640,"height":400,"steps":["sin(α+β) = cos(π/2 − (α+β)) = cos((π/2−α) − β).","(2) formulani qo'llab: sin(α+β) = sinα cosβ + cosα sinβ.","β → −β: <strong>sin(α−β) = sinα cosβ − cosα sinβ</strong>.","4-masala: sin210° = sin(180°+30°) = sin180°cos30° + cos180°sin30° = 0·(√3/2) + (−1)·(1/2) = <strong>−1/2</strong>."]},{"caption":"5. 5–6-masala · 124-bet","kirish":"Ifodalarni soddalashtirish va tg formulasi.","img":"png/5-tg.png","alt":"5-masala ifoda va 6-masala tg(α+β) formulasi, kitob 124-bet","width":640,"height":452,"steps":["5-masala: (sin85°cos5° − cos85°sin5°) / (sin85°cos5° + cos85°sin5°) = sin(85°−5°)/sin(85°+5°) = sin80°/sin90° = sin80°.","6-masala: tg(α+β) = sin(α+β)/cos(α+β) ni cosα cosβ ga bo'lib: <strong>tg(α+β) = (tgα+tgβ)/(1−tgα tgβ)</strong>.","Misol: tg225° = tg(180°+45°) = (tg180°+tg45°)/(1−tg180°tg45°) = (0+1)/(1−0) = 1."]}]},"mashqlar":{"betlar":"124–125-bet","intro":"Daftarga yeching. O'qituvchi doskada tekshiradi.","items":[{"title":"280-mashq.","body":"Qo'shish formulalari yordamida hisoblang:","sub":"1) cos135°; &nbsp; 2) cos120°; &nbsp; 3) cos150°; &nbsp; 4) cos240°."},{"title":"281-mashq.","body":"Hisoblang:","sub":"1) cos57°30′ cos27°30′ + sin57°30′ sin27°30′; &nbsp; 2) cos19°30′ cos25°30′ − sin19°30′ sin25°30′; &nbsp; 3) cos(π/12)cos(π/8) − sin(π/12)sin(π/8); &nbsp; 4) sin(π/5)cos(π/3) + cos(π/5)sin(π/3)."},{"title":"282-mashq.","body":"Hisoblang:","sub":"1) cos(α+π/2), bunda sinα = 3/5 va 0 < α < π/2; &nbsp; 2) sin(α−π/3), bunda cosα = −2/3 va π/2 < α < π."},{"title":"283–284-mashq.","body":"Ifodani soddalashtiring:","sub":"1) cosα cosβ − sinα sinβ; &nbsp; 2) cos2β cosβ + sin2β sinβ; &nbsp; 3) cos(π/2−α) cos(π/2−β) − sin(π/2−α) sin(π/2−β)."},{"title":"285–286-mashq.","body":"Qo'shish formulalari yordamida hisoblang:","sub":"1) sin73° cos17° + cos73° sin17°; &nbsp; 2) sin78° cos13° − cos78° sin13°."}]},"xulosa":["<strong>cos(α+β) = cosα cosβ − sinα sinβ</strong>, <strong>cos(α−β) = cosα cosβ + sinα sinβ</strong>.","<strong>sin(α+β) = sinα cosβ + cosα sinβ</strong>, <strong>sin(α−β) = sinα cosβ − cosα sinβ</strong>.","Bu formulalar birlik aylanada ketma-ket ikki burilishdan chiqadi.","Ma'lum burchaklar yig'indisi/ayirmasi orqali yangi qiymatlarni hisoblaymiz (masalan cos75°, cos15°, sin210°)."],"xulosaBoard":[{"html":"<strong>cos(α+β)</strong> = cosα cosβ − sinα sinβ"},{"html":"<strong>cos(α−β)</strong> = cosα cosβ + sinα sinβ"},{"html":"<span class=\"term-a\">sin(α+β)</span> = sinα cosβ + cosα sinβ"},{"html":"<span class=\"term-b\">sin(α−β)</span> = sinα cosβ − cosα sinβ"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

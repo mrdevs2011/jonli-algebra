@@ -1,0 +1,257 @@
+{
+  "id": 24,
+  "bob": {
+    "roman": "III",
+    "nom": "Trigonometriya elementlari"
+  },
+  "paragraf": "24-§",
+  "title": "Qo'shish formulalari",
+  "lead": "Ikki burchak yig'indisi va ayirmasining sinus va kosinusini qanday hisoblashni o'rganamiz — birlik aylanada ketma-ket ikki burilish.",
+  "prev": {
+    "href": "../23/",
+    "label": "23-dars"
+  },
+  "next": {
+    "href": "../25/",
+    "label": "25-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 23-§ (α va −α formulalari) ni eslash"
+    },
+    {
+      "min": 8,
+      "name": "Sahna — ikki ketma-ket burilish (α, keyin β) birlik aylanada"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — cos(α±β) va sin(α±β) formulalari"
+    },
+    {
+      "min": 10,
+      "name": "Doska — formulalarni chiqarish va 4–6 masalani hisoblash"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — sinfda 1ta boshlanadi, qolgani uyga"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "unit-circle",
+    "ariaLabel": "Interaktiv chizma: birlik aylanada α va α+β burchaklari — ikki ketma-ket burilish",
+    "hint": "Slayderni suring. Avval α burchakka, keyin β qo'shib α+β ga o'tamiz. Nuqta koordinatalari cos(α+β) va sin(α+β) ni beradi.",
+    "vars": {
+      "t": {
+        "min": 0,
+        "max": 180,
+        "step": 5,
+        "value": 45,
+        "desc": "burchak α (gradus)"
+      }
+    },
+    "notes": {
+      "q1": "α = {t}°. Birinchi burilish: nuqta (cosα; sinα).",
+      "q2": "Ikkinchi burilish (masalan +30°): yangi nuqta (cos(α+30°); sin(α+30°)).",
+      "q3": "cos(α+β) = cosα·cosβ − sinα·sinβ formulasi shu geometriyadan chiqadi.",
+      "q4": "Sinus uchun ham xuddi shunday: sin(α+β) = sinα·cosβ + cosα·sinβ."
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">23-§da <strong>α va −α</strong> burchaklar uchun formulalarni chiqargan edik: sin(−α)=−sinα, cos(−α)=cosα. Bu simmetriya bugungi isbotlarda ham ishlatiladi. Bugun yangi savol: <strong>ikki ixtiyoriy burchak</strong>ning yig'indisi yoki ayirmasining sinus va kosinusi qanday ifodalanadi?</p>",
+    "<p>Sahnadagi slayderni suring. Avval α burchakka buramiz, keyin yana β qo'shamiz — natijada α+β hosil bo'ladi. Mana shu ketma-ket ikki burilish bugungi barcha formulalarning geometrik asosi.</p>"
+  ],
+  "reja": "Birlik aylanada ketma-ket ikki burilishdan cos(α±β) va sin(α±β) formulalarini chiqaramiz, so'ng aniq misollarda qo'llaymiz.",
+  "qoida": "<p>Birlik aylanada P(1; 0) nuqtani avval α, keyin β burchakka (yoki −β) burib, α±β burchakli nuqta hosil qilamiz. Masofalar tengligidan va asosiy trigonometrik ayniyatdan quyidagi formulalar chiqadi:</p><p><strong>cos(α + β) = cosα cosβ − sinα sinβ</strong> &nbsp;(1)</p><p><strong>cos(α − β) = cosα cosβ + sinα sinβ</strong> &nbsp;(2)</p><p><strong>sin(α + β) = sinα cosβ + cosα sinβ</strong> &nbsp;(5)</p><p><strong>sin(α − β) = sinα cosβ − cosα sinβ</strong> &nbsp;(6)</p><p>Bu formulalar α va β ning istalgan qiymatlarida o'rinli. Ulardan foydalanib, ma'lum burchaklar (30°, 45°, 60°) yig'indisi yoki ayirmasining qiymatini topish mumkin.</p><p>Shuningdek, (1)–(4) dan maxsus holatlar chiqadi, masalan: cos(π/2 − α) = sinα, sin(π/2 − α) = cosα.</p>",
+  "savollar": [
+    {
+      "savol": "cos(α + β) formulasi qaysi?",
+      "variantlar": [
+        "cosα cosβ + sinα sinβ",
+        "cosα cosβ − sinα sinβ",
+        "sinα cosβ + cosα sinβ"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "sin(α − β) formulasi qaysi?",
+      "variantlar": [
+        "sinα cosβ + cosα sinβ",
+        "sinα cosβ − cosα sinβ",
+        "cosα cosβ − sinα sinβ"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "cos75° = cos(45°+30°) qiymati qancha?",
+      "variantlar": [
+        "(√6 + √2)/4",
+        "(√6 − √2)/4",
+        "√2/2"
+      ],
+      "togri": 1
+    }
+  ],
+  "eslabQol": [
+    "<strong>cos(α+β) = cosα cosβ − sinα sinβ</strong>",
+    "<strong>cos(α−β) = cosα cosβ + sinα sinβ</strong>",
+    "<strong>sin(α+β) = sinα cosβ + cosα sinβ</strong>",
+    "<strong>sin(α−β) = sinα cosβ − cosα sinβ</strong>",
+    "Ma'lum burchaklar (30°, 45°, 60°) yig'indisi/ayirmasi orqali yangi qiymatlar topiladi."
+  ],
+  "kitob": {
+    "betlar": "122–124-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-122.png",
+        "bet": "122-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-123.png",
+        "bet": "123-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-124.png",
+        "bet": "124-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 24-§ — qo'shish formulalarini chiqarish va misollar. Rasmlar crop.md bo'yicha keyin qo'shiladi.",
+    "masalalar": [
+      {
+        "caption": "1. cos(α+β) formulasi · 122-bet",
+        "kirish": "Birlik aylanada ketma-ket burilishdan cos(α+β) ni chiqaramiz.",
+        "img": "png/1-cos-plus.png",
+        "alt": "70-rasm va cos(α+β)=cosαcosβ−sinαsinβ formulasi, kitob 122-bet",
+        "width": 640,
+        "height": 552,
+        "steps": [
+          "P(1;0) ni α, −β va α+β burchaklarga burib M_α, M_−β, M_{α+β} hosil qilamiz.",
+          "△M_αOM_−β va △M_−βOM_{α+β} teng yonli va teng — asoslari teng.",
+          "Masofa formulasidan: (1−cos(α+β))² + sin²(α+β) = (cos(−β)−cosα)² + (sin(−β)−sinα)².",
+          "23-§dagi (1) va asosiy ayniyatdan: <strong>cos(α+β) = cosα cosβ − sinα sinβ</strong>."
+        ]
+      },
+      {
+        "caption": "2. 1-masala: cos75° · 122-bet",
+        "kirish": "Formulani aniq qiymatga qo'llaymiz.",
+        "img": "png/2-cos75.png",
+        "alt": "1-masala: cos75°=cos(45°+30°) hisoblash, kitob 122-bet",
+        "width": 640,
+        "height": 145,
+        "steps": [
+          "cos75° = cos(45° + 30°).",
+          "(1) formula: cos45°·cos30° − sin45°·sin30°.",
+          "cos45°=sin45°=√2/2, cos30°=√3/2, sin30°=1/2.",
+          "Natija: (√2/2)(√3/2) − (√2/2)(1/2) = <strong>(√6 − √2)/4</strong>."
+        ]
+      },
+      {
+        "caption": "3. cos(α−β) va 2-masala · 123-bet",
+        "kirish": "β ni −β ga almashtirib cos(α−β) chiqaramiz, cos15° hisoblaymiz.",
+        "img": "png/3-cos-minus.png",
+        "alt": "cos(α−β) formulasi va cos15° hisoblash, kitob 123-bet",
+        "width": 640,
+        "height": 292,
+        "steps": [
+          "(1) da β → −β: cos(α−β) = cosα cos(−β) − sinα sin(−β).",
+          "23-§: cos(−β)=cosβ, sin(−β)=−sinβ → <strong>cos(α−β) = cosα cosβ + sinα sinβ</strong>.",
+          "cos15° = cos(45°−30°) = cos45°cos30° + sin45°sin30° = <strong>(√6 + √2)/4</strong>."
+        ]
+      },
+      {
+        "caption": "4. sin(α±β) formulalari · 123–124-bet",
+        "kirish": "cos(π/2 − γ) = sinγ dan foydalanib sinus formulalarini chiqaramiz.",
+        "img": "png/4-sin-plus.png",
+        "alt": "sin(α+β) va sin(α−β) formulalari, kitob 123-124-bet",
+        "width": 640,
+        "height": 400,
+        "steps": [
+          "sin(α+β) = cos(π/2 − (α+β)) = cos((π/2−α) − β).",
+          "(2) formulani qo'llab: sin(α+β) = sinα cosβ + cosα sinβ.",
+          "β → −β: <strong>sin(α−β) = sinα cosβ − cosα sinβ</strong>.",
+          "4-masala: sin210° = sin(180°+30°) = sin180°cos30° + cos180°sin30° = 0·(√3/2) + (−1)·(1/2) = <strong>−1/2</strong>."
+        ]
+      },
+      {
+        "caption": "5. 5–6-masala · 124-bet",
+        "kirish": "Ifodalarni soddalashtirish va tg formulasi.",
+        "img": "png/5-tg.png",
+        "alt": "5-masala ifoda va 6-masala tg(α+β) formulasi, kitob 124-bet",
+        "width": 640,
+        "height": 452,
+        "steps": [
+          "5-masala: (sin85°cos5° − cos85°sin5°) / (sin85°cos5° + cos85°sin5°) = sin(85°−5°)/sin(85°+5°) = sin80°/sin90° = sin80°.",
+          "6-masala: tg(α+β) = sin(α+β)/cos(α+β) ni cosα cosβ ga bo'lib: <strong>tg(α+β) = (tgα+tgβ)/(1−tgα tgβ)</strong>.",
+          "Misol: tg225° = tg(180°+45°) = (tg180°+tg45°)/(1−tg180°tg45°) = (0+1)/(1−0) = 1."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "124–125-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "280-mashq.",
+        "body": "Qo'shish formulalari yordamida hisoblang:",
+        "sub": "1) cos135°; &nbsp; 2) cos120°; &nbsp; 3) cos150°; &nbsp; 4) cos240°."
+      },
+      {
+        "title": "281-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) cos57°30′ cos27°30′ + sin57°30′ sin27°30′; &nbsp; 2) cos19°30′ cos25°30′ − sin19°30′ sin25°30′; &nbsp; 3) cos(π/12)cos(π/8) − sin(π/12)sin(π/8); &nbsp; 4) sin(π/5)cos(π/3) + cos(π/5)sin(π/3)."
+      },
+      {
+        "title": "282-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) cos(α+π/2), bunda sinα = 3/5 va 0 < α < π/2; &nbsp; 2) sin(α−π/3), bunda cosα = −2/3 va π/2 < α < π."
+      },
+      {
+        "title": "283–284-mashq.",
+        "body": "Ifodani soddalashtiring:",
+        "sub": "1) cosα cosβ − sinα sinβ; &nbsp; 2) cos2β cosβ + sin2β sinβ; &nbsp; 3) cos(π/2−α) cos(π/2−β) − sin(π/2−α) sin(π/2−β)."
+      },
+      {
+        "title": "285–286-mashq.",
+        "body": "Qo'shish formulalari yordamida hisoblang:",
+        "sub": "1) sin73° cos17° + cos73° sin17°; &nbsp; 2) sin78° cos13° − cos78° sin13°."
+      }
+    ]
+  },
+  "xulosa": [
+    "<strong>cos(α+β) = cosα cosβ − sinα sinβ</strong>, <strong>cos(α−β) = cosα cosβ + sinα sinβ</strong>.",
+    "<strong>sin(α+β) = sinα cosβ + cosα sinβ</strong>, <strong>sin(α−β) = sinα cosβ − cosα sinβ</strong>.",
+    "Bu formulalar birlik aylanada ketma-ket ikki burilishdan chiqadi.",
+    "Ma'lum burchaklar yig'indisi/ayirmasi orqali yangi qiymatlarni hisoblaymiz (masalan cos75°, cos15°, sin210°)."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>cos(α+β)</strong> = cosα cosβ − sinα sinβ"
+    },
+    {
+      "html": "<strong>cos(α−β)</strong> = cosα cosβ + sinα sinβ"
+    },
+    {
+      "html": "<span class=\"term-a\">sin(α+β)</span> = sinα cosβ + cosα sinβ"
+    },
+    {
+      "html": "<span class=\"term-b\">sin(α−β)</span> = sinα cosβ − cosα sinβ"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "id": 25,
+  "bob": {
+    "roman": "III",
+    "nom": "Trigonometriya elementlari"
+  },
+  "paragraf": "25-§",
+  "title": "Ikkilangan burchakning sinusi, kosinusi va tangensi",
+  "lead": "Qo'shish formulalaridan β=α qo'yib, sin2α, cos2α va tg2α formulalarini chiqaramiz — burchak ikki barobar ochilganda qiymatlar qanday o'zgaradi.",
+  "prev": {
+    "href": "../24/",
+    "label": "24-dars"
+  },
+  "next": {
+    "href": "../26/",
+    "label": "26-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 24-§ (qo'shish formulalari) ni eslash"
+    },
+    {
+      "min": 7,
+      "name": "Sahna — α burchagi ikki barobar ochilganda nuqta qayerga boradi"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — sin2α, cos2α, tg2α formulalarini chiqarish"
+    },
+    {
+      "min": 11,
+      "name": "Doska — 4 ta masalani birga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — sinfda 1ta boshlanadi, qolgani uyga"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "unit-circle",
+    "ariaLabel": "Interaktiv chizma: birlik aylanada α burchagi; 2α — ikki barobar ochilgan burchak",
+    "hint": "Slayderni suring — α burchagi. 2α esa shu burchakning ikki barobari. sin2α = 2sinα cosα formulasi shu geometriyadan chiqadi.",
+    "vars": {
+      "t": {
+        "min": 0,
+        "max": 180,
+        "step": 5,
+        "value": 30,
+        "desc": "burchak α (gradus)"
+      }
+    },
+    "notes": {
+      "q1": "α = {t}° → 2α = {t2}°. cosα={cos}, sinα={sin}. sin2α ≈ 2·sinα·cosα = {sin2}.",
+      "q2": "α kichik bo'lsa, 2α ham kichik — nuqta aylanada ikki marta tezroq harakatlanadi.",
+      "q3": "cos2α = cos²α − sin²α. α=45° da cos2α=0 — 2α=90° ga to'g'ri keladi.",
+      "q4": "Bu formulalar qo'shish formulalaridan β=α deb qo'yish bilan olinadi — yangi hech narsa ixtiro qilinmaydi."
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">24-§da <strong>qo'shish formulalari</strong>ni o'rgandik: sin(α+β), cos(α+β) va hokazo. Bugun eng muhim maxsus holat — <strong>β = α</strong>. Ya'ni bir xil burchakni o'ziga qo'shamiz: α + α = 2α. Natijada ikkilangan burchakning sinusi, kosinusi va tangensi formulalari chiqadi.</p>",
+    "<p>Sahnadagi slayderni suring. α burchagi o'zgarganda 2α ham o'zgaradi. Nuqta aylanada «ikki marta tez» yuradi — mana shu geometrik fakt bugungi formulalarning asosi.</p>"
+  ],
+  "reja": "Qo'shish formulalaridan β=α qo'yib sin2α=2sinα cosα, cos2α=cos²α−sin²α va tg2α=2tgα/(1−tg²α) formulalarini chiqaramiz va misollarda qo'llaymiz.",
+  "qoida": "<p>Qo'shish formulalarida β o'rniga α qo'yamiz:</p><p><strong>sin2α = sin(α+α) = sinα cosα + cosα sinα = 2 sinα cosα</strong>. &nbsp;(1)</p><p><strong>cos2α = cos(α+α) = cosα cosα − sinα sinα = cos²α − sin²α</strong>. &nbsp;(2)</p><p>Asosiy ayniyat sin²α+cos²α=1 dan foydalanib, (2) ni boshqa ko'rinishlarda yozish mumkin:</p><p><strong>cos2α = 2 cos²α − 1 = 1 − 2 sin²α</strong>.</p><p>Tangens uchun:</p><p><strong>tg2α = 2 tgα / (1 − tg²α)</strong> &nbsp;(tgα ≠ ±1, cos2α ≠ 0). &nbsp;(3)</p><p>Bu formulalar hisoblashlarda va ifodalarni soddalashtirishda keng qo'llaniladi.</p>",
+  "savollar": [
+    {
+      "savol": "sin2α formulasi qaysi?",
+      "variantlar": [
+        "sin²α + cos²α",
+        "2 sinα cosα",
+        "cos²α − sin²α"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "cos2α = cos²α − sin²α ni boshqa qanday yozish mumkin?",
+      "variantlar": [
+        "2 cos²α − 1",
+        "2 sinα cosα",
+        "tgα + ctgα"
+      ],
+      "togri": 0
+    },
+    {
+      "savol": "Agar tgα = 1/2 bo'lsa, tg2α qancha?",
+      "variantlar": [
+        "1",
+        "4/3",
+        "1/2"
+      ],
+      "togri": 1
+    }
+  ],
+  "eslabQol": [
+    "<strong>sin2α = 2 sinα cosα</strong>",
+    "<strong>cos2α = cos²α − sin²α = 2 cos²α − 1 = 1 − 2 sin²α</strong>",
+    "<strong>tg2α = 2 tgα / (1 − tg²α)</strong>",
+    "Bular — qo'shish formulalarining β=α maxsus holi."
+  ],
+  "kitob": {
+    "betlar": "126–128-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-126.png",
+        "bet": "126-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-127.png",
+        "bet": "127-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-128.png",
+        "bet": "128-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 25-§ — ikkilangan burchak formulalari va 4 ta masala. Rasm keyinroq aniqroq crop qilinishi mumkin.",
+    "masalalar": [
+      {
+        "caption": "1. sin2α formulasi · 126-bet",
+        "kirish": "Qo'shish formulasidan β=α qo'yamiz.",
+        "img": "png/1-sin2a.png",
+        "alt": "sin2α = 2sinα cosα formulasi chiqarilishi, kitob 126-bet",
+        "width": 640,
+        "height": 140,
+        "steps": [
+          "sin(α+β) = sinα cosβ + cosα sinβ formulida β = α qo'yamiz.",
+          "sin(α+α) = sinα cosα + cosα sinα = 2 sinα cosα.",
+          "Demak <strong>sin2α = 2 sinα cosα</strong>."
+        ]
+      },
+      {
+        "caption": "1-masala · 127-bet",
+        "kirish": "sinα = −0,6 va π < α < 3π/2 bo'lsa, sin2α ni topamiz.",
+        "img": "png/2-masala1.png",
+        "alt": "1-masala: sinα=−0,6, sin2α hisoblash, kitob 127-bet",
+        "width": 640,
+        "height": 200,
+        "steps": [
+          "sin2α = 2 sinα cosα = 2·(−0,6)·cosα = −1,2 cosα.",
+          "π < α < 3π/2 oralig'ida cosα < 0.",
+          "cosα = −√(1 − sin²α) = −√(1 − 0,36) = −√0,64 = −0,8.",
+          "sin2α = −1,2 · (−0,8) = <strong>0,96</strong>."
+        ]
+      },
+      {
+        "caption": "2-masala · cos2α · 127-bet",
+        "kirish": "cosα = 0,3 bo'lsa, cos2α ni hisoblaymiz.",
+        "img": "png/3-masala2.png",
+        "alt": "2-masala: cosα=0,3, cos2α=2cos²α−1, kitob 127-bet",
+        "width": 640,
+        "height": 180,
+        "steps": [
+          "cos2α = cos²α − sin²α = cos²α − (1 − cos²α) = 2 cos²α − 1.",
+          "cos2α = 2·(0,3)² − 1 = 2·0,09 − 1 = 0,18 − 1 = <strong>−0,82</strong>."
+        ]
+      },
+      {
+        "caption": "4-masala · tg2α · 127–128-bet",
+        "kirish": "tgα = 1/2 bo'lsa, tg2α ni topamiz.",
+        "img": "png/4-masala4.png",
+        "alt": "4-masala: tgα=1/2, tg2α=2tgα/(1−tg²α), kitob 128-bet",
+        "width": 640,
+        "height": 120,
+        "steps": [
+          "tg2α = 2 tgα / (1 − tg²α).",
+          "tgα = 1/2 → tg2α = 2·(1/2) / (1 − (1/2)²) = 1 / (1 − 1/4) = 1 / (3/4) = <strong>4/3</strong>."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "128–129-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "293-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) 2 sin15° cos15°; &nbsp; 2) cos²15° − sin²15°; &nbsp; 3) (cos15° − sin15°)²; &nbsp; 4) (cos15° + sin15°)²."
+      },
+      {
+        "title": "294-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) 2 sin(π/8) cos(π/8); &nbsp; 2) cos²(π/12) − sin²(π/12); &nbsp; 3) sin(π/5) cos(π/5); &nbsp; 4) ½ − sin²(π/12)."
+      },
+      {
+        "title": "295-mashq.",
+        "body": "Agar: 1) sinα = 3/5 va 0 < α < π/2; 2) cosα = −4/5 va π/2 < α < π bo'lsa, sin2α ni hisoblang."
+      },
+      {
+        "title": "296-mashq.",
+        "body": "Agar: 1) cosα = 3/5; 2) sinα = −5/13 bo'lsa, cos2α ni hisoblang."
+      },
+      {
+        "title": "297–298-mashq.",
+        "body": "Ifodani soddalashtiring (kitob 128-bet)."
+      }
+    ]
+  },
+  "xulosa": [
+    "<strong>sin2α = 2 sinα cosα</strong> — qo'shish formulasidan β=α.",
+    "<strong>cos2α = cos²α − sin²α = 2 cos²α − 1 = 1 − 2 sin²α</strong>.",
+    "<strong>tg2α = 2 tgα / (1 − tg²α)</strong>.",
+    "Bu formulalar hisoblash va ifodalarni soddalashtirishda asosiy qurol."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>sin2α</strong> = 2 sinα cosα"
+    },
+    {
+      "html": "<strong>cos2α</strong> = cos²α − sin²α = 2 cos²α − 1 = 1 − 2 sin²α"
+    },
+    {
+      "html": "<span class=\"term-a\">tg2α</span> = 2 tgα / (1 − tg²α)"
+    },
+    {
+      "html": "Manba: qo'shish formulalari, β = α"
+    }
+  ]
+}

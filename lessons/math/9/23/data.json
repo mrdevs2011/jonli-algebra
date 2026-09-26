@@ -1,0 +1,233 @@
+{
+  "id": 23,
+  "bob": {
+    "roman": "III",
+    "nom": "Trigonometriya elementlari"
+  },
+  "paragraf": "23-§",
+  "title": "α va −α burchaklarning sinusi, kosinusi, tangensi va kotangensi",
+  "lead": "Qarama-qarshi burchaklar birlik aylanada Ox o‘qiga nisbatan simmetrik — shundan sin(−α)=−sinα, cos(−α)=cosα formulalari chiqadi.",
+  "prev": {
+    "href": "../22/",
+    "label": "22-dars"
+  },
+  "next": {
+    "href": "../24/",
+    "label": "24-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 22-§ (trigonometrik ayniyatlar) va asosiy formulalarni eslash"
+    },
+    {
+      "min": 8,
+      "name": "Sahna — α va −α nuqtalar Ox o‘qiga nisbatan simmetrik ekanini ko‘rish"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — sin(−α)=−sinα, cos(−α)=cosα, tg(−α)=−tgα, ctg(−α)=−ctgα"
+    },
+    {
+      "min": 10,
+      "name": "Doska — formulalarni chiqarish va misollarni hisoblash"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — sinfda 1ta boshlanadi, qolgani uyga"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "unit-circle",
+    "ariaLabel": "Interaktiv chizma: birlik aylanada burchak slayderi — α nuqtasi; −α Ox o‘qiga simmetrik",
+    "hint": "Slayderni suring. α burchagi uchun nuqta (cosα; sinα). −α uchun nuqta Ox o‘qiga nazar tashlangan joyda — ordinata ishorasi o‘zgaradi, abssissa o‘zgarmaydi.",
+    "vars": {
+      "t": {
+        "min": -180,
+        "max": 180,
+        "step": 5,
+        "value": 40,
+        "desc": "burchak α (gradus)"
+      }
+    },
+    "notes": {
+      "q1": "α = {t}° (I chorak): cosα={cos}, sinα={sin}. −α nuqtasi IV chorakda — cos bir xil, sin ishorasi teskari.",
+      "q2": "α musbat, −α manfiy. Ox o‘qi M_αOM_−α burchagini teng ikkiga bo‘ladi — shuning uchun simmetriya.",
+      "q3": "Abssissalar bir xil (cos(−α)=cosα), ordinatalar faqat ishora bilan farq qiladi (sin(−α)=−sinα).",
+      "q4": "Bu geometrik fakt manfiy burchaklar uchun sinus, kosinus, tangens qiymatlarini topishga imkon beradi."
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">22-§da <strong>trigonometrik ayniyatlar</strong>ni isbotlashni o‘rgandik — asosiy qurol <strong>sin²α + cos²α = 1</strong> va tg, ctg ta’riflari edi. Bugun yangi savol: agar burchak <strong>manfiy</strong> bo‘lsa (ya’ni soat strelkasi bo‘yicha), sinus, kosinus, tangens qanday o‘zgaradi?</p>",
+    "<p>Sahnadagi slayderni suring. α burchagi uchun qizil nuqta (cosα; sinα) da turadi. −α esa Ox o‘qiga nazar tashlangan — abssissa bir xil, ordinata ishorasi teskari. Mana shu simmetriya bugungi barcha formulalarning manbai.</p>"
+  ],
+  "reja": "α va −α burchaklar birlik aylanada Ox o‘qiga nisbatan simmetrik ekanini ko‘rib, sin(−α)=−sinα, cos(−α)=cosα, tg(−α)=−tgα, ctg(−α)=−ctgα formulalarini chiqaramiz.",
+  "qoida": "<p>Birlik aylanada M_α nuqta P(1; 0) ni α burchakka, M_−α nuqta esa −α burchakka burish natijasida hosil bo‘lsin. Ox o‘qi M_αOM_−α burchagini teng ikkiga bo‘ladi — demak M_α va M_−α nuqtalar <strong>Ox o‘qiga nisbatan simmetrik</strong>.</p><p>Abssissalar bir xil, ordinatalar faqat ishora bilan farq qiladi:</p><p><strong>sin(−α) = −sinα</strong>, &nbsp; <strong>cos(−α) = cosα</strong>. &nbsp;(1)</p><p>Tangens va kotangens ta’rifidan:</p><p><strong>tg(−α) = −tgα</strong> (cosα ≠ 0), &nbsp; <strong>ctg(−α) = −ctgα</strong> (sinα ≠ 0). &nbsp;(2)</p><p>(1) formula α ning istalgan qiymatida o‘rinli; (2) formulalar maxraj nol bo‘lmagan qiymatlarda o‘rinli.</p><p>Bu formulalar manfiy burchaklar uchun sinus, kosinus, tangens va kotangens qiymatlarini topishga imkon beradi.</p>",
+  "savollar": [
+    {
+      "savol": "cos(−α) nimaga teng?",
+      "variantlar": [
+        "−cosα",
+        "cosα",
+        "sinα"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "sin(−α) nimaga teng?",
+      "variantlar": [
+        "sinα",
+        "−sinα",
+        "cosα"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "tg(−30°) qiymati qancha?",
+      "variantlar": [
+        "1/√3",
+        "−1/√3",
+        "−√3"
+      ],
+      "togri": 1
+    }
+  ],
+  "eslabQol": [
+    "<strong>sin(−α) = −sinα</strong>, <strong>cos(−α) = cosα</strong> — Ox o‘qiga simmetriya.",
+    "<strong>tg(−α) = −tgα</strong>, <strong>ctg(−α) = −ctgα</strong> (maxraj nol bo‘lmaganda).",
+    "Manfiy burchak — soat strelkasi bo‘yicha burilish; musbat — soat strelkasiga qarshi.",
+    "Abssissa (cos) ishora o‘zgarmaydi, ordinata (sin) ishora o‘zgaradi."
+  ],
+  "kitob": {
+    "betlar": "120–121-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-120.png",
+        "bet": "120-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-121.png",
+        "bet": "121-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 23-§ — formulalarni chiqarish va misol. Rasm hali qirqilmagan; keyinroq crop qilinadi.",
+    "masalalar": [
+      {
+        "caption": "1. Geometrik asos · 120-bet",
+        "kirish": "Birlik aylanada α va −α nuqtalar qanday joylashadi?",
+        "img": "png/1-geometriya.png",
+        "alt": "69-rasm: birlik aylanada M_α va M_−α nuqtalar Ox o‘qiga nisbatan simmetrik, kitob 120-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "P(1; 0) nuqtani α burchakka burib M_α, −α burchakka burib M_−α hosil qilamiz.",
+          "Ox o‘qi M_αOM_−α burchagini teng ikkiga bo‘ladi.",
+          "Shuning uchun M_α va M_−α <strong>Ox o‘qiga nisbatan simmetrik</strong>.",
+          "Abssissalar bir xil, ordinatalar faqat ishora bilan farq qiladi."
+        ]
+      },
+      {
+        "caption": "2. Asosiy formulalar · 120-bet",
+        "kirish": "Simmetriyadan sin va cos formulalarini chiqaramiz.",
+        "img": "png/2-formulalar.png",
+        "alt": "sin(−α)=−sinα, cos(−α)=cosα formulalari, kitob 120-bet",
+        "width": 640,
+        "height": 120,
+        "steps": [
+          "M_α koordinatalari: (cosα; sinα).",
+          "M_−α koordinatalari: (cos(−α); sin(−α)).",
+          "Simmetriyadan: cos(−α) = cosα, sin(−α) = −sinα.",
+          "Natija: <strong>sin(−α) = −sinα</strong>, <strong>cos(−α) = cosα</strong>."
+        ]
+      },
+      {
+        "caption": "3. Tangens va kotangens · 120-bet",
+        "kirish": "tg va ctg ta’rifidan manfiy burchak formulalarini chiqaramiz.",
+        "img": "png/3-tg-ctg.png",
+        "alt": "tg(−α)=−tgα, ctg(−α)=−ctgα, kitob 120-bet",
+        "width": 640,
+        "height": 100,
+        "steps": [
+          "tgα = sinα/cosα ta’rifidan: tg(−α) = sin(−α)/cos(−α) = (−sinα)/cosα = −tgα.",
+          "Shunga o‘xshash: ctg(−α) = cos(−α)/sin(−α) = cosα/(−sinα) = −ctgα.",
+          "Shart: cosα ≠ 0 (tg uchun), sinα ≠ 0 (ctg uchun).",
+          "Natija: <strong>tg(−α) = −tgα</strong>, <strong>ctg(−α) = −ctgα</strong>."
+        ]
+      },
+      {
+        "caption": "4. Misol · 120-bet",
+        "kirish": "Formulalarni aniq qiymatlarga qo‘llaymiz.",
+        "img": "png/4-misol.png",
+        "alt": "sin(−π/2), cos(−π/2), tg(−π/4) hisoblash, kitob 120-bet",
+        "width": 640,
+        "height": 160,
+        "steps": [
+          "sin(−π/2) = −sin(π/2) = −1.",
+          "cos(−π/2) = cos(π/2) = 0.",
+          "tg(−π/4) = −tg(π/4) = −1.",
+          "Xulosa: manfiy burchakning qiymati musbat burchakning qiymatidan ishora farqi bilan topiladi."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "121-bet",
+    "intro": "Daftarga yeching. O‘qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "275-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) cos(−π/6)·sin(−π/3) − tg(−π/4); &nbsp; 2) [1 − tg²(−30°)] / [1 + tg²(−30°)]; &nbsp; 3) 2sin(−π/4)cos(−π/3) + tg(−π/6)·sin²(−π/4)."
+      },
+      {
+        "title": "276-mashq.",
+        "body": "Ifodani soddalashtiring:",
+        "sub": "1) tg(−α)·cosα + sinα; &nbsp; 2) cosα − ctgα·(−sinα); &nbsp; 3) tg(−α)·ctg(−α) + cos²(−α) + sin²α."
+      },
+      {
+        "title": "277-mashq.",
+        "body": "Ayniyatni isbotlang:",
+        "sub": "sin(−α)/cos(−α) = −tgα."
+      },
+      {
+        "title": "278-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) 3sin²(−π/3) − 2cos²(−π/6); &nbsp; 2) sin(−π/2) − cos(−π/2) + tg(−π/4)·ctg(−π/4)."
+      }
+    ]
+  },
+  "xulosa": [
+    "α va −α nuqtalar birlik aylanada <strong>Ox o‘qiga nisbatan simmetrik</strong>.",
+    "<strong>sin(−α) = −sinα</strong>, <strong>cos(−α) = cosα</strong>.",
+    "<strong>tg(−α) = −tgα</strong>, <strong>ctg(−α) = −ctgα</strong> (maxraj nol bo‘lmaganda).",
+    "Manfiy burchaklar uchun qiymatlarni musbat burchakning qiymatidan ishora farqi bilan topamiz."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>sin(−α) = −sinα</strong> &nbsp;&mdash;&nbsp; <span>ordinata ishorasi o‘zgaradi</span>"
+    },
+    {
+      "html": "<strong>cos(−α) = cosα</strong> &nbsp;&mdash;&nbsp; <span>abssissa o‘zgarmaydi</span>"
+    },
+    {
+      "html": "<span class=\"term-a\">tg(−α) = −tgα</span> &nbsp;(cosα ≠ 0)"
+    },
+    {
+      "html": "<span class=\"term-b\">ctg(−α) = −ctgα</span> &nbsp;(sinα ≠ 0)"
+    }
+  ]
+}
