@@ -945,13 +945,23 @@ window.KA_SAHNA_EXPAND = (function () {
   return { init: init };
 })();
 
+/* ---- manba: js/features/whiteboard.js ---- */
+/* Jonli Algebra — Whiteboard
+   OLIB TASHLANDI (2026-09-11)
 
-/* ---- whiteboard.js OLIB TASHLANDI ----
-   Sabab: UHD board hardware kuchli emas (GPU/CPU yetarli emas).
-   154 dropped frame, 1 FPS — qalam bilan chizganda lag bo'ladi, UX ishlamaydi.
-   2026-09-11 olib tashlandi.
+   Sabab:
+   - UHD board hardware jihatdan kuchli emas (kuchli GPU/CPU yo'q)
+   - Intensiv canvas rendering uchun yetarli emas
+   - 154 ta dropped frame, eng past 1 FPS
+   - Foydalanuvchi qalam bilan chizganda ekranda chizish orqasidan qolib ketadi
+   - UX butunlay ishlatib bo'lmaydigan holatga keladi
+
+   Bu fayl endi hech narsa qilmaydi. features.js dan ham olib tashlangan.
 */
-
+(function () {
+  "use strict";
+  // disabled
+})();
 
 /* ---- manba: js/features/xulosa-board.js ---- */
 /* Jonli Algebra — Xulosa (proyektor uchun katta doska)
