@@ -35,3 +35,9 @@
 - Qilindi: js/progress.js da readyIds ni 1–25 gacha yangilandi — root index.html da tugallangan darslar endi 'Tayyor' statusida ko'rinadi
 - Keyingi qadam: Boshqa agentlar tugasa butun validate; croplarni yaxshilash ixtiyoriy
 - Git holati: 3a79f59 15 to 22 ni yaxsholyabmiz
+
+---
+### 2026-09-26 13:15
+- Qilindi: Rasmlar tekshirildi: 25 darsning 195ta rasmi (kitob+doska) fayl mavjudligi va real HTTP orqali 200 qaytarishi tasdiqlandi, muammo topilmadi. Lokal komputer origin'dan 6 commit orqada ekan (MR GitHub web orqali 23-25 darsni geometriya/tg-ctg mavzusi bilan almashtirib yuklagan edi), local claude'ning eski 23-25 (burchak/qoshish formulalari) versiyasi /tmp/ja-backup ga zaxiralanib, git pull bilan origin versiyasi qabul qilindi, hech narsa push qilinmadi (allaqachon sync).
+- Keyingi qadam: STATUS.md dagi 23-25 log yozuvlari eski (almashtirilgan) mazmunga oid, xohlasa yangilash mumkin. Git remote URLda token ochiq (xavfsizlik).
+- Git holati: 7a944df Add files via upload
