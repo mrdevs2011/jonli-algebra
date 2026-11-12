@@ -299,3 +299,108 @@ html.board-mode {
   display: inline-block;
   min-height: 48px;
 }
+
+/* ==========================================================================
+   Tungi rejim (Dark Mode) va Gamifikatsiya HUD elementlari
+   ========================================================================== */
+html[data-theme="dark"] {
+  --paper: #121614;
+  --paper-2: #19201b;
+  --ink: #e6eae6;
+  --ink-soft: #9aa89d;
+  --line: #26332a;
+  --line-strong: #37473b;
+  --accent: #e26340;
+  --accent-2: #3da374;
+  --gold: #d4a343;
+  --white: #171e19;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] body {
+  background:
+    linear-gradient(180deg, rgba(18,22,20,0.95), rgba(18,22,20,0.95)),
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(38,51,42,0.35) 28px),
+    repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(38,51,42,0.28) 28px);
+  background-color: var(--paper);
+}
+
+html[data-theme="dark"] .btn {
+  background: #1e2621;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+html[data-theme="dark"] .btn:hover {
+  background: #253029;
+}
+
+html[data-theme="dark"] .mode-btn {
+  color: var(--ink-soft);
+}
+
+html[data-theme="dark"] .mode-btn.is-active {
+  background: #253029;
+  color: var(--ink);
+}
+
+.hud-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  background: var(--white);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  min-height: 34px;
+}
+
+.badge-unlock-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s ease;
+}
+.badge-unlock-toast.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.badge-toast-icon {
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge-toast-sub {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-2);
+  font-weight: 700;
+}
+.badge-toast-title {
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+

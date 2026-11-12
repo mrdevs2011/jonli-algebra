@@ -361,7 +361,7 @@
         if (isCorrect) {
           card.classList.add("is-correct");
           feedback.className = "mashq-feedback is-success";
-          feedback.textContent = "Ofarin! To'g'ri topdingiz!";
+          feedback.textContent = "Ofarin! To'g'ri topdingiz! (+10 XP)";
           input.disabled = true;
           btnCheck.disabled = true;
           btnCheck.textContent = "Yechilgan";
@@ -369,6 +369,8 @@
           solvedCount++;
           updateProgressBadge();
           try { localStorage.setItem(storageKey, "1"); } catch (e) {}
+          if (window.JA_SOUND && window.JA_SOUND.playCorrect) window.JA_SOUND.playCorrect();
+          if (window.JA_GAMIFICATION && window.JA_GAMIFICATION.addXp) window.JA_GAMIFICATION.addXp(10);
         } else {
           attempts++;
           input.classList.remove("shake");
@@ -376,6 +378,7 @@
           input.classList.add("shake");
           feedback.className = "mashq-feedback is-error";
           feedback.textContent = "Noto'g'ri. Yana bir bor urinib ko'ring yoki maslahatni oching.";
+          if (window.JA_SOUND && window.JA_SOUND.playError) window.JA_SOUND.playError();
           if (attempts >= 2) {
             yechimBox.style.display = "";
           }
@@ -429,6 +432,21 @@
       if (d.olimpiada.yechim.javob) {
         analysisBox.appendChild(el("p", { style: "margin-top:10px; font-weight:700; color:var(--accent);" }, "Javob: " + d.olimpiada.yechim.javob));
       }
+
+      var olimpKey = "ja_olimp_" + d.id;
+      var isClaimed = false;
+      try { isClaimed = localStorage.getItem(olimpKey) === "1"; } catch (e) {}
+      var btnClaim = el("button", { type: "button", class: "btn", style: "margin-top:12px; font-size:0.86rem; padding:6px 14px; background:var(--paper); border:1px solid var(--line-strong);" }, isClaimed ? "Zabt etildi (+25 XP olindi)" : "Yechimni tushundim (+25 XP)");
+      if (isClaimed) btnClaim.disabled = true;
+      btnClaim.addEventListener("click", function () {
+        btnClaim.disabled = true;
+        btnClaim.textContent = "Zabt etildi (+25 XP olindi)";
+        try { localStorage.setItem(olimpKey, "1"); } catch (e) {}
+        if (window.JA_GAMIFICATION && window.JA_GAMIFICATION.addXp) window.JA_GAMIFICATION.addXp(25);
+        if (window.JA_SOUND && window.JA_SOUND.playCorrect) window.JA_SOUND.playCorrect();
+      });
+      analysisBox.appendChild(btnClaim);
+
       det.appendChild(analysisBox);
       card.appendChild(det);
     }
@@ -440,6 +458,52 @@
       xulosaBlock.parentElement.insertBefore(sec, xulosaBlock);
     } else {
       main.appendChild(sec);
+    }
+  }
+
+  function renderChapterExam(d) {
+    var chapterMap = { 12: 1, 16: 2, 27: 3, 33: 4, 38: 5 };
+    var bobNum = chapterMap[d.id];
+    if (!bobNum) return;
+
+    var main = document.querySelector("main");
+    if (!main) return;
+
+    var sec = el("section", { class: "block block-chapter-exam", id: "blockChapterExam", style: "margin-top:28px; background:var(--white); border:2px solid var(--accent); border-radius:16px; padding:24px; box-shadow:0 8px 24px rgba(0,0,0,0.05);" });
+
+    sec.innerHTML =
+      '<div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:12px;">' +
+        '<div style="display:inline-flex; align-items:center; gap:6px; background:rgba(194,75,42,0.1); color:var(--accent); font-weight:700; padding:4px 12px; border-radius:20px; font-size:0.85rem;">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>' +
+          'Bob Nazorat Testi' +
+        '</div>' +
+        '<div style="font-size:0.9rem; color:var(--ink-soft); font-weight:600;">10 ta savol · 15 daqiqa · +100 XP</div>' +
+      '</div>' +
+      '<h2 style="margin:0 0 10px; font-size:1.35rem; color:var(--ink);">' + (d.bob ? d.bob.roman : "") + ' Bobni Mustahkamlash va Nazorat Testi</h2>' +
+      '<p style="color:var(--ink-soft); margin-bottom:18px; line-height:1.6;">' +
+        'Siz ' + (d.bob ? d.bob.nom : "") + ' bobini to\'liq yakunladingiz! 10 ta saralangan masala (6 ta standart va 4 ta litsey imtihoni savoli) orqali bilimingizni sinang. 80%+ natijada +100 XP va maxsus Bob Medali beriladi.' +
+      '</p>' +
+      '<div id="chapterExamContainer">' +
+        '<button type="button" class="btn" id="btnStartChapterExam" style="background:var(--accent); color:#fff; font-weight:700; padding:12px 26px; border-radius:10px; cursor:pointer;">' +
+          'Nazorat testini boshlash (15 daqiqa)' +
+        '</button>' +
+      '</div>';
+
+    var xulosaBlock = document.querySelector(".block-xulosa");
+    if (xulosaBlock && xulosaBlock.parentElement) {
+      xulosaBlock.parentElement.insertBefore(sec, xulosaBlock);
+    } else {
+      main.appendChild(sec);
+    }
+
+    var startBtn = sec.querySelector("#btnStartChapterExam");
+    var examContainer = sec.querySelector("#chapterExamContainer");
+    if (startBtn && examContainer) {
+      startBtn.addEventListener("click", function () {
+        if (window.JA_EXAM && window.JA_EXAM.startChapterExam) {
+          window.JA_EXAM.startChapterExam(bobNum, examContainer);
+        }
+      });
     }
   }
 
@@ -529,6 +593,7 @@
     renderDoska(d);
     renderMashqlar(d);
     renderOlimpiada(d);
+    renderChapterExam(d);
     renderXulosa(d);
     initModeToggle();
 

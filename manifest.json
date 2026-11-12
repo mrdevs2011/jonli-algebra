@@ -1,0 +1,36 @@
+{
+  "name": "Jonli Algebra — 9-sinf",
+  "short_name": "Jonli Algebra",
+  "description": "9-sinf algebra uchun vizual, interaktiv ta'lim platformasi. Alimov 2019 tartibida.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3eee4",
+  "theme_color": "#f3eee4",
+  "lang": "uz",
+  "icons": [
+    {
+      "src": "assets/icons/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
