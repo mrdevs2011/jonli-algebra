@@ -200,22 +200,44 @@
   },
   "mashqlar": {
     "betlar": "165–166-bet",
-    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "intro": "Interaktiv mashqlar: progressiya hadlari va yig'indisini hisoblang.",
     "items": [
       {
-        "title": "387-mashq.",
-        "body": "Geometrik progressiyaning n-hadini toping:",
-        "sub": "1) b₁ = 2, q = 3, n = 6; 2) b₁ = 4, q = −1/2, n = 7; 3) b₁ = −1, q = 2, n = 10."
+        "id": "ex-31-1",
+        "daraja": "asosiy",
+        "savol": "Arifmetik progressiyada a₁ = 3, d = 4 bo'lsa, a₅ hadi nechaga teng?",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 19",
+        "togriJavob": [
+          "19"
+        ],
+        "validationRegex": "^\\s*19\\s*$",
+        "hint": "aₙ = a₁ + (n − 1)d formuladan foydalaning.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: a₅ = 3 + (5 − 1) · 4.",
+            "2-qadam: a₅ = 3 + 16 = 19."
+          ],
+          "javob": "19"
+        }
       },
       {
-        "title": "388-mashq.",
-        "body": "Geometrik progressiya maxraji q ni toping:",
-        "sub": "1) b₁ = 4, b₃ = 36; 2) b₂ = 6, b₄ = 54; 3) b₃ = 25, b₅ = 625."
-      },
-      {
-        "title": "389-mashq.",
-        "body": "Berilgan son progressiya hadimi:",
-        "sub": "bₙ = 2 · 3ⁿ⁻¹ ketma-ketlikda 162 va 54 sonlarining nomerini toping."
+        "id": "ex-31-2",
+        "daraja": "ortacha",
+        "savol": "Dastlabki 10 ta natural sonning yig'indisini (1 + 2 + ... + 10) toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 55",
+        "togriJavob": [
+          "55"
+        ],
+        "validationRegex": "^\\s*55\\s*$",
+        "hint": "Gauss formulasi: S = n(n + 1) / 2.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: S₁₀ = 10 · 11 / 2 = 55."
+          ],
+          "javob": "55"
+        }
       }
     ]
   },
@@ -234,5 +256,20 @@
     {
       "html": "<strong>Xossa</strong>: bₙ² = bₙ₋₁ · bₙ₊₁"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Arifmetik progressiyaning dastlabki n ta hadi yig'indisi Sₙ = 2n² + 3n formula bilan berilgan. Uning 10-hadi a₁₀ ni toping.",
+    "korsatma": "a₁₀ = S₁₀ − S₉ tenglikdan foydalaning.",
+    "yechim": {
+      "tahlil": "Ketma-ketlikning n-hadi n ta had yig'indisi bilan (n−1) ta had yig'indisi ayirmasiga tengdir.",
+      "qadamlar": [
+        "1-qadam: S₁₀ = 2(10)² + 3(10) = 200 + 30 = 230.",
+        "2-qadam: S₉ = 2(9)² + 3(9) = 162 + 27 = 189.",
+        "3-qadam: a₁₀ = 230 − 189 = 41."
+      ],
+      "javob": "41"
+    }
+  }
 }

@@ -167,22 +167,47 @@
   },
   "mashqlar": {
     "betlar": "45-bet",
-    "intro": "Daftarga: har birida avval funksiya turini (r qanday) aniqlang, keyin o‘sish/kamayish oralig‘ini yozing.",
+    "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing.",
     "items": [
       {
-        "title": "1-mashq (90-masala).",
-        "body": "Funksiyaning o‘sish va kamayish oraliqlarini toping:",
-        "sub": "1) y = 2x + 3; &nbsp; 3) y = x² + 2; &nbsp; 6) y = (2 + x)²."
+        "id": "ex-10-1",
+        "daraja": "asosiy",
+        "savol": "Funksiyaning o‘sishi va kamayishi mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 2",
+        "togriJavob": [
+          "2",
+          "+2"
+        ],
+        "validationRegex": "^\\s*\\+?2\\s*$",
+        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: x² = 4.",
+            "2-qadam: x = ±2.",
+            "3-qadam: Musbat ildiz: x = 2."
+          ],
+          "javob": "2"
+        }
       },
       {
-        "title": "2-mashq (91-masala, og‘zaki).",
-        "body": "Funksiya x &gt; 0 oraliqda o‘sadimi yoki kamayadimi?",
-        "sub": "1) y = x^(3/7); &nbsp; 3) y = x^(−√2); &nbsp; 4) y = x^(√3)."
-      },
-      {
-        "title": "3-mashq (93-masala).",
-        "body": "Tenglamaning musbat ildizini toping:",
-        "sub": "1) x^(1/2) = 3; &nbsp; 3) x^(−1/4) = 2; &nbsp; 5) x^(5/6) = 32."
+        "id": "ex-10-2",
+        "daraja": "ortacha",
+        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0",
+        "togriJavob": [
+          "0"
+        ],
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "D = b² − 4ac formulani qo'llang.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: a = 1, b = −6, c = 9.",
+            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+          ],
+          "javob": "0"
+        }
       }
     ]
   },
@@ -205,5 +230,21 @@
     {
       "html": "r&lt;0: x&gt;0 da <strong>kamayadi</strong>"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Funksiyaning o‘sishi va kamayishi doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
+    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "yechim": {
+      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "qadamlar": [
+        "1-qadam: (m − 2)² = 36.",
+        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
+        "3-qadam: m₁ = 8, m₂ = −4.",
+        "4-qadam: Musbat m so'ralgan, demak m = 8."
+      ],
+      "javob": "8"
+    }
+  }
 }

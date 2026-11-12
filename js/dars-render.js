@@ -219,16 +219,263 @@
     var head = document.getElementById("mashqHead");
     if (head) head.textContent = "Darslikdan mashqlar · " + d.mashqlar.betlar;
     var introWrap = document.getElementById("mashqIntro");
-    if (introWrap) introWrap.textContent = d.mashqlar.intro;
+    if (introWrap) {
+      var introText = d.mashqlar.intro || "Mashqlarni mustaqil yeching va javobingizni tekshiring.";
+      introText = introText.replace(/daftarga yeching\.?\s*/gi, "").replace(/o'qituvchi doskada tekshiradi\.?\s*/gi, "").trim();
+      introWrap.textContent = introText || "Mashqlarni mustaqil yeching va javobingizni tekshiring.";
+    }
 
     var wrap = document.getElementById("mashqList");
     if (!wrap) return;
-    d.mashqlar.items.forEach(function (item) {
-      var li = el("li");
-      li.appendChild(el("p", null, "<strong>" + escapeHtml(item.title) + "</strong> " + escapeHtml(item.body)));
-      if (item.sub) li.appendChild(el("p", { class: "mashq-sub" }, item.sub));
-      wrap.appendChild(li);
+
+    var storagePrefix = "ja_mashq_" + d.id + "_";
+    var solvedCount = 0;
+    var totalCount = d.mashqlar.items ? d.mashqlar.items.length : 0;
+
+    var progressPill = document.createElement("span");
+    progressPill.className = "mashqlar-progress-pill";
+    progressPill.id = "mashqlarProgressPill";
+
+    var headWrap = head ? head.parentElement : null;
+    if (headWrap && !document.getElementById("mashqlarProgressPill")) {
+      var pRow = document.createElement("div");
+      pRow.className = "mashqlar-progress-wrap";
+      pRow.appendChild(progressPill);
+      headWrap.appendChild(pRow);
+    }
+
+    function updateProgressBadge() {
+      if (progressPill) {
+        progressPill.textContent = "Mashqlar: " + solvedCount + " / " + totalCount + " yechildi";
+      }
+    }
+
+    (d.mashqlar.items || []).forEach(function (item, idx) {
+      var itemId = item.id || ("ex-" + (idx + 1));
+      var storageKey = storagePrefix + itemId;
+      var isSolved = false;
+      try { isSolved = localStorage.getItem(storageKey) === "1"; } catch (e) {}
+      if (isSolved) solvedCount++;
+
+      var card = el("li", { class: "mashq-item-card" + (isSolved ? " is-correct" : "") });
+
+      var topRow = el("div", { class: "mashq-header-row" });
+      var titleText = item.title || ((idx + 1) + "-mashq");
+      topRow.appendChild(el("h3", { class: "mashq-title" }, titleText));
+
+      var daraja = item.daraja || "asosiy";
+      var darajaLabel = daraja === "litsey" ? "Litsey" : daraja === "ortacha" ? "O'rtacha" : "Asosiy";
+      topRow.appendChild(el("span", { class: "mashq-badge daraja-" + daraja }, darajaLabel));
+      card.appendChild(topRow);
+
+      var savolText = item.savol || item.body || "";
+      card.appendChild(el("p", { class: "mashq-savol-text" }, savolText));
+      if (item.sub) card.appendChild(el("p", { class: "mashq-sub" }, item.sub));
+
+      var formRow = el("div", { class: "mashq-action-row" });
+      var input = el("input", {
+        type: "text",
+        class: "mashq-input",
+        placeholder: item.inputPlaceholder || "Javobni kiriting...",
+        "aria-label": titleText + " javobi"
+      });
+      if (isSolved) {
+        input.value = (item.togriJavob && item.togriJavob[0]) || (item.yechim && item.yechim.javob) || "Yechilgan";
+        input.disabled = true;
+      }
+      formRow.appendChild(input);
+
+      var btnCheck = el("button", { type: "button", class: "btn-check" }, isSolved ? "Yechilgan" : "Tekshirish");
+      if (isSolved) btnCheck.disabled = true;
+      formRow.appendChild(btnCheck);
+
+      var btnHint = null;
+      if (item.hint) {
+        btnHint = el("button", { type: "button", class: "btn-hint-toggle" }, "Maslahat");
+        formRow.appendChild(btnHint);
+      }
+      card.appendChild(formRow);
+
+      var feedback = el("div", { class: "mashq-feedback" });
+      if (isSolved) {
+        feedback.className = "mashq-feedback is-success";
+        feedback.textContent = "Ofarin! To'g'ri topdingiz!";
+      }
+      card.appendChild(feedback);
+
+      var hintBox = null;
+      if (item.hint) {
+        hintBox = el("div", { class: "mashq-hint-box", style: "display:none;" }, item.hint);
+        card.appendChild(hintBox);
+        btnHint.addEventListener("click", function () {
+          var isHidden = hintBox.style.display === "none";
+          hintBox.style.display = isHidden ? "block" : "none";
+        });
+      }
+
+      var yechimBox = el("details", { class: "mashq-yechim-accordion", style: isSolved ? "" : "display:none;" });
+      yechimBox.appendChild(el("summary", null, "To'liq yechimni ko'rish"));
+
+      if (item.yechim && item.yechim.qadamlar) {
+        var stepsBox = el("div", { class: "mashq-yechim-steps", style: "padding-left:4px; margin-top:8px;" });
+        item.yechim.qadamlar.forEach(function (q) {
+          stepsBox.appendChild(el("div", { class: "mashq-step-line", style: "margin-bottom:6px; line-height:1.5;" }, q));
+        });
+        yechimBox.appendChild(stepsBox);
+        if (item.yechim.javob) {
+          yechimBox.appendChild(el("p", { style: "margin-top:6px; font-weight:700;" }, "Javob: " + item.yechim.javob));
+        }
+      } else {
+        var pAns = el("p", { style: "margin-top:6px; font-weight:700;" }, "Javob: " + ((item.togriJavob && item.togriJavob[0]) || ""));
+        yechimBox.appendChild(pAns);
+      }
+      card.appendChild(yechimBox);
+
+      var attempts = 0;
+      function checkAnswer() {
+        if (card.classList.contains("is-correct")) return;
+        var val = (input.value || "").trim().toLowerCase();
+        if (!val) {
+          input.focus();
+          return;
+        }
+
+        var isCorrect = false;
+        if (item.validationRegex) {
+          try {
+            var re = new RegExp(item.validationRegex, "i");
+            if (re.test(val)) isCorrect = true;
+          } catch (e) {}
+        }
+        if (!isCorrect && item.togriJavob) {
+          var answers = Array.isArray(item.togriJavob) ? item.togriJavob : [item.togriJavob];
+          for (var a = 0; a < answers.length; a++) {
+            var normA = String(answers[a]).trim().toLowerCase();
+            if (val === normA || val.replace(/\s+/g, "") === normA.replace(/\s+/g, "")) {
+              isCorrect = true;
+              break;
+            }
+          }
+        }
+
+        if (isCorrect) {
+          card.classList.add("is-correct");
+          feedback.className = "mashq-feedback is-success";
+          feedback.textContent = "Ofarin! To'g'ri topdingiz!";
+          input.disabled = true;
+          btnCheck.disabled = true;
+          btnCheck.textContent = "Yechilgan";
+          yechimBox.style.display = "";
+          solvedCount++;
+          updateProgressBadge();
+          try { localStorage.setItem(storageKey, "1"); } catch (e) {}
+        } else {
+          attempts++;
+          input.classList.remove("shake");
+          void input.offsetWidth;
+          input.classList.add("shake");
+          feedback.className = "mashq-feedback is-error";
+          feedback.textContent = "Noto'g'ri. Yana bir bor urinib ko'ring yoki maslahatni oching.";
+          if (attempts >= 2) {
+            yechimBox.style.display = "";
+          }
+        }
+      }
+
+      btnCheck.addEventListener("click", checkAnswer);
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          checkAnswer();
+        }
+      });
+
+      wrap.appendChild(card);
     });
+
+    updateProgressBadge();
+  }
+
+  function renderOlimpiada(d) {
+    if (!d.olimpiada) return;
+    var main = document.querySelector("main");
+    if (!main) return;
+
+    var sec = el("section", { class: "block block-olimpiada", id: "blockOlimpiada" });
+    sec.appendChild(el("div", { class: "olimpiada-badge" }, d.olimpiada.qiyinlik || "Litsey va Olimpiada tayyorgarligi"));
+    sec.appendChild(el("h2", null, d.olimpiada.sarlavha || d.olimpiada.nomi || "Nostandart mantiqiy masala"));
+    var leadText = d.olimpiada.korsatma || d.olimpiada.izoh;
+    if (leadText) {
+      sec.appendChild(el("p", { class: "olimpiada-lead" }, leadText));
+    }
+
+    var card = el("div", { class: "olimpiada-card" });
+    card.appendChild(el("p", { class: "olimpiada-savol" }, d.olimpiada.masala || d.olimpiada.shart || ""));
+
+    if (d.olimpiada.yechim) {
+      var det = el("details", { class: "olimpiada-details" });
+      det.appendChild(el("summary", null, "Qadamma-qadam tahlil va matematik yechim"));
+      var analysisBox = el("div", { class: "olimpiada-analysis" });
+      if (d.olimpiada.yechim.tahlil) {
+        analysisBox.appendChild(el("p", null, "<strong>Mantiqiy tahlil:</strong> " + d.olimpiada.yechim.tahlil));
+      }
+      if (d.olimpiada.yechim.qadamlar) {
+        var ol = el("ol", { style: "padding-left:20px; line-height:1.6;" });
+        d.olimpiada.yechim.qadamlar.forEach(function (st) {
+          ol.appendChild(el("li", null, st));
+        });
+        analysisBox.appendChild(ol);
+      }
+      if (d.olimpiada.yechim.javob) {
+        analysisBox.appendChild(el("p", { style: "margin-top:10px; font-weight:700; color:var(--accent);" }, "Javob: " + d.olimpiada.yechim.javob));
+      }
+      det.appendChild(analysisBox);
+      card.appendChild(det);
+    }
+
+    sec.appendChild(card);
+
+    var xulosaBlock = document.querySelector(".block-xulosa");
+    if (xulosaBlock && xulosaBlock.parentElement) {
+      xulosaBlock.parentElement.insertBefore(sec, xulosaBlock);
+    } else {
+      main.appendChild(sec);
+    }
+  }
+
+  function initModeToggle() {
+    var btnStudent = document.getElementById("modeStudent");
+    var btnTeacher = document.getElementById("modeTeacher");
+    if (!btnStudent || !btnTeacher) return;
+
+    var urlParam = "";
+    try {
+      var params = new URLSearchParams(window.location.search);
+      urlParam = params.get("mode") || "";
+    } catch (e) {}
+
+    var savedMode = "";
+    try {
+      savedMode = localStorage.getItem("jonli-algebra-user-mode") || "";
+    } catch (e) {}
+
+    var isTeacher = urlParam === "teacher" || savedMode === "teacher";
+
+    function applyMode(teacher) {
+      document.documentElement.classList.toggle("teacher-mode", teacher);
+      btnStudent.classList.toggle("is-active", !teacher);
+      btnTeacher.classList.toggle("is-active", teacher);
+      btnStudent.setAttribute("aria-checked", !teacher ? "true" : "false");
+      btnTeacher.setAttribute("aria-checked", teacher ? "true" : "false");
+      try {
+        localStorage.setItem("jonli-algebra-user-mode", teacher ? "teacher" : "student");
+      } catch (e) {}
+    }
+
+    applyMode(isTeacher);
+
+    btnStudent.addEventListener("click", function () { applyMode(false); });
+    btnTeacher.addEventListener("click", function () { applyMode(true); });
   }
 
   function renderXulosa(d) {
@@ -281,7 +528,9 @@
     renderKitob(d);
     renderDoska(d);
     renderMashqlar(d);
+    renderOlimpiada(d);
     renderXulosa(d);
+    initModeToggle();
 
     if (window.KA_AGENDA && KA_AGENDA.init) KA_AGENDA.init();
     if (window.KA_CLASSTIMER && KA_CLASSTIMER.init) KA_CLASSTIMER.init();

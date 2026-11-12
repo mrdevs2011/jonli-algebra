@@ -189,20 +189,51 @@
   },
   "mashqlar": {
     "betlar": "196–197-bet",
-    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "intro": "Interaktiv mashqlar: ehtimollik va statistik ko'rsatkichlarni tekshiring.",
     "items": [
       {
-        "title": "476-mashq.",
-        "body": "Nisbiy chastotani hisoblang:",
-        "sub": "1) Tanga 50 marta tashlanganda 28 marta gerb tushdi; 2) 200 ta urug'dan 176 tasi unib chiqdi."
+        "id": "ex-36-1",
+        "daraja": "asosiy",
+        "savol": "Standart o'yin suyagi (zarracha) tashlanganda juft son (2, 4, 6) tushish ehtimolligini o'nli kasr ko'rinishida toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0.5",
+        "togriJavob": [
+          "0.5",
+          "0,5",
+          "1/2"
+        ],
+        "validationRegex": "^\\s*(0[,.]5|1/2)\\s*$",
+        "hint": "P = m / n: jami holatlar 6 ta, qulay holatlar 3 ta.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: Jami yuzlar soni: n = 6.",
+            "2-qadam: Juft sonlar: 2, 4, 6 (m = 3 ta).",
+            "3-qadam: P = 3 / 6 = 1/2 = 0.5."
+          ],
+          "javob": "0.5"
+        }
       },
       {
-        "title": "477-mashq.",
-        "body": "Otish mashg'ulotida 80 ta o'qdan 68 tasi nishonga tegdi. Nishonga tegishning nisbiy chastotasi qanday?"
-      },
-      {
-        "title": "478-mashq.",
-        "body": "1000 ta lotereya chiptasidan 45 tasi yutuqli chiqdi. Yutuqsiz chiptalarning nisbiy chastotasini toping."
+        "id": "ex-36-2",
+        "daraja": "ortacha",
+        "savol": "Qutida 4 ta qizil va 6 ta ko'k shar bor. Tavakkaliga olingan sharning qizil bo'lish ehtimolligini o'nli kasrda toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0.4",
+        "togriJavob": [
+          "0.4",
+          "0,4",
+          "2/5"
+        ],
+        "validationRegex": "^\\s*(0[,.]4|2/5)\\s*$",
+        "hint": "Jami sharlar soni 10 ta, qizil sharlar 4 ta.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: n = 4 + 6 = 10.",
+            "2-qadam: m = 4.",
+            "3-qadam: P = 4 / 10 = 0.4."
+          ],
+          "javob": "0.4"
+        }
       }
     ]
   },
@@ -221,5 +252,20 @@
     {
       "html": "Pirson: N=24000 da W = 0,5005 ≈ 0,5"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Ikkita zarracha baravar tashlanganda, tushgan ochkolar yig'indisi 7 ga teng bo'lish ehtimolligini oddiy qisqarmas kasr shaklida toping (masalan 1/6):",
+    "korsatma": "Jami kombinatsiyalar soni 6 · 6 = 36 ta. Yig'indisi 7 bo'ladigan juftliklarni sanang.",
+    "yechim": {
+      "tahlil": "Yig'indisi 7 bo'ladigan barcha juftliklar: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1).",
+      "qadamlar": [
+        "1-qadam: Jami elementar hodisalar soni: n = 6 · 6 = 36.",
+        "2-qadam: Qulay hodisalar soni: m = 6 ta.",
+        "3-qadam: P = 6 / 36 = 1/6."
+      ],
+      "javob": "1/6"
+    }
+  }
 }

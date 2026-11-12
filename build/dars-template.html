@@ -25,8 +25,15 @@
         <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
       </a>
       <div class="header-right">
-        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
-        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+        <div class="mode-toggle" id="modeToggle" role="radiogroup" aria-label="Foydalanish rejimi">
+          <button type="button" class="mode-btn is-active" id="modeStudent" data-mode="student" aria-checked="true" title="Mustaqil o'rganish rejimi">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>O'quvchi
+          </button>
+          <button type="button" class="mode-btn" id="modeTeacher" data-mode="teacher" aria-checked="false" title="Sinf va o'qituvchi vositalari">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>O'qituvchi
+          </button>
+        </div>
+        <a class="btn" href="../../../../index.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:5px;vertical-align:-1px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Bosh sahifa</a>
       </div>
     </header>
 
@@ -216,6 +223,7 @@
   <script src="../../../../js/sahna-mono-parabola.js"></script>
   <script src="../../../../js/sahna-even-odd.js"></script>
   <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-trig-add.js"></script>
   <script src="../../../../js/sahna-line-parabola.js"></script>
   <script src="../../../../js/sahna-system-methods.js"></script>
   <script src="../../../../js/sahna-power-growth.js"></script>

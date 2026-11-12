@@ -118,40 +118,47 @@
     "betlar": "17-bet",
     "items": [
       {
-        "title": "24-mashq. (Og''zaki.)",
-        "body": "Parabola uchining koordinatalarini toping (24−26):",
-        "sub": "1) y = (x−3)² − 2;   2) y = (x+4)² + 3;   3) y = 5(x+2)² − 7;   4) y = −4(x−1)² + 5."
+        "id": "ex-4-1",
+        "daraja": "asosiy",
+        "savol": "y = ax² + bx + c funksiya mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 2",
+        "togriJavob": [
+          "2",
+          "+2"
+        ],
+        "validationRegex": "^\\s*\\+?2\\s*$",
+        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: x² = 4.",
+            "2-qadam: x = ±2.",
+            "3-qadam: Musbat ildiz: x = 2."
+          ],
+          "javob": "2"
+        }
       },
       {
-        "title": "25-mashq.",
-        "body": "Parabola uchining koordinatalarini toping:",
-        "sub": "1) y = x² + 4x + 1;   2) y = x² − 6x − 7;   3) y = 2x² − 6x + 11;   4) y = −3x² + 18x − 7."
-      },
-      {
-        "title": "26-mashq.",
-        "body": "Parabola uchining koordinatalarini toping:",
-        "sub": "1) y = x² + 2;   2) y = −x² − 5;   3) y = 3x² + 2x;   4) y = −4x² + x;   5) y = −3x² + x;   6) y = 2x² − x."
-      },
-      {
-        "title": "27-mashq.",
-        "body": "Ox o'qida shunday nuqtani topingki, undan parabolaning simmetriya o'qi o'tsin:",
-        "sub": "1) y = x² + 3;   2) y = (x+2)²;   3) y = −3(x+2)² + 2;   4) y = (x−2)² + 2;   5) y = x² + x + 1;   6) y = 2x² − 3x + 5."
-      },
-      {
-        "title": "28-mashq.",
-        "body": "y = x² − 10x parabolaning simmetriya o'qi:",
-        "sub": "1) (5; 10);   2) (3; −8);   3) (5; 0);   4) (−5; 1) nuqtadan o'tadimi?"
-      },
-      {
-        "title": "29-mashq.",
-        "body": "Parabolaning koordinatalar o'qlari bilan kesishish nuqtalarining koordinatalarini toping:",
-        "sub": "1) y = x² − 3x + 2;   2) y = −2x² + 3x − 1;   3) y = 3x² − 7x + 12;   4) y = 3x² − 4x."
-      },
-      {
-        "title": "30-mashq.",
-        "body": "Agar parabolaning (−1; 6) nuqta orqali o'tishi va uning uchi (1; 2) nuqta ekani ma'lum bo'lsa, parabolaning tenglamasini yozing."
+        "id": "ex-4-2",
+        "daraja": "ortacha",
+        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0",
+        "togriJavob": [
+          "0"
+        ],
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "D = b² − 4ac formulani qo'llang.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: a = 1, b = −6, c = 9.",
+            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+          ],
+          "javob": "0"
+        }
       }
-    ]
+    ],
+    "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing."
   },
   "xulosa": [
     "<strong>y = ax² + bx + c</strong> grafigi — y = ax² ni parallel ko'chirish.",
@@ -279,5 +286,21 @@
         "height": 290
       }
     ]
+  },
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "y = ax² + bx + c funksiya doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
+    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "yechim": {
+      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "qadamlar": [
+        "1-qadam: (m − 2)² = 36.",
+        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
+        "3-qadam: m₁ = 8, m₂ = −4.",
+        "4-qadam: Musbat m so'ralgan, demak m = 8."
+      ],
+      "javob": "8"
+    }
   }
 }

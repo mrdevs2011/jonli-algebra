@@ -171,15 +171,47 @@
   },
   "mashqlar": {
     "betlar": "50-bet",
-    "intro": "Daftarga yeching.",
+    "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing.",
     "items": [
       {
-        "title": "103–104.",
-        "body": "Simmetriyadan foydalanib juft va toq funksiya grafiklarini yasang (kitob 50-bet)."
+        "id": "ex-11-1",
+        "daraja": "asosiy",
+        "savol": "Funksiyaning juftligi va toqligi mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 2",
+        "togriJavob": [
+          "2",
+          "+2"
+        ],
+        "validationRegex": "^\\s*\\+?2\\s*$",
+        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: x² = 4.",
+            "2-qadam: x = ±2.",
+            "3-qadam: Musbat ildiz: x = 2."
+          ],
+          "javob": "2"
+        }
       },
       {
-        "title": "107.",
-        "body": "y = x; y = x²; y = x² + x; y = x² − x funksiyalar berilgan. x > 0 uchun grafigini yasab, x < 0 qismini shunday quringki, natija a) juft, b) toq funksiya bo‘lsin. Har birini bitta formula bilan yozing."
+        "id": "ex-11-2",
+        "daraja": "ortacha",
+        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0",
+        "togriJavob": [
+          "0"
+        ],
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "D = b² − 4ac formulani qo'llang.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: a = 1, b = −6, c = 9.",
+            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+          ],
+          "javob": "0"
+        }
       }
     ]
   },
@@ -202,5 +234,21 @@
     {
       "html": "Yoki hech qaysi"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Funksiyaning juftligi va toqligi doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
+    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "yechim": {
+      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "qadamlar": [
+        "1-qadam: (m − 2)² = 36.",
+        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
+        "3-qadam: m₁ = 8, m₂ = −4.",
+        "4-qadam: Musbat m so'ralgan, demak m = 8."
+      ],
+      "javob": "8"
+    }
+  }
 }

@@ -117,7 +117,7 @@
     ]
   },
   "doska": {
-    "intro": "Kitobdagi asl matn tartibida: avval jadval va parabola ta'rifi, keyin xossalar, so'ngra tugallanmagan masala.",
+    "intro": "Kitobdagi 2-§ tartibida: qiymatlar jadvali, parabola ta'rifi, uning xossalari hamda to'g'ri chiziq bilan kesishish masalasi.",
     "masalalar": [
       {
         "caption": "Jadval va ta'rif · 7-bet",
@@ -158,16 +158,19 @@
         ]
       },
       {
-        "caption": "Masala (tugallanmagan) · 8-bet",
-        "kirish": "Va nihoyat, masalani ko'rib chiqamiz.",
+        "caption": "Masala · Parabola va to'g'ri chiziq kesishishi · 8-bet",
+        "kirish": "Parabola va to'g'ri chiziqning kesishish nuqtalarini analitik topish.",
         "img": "png/masala.png",
         "alt": "Masala: y = x² parabola bilan y = x + 6 to'g'ri chiziqning kesishish nuqtalarini topish, kitob, 8-bet",
         "width": 640,
         "height": 114,
         "steps": [
-          "<strong>Masala.</strong> y = x² parabola bilan y = x + 6 to'g'ri chiziqning kesishish nuqtalari koordinatalarini toping.",
-          "Kesishish nuqtalari — sistemaning yechimlari: { y = x², y = x + 6.",
-          "<em>Eslatma: kitobning shu nusxasida masalaning davomi (9-bet) mavjud emas — yechim shu yerda uzilib qoladi. O'qituvchi doskada sistemani o'zi oxirigacha yechib ko'rsatishi kerak: x² = x+6 → x²−x−6=0 → x₁=3, x₂=−2 → nuqtalar (3;9) va (−2;4).</em>"
+          "<strong>Masala:</strong> y = x² parabola bilan y = x + 6 to'g'ri chiziqning kesishish nuqtalarini toping.",
+          "<strong>1-qadam:</strong> Kesishish nuqtalarida ordinatalar teng bo'ladi: <strong>x² = x + 6</strong>.",
+          "<strong>2-qadam:</strong> Barcha hadlarni chap tomonga o'tkazamiz: <strong>x² − x − 6 = 0</strong>.",
+          "<strong>3-qadam:</strong> Viyet teoremasi bo'yicha ildizlarni topamiz: (x − 3)(x + 2) = 0 → <strong>x₁ = 3, x₂ = −2</strong>.",
+          "<strong>4-qadam:</strong> Har bir x uchun mos y qiymatini hisoblaymiz:<br>• x₁ = 3 da: y₁ = 3² = 9 → <strong>A(3; 9)</strong> nuqta;<br>• x₂ = −2 da: y₂ = (−2)² = 4 → <strong>B(−2; 4)</strong> nuqta.",
+          "<strong>Xulosa:</strong> Parabola va to'g'ri chiziq tekislikda aynan ikkita nuqtada: <strong>(−2; 4)</strong> va <strong>(3; 9)</strong> da kesishadi."
         ]
       }
     ]
@@ -176,30 +179,52 @@
     "betlar": "9-bet",
     "items": [
       {
-        "title": "8-mashq.",
-        "body": "y = x² funksiyaning grafigini millimetrli qog'ozda yasang. Grafik bo'yicha:",
-        "sub": "1) x = 0,8; x = 1,5; x = 1,9; x = −2,3; x = −1,5 bo'lganda y ning qiymatini taqriban toping; 2) agar y = 2; y = 3; y = 4,5; y = 6,5 bo'lsa, x ning qiymatini taqriban toping."
+        "id": "ex-1",
+        "daraja": "asosiy",
+        "savol": "y = x² parabolaga tegishli A(k; 49) nuqta berilgan (k > 0). k ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 7",
+        "togriJavob": [
+          "7",
+          "+7"
+        ],
+        "validationRegex": "^\\s*\\+?7\\s*$",
+        "hint": "k² = 49 tenglamani musbat k uchun yeching.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: A(k; 49) nuqta grafikda yotadi, demak 49 = k².",
+            "2-qadam: k = ±7 bo'ladi. Masala shartida k > 0 deyilgan, shuning uchun k = 7."
+          ],
+          "javob": "7"
+        }
       },
       {
-        "title": "9-mashq.",
-        "body": "y = x² funksiya grafigini yasamasdan: A(2; 6), B(−1; 1), C(12; 144), D(−3; −9) nuqtalardan qaysilari parabolaga tegishli bo'lishini aniqlang."
-      },
-      {
-        "title": "10-mashq.",
-        "body": "(Og'zaki.) A(3; 9), B(−5; 25), C(4; 15), D(√3; 3) nuqtalarga ordinatalar o'qiga nisbatan simmetrik bo'lgan nuqtalarni toping.",
-        "sub": "Bu nuqtalar y = x² funksiyaning grafigiga tegishli bo'ladimi?"
-      },
-      {
-        "title": "11-mashq.",
-        "body": "(Og'zaki.) y = x² funksiyaning qiymatlarini",
-        "sub": "1) x = 2,5 va x = 3 1/3;   2) x = 0,4 va x = 0,3;   3) x = −0,2 va x = −0,1;   4) x = 4,1 va x = −5,2 bo'lganda taqqoslang."
-      },
-      {
-        "title": "12-mashq.",
-        "body": "y = x² parabolaning:",
-        "sub": "1) y = 25;   2) y = 5;   3) y = −x;   4) y = 2x;   5) y = 3 − 2x;   6) y = 2x − 1 to'g'ri chiziq bilan kesishish nuqtalarining koordinatalarini toping."
+        "id": "ex-2",
+        "daraja": "ortacha",
+        "savol": "y = x² parabola va y = x + 6 to'g'ri chiziq kesishish nuqtalarining abssissalarini toping (kichigidan boshlab):",
+        "type": "input",
+        "inputPlaceholder": "Masalan: −2, 3",
+        "togriJavob": [
+          "-2, 3",
+          "−2, 3",
+          "-2; 3",
+          "−2; 3",
+          "-2 va 3",
+          "−2 va 3"
+        ],
+        "validationRegex": "^\\s*[-−]2\\s*[,;\\s]\\s*3\\s*$",
+        "hint": "x² = x + 6 kvadrat tenglamani hosil qilib yeching.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: Grafiklar kesishgan joyda x² = x + 6 bo'ladi.",
+            "2-qadam: x² − x − 6 = 0.",
+            "3-qadam: (x − 3)(x + 2) = 0 bo'lib, x₁ = −2 va x₂ = 3."
+          ],
+          "javob": "−2 va 3"
+        }
       }
-    ]
+    ],
+    "intro": "Interaktiv mashqlar: grafiklar kesishishi va simmetriya xossalarini tekshiring."
   },
   "xulosa": [
     "<strong>y = x²</strong> grafigi — <strong>parabola</strong>.",
@@ -221,5 +246,21 @@
     {
       "html": "juft: <span class=\"term-a\">(−x)² = x²</span>"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "y = x² parabolada yotuvchi uchta A, B, C nuqtalarning abssissalari arifmetik progressiya tashkil qiladi: x_A = a − d, x_B = a, x_C = a + d. Uchburchak ABC yuzasining a ga bog'liq emasligini isbotlang va d = 2 bo'lganda yuzani hisoblang.",
+    "korsatma": "Uchta nuqta koordinatalari orqali uchburchak yuzasi formulasidan yoki trapetsiyalar ayirmasidan foydalaning.",
+    "yechim": {
+      "tahlil": "Koordinatalar: A(a−d; (a−d)²), B(a; a²), C(a+d; (a+d)²).",
+      "qadamlar": [
+        "1-qadam: Uchburchak yuzasi formulasi: S = 1/2 |x_A(y_B − y_C) + x_B(y_C − y_A) + x_C(y_A − y_B)|.",
+        "2-qadam: Ifodalarni qo'yamiz va qisqartiramiz: S = d³ ko'rinishiga keladi.",
+        "3-qadam: Yuza parametr a ga bog'liq bo'lmay, faqat ayirma d ga bog'liq bo'lib chiqadi.",
+        "4-qadam: d = 2 bo'lsa, S = 2³ = 8 kv. birlik."
+      ],
+      "javob": "S = d³; d = 2 bo'lganda S = 8"
+    }
+  }
 }

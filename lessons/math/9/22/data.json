@@ -199,27 +199,46 @@
   },
   "mashqlar": {
     "betlar": "118–119-bet",
-    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "intro": "Interaktiv mashqlar: trigonometrik qiymatlar va ayniyatlarni tekshiring.",
     "items": [
       {
-        "title": "265-mashq.",
-        "body": "Ayniyatni isbotlang:",
-        "sub": "1) (1−cosα)(1+cosα)=sin²α; &nbsp; 2) 2−sin²α−cos²α=1; &nbsp; 3) sin²α/(1−sin²α)=tg²α; &nbsp; 4) cos²α/(1−cos²α)=ctg²α; &nbsp; 5) 1/(1+tg²α)+sin²α=1; &nbsp; 6) 1/(1+ctg²α)+cos²α=1."
+        "id": "ex-22-1",
+        "daraja": "asosiy",
+        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0.8",
+        "togriJavob": [
+          "0.8",
+          "0,8",
+          "4/5"
+        ],
+        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
+        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
+            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+          ],
+          "javob": "0.8"
+        }
       },
       {
-        "title": "266-mashq.",
-        "body": "Ifodani soddalashtiring:",
-        "sub": "1) cosα·tgα−2sinα; &nbsp; 2) cosα·sinα·ctgα; &nbsp; 3) sin²α/(1+cosα); &nbsp; 4) cos²α/(1−sinα); &nbsp; 5) (tgα·cosα)/sin²α."
-      },
-      {
-        "title": "267-mashq.",
-        "body": "Ifodani soddalashtiring va uning son qiymatini toping:",
-        "sub": "1) sin²α/(1−cos²α), bunda α=π/6; &nbsp; 2) 1/cos²α−1, bunda α=π/3; &nbsp; 3) cos²α+ctg²α+sin²α, bunda α=π/6; &nbsp; 4) cos²α+tg²α+sin²α, bunda α=π/3."
-      },
-      {
-        "title": "268-mashq.",
-        "body": "Ayniyatni isbotlang:",
-        "sub": "1) (1−sin²α)(1+tg²α)=1; &nbsp; 2) sin²α(1+ctg²α)−cos²α=sin²α."
+        "id": "ex-22-2",
+        "daraja": "ortacha",
+        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 1",
+        "togriJavob": [
+          "1"
+        ],
+        "validationRegex": "^\\s*1\\s*$",
+        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+          ],
+          "javob": "1"
+        }
       }
     ]
   },
@@ -242,5 +261,20 @@
     {
       "html": "Isbotlash: bir tomonni ikkinchisiga aylantir, yoki ayirmani 0 ga tenglashtir"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
+    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "yechim": {
+      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "qadamlar": [
+        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
+        "2-qadam: 9 = tg²α + ctg²α + 2.",
+        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+      ],
+      "javob": "7"
+    }
+  }
 }

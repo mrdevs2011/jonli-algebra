@@ -34,7 +34,7 @@
     },
     {
       "min": 10,
-      "name": "Darslikdan mashqlar — daftarga yechish"
+      "name": "Interaktiv mashqlar va mustaqil tekshirish"
     },
     {
       "min": 5,
@@ -189,35 +189,45 @@
   },
   "mashqlar": {
     "betlar": "83-bet",
-    "intro": "Tengsizliklarni isbotlang (183–189):",
+    "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing.",
     "items": [
       {
-        "title": "183-mashq.",
-        "sub": "Ixtiyoriy haqiqiy a, b, x larda tengsizliklarning o‘rinli ekanligini isbotlang (4 ta variant)."
+        "id": "ex-16-1",
+        "daraja": "asosiy",
+        "savol": "x + y = 7 va x − y = 3 tenglamalar sistemasidan x ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 5",
+        "togriJavob": [
+          "5"
+        ],
+        "validationRegex": "^\\s*5\\s*$",
+        "hint": "Ikkala tenglamani qo'shib yuboring: 2x = 10.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: (x + y) + (x − y) = 7 + 3.",
+            "2-qadam: 2x = 10 → x = 5."
+          ],
+          "javob": "5"
+        }
       },
       {
-        "title": "184-mashq.",
-        "sub": "Agar ab > 0 bo‘lsa, tengsizlikni isbotlang."
-      },
-      {
-        "title": "185-mashq.",
-        "sub": "Agar a > −1, a ≠ 0 bo‘lsa, tengsizlikni isbotlang."
-      },
-      {
-        "title": "186-mashq.",
-        "sub": "a ≥ 0, b ≥ 0 va a ≠ b bo‘lsa, (√a + √b)² va 2√2(a + b)√(ab) larning qaysi biri katta?"
-      },
-      {
-        "title": "187-mashq.",
-        "sub": "(a+1)(a+2)(a+3)(a+6) ≥ 96 a² (a > 0) ni isbotlang."
-      },
-      {
-        "title": "188-mashq.",
-        "sub": "a > 0 da (a + 4)/2 ≥ 3√(a²/4) yoki shunga o‘xshash ni isbotlang."
-      },
-      {
-        "title": "189-mashq.",
-        "sub": "a, b, c, d musbat bo‘lsa, (a+c)/(b+d) ≥ min(a/b, c/d) tipidagi tengsizlikni isbotlang."
+        "id": "ex-16-2",
+        "daraja": "ortacha",
+        "savol": "x² + y² = 25 va x = 3 bo'lsa, musbat y ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 4",
+        "togriJavob": [
+          "4"
+        ],
+        "validationRegex": "^\\s*4\\s*$",
+        "hint": "3² + y² = 25 tenglamadan y² = 16 ni toping.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: 9 + y² = 25.",
+            "2-qadam: y² = 16 → y = 4 (musbat qiymat)."
+          ],
+          "javob": "4"
+        }
       }
     ]
   },
@@ -240,5 +250,20 @@
     {
       "html": "a + 1/a ≥ 2 (a > 0)"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "x + y = 10 va xy = 21 tenglamalar sistemasining yechimlari (x; y) juftliklarini toping hamda x² + y² yig'indisini hisoblang.",
+    "korsatma": "x² + y² = (x + y)² − 2xy ayniyatidan foydalaning.",
+    "yechim": {
+      "tahlil": "To'g'ridan-to'g'ri kvadratlar yig'indisi ayniyatini qo'llash orqali ildizlarni alohida topmasdan ham hisoblash mumkin.",
+      "qadamlar": [
+        "1-qadam: x² + y² = (x + y)² − 2xy.",
+        "2-qadam: (10)² − 2(21) = 100 − 42 = 58.",
+        "3-qadam: Ildizlarning o'zi esa Viyet bo'yicha {3, 7} bo'ladi."
+      ],
+      "javob": "58"
+    }
+  }
 }

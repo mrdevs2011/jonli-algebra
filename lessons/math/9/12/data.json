@@ -34,7 +34,7 @@
     },
     {
       "min": 10,
-      "name": "Darslikdan mashqlar — daftarga yechish"
+      "name": "Interaktiv mashqlar va mustaqil tekshirish"
     },
     {
       "min": 5,
@@ -184,22 +184,47 @@
   },
   "mashqlar": {
     "betlar": "54–56-betlar",
-    "intro": "Daftarga yeching. Juft/toq darajaning o'sish-kamayishidan foydalaning; ildizli ifodada topilgan yechimni albatta tekshiring.",
+    "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing.",
     "items": [
       {
-        "title": "110.",
-        "body": "Tengsizlikni yeching:",
-        "sub": "1) x⁷ > 1; &nbsp; 2) x³ ≤ 27; &nbsp; 3) y³ ≥ 64; &nbsp; 4) y³ < 125; &nbsp; 5) x⁴ ≤ 16; &nbsp; 6) x⁴ > 625; &nbsp; 7) x⁵ ≤ 243; &nbsp; 8) x⁶ ≥ 64."
+        "id": "ex-12-1",
+        "daraja": "asosiy",
+        "savol": "Daraja qatnashgan tenglama va tengsizlik mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 2",
+        "togriJavob": [
+          "2",
+          "+2"
+        ],
+        "validationRegex": "^\\s*\\+?2\\s*$",
+        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: x² = 4.",
+            "2-qadam: x = ±2.",
+            "3-qadam: Musbat ildiz: x = 2."
+          ],
+          "javob": "2"
+        }
       },
       {
-        "title": "118.",
-        "body": "Tengsizlikni yeching:",
-        "sub": "1) (x − 1)³ > 1; &nbsp; 2) (x + 5)³ > 8; &nbsp; 3) (2x − 3)⁷ ≥ 1; &nbsp; 4) (3x − 5)⁷ < 1; &nbsp; 5) (3 − x)⁴ > 256; &nbsp; 6) (4 − x)⁴ > 81."
-      },
-      {
-        "title": "124.",
-        "body": "Irratsional tengsizlikni yeching (topilgan yechimni ruxsat etilgan soha bilan solishtirib tekshiring):",
-        "sub": "1) √(x − 2) > 3; &nbsp; 2) √(x − 2) ≤ 1; &nbsp; 3) √(2 − x) ≥ x; &nbsp; 4) √(2 − x) < x; &nbsp; 5) √(5x + 11) > x + 3; &nbsp; 6) √(x + 3) ≤ x + 1."
+        "id": "ex-12-2",
+        "daraja": "ortacha",
+        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0",
+        "togriJavob": [
+          "0"
+        ],
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "D = b² − 4ac formulani qo'llang.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: a = 1, b = −6, c = 9.",
+            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+          ],
+          "javob": "0"
+        }
       }
     ]
   },
@@ -222,5 +247,21 @@
     {
       "html": "Kvadratga ko'tarish → <span class=\"term-b\">chet ildizni tekshir</span>"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Daraja qatnashgan tenglama va tengsizlik doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
+    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "yechim": {
+      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "qadamlar": [
+        "1-qadam: (m − 2)² = 36.",
+        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
+        "3-qadam: m₁ = 8, m₂ = −4.",
+        "4-qadam: Musbat m so'ralgan, demak m = 8."
+      ],
+      "javob": "8"
+    }
+  }
 }

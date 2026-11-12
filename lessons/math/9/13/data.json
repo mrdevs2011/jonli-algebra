@@ -34,7 +34,7 @@
     },
     {
       "min": 10,
-      "name": "Darslikdan mashqlar — daftarga yechish"
+      "name": "Interaktiv mashqlar va mustaqil tekshirish"
     },
     {
       "min": 5,
@@ -191,17 +191,45 @@
   },
   "mashqlar": {
     "betlar": "70-bet",
-    "intro": "Daftarga yeching: o'rniga qo'yish yoki Vyetning teskari teoremasidan foydalaning. Javobni asl sistemaga qo'yib tekshiring.",
+    "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing.",
     "items": [
       {
-        "title": "154.",
-        "body": "Tenglamalar sistemasini yeching:",
-        "sub": "1) { y=x+6 ; x²−4y=−3 } &nbsp; 2) { x=2−y ; y²+x=32 } &nbsp; 3) { x+2y=1 ; x+y²=4 } &nbsp; 4) { y−3x=2 ; x²−2y=3 } &nbsp; 5) { x=4−y ; x²+y=4 } &nbsp; 6) { y−4x=5 ; y²+2x=−1 }"
+        "id": "ex-13-1",
+        "daraja": "asosiy",
+        "savol": "x + y = 7 va x − y = 3 tenglamalar sistemasidan x ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 5",
+        "togriJavob": [
+          "5"
+        ],
+        "validationRegex": "^\\s*5\\s*$",
+        "hint": "Ikkala tenglamani qo'shib yuboring: 2x = 10.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: (x + y) + (x − y) = 7 + 3.",
+            "2-qadam: 2x = 10 → x = 5."
+          ],
+          "javob": "5"
+        }
       },
       {
-        "title": "155.",
-        "body": "Tenglamalar sistemasini yeching:",
-        "sub": "1) { x²+xy=2 ; y−3x=7 } &nbsp; 2) { x²−xy−y²=19 ; x−y=7 } &nbsp; 3) { x+y=1 ; x²+y²=5 } &nbsp; 4) { x²+y²=17 ; x−y=3 } &nbsp; 5) { x−y=2 ; x²−y²=0 } &nbsp; 6) { x+y=0 ; x²+y²=8 }"
+        "id": "ex-13-2",
+        "daraja": "ortacha",
+        "savol": "x² + y² = 25 va x = 3 bo'lsa, musbat y ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 4",
+        "togriJavob": [
+          "4"
+        ],
+        "validationRegex": "^\\s*4\\s*$",
+        "hint": "3² + y² = 25 tenglamadan y² = 16 ni toping.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: 9 + y² = 25.",
+            "2-qadam: y² = 16 → y = 4 (musbat qiymat)."
+          ],
+          "javob": "4"
+        }
       }
     ]
   },
@@ -224,5 +252,20 @@
     {
       "html": "Javobni doim asl sistemaga qo'yib tekshir"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "x + y = 10 va xy = 21 tenglamalar sistemasining yechimlari (x; y) juftliklarini toping hamda x² + y² yig'indisini hisoblang.",
+    "korsatma": "x² + y² = (x + y)² − 2xy ayniyatidan foydalaning.",
+    "yechim": {
+      "tahlil": "To'g'ridan-to'g'ri kvadratlar yig'indisi ayniyatini qo'llash orqali ildizlarni alohida topmasdan ham hisoblash mumkin.",
+      "qadamlar": [
+        "1-qadam: x² + y² = (x + y)² − 2xy.",
+        "2-qadam: (10)² − 2(21) = 100 − 42 = 58.",
+        "3-qadam: Ildizlarning o'zi esa Viyet bo'yicha {3, 7} bo'ladi."
+      ],
+      "javob": "58"
+    }
+  }
 }

@@ -46,23 +46,30 @@
     }
   ],
   "sahna": {
-    "type": "unit-circle",
-    "ariaLabel": "Interaktiv chizma: birlik aylanada α va α+β burchaklari — ikki ketma-ket burilish",
-    "hint": "Slayderni suring. Avval α burchakka, keyin β qo'shib α+β ga o'tamiz. Nuqta koordinatalari cos(α+β) va sin(α+β) ni beradi.",
+    "type": "trig-add",
+    "ariaLabel": "Interaktiv chizma: birlik aylanada α va β burchaklari hamda α+β yig'indisi",
+    "hint": "α va β slayderlarini suring. cos(α+β) qiymati cosα·cosβ − sinα·sinβ ga har doim to'liq teng kelishini real vaqtda kuzating.",
     "vars": {
-      "t": {
+      "a": {
         "min": 0,
         "max": 180,
         "step": 5,
         "value": 45,
         "desc": "burchak α (gradus)"
+      },
+      "b": {
+        "min": 0,
+        "max": 180,
+        "step": 5,
+        "value": 30,
+        "desc": "qo'shiluvchi burchak β (gradus)"
       }
     },
     "notes": {
-      "q1": "α = {t}°. Birinchi burilish: nuqta (cosα; sinα).",
-      "q2": "Ikkinchi burilish (masalan +30°): yangi nuqta (cos(α+30°); sin(α+30°)).",
-      "q3": "cos(α+β) = cosα·cosβ − sinα·sinβ formulasi shu geometriyadan chiqadi.",
-      "q4": "Sinus uchun ham xuddi shunday: sin(α+β) = sinα·cosβ + cosα·sinβ."
+      "q1": "α = {a}°, β = {b}°. Yig'indi: α + β = {sum}°.",
+      "q2": "cos(α+β) = cosα·cosβ − sinα·sinβ har doim aynan teng chiqadi.",
+      "q3": "Birlik aylanada nuqta burilishlari ketma-ket qo'shiladi.",
+      "q4": "Sinus uchun: sin(α+β) = sinα·cosβ + cosα·sinβ."
     }
   },
   "kirish": [
@@ -205,32 +212,46 @@
   },
   "mashqlar": {
     "betlar": "124–125-bet",
-    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "intro": "Interaktiv mashqlar: trigonometrik qiymatlar va ayniyatlarni tekshiring.",
     "items": [
       {
-        "title": "280-mashq.",
-        "body": "Qo'shish formulalari yordamida hisoblang:",
-        "sub": "1) cos135°; &nbsp; 2) cos120°; &nbsp; 3) cos150°; &nbsp; 4) cos240°."
+        "id": "ex-24-1",
+        "daraja": "asosiy",
+        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 0.8",
+        "togriJavob": [
+          "0.8",
+          "0,8",
+          "4/5"
+        ],
+        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
+        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
+            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+          ],
+          "javob": "0.8"
+        }
       },
       {
-        "title": "281-mashq.",
-        "body": "Hisoblang:",
-        "sub": "1) cos57°30′ cos27°30′ + sin57°30′ sin27°30′; &nbsp; 2) cos19°30′ cos25°30′ − sin19°30′ sin25°30′; &nbsp; 3) cos(π/12)cos(π/8) − sin(π/12)sin(π/8); &nbsp; 4) sin(π/5)cos(π/3) + cos(π/5)sin(π/3)."
-      },
-      {
-        "title": "282-mashq.",
-        "body": "Hisoblang:",
-        "sub": "1) cos(α+π/2), bunda sinα = 3/5 va 0 < α < π/2; &nbsp; 2) sin(α−π/3), bunda cosα = −2/3 va π/2 < α < π."
-      },
-      {
-        "title": "283–284-mashq.",
-        "body": "Ifodani soddalashtiring:",
-        "sub": "1) cosα cosβ − sinα sinβ; &nbsp; 2) cos2β cosβ + sin2β sinβ; &nbsp; 3) cos(π/2−α) cos(π/2−β) − sin(π/2−α) sin(π/2−β)."
-      },
-      {
-        "title": "285–286-mashq.",
-        "body": "Qo'shish formulalari yordamida hisoblang:",
-        "sub": "1) sin73° cos17° + cos73° sin17°; &nbsp; 2) sin78° cos13° − cos78° sin13°."
+        "id": "ex-24-2",
+        "daraja": "ortacha",
+        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 1",
+        "togriJavob": [
+          "1"
+        ],
+        "validationRegex": "^\\s*1\\s*$",
+        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+          ],
+          "javob": "1"
+        }
       }
     ]
   },
@@ -253,5 +274,20 @@
     {
       "html": "<span class=\"term-b\">sin(α−β)</span> = sinα cosβ − cosα sinβ"
     }
-  ]
+  ],
+  "olimpiada": {
+    "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+    "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
+    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "yechim": {
+      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "qadamlar": [
+        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
+        "2-qadam: 9 = tg²α + ctg²α + 2.",
+        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+      ],
+      "javob": "7"
+    }
+  }
 }
