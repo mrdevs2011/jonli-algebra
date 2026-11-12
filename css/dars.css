@@ -281,18 +281,21 @@
 .kitob-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(15, 20, 24, 0.88);
+  background: rgba(15, 20, 24, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: none;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  z-index: 999;
+  z-index: 10000;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box;
 }
 
 .kitob-lightbox.is-open {
-  display: flex;
+  display: flex !important;
   animation: kitobLightboxFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -306,8 +309,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
   gap: 16px;
   max-width: min(94vw, 680px);
+  width: 100%;
+  box-sizing: border-box;
   animation: kitobBookPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -319,6 +325,10 @@
 .kitob-page-wrap {
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   touch-action: pan-y;
   cursor: grab;
   perspective: 1600px;
@@ -330,10 +340,12 @@
 
 .kitob-lightbox img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
-  max-height: 80vh;
+  max-height: 76vh;
   object-fit: contain;
+  margin: 0 auto;
   border-radius: 6px;
   background: var(--white);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -1768,20 +1780,26 @@ input[type="range"] {
   }
 }
 
-/* Tungi rejim (Dark Mode): Kitob va doska skanerlarini ko'zni qamashtirmaydigan qulay rejimda ko'rsatish */
+/* Tungi rejim (Dark Mode): Kitob va doska skanerlarini ko'zni qamashtirmaydigan qulay tungi rejimda ko'rsatish */
 html[data-theme="dark"] .kitob-sahifa img,
-html[data-theme="dark"] .kitob-lightbox img,
+html[data-theme="dark"] .kitob-lightbox img:not(.kitob-asl),
 html[data-theme="dark"] .doska-img img,
 html[data-theme="dark"] .doska-masala-img img {
-  filter: brightness(0.92) contrast(1.03) !important;
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.1) brightness(0.92) !important;
+  background-color: #141b16 !important;
   border-color: #26332a !important;
   transition: filter 0.25s ease, transform 0.12s ease;
 }
 
-/* O'quvchi xohlasa: toza monoxrom E-ink qog'oz rejimi (ranglar buzilmasdan sof oq-qora e-ink) */
-html[data-theme="dark"] .kitob-lightbox img.kitob-eink {
-  filter: grayscale(100%) invert(0.92) contrast(1.15) brightness(0.9) !important;
-  background-color: #121814 !important;
+html[data-theme="dark"] .kitob-lightbox img.kitob-asl {
+  filter: brightness(0.95) contrast(1.02) !important;
+  background-color: #ffffff !important;
+}
+
+/* Light mode e-ink qo'llab-quvvatlash */
+html:not([data-theme="dark"]) .kitob-lightbox img.kitob-eink {
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.1) brightness(0.92) !important;
+  background-color: #141b16 !important;
 }
 
 /* ==========================================================================
@@ -1894,7 +1912,7 @@ html[data-theme="dark"] .doska-tab.is-active {
 .doska-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(15, 20, 24, 0.88);
+  background: rgba(15, 20, 24, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -1902,6 +1920,9 @@ html[data-theme="dark"] .doska-tab.is-active {
   justify-content: center;
   padding: 24px;
   z-index: 10000;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box;
   animation: doskaFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1919,9 +1940,11 @@ html[data-theme="dark"] .doska-tab.is-active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
   gap: 14px;
   max-width: min(94vw, 840px);
   width: 100%;
+  box-sizing: border-box;
 }
 
 .doska-lightbox-head {
@@ -1950,6 +1973,7 @@ html[data-theme="dark"] .doska-tab.is-active {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 16px;
+  box-sizing: border-box;
   box-shadow: none;
 }
 
@@ -1965,7 +1989,11 @@ html[data-theme="dark"] .doska-tab.is-active {
 .doska-lightbox-nav {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .doska-nav-btn {
@@ -2042,18 +2070,76 @@ html[data-theme="dark"] .doska-tab.is-active {
   color: #ffffff;
 }
 
-/* Dark mode doska lightbox */
+/* Dark mode doska lightbox — Default dark invert */
 html[data-theme="dark"] .doska-lightbox-wrap {
-  background: #19201b;
-  border-color: #26332a;
+  background: #141b16 !important;
+  border-color: #26332a !important;
 }
 html[data-theme="dark"] .doska-lightbox-wrap img {
-  filter: brightness(0.92) contrast(1.03) !important;
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.1) brightness(0.92) !important;
+  background-color: #141b16 !important;
 }
-.doska-lightbox-wrap.is-inverted {
-  background: #151a17 !important;
+html[data-theme="dark"] .doska-lightbox-wrap.is-asl {
+  background: #ffffff !important;
 }
-.doska-lightbox-wrap.is-inverted img {
-  filter: invert(0.92) hue-rotate(180deg) contrast(1.05) !important;
+html[data-theme="dark"] .doska-lightbox-wrap.is-asl img {
+  filter: brightness(0.95) contrast(1.02) !important;
+  background-color: #ffffff !important;
+}
+html:not([data-theme="dark"]) .doska-lightbox-wrap.is-inverted {
+  background: #141b16 !important;
+}
+html:not([data-theme="dark"]) .doska-lightbox-wrap.is-inverted img {
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.1) brightness(0.92) !important;
+  background-color: #141b16 !important;
+}
+
+/* Mobile responsive lightboxes */
+@media (max-width: 600px) {
+  .kitob-lightbox,
+  .doska-lightbox {
+    padding: 12px 6px !important;
+  }
+  .kitob-book,
+  .doska-lightbox-content {
+    max-width: 100% !important;
+    gap: 10px !important;
+  }
+  .kitob-lightbox img,
+  .doska-lightbox-wrap img {
+    max-height: 68vh !important;
+  }
+  .kitob-nav,
+  .doska-lightbox-nav {
+    gap: 6px !important;
+  }
+  .kitob-nav button.kitob-nav-arrow,
+  .kitob-nav > button:not(.kitob-nav-mode-btn),
+  #kitobPrev,
+  #kitobNext,
+  .doska-nav-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+  .kitob-nav-label,
+  .doska-nav-label {
+    font-size: 0.78rem !important;
+    padding: 4px 8px !important;
+    min-width: 72px !important;
+  }
+  .kitob-nav-mode-btn,
+  .doska-nav-reset {
+    height: 34px !important;
+    padding: 0 10px !important;
+    font-size: 0.78rem !important;
+  }
+  .kitob-lightbox-close,
+  .doska-lightbox-close {
+    top: 10px !important;
+    right: 10px !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
 }
 

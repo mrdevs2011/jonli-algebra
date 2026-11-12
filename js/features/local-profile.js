@@ -90,6 +90,12 @@
     } catch (e) {
       state = migrateLegacyState(state);
     }
+    try {
+      var savedTheme = localStorage.getItem("ja_theme");
+      if (savedTheme === "dark" || savedTheme === "light") {
+        state.preferences.theme = savedTheme;
+      }
+    } catch (e) {}
     return state;
   }
 
@@ -97,6 +103,10 @@
 
   function saveState() {
     try {
+      var activeTheme = localStorage.getItem("ja_theme");
+      if (activeTheme === "dark" || activeTheme === "light") {
+        currentState.preferences.theme = activeTheme;
+      }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
       // Sync legacy mirrors for backward compatibility
       localStorage.setItem("ja_xp", String(currentState.gamification.totalXp));
@@ -249,8 +259,10 @@
       '</div>';
 
     document.body.appendChild(backdrop);
+    document.body.style.overflow = "hidden";
 
     function closeModal() {
+      document.body.style.overflow = "";
       currentState.user.onboarded = true;
       saveState();
       updateGlobalHUD();
@@ -297,47 +309,49 @@
   // Profil va Ma'lumotlarni Boshqarish Modali (Backup / Restore / Reset)
   function openProfileModal() {
     var overlay = document.createElement("div");
-    overlay.className = "modal-backdrop formula-modal-backdrop";
+    overlay.className = "modal-backdrop formula-modal-backdrop profile-modal-backdrop";
     overlay.style.display = "flex";
 
     overlay.innerHTML =
-      '<div class="modal-card formula-modal" style="max-width:520px;">' +
-        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">' +
-          '<h3 style="margin:0; font-size:1.25rem; font-family:var(--font-serif); color:var(--ink);">Profil va Ma\'lumotlar Boshqaruvi</h3>' +
+      '<div class="modal-card formula-modal profile-modal-card">' +
+        '<div class="profile-modal-header">' +
+          '<h3 class="profile-modal-title">Profil va Ma\'lumotlar Boshqaruvi</h3>' +
           '<button type="button" class="modal-close-btn" id="closeProfileModalBtn" aria-label="Yopish" title="Yopish">' +
             '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
           '</button>' +
         '</div>' +
-        '<div style="background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:18px;">' +
-          '<label style="display:block; font-size:0.82rem; font-weight:700; color:var(--ink-soft); margin-bottom:6px; text-transform:uppercase;">Ism-familiyangiz:</label>' +
-          '<div style="display:flex; gap:8px;">' +
-            '<input type="text" id="profileNameInput" value="' + escapeHtml(currentState.user.displayName) + '" style="flex:1; padding:8px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:0.95rem; background:var(--white); color:var(--ink);">' +
-            '<button type="button" id="profileSaveNameBtn" class="btn" style="background:var(--accent-2); color:#fff; font-weight:600; padding:8px 16px; border-radius:8px; cursor:pointer;">Saqlash</button>' +
+        '<div class="profile-section-box">' +
+          '<label class="profile-section-label" for="profileNameInput">Ism-familiyangiz:</label>' +
+          '<div class="profile-input-row">' +
+            '<input type="text" id="profileNameInput" class="profile-name-input" autocomplete="name" maxlength="32" value="' + escapeHtml(currentState.user.displayName) + '">' +
+            '<button type="button" id="profileSaveNameBtn" class="btn btn-save-name">Saqlash</button>' +
           '</div>' +
         '</div>' +
-        '<div style="margin-bottom:20px;">' +
-          '<h4 style="margin:0 0 10px; font-size:0.95rem; color:var(--ink);">Xotira va Zaxira (Offline Backup)</h4>' +
-          '<p style="margin:0 0 14px; font-size:0.85rem; color:var(--ink-soft); line-height:1.5;">Barcha to\'plangan XP, silsila va o\'zlashtirilgan darslaringizni bitta JSON faylga yuklab oling yoki boshqa qurilmaga tiklang.</p>' +
-          '<div style="display:flex; flex-wrap:wrap; gap:10px;">' +
-            '<button type="button" class="btn" id="btnExportBackup" style="background:var(--ink); color:#fff; font-weight:600; padding:8px 16px; border-radius:8px; font-size:0.88rem; cursor:pointer;">' +
-              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; vertical-align:-1px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Zaxirani Yuklab Olish' +
+        '<div class="profile-backup-section">' +
+          '<h4 class="profile-backup-title">Xotira va Zaxira (Offline Backup)</h4>' +
+          '<p class="profile-backup-desc">Barcha to\'plangan XP, silsila va o\'zlashtirilgan darslaringizni bitta JSON faylga yuklab oling yoki boshqa qurilmaga tiklang.</p>' +
+          '<div class="profile-backup-actions">' +
+            '<button type="button" class="btn btn-export" id="btnExportBackup">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Zaxirani Yuklab Olish' +
             '</button>' +
-            '<label class="btn" style="background:var(--white); border:1px solid var(--line-strong); color:var(--ink); font-weight:600; padding:8px 16px; border-radius:8px; font-size:0.88rem; cursor:pointer;">' +
-              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; vertical-align:-1px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>Zaxiradan Tiklash' +
+            '<label class="btn btn-restore" id="btnRestoreLabel">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>Zaxiradan Tiklash' +
               '<input type="file" id="btnRestoreFileInput" accept=".json" style="display:none;">' +
             '</label>' +
           '</div>' +
         '</div>' +
-        '<div style="border-top:1px solid var(--line); padding-top:16px; text-align:right;">' +
-          '<button type="button" class="btn" id="btnHardReset" style="background:transparent; border:1px solid #d9534f; color:#d9534f; font-size:0.82rem; padding:6px 12px; border-radius:6px; cursor:pointer;">' +
+        '<div class="profile-reset-row">' +
+          '<button type="button" class="btn btn-danger-reset" id="btnHardReset">' +
             'Zavod Sozlamalariga Qaytarish' +
           '</button>' +
         '</div>' +
       '</div>';
 
     document.body.appendChild(overlay);
+    document.body.style.overflow = "hidden";
 
     function closeModal() {
+      document.body.style.overflow = "";
       if (overlay.parentElement) overlay.parentElement.removeChild(overlay);
     }
 

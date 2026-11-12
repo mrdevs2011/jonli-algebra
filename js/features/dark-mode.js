@@ -9,7 +9,9 @@
 
   function getSavedTheme() {
     try {
-      return localStorage.getItem(THEME_KEY) || "light";
+      var saved = localStorage.getItem(THEME_KEY);
+      if (saved === "dark" || saved === "light") return saved;
+      return "light";
     } catch (e) {
       return "light";
     }
@@ -38,6 +40,19 @@
     }
     updateButtons(theme);
     updateFavicon(theme);
+
+    // Sync with JA_STATE store if present
+    try {
+      if (window.JA_STATE) {
+        var s = window.JA_STATE.get();
+        if (s && s.preferences) {
+          s.preferences.theme = theme;
+          try {
+            localStorage.setItem("ja_state_v2", JSON.stringify(s));
+          } catch (e) {}
+        }
+      }
+    } catch (e) {}
   }
 
   function toggleTheme() {

@@ -39,11 +39,30 @@
     });
   }
 
-  function applyInvert(invert) {
-    isInverted = !!invert;
-    if (wrapEl) wrapEl.classList.toggle("is-inverted", isInverted);
+  function isDarkMode() {
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  }
+
+  function applyInvert(userToggled) {
+    if (typeof userToggled === "boolean") {
+      isInverted = userToggled;
+    }
+    var isDark = isDarkMode();
+    if (wrapEl) {
+      if (isDark) {
+        wrapEl.classList.toggle("is-asl", isInverted);
+        wrapEl.classList.remove("is-inverted");
+      } else {
+        wrapEl.classList.toggle("is-inverted", isInverted);
+        wrapEl.classList.remove("is-asl");
+      }
+    }
     if (invertLabel) {
-      invertLabel.textContent = isInverted ? "Tungi e-ink" : "Asl nusxa";
+      if (isDark) {
+        invertLabel.textContent = isInverted ? "Tungi rejim" : "Asl nusxa";
+      } else {
+        invertLabel.textContent = isInverted ? "Asl nusxa" : "Tungi e-ink";
+      }
     }
   }
 
@@ -55,6 +74,7 @@
 
     lbImg.src = cur.src;
     lbImg.alt = cur.alt || cur.caption || "Namuna masalasi";
+    applyInvert(isInverted);
     if (lbCap) {
       lbCap.textContent = cur.caption || "";
       lbCap.hidden = !cur.caption;

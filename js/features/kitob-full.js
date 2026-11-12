@@ -13,23 +13,48 @@
   var lb, lbImg, lbClose, prevBtn, nextBtn, navLabel, pageWrap, invertBtn, invertLabel;
   var EINK_KEY = "ja_kitob_eink";
 
+  function isDarkMode() {
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  }
+
   function applyEinkState() {
-    var isEink = false;
-    try { isEink = localStorage.getItem(EINK_KEY) === "1"; } catch (e) {}
+    var isDark = isDarkMode();
+    var userToggled = false;
+    try { userToggled = localStorage.getItem("ja_kitob_asl") === "1"; } catch (e) {}
+
     if (lbImg) {
-      if (isEink) lbImg.classList.add("kitob-eink");
-      else lbImg.classList.remove("kitob-eink");
+      if (isDark) {
+        if (userToggled) {
+          lbImg.classList.add("kitob-asl");
+          lbImg.classList.remove("kitob-eink");
+        } else {
+          lbImg.classList.remove("kitob-asl");
+          lbImg.classList.add("kitob-eink");
+        }
+      } else {
+        if (userToggled) {
+          lbImg.classList.add("kitob-eink");
+          lbImg.classList.remove("kitob-asl");
+        } else {
+          lbImg.classList.remove("kitob-eink");
+          lbImg.classList.remove("kitob-asl");
+        }
+      }
     }
     if (invertLabel) {
-      invertLabel.textContent = isEink ? "Tungi e-ink" : "Asl nusxa";
+      if (isDark) {
+        invertLabel.textContent = userToggled ? "Tungi rejim" : "Asl nusxa";
+      } else {
+        invertLabel.textContent = userToggled ? "Asl nusxa" : "Tungi e-ink";
+      }
     }
   }
 
   function toggleEink() {
-    var isEink = false;
-    try { isEink = localStorage.getItem(EINK_KEY) === "1"; } catch (e) {}
-    isEink = !isEink;
-    try { localStorage.setItem(EINK_KEY, isEink ? "1" : "0"); } catch (e) {}
+    var userToggled = false;
+    try { userToggled = localStorage.getItem("ja_kitob_asl") === "1"; } catch (e) {}
+    userToggled = !userToggled;
+    try { localStorage.setItem("ja_kitob_asl", userToggled ? "1" : "0"); } catch (e) {}
     applyEinkState();
   }
 
@@ -135,6 +160,7 @@
         idx = Math.min(Math.max(bet - 1, 0), TOTAL_PAGES - 1);
         render(null, href);
         lb.classList.add("is-open");
+        document.body.style.overflow = "hidden";
       });
     });
 
@@ -147,6 +173,7 @@
 
     function closeLb() {
       lb.classList.remove("is-open");
+      document.body.style.overflow = "";
       if (lbImg) lbImg.src = "";
     }
     if (lbClose) lbClose.addEventListener("click", closeLb);

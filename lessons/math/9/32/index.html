@@ -15,8 +15,11 @@
   <script>
     (function(){
       try {
-        if (localStorage.getItem("ja_theme") === "dark") {
+        var t = localStorage.getItem("ja_theme");
+        if (t === "dark") {
           document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.removeAttribute("data-theme");
         }
       } catch(e){}
     })();
