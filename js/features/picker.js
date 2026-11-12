@@ -17,50 +17,37 @@
 
     var STORE_KEY = "ka-sinf-royxati";
     var USED_KEY = "ka-sinf-royxati-used";
-    var DEFAULT_NAMES = [
-      "Abduhalilova Shukrona",
-      "Abdurahimova Zulayho",
-      "Ahmadilyev Muhammadrizo",
-      "Ahmadjonov Abdulloh",
-      "Ahmadzulunov Abdunazar",
-      "Alixonova Muqaddasxon",
-      "Ashurboyev Saydjalol",
-      "Bahodirjonova Sojida",
-      "Begijonova Robiya",
-      "Ibragimova Shoxsanam",
-      "Ma'rufjonov Nabijon",
-      "Madaminxojayeva Munisa",
-      "Muxtorjonova Oydinoy",
-      "Nizomov Muhammadaziz",
-      "O'ktamova Shirinoy",
-      "Odiljonov Ubaydulloh",
-      "Qobiljonova Mohlaroy",
-      "Qodirjonov Muhammadali",
-      "Qosimov Muhammadrasul",
-      "Rafuqjonov Abdulboriy",
-      "Rafuqjonov Abdurahmon",
-      "Sobirov Muhammadsodiq",
-      "Tolqinboyev Abdulloh",
-      "Tolqinboyeva Oisha",
-      "Ubaydullayev Muhammadyusuf",
-      "Yoqubjonov Mominjon",
-      "Ziyohiddinova Oisha"
-    ];
+    var DEFAULT_NAMES = [];
     var names = [];
     var used = [];
     var spinning = false;
 
-    function loadNames() {
+    // Maxfiylik va xavfsizlik: Eski keshdagi maktab sinf ro'yxati aniqlansa, tozalash
+    function sanitizeLegacyStorage() {
       try {
         var raw = localStorage.getItem(STORE_KEY);
-        names = raw ? JSON.parse(raw) : DEFAULT_NAMES.slice();
-        if (!raw) { try { localStorage.setItem(STORE_KEY, JSON.stringify(names)); } catch (e) {} }
-      } catch (e) { names = DEFAULT_NAMES.slice(); }
+        if (raw && (raw.indexOf("Ahmadzulunov") !== -1 || raw.indexOf("Abduhalilova") !== -1 || raw.indexOf("Ahmadilyev") !== -1)) {
+          localStorage.removeItem(STORE_KEY);
+          localStorage.removeItem(USED_KEY);
+          sessionStorage.removeItem(USED_KEY);
+        }
+      } catch (e) {}
+    }
+
+    function loadNames() {
+      sanitizeLegacyStorage();
+      try {
+        var raw = localStorage.getItem(STORE_KEY);
+        names = raw ? JSON.parse(raw) : [];
+      } catch (e) { names = []; }
       try {
         var rawUsed = sessionStorage.getItem(USED_KEY);
         used = rawUsed ? JSON.parse(rawUsed) : [];
       } catch (e) { used = []; }
-      namesInput.value = names.join("\n");
+      if (namesInput) namesInput.value = names.join("\n");
+      if (names.length === 0 && nameEl) {
+        nameEl.textContent = "Ismlar ro'yxati bo'sh";
+      }
     }
 
     function saveNames() {
@@ -105,8 +92,8 @@
     function spin() {
       if (spinning) return;
       if (names.length === 0) {
-        nameEl.textContent = "Avval ismlarni kiriting";
-        namesPanel.hidden = false;
+        nameEl.textContent = "Ismlar ro'yxati bo'sh";
+        if (namesPanel) namesPanel.hidden = false;
         return;
       }
       spinning = true;

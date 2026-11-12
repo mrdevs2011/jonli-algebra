@@ -557,6 +557,22 @@
     var stage = document.getElementById("sahna");
     if (!stage || !d.sahna) return;
     stage.setAttribute("aria-label", d.sahna.ariaLabel || "");
+
+    // Deep-link parametrlarini sahna o'zgaruvchilariga singdirish
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      if (d.sahna.vars) {
+        Object.keys(d.sahna.vars).forEach(function (vKey) {
+          if (urlParams.has(vKey)) {
+            var parsedVal = parseFloat(urlParams.get(vKey));
+            if (!isNaN(parsedVal)) {
+              d.sahna.vars[vKey].value = parsedVal;
+            }
+          }
+        });
+      }
+    } catch (e) {}
+
     var builder = window.KA_SAHNA && window.KA_SAHNA[d.sahna.type];
     if (!builder) {
       console.error("Noma'lum sahna turi:", d.sahna.type);
@@ -570,6 +586,11 @@
     }
     try {
       builder(stage, d.sahna);
+      if (window.location.hash === "#sahna") {
+        setTimeout(function () {
+          stage.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 150);
+      }
     } catch (err) {
       console.error("Sahna xatosi:", err);
       stage.insertAdjacentHTML(

@@ -52,6 +52,12 @@ FEATURE_TOGGLES = {
     "xulosaBoard": "html",
     "board": "js",
     "whiteboard": "js",
+    "localProfile": "js",
+    "gamification": "js",
+    "examSimulator": "js",
+    "formulaDirectory": "js",
+    "soundEffects": "js",
+    "darkMode": "js",
 }
 
 
@@ -191,6 +197,30 @@ def validate_lesson(data: dict, folder: Path, js_dir: Path) -> list[str]:
             )
             _req_type(val, (bool,), f"dars.features.{name}")
     check(check_features)
+
+    # --- mashqlar (mavjud bo'lsa) ---
+    def check_mashqlar():
+        mashqlar = data.get("mashqlar")
+        if mashqlar is None:
+            return
+        _req_type(mashqlar, (dict,), "dars.mashqlar")
+        items = mashqlar.get("items")
+        if items is not None:
+            _req_type(items, (list,), "dars.mashqlar.items")
+            for i, item in enumerate(items):
+                _req_keys(item, ["id", "savol", "type"], f"dars.mashqlar.items[{i}]")
+
+    check(check_mashqlar)
+
+    # --- olimpiada (mavjud bo'lsa) ---
+    def check_olimpiada():
+        olimp = data.get("olimpiada")
+        if olimp is None:
+            return
+        _req_type(olimp, (dict,), "dars.olimpiada")
+        _req_keys(olimp, ["sarlavha", "masala"], "dars.olimpiada")
+
+    check(check_olimpiada)
 
     # --- rasm fayllari haqiqatan diskda bormi (kitob.sahifalar + doska.masalalar) ---
     def check_images():

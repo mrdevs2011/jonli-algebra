@@ -143,6 +143,30 @@
     });
   }
 
+  // Slayder va formula aylantirish uchun mikroskopik 8ms tick
+  function playScrubTick() {
+    if (isMuted()) return;
+    var ac = getAudioContext();
+    if (!ac) return;
+
+    var now = ac.currentTime;
+    var osc = ac.createOscillator();
+    var gain = ac.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(2200, now);
+    osc.frequency.exponentialRampToValueAtTime(800, now + 0.008);
+
+    gain.gain.setValueAtTime(0.05, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.008);
+
+    osc.connect(gain);
+    gain.connect(ac.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.01);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     updateSoundButtons();
     document.querySelectorAll(".sound-toggle-btn").forEach(function (btn) {
@@ -153,12 +177,20 @@
         toggleMute();
       });
     });
+
+    // Range sliderlar harakatlanganda tick tovushi chiqarish
+    document.addEventListener("input", function (e) {
+      if (e.target && e.target.type === "range") {
+        playScrubTick();
+      }
+    }, { passive: true });
   });
 
   window.JA_SOUND = {
     playCorrect: playCorrect,
     playError: playError,
     playFanfare: playFanfare,
+    playScrubTick: playScrubTick,
     isMuted: isMuted,
     setMuted: setMuted,
     toggleMute: toggleMute

@@ -910,10 +910,109 @@
   // Active exam session state
   var currentExam = null;
   var timerInterval = null;
+  var activeBlurListener = null;
+  var blurCount = 0;
+
+  function escapeXml(s) {
+    return String(s || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&apos;");
+  }
+
+  function getDisplayName() {
+    try {
+      if (window.JA_STATE && window.JA_STATE.get) {
+        var st = window.JA_STATE.get();
+        if (st && st.user && st.user.displayName) return st.user.displayName;
+      }
+    } catch (e) {}
+    return "Yosh Matematik";
+  }
+
+  // Vektor SVG Mahorat Sertifikatini Dinamik Sintez Qilish (Printable Certificate)
+  function generateCertificateSvg(name, chapterTitle, percent, certId) {
+    var cleanName = escapeXml(name || getDisplayName());
+    var cleanTitle = escapeXml(chapterTitle || "9-Sinf Algebra Kursor");
+    var d = new Date();
+    var dateStr = d.toLocaleDateString("uz-UZ", { year: "numeric", month: "long", day: "numeric" });
+    var cleanCertId = escapeXml(certId || "JA-CERT-" + Math.floor(100000 + Math.random() * 900000));
+
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="100%" height="100%" style="display:block; width:100%; max-width:800px; height:auto; margin:0 auto; font-family:\'Lora\', Georgia, serif; background:#fdfbf7; border-radius:12px; box-shadow:0 12px 36px rgba(0,0,0,0.12);">' +
+      '<defs>' +
+        '<linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">' +
+          '<stop offset="0%" stop-color="#b8860b" />' +
+          '<stop offset="50%" stop-color="#ffd700" />' +
+          '<stop offset="100%" stop-color="#b8860b" />' +
+        '</linearGradient>' +
+      '</defs>' +
+      '<!-- Tashqi chegara -->' +
+      '<rect x="20" y="20" width="760" height="520" rx="8" fill="none" stroke="#2b6b4f" stroke-width="4" />' +
+      '<rect x="28" y="28" width="744" height="504" rx="6" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="6,4" />' +
+      '<!-- Burchak naqshlari -->' +
+      '<path d="M36 50 L50 36 M36 36 L64 36 M36 36 L36 64" fill="none" stroke="#2b6b4f" stroke-width="2" />' +
+      '<path d="M764 50 L750 36 M764 36 L736 36 M764 36 L764 64" fill="none" stroke="#2b6b4f" stroke-width="2" />' +
+      '<path d="M36 510 L50 524 M36 524 L64 524 M36 524 L36 496" fill="none" stroke="#2b6b4f" stroke-width="2" />' +
+      '<path d="M764 510 L750 524 M764 524 L736 524 M764 524 L764 496" fill="none" stroke="#2b6b4f" stroke-width="2" />' +
+      '<!-- Sarlavha -->' +
+      '<text x="400" y="78" text-anchor="middle" font-size="13" letter-spacing="4" fill="#2b6b4f" font-weight="700">JONLI ALGEBRA &bull; MILLIY TA\'LIM PLATFORMASI</text>' +
+      '<text x="400" y="128" text-anchor="middle" font-size="30" font-weight="800" fill="#1a221c" letter-spacing="2">MAHORAT SERTIFIKATI</text>' +
+      '<line x1="280" y1="142" x2="520" y2="142" stroke="#d4af37" stroke-width="2" />' +
+      '<!-- Matn -->' +
+      '<text x="400" y="180" text-anchor="middle" font-size="14" fill="#4a554c" font-style="italic">Ushbu sertifikat algebra fanini a\'lo darajada o\'zlashtirgani uchun topshiriladi:</text>' +
+      '<!-- O\'quvchi ismi -->' +
+      '<text x="400" y="230" text-anchor="middle" font-size="28" font-weight="700" fill="#c24b2a">' + cleanName + '</text>' +
+      '<line x1="220" y1="244" x2="580" y2="244" stroke="#1a221c" stroke-width="0.8" />' +
+      '<!-- Bob va Natija -->' +
+      '<text x="400" y="286" text-anchor="middle" font-size="15" fill="#1a221c" font-weight="600">' + cleanTitle + '</text>' +
+      '<text x="400" y="316" text-anchor="middle" font-size="14" fill="#4a554c">Yakuniy nazorat imtihonidan <tspan font-weight="700" fill="#2b6b4f">' + percent + '%</tspan> ball to\'plab, bobni to\'liq o\'zlashtirdi.</text>' +
+      '<!-- Muhr (Medallion Seal) -->' +
+      '<g transform="translate(400, 410)">' +
+        '<circle cx="0" cy="0" r="44" fill="#fcf9ee" stroke="url(#goldGrad)" stroke-width="3" />' +
+        '<circle cx="0" cy="0" r="38" fill="none" stroke="#2b6b4f" stroke-width="1.2" stroke-dasharray="3,2" />' +
+        '<path d="M0 -16 L5 -5 L16 -5 L7 3 L11 15 L0 8 L-11 15 L-7 3 L-16 -5 L-5 -5 Z" fill="url(#goldGrad)" />' +
+        '<text x="0" y="24" text-anchor="middle" font-size="7.5" letter-spacing="1.5" font-weight="700" fill="#2b6b4f">TASDIQLANGAN</text>' +
+      '</g>' +
+      '<!-- Chap Imzo -->' +
+      '<g transform="translate(140, 430)">' +
+        '<line x1="0" y1="0" x2="160" y2="0" stroke="#4a554c" stroke-width="1" />' +
+        '<text x="80" y="18" text-anchor="middle" font-size="11" fill="#1a221c" font-weight="600">Jonli Algebra Kengashi</text>' +
+        '<text x="80" y="32" text-anchor="middle" font-size="9.5" fill="#4a554c">Metodik Baholash Hay\'ati</text>' +
+      '</g>' +
+      '<!-- O\'ng Sana va ID -->' +
+      '<g transform="translate(500, 430)">' +
+        '<line x1="0" y1="0" x2="160" y2="0" stroke="#4a554c" stroke-width="1" />' +
+        '<text x="80" y="18" text-anchor="middle" font-size="11" fill="#1a221c" font-weight="600">Sana: ' + dateStr + '</text>' +
+        '<text x="80" y="32" text-anchor="middle" font-size="9.5" fill="#4a554c">ID: ' + cleanCertId + '</text>' +
+      '</g>' +
+    '</svg>';
+  }
+
+  function getOrCreateModalDialog() {
+    var dialog = document.getElementById("examModalDialog");
+    if (!dialog) {
+      dialog = document.createElement("dialog");
+      dialog.id = "examModalDialog";
+      dialog.className = "exam-modal";
+      dialog.style.cssText = "width:94%; max-width:880px; max-height:92vh; border:none; border-radius:16px; padding:24px; box-shadow:0 24px 72px rgba(0,0,0,0.3); background:var(--white, #fff); color:var(--ink, #1a221c); overflow-y:auto; margin:auto;";
+      document.body.appendChild(dialog);
+    }
+    return dialog;
+  }
 
   function startChapterExam(bobId, containerEl) {
     var exam = CHAPTER_EXAMS[bobId];
-    if (!exam || !containerEl) return;
+    if (!exam) return;
+
+    var targetBox = containerEl;
+    var dialogMode = false;
+
+    if (!targetBox) {
+      targetBox = getOrCreateModalDialog();
+      dialogMode = true;
+    }
 
     currentExam = {
       type: "chapter",
@@ -921,15 +1020,47 @@
       data: exam,
       userAnswers: {},
       remainingSec: exam.durationSec,
-      container: containerEl
+      totalSec: exam.durationSec,
+      container: targetBox,
+      isDialog: dialogMode
     };
+
+    if (dialogMode && typeof targetBox.showModal === "function") {
+      targetBox.showModal();
+    }
 
     renderExamUI();
   }
 
   function startLyceumMock(containerEl) {
-    if (!containerEl) return;
     var mock = generateLyceumMock();
+    var targetBox = containerEl;
+    var dialogMode = false;
+
+    if (!targetBox) {
+      targetBox = getOrCreateModalDialog();
+      dialogMode = true;
+    }
+
+    blurCount = 0;
+    if (activeBlurListener) window.removeEventListener("blur", activeBlurListener);
+    activeBlurListener = function () {
+      blurCount++;
+      var toast = document.getElementById("mockBlurWarningToast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "mockBlurWarningToast";
+        toast.style.cssText = "position:fixed; top:24px; left:50%; transform:translateX(-50%); background:#c24b2a; color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; z-index:999999; box-shadow:0 6px 20px rgba(0,0,0,0.25); display:flex; align-items:center; gap:8px;";
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>' +
+        'Diqqat: Oynadan chalg\'ish qayd etildi (' + blurCount + ' marta). Imtihon qoidalariga rioya qiling!';
+      toast.style.display = "flex";
+      setTimeout(function () {
+        if (toast) toast.style.display = "none";
+      }, 4500);
+    };
+    window.addEventListener("blur", activeBlurListener);
 
     currentExam = {
       type: "mock",
@@ -937,8 +1068,14 @@
       userAnswers: {},
       writtenAnswers: {},
       remainingSec: mock.durationSec,
-      container: containerEl
+      totalSec: mock.durationSec,
+      container: targetBox,
+      isDialog: dialogMode
     };
+
+    if (dialogMode && typeof targetBox.showModal === "function") {
+      targetBox.showModal();
+    }
 
     renderMockUI();
   }
@@ -947,6 +1084,21 @@
     var m = Math.floor(sec / 60);
     var s = sec % 60;
     return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+  }
+
+  function updateTimerUrgency(badgeEl, remainingSec, totalSec) {
+    if (!badgeEl) return;
+    var ratio = remainingSec / (totalSec || 1);
+    if (ratio > 0.5) {
+      badgeEl.style.borderColor = "var(--accent-2, #2b6b4f)";
+      badgeEl.style.color = "var(--accent-2, #2b6b4f)";
+    } else if (ratio > 0.2) {
+      badgeEl.style.borderColor = "#e67e22";
+      badgeEl.style.color = "#e67e22";
+    } else {
+      badgeEl.style.borderColor = "#c24b2a";
+      badgeEl.style.color = "#c24b2a";
+    }
   }
 
   function renderExamUI() {
@@ -958,20 +1110,56 @@
     var header = document.createElement("div");
     header.className = "exam-session-header";
     header.innerHTML =
-      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">' +
-        '<h3 style="margin:0; font-size:1.15rem; color:var(--ink);">' + exam.title + '</h3>' +
-        '<div class="exam-timer-badge" id="examTimerBadge" style="display:inline-flex; align-items:center; gap:6px; background:var(--white); border:1px solid var(--line-strong); padding:6px 14px; border-radius:20px; font-weight:700; color:var(--accent); font-family:monospace; font-size:1.05rem;">' +
-          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
-          '<span id="examTimerDisplay">' + formatTime(currentExam.remainingSec) + '</span>' +
+      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">' +
+        '<h3 style="margin:0; font-size:1.18rem; color:var(--ink);">' + exam.title + '</h3>' +
+        '<div style="display:flex; align-items:center; gap:10px;">' +
+          '<div class="exam-timer-badge" id="examTimerBadge" style="display:inline-flex; align-items:center; gap:6px; background:var(--white); border:2px solid var(--accent-2); padding:6px 14px; border-radius:20px; font-weight:700; color:var(--accent-2); font-family:monospace; font-size:1.05rem;">' +
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
+            '<span id="examTimerDisplay">' + formatTime(currentExam.remainingSec) + '</span>' +
+          '</div>' +
+          (currentExam.isDialog ? '<button type="button" class="btn" id="examCloseBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' : '') +
         '</div>' +
       '</div>';
     box.appendChild(header);
+
+    if (currentExam.isDialog) {
+      var closeBtn = header.querySelector("#examCloseBtn");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          if (confirm("Imtihondan chiqmoqchimisiz? Natijalar saqlanmaydi.")) {
+            if (timerInterval) clearInterval(timerInterval);
+            currentExam = null;
+            box.close();
+          }
+        });
+      }
+    }
+
+    // Question Navigation Matrix (Jump-to-question pills)
+    var matrixWrap = document.createElement("div");
+    matrixWrap.className = "exam-jump-matrix";
+    matrixWrap.style.cssText = "display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; padding:10px 14px; background:var(--paper); border:1px solid var(--line); border-radius:10px;";
+    exam.questions.forEach(function (q, idx) {
+      var pill = document.createElement("button");
+      pill.type = "button";
+      pill.className = "exam-nav-pill";
+      pill.id = "examPill_" + idx;
+      pill.textContent = idx + 1;
+      pill.style.cssText = "width:32px; height:32px; border-radius:6px; border:1px solid var(--line-strong); background:var(--white); color:var(--ink); font-weight:700; font-size:0.85rem; cursor:pointer; transition:all 0.15s ease;";
+      pill.addEventListener("click", function () {
+        var card = document.getElementById("examCard_" + idx);
+        if (card) card.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      matrixWrap.appendChild(pill);
+    });
+    box.appendChild(matrixWrap);
 
     var qList = document.createElement("div");
     qList.className = "exam-q-list";
 
     exam.questions.forEach(function (q, idx) {
       var qCard = document.createElement("div");
+      qCard.id = "examCard_" + idx;
       qCard.className = "exam-q-card";
       qCard.style.cssText = "background:var(--white); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px;";
 
@@ -994,6 +1182,12 @@
 
         rad.addEventListener("change", function () {
           currentExam.userAnswers[idx] = oIdx;
+          var pill = document.getElementById("examPill_" + idx);
+          if (pill) {
+            pill.style.background = "var(--accent-2, #2b6b4f)";
+            pill.style.color = "#ffffff";
+            pill.style.borderColor = "var(--accent-2, #2b6b4f)";
+          }
         });
 
         optLabel.appendChild(rad);
@@ -1026,7 +1220,9 @@
       }
       currentExam.remainingSec--;
       var disp = document.getElementById("examTimerDisplay");
+      var badge = document.getElementById("examTimerBadge");
       if (disp) disp.textContent = formatTime(currentExam.remainingSec);
+      if (badge) updateTimerUrgency(badge, currentExam.remainingSec, currentExam.totalSec);
 
       if (currentExam.remainingSec <= 0) {
         clearInterval(timerInterval);
@@ -1056,7 +1252,19 @@
     var percent = Math.round((correctCount / total) * 100);
     var isPassed = percent >= 80;
 
-    // Gamification rewards
+    // Gamification rewards & state machine persistence
+    if (window.JA_STATE) {
+      window.JA_STATE.update(function (st) {
+        if (!st.progress.chapterExams) st.progress.chapterExams = {};
+        st.progress.chapterExams[exam.bobId] = {
+          score: correctCount,
+          total: total,
+          timestamp: Date.now(),
+          passed: isPassed
+        };
+      });
+    }
+
     if (window.JA_GAMIFICATION) {
       if (isPassed) {
         window.JA_GAMIFICATION.addXp(100);
@@ -1074,13 +1282,16 @@
       }
     }
 
+    var certId = "JA-" + exam.bobId + "-" + Math.floor(100000 + Math.random() * 900000);
+    var certSvg = isPassed ? generateCertificateSvg(getDisplayName(), exam.title, percent, certId) : "";
+
     var box = currentExam.container;
     box.innerHTML =
       '<div class="exam-result-card" style="background:var(--white); border:2px solid ' + (isPassed ? "var(--accent-2)" : "var(--accent)") + '; border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 24px rgba(0,0,0,0.06);">' +
         '<div style="font-size:2.8rem; font-weight:800; color:' + (isPassed ? "var(--accent-2)" : "var(--accent)") + '; margin-bottom:8px;">' + percent + '%</div>' +
         '<h3 style="margin:0 0 12px; font-size:1.3rem;">' + (isPassed ? "Ofarin! Bobni a'lo darajada o'zlashtirdingiz!" : "Yaxshi natija, lekin hali takrorlash kerak!") + '</h3>' +
         '<p style="color:var(--ink-soft); font-size:1rem; margin-bottom:16px;">Jami <strong>' + total + '</strong> ta savoldan <strong>' + correctCount + '</strong> tasiga to\'g\'ri javob berdingiz.</p>' +
-        (isPassed ? '<div style="background:rgba(43,107,79,0.1); color:var(--accent-2); padding:10px 16px; border-radius:10px; font-weight:700; margin-bottom:16px;">+100 XP va Bob Medali qo\'lga kiritildi!</div>' : '') +
+        (isPassed ? '<div style="background:rgba(43,107,79,0.1); color:var(--accent-2); padding:10px 16px; border-radius:10px; font-weight:700; margin-bottom:20px;">+100 XP va Bob Medali qo\'lga kiritildi!</div>' : '') +
         (weakTopics.length > 0 ? (
           '<div style="text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:14px; margin:16px 0;">' +
             '<strong>Takrorlash tavsiya etiladigan mavzular:</strong>' +
@@ -1089,8 +1300,53 @@
             '</ul>' +
           '</div>'
         ) : '') +
-        '<button type="button" class="btn" onclick="location.reload()" style="background:var(--accent); color:#fff; padding:10px 22px; border-radius:8px; font-weight:600; cursor:pointer;">Qaytadan topshirish</button>' +
+        (isPassed ? (
+          '<div class="cert-presentation" style="margin:24px 0;">' +
+            '<h4 style="margin:0 0 14px; font-size:1.1rem; color:var(--ink);">Rasmiy Mahorat Sertifikati</h4>' +
+            '<div id="certPreviewWrap" style="overflow-x:auto; margin-bottom:16px;">' + certSvg + '</div>' +
+            '<div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">' +
+              '<button type="button" class="btn" id="btnPrintCertBtn" style="background:var(--accent-2); color:#fff; padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>' +
+                'Chop Etish (Print / PDF)' +
+              '</button>' +
+              '<button type="button" class="btn" id="btnDownloadCertSvg" style="background:var(--white); border:1px solid var(--line-strong); color:var(--ink); padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
+                'SVG Yuklab Olish' +
+              '</button>' +
+            '</div>' +
+          '</div>'
+        ) : '') +
+        '<div style="margin-top:20px;">' +
+          '<button type="button" class="btn" onclick="location.reload()" style="background:var(--accent); color:#fff; padding:10px 24px; border-radius:8px; font-weight:600; cursor:pointer;">Qaytadan topshirish</button>' +
+        '</div>' +
       '</div>';
+
+    if (isPassed) {
+      var printBtn = box.querySelector("#btnPrintCertBtn");
+      if (printBtn) {
+        printBtn.addEventListener("click", function () {
+          var pWin = window.open("", "_blank");
+          if (pWin) {
+            pWin.document.write('<html><head><title>Mahorat Sertifikati — ' + escapeXml(getDisplayName()) + '</title><style>@page{size:landscape;margin:1cm;} body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;}</style></head><body>' + certSvg + '<script>window.onload=function(){window.print();};<\/script></body></html>');
+            pWin.document.close();
+          }
+        });
+      }
+      var dlBtn = box.querySelector("#btnDownloadCertSvg");
+      if (dlBtn) {
+        dlBtn.addEventListener("click", function () {
+          var blob = new Blob([certSvg], { type: "image/svg+xml;charset=utf-8" });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = "jonli-algebra-sertifikat-" + exam.bobId + ".svg";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+      }
+    }
   }
 
   function renderMockUI() {
@@ -1102,17 +1358,56 @@
     var header = document.createElement("div");
     header.className = "mock-session-header";
     header.innerHTML =
-      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">' +
+      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">' +
         '<div>' +
           '<h3 style="margin:0; font-size:1.2rem; color:var(--ink);">' + mock.title + '</h3>' +
-          '<small style="color:var(--ink-soft);">25 ta test savoli + 5 ta yozma masala (Jami 30 ta)</small>' +
+          '<small style="color:var(--ink-soft);">25 ta test savoli + 5 ta yozma masala (Jami 30 ta) &bull; 60 daqiqa</small>' +
         '</div>' +
-        '<div class="exam-timer-badge" style="display:inline-flex; align-items:center; gap:6px; background:var(--white); border:1px solid var(--line-strong); padding:6px 14px; border-radius:20px; font-weight:700; color:var(--accent); font-family:monospace; font-size:1.1rem;">' +
-          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
-          '<span id="mockTimerDisplay">' + formatTime(currentExam.remainingSec) + '</span>' +
+        '<div style="display:flex; align-items:center; gap:10px;">' +
+          '<div class="exam-timer-badge" id="mockTimerBadge" style="display:inline-flex; align-items:center; gap:6px; background:var(--white); border:2px solid var(--accent); padding:6px 14px; border-radius:20px; font-weight:700; color:var(--accent); font-family:monospace; font-size:1.1rem;">' +
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
+            '<span id="mockTimerDisplay">' + formatTime(currentExam.remainingSec) + '</span>' +
+          '</div>' +
+          (currentExam.isDialog ? '<button type="button" class="btn" id="mockCloseBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' : '') +
         '</div>' +
       '</div>';
     box.appendChild(header);
+
+    if (currentExam.isDialog) {
+      var closeBtn = header.querySelector("#mockCloseBtn");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          if (confirm("Simulyatsiyadan chiqmoqchimisiz? Natijalar saqlanmaydi.")) {
+            if (timerInterval) clearInterval(timerInterval);
+            if (activeBlurListener) window.removeEventListener("blur", activeBlurListener);
+            currentExam = null;
+            box.close();
+          }
+        });
+      }
+    }
+
+    // Jump-to-question matrix for mock exam (1..30)
+    var matrixWrap = document.createElement("div");
+    matrixWrap.className = "exam-jump-matrix";
+    matrixWrap.style.cssText = "display:flex; flex-wrap:wrap; gap:5px; margin-bottom:18px; padding:10px 14px; background:var(--paper); border:1px solid var(--line); border-radius:10px;";
+    for (var i = 0; i < 30; i++) {
+      var pill = document.createElement("button");
+      pill.type = "button";
+      pill.className = "mock-nav-pill";
+      pill.id = "mockPill_" + i;
+      pill.textContent = i + 1;
+      pill.style.cssText = "width:30px; height:30px; border-radius:6px; border:1px solid var(--line-strong); background:var(--white); color:var(--ink); font-weight:700; font-size:0.8rem; cursor:pointer; transition:all 0.15s ease;";
+      (function (idx) {
+        pill.addEventListener("click", function () {
+          var targetId = idx < 25 ? "mockTestCard_" + idx : "mockWrittenCard_" + (idx - 25);
+          var card = document.getElementById(targetId);
+          if (card) card.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+      })(i);
+      matrixWrap.appendChild(pill);
+    }
+    box.appendChild(matrixWrap);
 
     // Render 25 Tests
     var testsBox = document.createElement("div");
@@ -1120,6 +1415,7 @@
 
     mock.tests.forEach(function (q, idx) {
       var qCard = document.createElement("div");
+      qCard.id = "mockTestCard_" + idx;
       qCard.style.cssText = "background:var(--white); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px;";
       qCard.innerHTML = "<div style='font-weight:600; margin-bottom:8px;'><strong>" + (idx + 1) + ".</strong> " + q.q + "</div>";
 
@@ -1135,6 +1431,12 @@
         rad.checked = currentExam.userAnswers[idx] === oIdx;
         rad.addEventListener("change", function () {
           currentExam.userAnswers[idx] = oIdx;
+          var pill = document.getElementById("mockPill_" + idx);
+          if (pill) {
+            pill.style.background = "var(--accent-2, #2b6b4f)";
+            pill.style.color = "#ffffff";
+            pill.style.borderColor = "var(--accent-2, #2b6b4f)";
+          }
         });
         lbl.appendChild(rad);
         lbl.appendChild(document.createTextNode(opt));
@@ -1151,6 +1453,7 @@
 
     mock.written.forEach(function (w, wIdx) {
       var wCard = document.createElement("div");
+      wCard.id = "mockWrittenCard_" + wIdx;
       wCard.style.cssText = "background:var(--white); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px;";
       wCard.innerHTML = "<div style='font-weight:600; margin-bottom:8px;'><strong>" + (wIdx + 26) + ".</strong> " + w.q + "</div>";
 
@@ -1160,7 +1463,20 @@
       inp.style.cssText = "width:100%; max-width:280px; padding:8px 12px; border:1px solid var(--line-strong); border-radius:6px; font-size:0.95rem; background:var(--paper);";
       inp.value = currentExam.writtenAnswers[wIdx] || "";
       inp.addEventListener("input", function () {
-        currentExam.writtenAnswers[wIdx] = inp.value.trim();
+        var val = inp.value.trim();
+        currentExam.writtenAnswers[wIdx] = val;
+        var pill = document.getElementById("mockPill_" + (wIdx + 25));
+        if (pill) {
+          if (val) {
+            pill.style.background = "var(--accent, #c24b2a)";
+            pill.style.color = "#ffffff";
+            pill.style.borderColor = "var(--accent, #c24b2a)";
+          } else {
+            pill.style.background = "var(--white)";
+            pill.style.color = "var(--ink)";
+            pill.style.borderColor = "var(--line-strong)";
+          }
+        }
       });
 
       wCard.appendChild(inp);
@@ -1186,7 +1502,9 @@
       }
       currentExam.remainingSec--;
       var disp = document.getElementById("mockTimerDisplay");
+      var badge = document.getElementById("mockTimerBadge");
       if (disp) disp.textContent = formatTime(currentExam.remainingSec);
+      if (badge) updateTimerUrgency(badge, currentExam.remainingSec, currentExam.totalSec);
 
       if (currentExam.remainingSec <= 0) {
         clearInterval(timerInterval);
@@ -1197,6 +1515,10 @@
 
   function finishMock() {
     if (timerInterval) clearInterval(timerInterval);
+    if (activeBlurListener) {
+      window.removeEventListener("blur", activeBlurListener);
+      activeBlurListener = null;
+    }
     if (!currentExam) return;
 
     var mock = currentExam.data;
@@ -1223,6 +1545,16 @@
     else if (percent >= 70) rank = "Aniq fanlar litseylari grantiga tavsiya etiladi";
     else if (percent >= 50) rank = "O'rtacha daraja (mustahkamlash zarur)";
 
+    // Update state store
+    if (window.JA_STATE) {
+      window.JA_STATE.update(function (st) {
+        if (!st.progress.lyceumMock) st.progress.lyceumMock = { bestScore: 0, attempts: 0, lastTaken: 0 };
+        st.progress.lyceumMock.attempts = (st.progress.lyceumMock.attempts || 0) + 1;
+        st.progress.lyceumMock.bestScore = Math.max(st.progress.lyceumMock.bestScore || 0, totalScore);
+        st.progress.lyceumMock.lastTaken = Date.now();
+      });
+    }
+
     if (window.JA_GAMIFICATION) {
       window.JA_GAMIFICATION.addXp(totalScore * 8);
       if (percent >= 85) {
@@ -1235,79 +1567,201 @@
       else window.JA_SOUND.playCorrect();
     }
 
+    var certId = "JA-MOCK-" + Math.floor(100000 + Math.random() * 900000);
+    var certSvg = percent >= 80 ? generateCertificateSvg(getDisplayName(), "Litsey Kirish Imtihoni Simulyatori", percent, certId) : "";
+
     var box = currentExam.container;
     box.innerHTML =
       '<div class="mock-result-card" style="background:var(--white); border:2px solid var(--line-strong); border-radius:16px; padding:28px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.06);">' +
         '<div style="font-size:3rem; font-weight:800; color:var(--accent); margin-bottom:8px;">' + totalScore + ' / ' + maxScore + ' ball</div>' +
         '<div style="display:inline-block; background:rgba(194,75,42,0.1); color:var(--accent); font-weight:700; padding:6px 14px; border-radius:20px; margin-bottom:14px;">Umumiy natija: ' + percent + '%</div>' +
         '<h3 style="margin:0 0 10px; font-size:1.4rem;">' + rank + '</h3>' +
-        '<p style="color:var(--ink-soft); max-width:600px; margin:0 auto 20px;">Test qismidan: <strong>' + testCorrect + ' / 25</strong>, Yozma qismidan: <strong>' + writtenCorrect + ' / 5</strong> to\'g\'ri yechildi.</p>' +
+        '<p style="color:var(--ink-soft); max-width:600px; margin:0 auto 20px;">Test qismidan: <strong>' + testCorrect + ' / 25</strong>, Yozma qismidan: <strong>' + writtenCorrect + ' / 5</strong> to\'g\'ri yechildi.' +
+        (blurCount > 0 ? '<br><span style="color:#c24b2a; font-size:0.9rem;">Imtihon paytida chalg\'ishlar: ' + blurCount + ' marta.</span>' : '') +
+        '</p>' +
+        (percent >= 80 ? (
+          '<div class="cert-presentation" style="margin:24px 0;">' +
+            '<h4 style="margin:0 0 14px; font-size:1.1rem; color:var(--ink);">Litsey Darajasi Sertifikati</h4>' +
+            '<div id="mockCertPreviewWrap" style="overflow-x:auto; margin-bottom:16px;">' + certSvg + '</div>' +
+            '<div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">' +
+              '<button type="button" class="btn" id="btnPrintMockCertBtn" style="background:var(--accent); color:#fff; padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>' +
+                'Chop Etish (Print / PDF)' +
+              '</button>' +
+              '<button type="button" class="btn" id="btnDownloadMockCertSvg" style="background:var(--white); border:1px solid var(--line-strong); color:var(--ink); padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:8px;">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
+                'SVG Yuklab Olish' +
+              '</button>' +
+            '</div>' +
+          '</div>'
+        ) : '') +
         '<button type="button" class="btn" onclick="location.reload()" style="background:var(--accent-2); color:#fff; padding:12px 28px; border-radius:8px; font-weight:700; cursor:pointer;">Bosh sahifaga qaytish</button>' +
       '</div>';
+
+    if (percent >= 80) {
+      var pBtn = box.querySelector("#btnPrintMockCertBtn");
+      if (pBtn) {
+        pBtn.addEventListener("click", function () {
+          var pWin = window.open("", "_blank");
+          if (pWin) {
+            pWin.document.write('<html><head><title>Litsey Sertifikati — ' + escapeXml(getDisplayName()) + '</title><style>@page{size:landscape;margin:1cm;} body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;}</style></head><body>' + certSvg + '<script>window.onload=function(){window.print();};<\/script></body></html>');
+            pWin.document.close();
+          }
+        });
+      }
+      var dBtn = box.querySelector("#btnDownloadMockCertSvg");
+      if (dBtn) {
+        dBtn.addEventListener("click", function () {
+          var blob = new Blob([certSvg], { type: "image/svg+xml;charset=utf-8" });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = "jonli-algebra-litsey-sertifikat.svg";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        });
+      }
+    }
   }
 
   window.JA_EXAM = {
     CHAPTER_EXAMS: CHAPTER_EXAMS,
     startChapterExam: startChapterExam,
-    startLyceumMock: startLyceumMock
+    startLyceumMock: startLyceumMock,
+    generateCertificateSvg: generateCertificateSvg
+  };
+})();
+
+/* ---- manba: js/features/formula-directory.js ---- */
+/**
+ * Jonli Algebra — Interaktiv Matematik Ontologiya va Formulalar Katalogi
+ * Section IV: 60+ algebra formulalari, noaniq qidiruv va dars sahnasiga to'g'ridan-to'g'ri deep-linking.
+ */
+(function () {
+  "use strict";
+
+  // Formulalar va ularning parametrli deep-link xaritasi
+  var PARAM_MAP = {
+    "f-1": { lesson: 1, params: { a: 1, b: -2, c: -3 } },
+    "f-2": { lesson: 2, params: { a: 1 } },
+    "f-3": { lesson: 3, params: { a: 2 } },
+    "f-4": { lesson: 4, params: { a: 1, b: -4, c: 3 } },
+    "f-5": { lesson: 4, params: { a: 1, b: -4, c: 3 } },
+    "f-6": { lesson: 5, params: { a: 1, p: 2, q: -1 } },
+    "f-17": { lesson: 17, params: { t: 45 } },
+    "f-18": { lesson: 18, params: { t: 60 } },
+    "f-19": { lesson: 19, params: { t: 120 } },
+    "f-24": { lesson: 24, params: { a: 30, b: 45 } },
+    "f-25": { lesson: 25, params: { a: 30 } },
+    "f-29": { lesson: 29, params: { a1: 2, d: 3 } },
+    "f-31": { lesson: 31, params: { b1: 3, q: 2 } },
+    "f-35": { lesson: 35, params: { n: 10, m: 3 } }
+  };
+
+  function getDeepLinkUrl(formula) {
+    if (!formula) return "#";
+    var base = formula.lessonLink || ("lessons/math/9/" + formula.lessonId + "/");
+    var mapping = PARAM_MAP[formula.id];
+    if (mapping && mapping.params) {
+      var query = Object.keys(mapping.params).map(function (k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(mapping.params[k]);
+      }).join("&");
+      return base + "?" + query + "#sahna";
+    }
+    return base + "#sahna";
+  }
+
+  function searchFormulas(query, bobFilter) {
+    var list = window.JA_FORMULALAR || [];
+    var q = (query || "").toLowerCase().trim();
+    var b = bobFilter === undefined || bobFilter === null ? "all" : String(bobFilter);
+
+    return list.filter(function (f) {
+      var matchBob = b === "all" || String(f.bob) === b;
+      if (!matchBob) return false;
+      if (!q) return true;
+
+      return (
+        (f.title && f.title.toLowerCase().indexOf(q) !== -1) ||
+        (f.formula && f.formula.toLowerCase().indexOf(q) !== -1) ||
+        (f.desc && f.desc.toLowerCase().indexOf(q) !== -1) ||
+        (f.bobNom && f.bobNom.toLowerCase().indexOf(q) !== -1)
+      );
+    });
+  }
+
+  window.JA_FORMULA_DIRECTORY = {
+    getDeepLinkUrl: getDeepLinkUrl,
+    searchFormulas: searchFormulas,
+    PARAM_MAP: PARAM_MAP
   };
 })();
 
 /* ---- manba: js/features/gamification.js ---- */
 /**
  * Jonli Algebra — Gamifikatsiya va O'quvchi Motivatsiyasi (Duolingo-Style Retention)
- * XP (Tajriba ballari), Kunlik ketma-ketlik (Streak) va Virtual nishonlar (Badges).
+ * Kinetic floating XP particles, Circadian streak engine, SVG Metallic Badge Foundry.
  */
 (function () {
   "use strict";
 
-  var XP_KEY = "ja_xp";
-  var STREAK_KEY = "ja_streak";
-  var LAST_DATE_KEY = "ja_last_active_date";
-  var BADGES_KEY = "ja_badges";
-
   var BADGES = {
-    "bob-1": {
-      id: "bob-1",
+    "badge-parabola-master": {
+      id: "badge-parabola-master",
       title: "Parabola va Funksiyalar Ustasi",
-      desc: "I bobni muvaffaqiyatli yakunlagan va kvadrat funksiyalarni to'liq o'zlashtirgan o'quvchi.",
-      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>'
+      desc: "I bobni 100% muvaffaqiyatli yakunlagan va kvadrat funksiyalarni to'liq o'zlashtirgan o'quvchi.",
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>'
     },
-    "bob-2": {
-      id: "bob-2",
-      title: "Tenglamalar Tizimi Grossmeysteri",
+    "badge-systems-virtuoso": {
+      id: "badge-systems-virtuoso",
+      title: "Tizimlar va Tengsizliklar Grossmeysteri",
       desc: "II bobni tugatib, chiziqli va kvadrat tenglamalar sistemalarini mohirona yechgan o'quvchi.",
-      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>'
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>'
     },
-    "bob-3": {
-      id: "bob-3",
+    "badge-trig-luminary": {
+      id: "badge-trig-luminary",
       title: "Trigonometriya Dahosi",
       desc: "III bob bo'yicha barcha trigonometrik ayniyatlar va keltirish formulalarini zabt etgan bilimdon.",
-      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6 3"></path></svg>'
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6 3"></path></svg>'
     },
-    "bob-4": {
-      id: "bob-4",
+    "badge-progression-wizard": {
+      id: "badge-progression-wizard",
       title: "Progressiyalar Sehrgari",
       desc: "IV bobning arifmetik va geometrik zanjirlarini hamda cheksiz yig'indilarni hisoblagan mutaxassis.",
-      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>'
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>'
     },
-    "bob-5": {
-      id: "bob-5",
-      title: "Ehtimollik va Ma'lumotlar Mutaxassisi",
+    "badge-probability-analyst": {
+      id: "badge-probability-analyst",
+      title: "Ehtimollik va Statistika Tahlilchisi",
       desc: "V bob bo'yicha hodisalar ehtimolligi va statistik qonuniyatlarni mukammal tahlil qilgan o'quvchi.",
-      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><circle cx="15.5" cy="15.5" r="1.5"></circle><circle cx="8.5" cy="15.5" r="1.5"></circle><circle cx="15.5" cy="8.5" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg>'
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><circle cx="15.5" cy="15.5" r="1.5"></circle><circle cx="8.5" cy="15.5" r="1.5"></circle><circle cx="15.5" cy="8.5" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg>'
     },
-    "lyceum-grandprix": {
-      id: "lyceum-grandprix",
+    "badge-lyceum-grandmaster": {
+      id: "badge-lyceum-grandmaster",
       title: "Litseyga 100% Tayyor Gran-pri",
-      desc: "Westminster, Prezident va Aniq fanlar litseylariga kirish uchun barcha nostandart masalalarni zabt etgan apex o'quvchi!",
-      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7"></path><path d="M14 14.66V17c0 .55.45 1 1 1h2"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>'
+      desc: "Westminster, Prezident va Aniq fanlar litseylariga kirish uchun barcha 38 ta olimpiada masalasini zabt etgan o'quvchi!",
+      icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7"></path><path d="M14 14.66V17c0 .55.45 1 1 1h2"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>'
     }
   };
 
+  // Legacy ID mapping
+  var BADGE_ALIASES = {
+    "bob-1": "badge-parabola-master",
+    "bob-2": "badge-systems-virtuoso",
+    "bob-3": "badge-trig-luminary",
+    "bob-4": "badge-progression-wizard",
+    "bob-5": "badge-probability-analyst",
+    "lyceum-grandprix": "badge-lyceum-grandmaster"
+  };
+
   function getXp() {
+    if (window.JA_STATE) {
+      return window.JA_STATE.get().gamification.totalXp;
+    }
     try {
-      return parseInt(localStorage.getItem(XP_KEY) || "0", 10);
+      return parseInt(localStorage.getItem("ja_xp") || "0", 10);
     } catch (e) {
       return 0;
     }
@@ -1321,15 +1775,64 @@
     return { lvl: 1, nom: "Boshlang'ich Algebrachi", next: 100, min: 0 };
   }
 
-  function addXp(amount) {
+  function addXp(amount, sourceElement) {
     var cur = getXp();
     var next = cur + amount;
-    try {
-      localStorage.setItem(XP_KEY, String(next));
-    } catch (e) {}
+
+    if (window.JA_STATE) {
+      window.JA_STATE.update(function (st) {
+        st.gamification.totalXp = next;
+      });
+    } else {
+      try { localStorage.setItem("ja_xp", String(next)); } catch (e) {}
+    }
+
     recordActivity();
-    updateHUD();
+    if (sourceElement) {
+      spawnFloatingXpParticle(sourceElement, amount);
+    }
+    animateHUDCount(cur, next);
     return next;
+  }
+
+  // 2.1. Kinetic Floating XP Micro-Interactions
+  function spawnFloatingXpParticle(el, amount) {
+    if (!el || !el.getBoundingClientRect) return;
+    var rect = el.getBoundingClientRect();
+    var particle = document.createElement("div");
+    particle.className = "floating-xp-particle";
+    particle.textContent = "+" + amount + " XP";
+
+    particle.style.left = (rect.left + rect.width / 2) + "px";
+    particle.style.top = (rect.top + window.scrollY - 10) + "px";
+
+    document.body.appendChild(particle);
+
+    setTimeout(function () {
+      if (particle.parentElement) {
+        particle.parentElement.removeChild(particle);
+      }
+    }, 950);
+  }
+
+  function animateHUDCount(startVal, endVal) {
+    var xpElements = document.querySelectorAll(".hud-xp-val");
+    if (xpElements.length === 0) return;
+
+    var duration = 400;
+    var startTime = performance.now();
+
+    function frame(now) {
+      var progress = Math.min((now - startTime) / duration, 1);
+      var current = Math.round(startVal + (endVal - startVal) * progress);
+      xpElements.forEach(function (el) {
+        el.textContent = current;
+      });
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      }
+    }
+    requestAnimationFrame(frame);
   }
 
   function getTodayStr() {
@@ -1341,49 +1844,73 @@
   }
 
   function getStreak() {
+    if (window.JA_STATE) {
+      return window.JA_STATE.get().gamification.currentStreak;
+    }
     try {
-      return parseInt(localStorage.getItem(STREAK_KEY) || "1", 10);
+      return parseInt(localStorage.getItem("ja_streak") || "1", 10);
     } catch (e) {
       return 1;
     }
   }
 
+  // 2.2. Algorithmic Daily Streak Calculation (Circadian Sync)
   function recordActivity() {
     var today = getTodayStr();
-    var lastDate = "";
-    try {
-      lastDate = localStorage.getItem(LAST_DATE_KEY) || "";
-    } catch (e) {}
 
-    if (lastDate === today) {
-      return; // Already recorded today
-    }
+    if (window.JA_STATE) {
+      window.JA_STATE.update(function (st) {
+        var lastDate = st.gamification.lastActiveDate;
+        if (lastDate === today) return;
 
-    var streak = getStreak();
-    if (lastDate) {
-      var last = new Date(lastDate);
-      var cur = new Date(today);
-      var diffDays = Math.round((cur.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
-      if (diffDays === 1) {
-        streak++;
-      } else if (diffDays > 1) {
+        if (lastDate) {
+          var last = new Date(lastDate);
+          var cur = new Date(today);
+          var diffDays = Math.round((cur.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
+          if (diffDays === 1) {
+            st.gamification.currentStreak++;
+          } else if (diffDays > 1) {
+            st.gamification.currentStreak = 1;
+          }
+        } else {
+          st.gamification.currentStreak = 1;
+        }
+
+        st.gamification.lastActiveDate = today;
+        if (st.gamification.streakHistory.indexOf(today) === -1) {
+          st.gamification.streakHistory.push(today);
+        }
+      });
+    } else {
+      var lastDate = "";
+      try { lastDate = localStorage.getItem("ja_last_active_date") || ""; } catch (e) {}
+      if (lastDate === today) return;
+
+      var streak = getStreak();
+      if (lastDate) {
+        var last = new Date(lastDate);
+        var cur = new Date(today);
+        var diffDays = Math.round((cur.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
+        if (diffDays === 1) streak++;
+        else if (diffDays > 1) streak = 1;
+      } else {
         streak = 1;
       }
-    } else {
-      streak = 1;
+      try {
+        localStorage.setItem("ja_streak", String(streak));
+        localStorage.setItem("ja_last_active_date", today);
+      } catch (e) {}
     }
-
-    try {
-      localStorage.setItem(STREAK_KEY, String(streak));
-      localStorage.setItem(LAST_DATE_KEY, today);
-    } catch (e) {}
 
     updateHUD();
   }
 
   function getBadges() {
+    if (window.JA_STATE) {
+      return window.JA_STATE.get().gamification.earnedBadges.map(function (b) { return b.id; });
+    }
     try {
-      var raw = localStorage.getItem(BADGES_KEY);
+      var raw = localStorage.getItem("ja_badges");
       return raw ? JSON.parse(raw) : [];
     } catch (e) {
       return [];
@@ -1391,26 +1918,36 @@
   }
 
   function hasBadge(badgeId) {
-    var badges = getBadges();
-    return badges.indexOf(badgeId) !== -1;
+    var realId = BADGE_ALIASES[badgeId] || badgeId;
+    var list = getBadges();
+    return list.indexOf(realId) !== -1 || list.indexOf(badgeId) !== -1;
   }
 
+  // 2.3. Vector Badge Foundry
   function unlockBadge(badgeId) {
-    if (!BADGES[badgeId]) return false;
-    var list = getBadges();
-    if (list.indexOf(badgeId) === -1) {
-      list.push(badgeId);
-      try {
-        localStorage.setItem(BADGES_KEY, JSON.stringify(list));
-      } catch (e) {}
-      if (window.JA_SOUND && window.JA_SOUND.playFanfare) {
-        window.JA_SOUND.playFanfare();
-      }
-      showBadgeToast(BADGES[badgeId]);
-      updateHUD();
-      return true;
+    var realId = BADGE_ALIASES[badgeId] || badgeId;
+    var badgeObj = BADGES[realId];
+    if (!badgeObj) return false;
+
+    if (hasBadge(realId)) return false;
+
+    if (window.JA_STATE) {
+      window.JA_STATE.update(function (st) {
+        st.gamification.earnedBadges.push({ id: realId, unlockedAt: Date.now() });
+      });
+    } else {
+      var list = getBadges();
+      list.push(realId);
+      try { localStorage.setItem("ja_badges", JSON.stringify(list)); } catch (e) {}
     }
-    return false;
+
+    if (window.JA_SOUND && window.JA_SOUND.playFanfare) {
+      window.JA_SOUND.playFanfare();
+    }
+
+    showBadgeToast(badgeObj);
+    updateHUD();
+    return true;
   }
 
   function showBadgeToast(badge) {
@@ -1439,17 +1976,12 @@
     var lvl = getLevel(xp);
     var streak = getStreak();
 
-    // Update XP elements
     document.querySelectorAll(".hud-xp-val").forEach(function (el) {
       el.textContent = xp;
     });
-
-    // Update Level elements
     document.querySelectorAll(".hud-level-val").forEach(function (el) {
       el.textContent = lvl.lvl + "-daraja (" + lvl.nom + ")";
     });
-
-    // Update Streak elements
     document.querySelectorAll(".hud-streak-val").forEach(function (el) {
       el.textContent = streak;
     });
@@ -1468,7 +2000,9 @@
     getBadges: getBadges,
     hasBadge: hasBadge,
     unlockBadge: unlockBadge,
+    spawnFloatingXpParticle: spawnFloatingXpParticle,
     BADGES: BADGES,
+    BADGE_ALIASES: BADGE_ALIASES,
     updateHUD: updateHUD
   };
 })();
@@ -1652,6 +2186,398 @@
   }
 })();
 
+/* ---- manba: js/features/local-profile.js ---- */
+/**
+ * Jonli Algebra — Local-First Zero-Login State Machine & Recovery Engine
+ * Schema v2.0 reactive store, zero telemetry, SHA-256 verifiable JSON backup/restore.
+ */
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "ja_state_v2";
+
+  function getDefaultState() {
+    return {
+      schemaVersion: 2.0,
+      user: {
+        displayName: "Yosh Matematik",
+        createdAt: Date.now(),
+        onboarded: false
+      },
+      gamification: {
+        totalXp: 0,
+        currentStreak: 1,
+        lastActiveDate: getTodayDateString(),
+        streakHistory: [getTodayDateString()],
+        earnedBadges: []
+      },
+      progress: {
+        completedLessons: {},
+        exerciseRegistry: {},
+        chapterExams: {},
+        lyceumMock: { bestScore: 0, attempts: 0, lastTaken: 0 }
+      },
+      preferences: {
+        soundEnabled: true,
+        theme: "light",
+        mode: "student"
+      }
+    };
+  }
+
+  function getTodayDateString() {
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1).padStart(2, "0");
+    var day = String(d.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + day;
+  }
+
+  // Legacy kalitlardan ma'lumotlarni silliq ko'chirib o'tish (Data Migration)
+  function migrateLegacyState(state) {
+    try {
+      var xp = localStorage.getItem("ja_xp");
+      if (xp) state.gamification.totalXp = Math.max(state.gamification.totalXp, parseInt(xp, 10) || 0);
+
+      var streak = localStorage.getItem("ja_streak");
+      if (streak) state.gamification.currentStreak = Math.max(state.gamification.currentStreak, parseInt(streak, 10) || 1);
+
+      var theme = localStorage.getItem("ja_theme");
+      if (theme) state.preferences.theme = theme === "dark" ? "dark" : "light";
+
+      var mode = localStorage.getItem("jonli-algebra-user-mode");
+      if (mode) state.preferences.mode = mode === "teacher" ? "teacher" : "student";
+
+      var badges = localStorage.getItem("ja_badges");
+      if (badges) {
+        var list = JSON.parse(badges);
+        if (Array.isArray(list)) {
+          list.forEach(function (bId) {
+            var exists = state.gamification.earnedBadges.some(function (x) { return x.id === bId; });
+            if (!exists) state.gamification.earnedBadges.push({ id: bId, unlockedAt: Date.now() });
+          });
+        }
+      }
+    } catch (e) {}
+    return state;
+  }
+
+  var subscribers = [];
+
+  function loadState() {
+    var state = getDefaultState();
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (parsed && parsed.schemaVersion >= 1) {
+          state = Object.assign(state, parsed);
+        }
+      } else {
+        state = migrateLegacyState(state);
+      }
+    } catch (e) {
+      state = migrateLegacyState(state);
+    }
+    return state;
+  }
+
+  var currentState = loadState();
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
+      // Sync legacy mirrors for backward compatibility
+      localStorage.setItem("ja_xp", String(currentState.gamification.totalXp));
+      localStorage.setItem("ja_streak", String(currentState.gamification.currentStreak));
+      localStorage.setItem("ja_theme", currentState.preferences.theme);
+      localStorage.setItem("jonli-algebra-user-mode", currentState.preferences.mode);
+      localStorage.setItem("ja_badges", JSON.stringify(currentState.gamification.earnedBadges.map(function (b) { return b.id; })));
+    } catch (e) {}
+    notifySubscribers();
+  }
+
+  function notifySubscribers() {
+    subscribers.forEach(function (cb) {
+      try { cb(currentState); } catch (e) {}
+    });
+    updateGlobalHUD();
+  }
+
+  // SHA-256 xesh hisoblash (Brauzer Web Crypto API orqali)
+  async function computeSHA256(str) {
+    if (window.crypto && window.crypto.subtle) {
+      var buffer = new TextEncoder().encode(str);
+      var hashBuffer = await window.crypto.subtle.digest("SHA-256", buffer);
+      var hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+    }
+    // Fallback oddiy cheksum
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return "ck_" + Math.abs(hash).toString(16);
+  }
+
+  // Backup Export
+  async function exportBackup() {
+    var payloadStr = JSON.stringify(currentState);
+    var checksum = await computeSHA256(payloadStr);
+    var exportData = {
+      meta: {
+        app: "Jonli Algebra",
+        version: currentState.schemaVersion,
+        exportedAt: Date.now(),
+        checksum: checksum
+      },
+      state: currentState
+    };
+
+    var blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "jonli-algebra-backup-" + getTodayDateString() + ".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // Backup Restore
+  async function restoreBackup(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = async function (e) {
+        try {
+          var text = e.target.result;
+          var data = JSON.parse(text);
+          if (!data || !data.state || !data.meta) {
+            throw new Error("Noto'g'ri fayl strukturasi");
+          }
+          var calculatedHash = await computeSHA256(JSON.stringify(data.state));
+          if (data.meta.checksum && data.meta.checksum !== calculatedHash) {
+            console.warn("Checksum nomutanosib, ammo ma'lumotlar tiklanmoqda...");
+          }
+          currentState = Object.assign(getDefaultState(), data.state);
+          saveState();
+          resolve(currentState);
+        } catch (err) {
+          reject(err);
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  // Factory reset
+  function hardReset() {
+    if (confirm("Haqiqatan ham barcha natijalar, XP va yutuqlarni tozalab, boshlang'ich holatga qaytarmoqchimisiz?")) {
+      try {
+        localStorage.clear();
+        sessionStorage.clear();
+      } catch (e) {}
+      currentState = getDefaultState();
+      saveState();
+      location.reload();
+    }
+  }
+
+  function updateGlobalHUD() {
+    var name = currentState.user.displayName || "Yosh Matematik";
+    var xp = currentState.gamification.totalXp;
+    var streak = currentState.gamification.currentStreak;
+
+    document.querySelectorAll(".hud-user-name").forEach(function (el) {
+      el.textContent = name;
+    });
+    document.querySelectorAll(".hud-xp-val").forEach(function (el) {
+      el.textContent = xp;
+    });
+    document.querySelectorAll(".hud-streak-val").forEach(function (el) {
+      el.textContent = streak;
+    });
+  }
+
+  // Onboarding popover (Agar o'quvchi birinchi marta kirgan bo'lsa)
+  function checkOnboarding() {
+    if (currentState.user.onboarded) return;
+    var popover = document.createElement("div");
+    popover.className = "onboarding-popover";
+    popover.innerHTML =
+      '<div class="onboarding-card">' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
+          '<div style="font-weight:700; font-size:1.05rem; color:var(--ink);">Xush kelibsiz!</div>' +
+          '<button type="button" id="closeOnboardingBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft);">' +
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+          '</button>' +
+        '</div>' +
+        '<p style="font-size:0.88rem; color:var(--ink-soft); margin:0 0 12px; line-height:1.4;">Ismingizni kiriting — natijalar va sertifikatlar o\'z nomingizga rasmiylashtiriladi.</p>' +
+        '<div style="display:flex; gap:8px;">' +
+          '<input type="text" id="onboardingNameInput" placeholder="Ismingiz (masalan: Alisher)" style="flex:1; padding:7px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:0.9rem; background:var(--paper); color:var(--ink);">' +
+          '<button type="button" id="saveOnboardingBtn" class="btn" style="background:var(--accent); color:#fff; font-weight:600; padding:7px 16px; border-radius:8px; font-size:0.88rem; cursor:pointer;">Saqlash</button>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(popover);
+
+    function closePopover() {
+      currentState.user.onboarded = true;
+      saveState();
+      popover.parentElement.removeChild(popover);
+    }
+
+    var saveBtn = popover.querySelector("#saveOnboardingBtn");
+    var input = popover.querySelector("#onboardingNameInput");
+    var closeBtn = popover.querySelector("#closeOnboardingBtn");
+
+    if (closeBtn) closeBtn.addEventListener("click", closePopover);
+
+    if (saveBtn && input) {
+      saveBtn.addEventListener("click", function () {
+        var val = input.value.trim();
+        if (val) {
+          currentState.user.displayName = val;
+        }
+        closePopover();
+      });
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          saveBtn.click();
+        }
+      });
+    }
+  }
+
+  // Profil va Ma'lumotlarni Boshqarish Modali (Backup / Restore / Reset)
+  function openProfileModal() {
+    var overlay = document.createElement("div");
+    overlay.className = "formula-modal-backdrop";
+    overlay.style.display = "flex";
+
+    overlay.innerHTML =
+      '<div class="formula-modal" style="max-width:520px;">' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">' +
+          '<h3 style="margin:0; font-size:1.25rem; font-family:var(--font-serif); color:var(--ink);">Profil va Ma\'lumotlar Boshqaruvi</h3>' +
+          '<button type="button" id="closeProfileModalBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:4px;">' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+          '</button>' +
+        '</div>' +
+        '<div style="background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:18px;">' +
+          '<label style="display:block; font-size:0.82rem; font-weight:700; color:var(--ink-soft); margin-bottom:6px; text-transform:uppercase;">Ism-familiyangiz:</label>' +
+          '<div style="display:flex; gap:8px;">' +
+            '<input type="text" id="profileNameInput" value="' + escapeHtml(currentState.user.displayName) + '" style="flex:1; padding:8px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:0.95rem; background:var(--white); color:var(--ink);">' +
+            '<button type="button" id="profileSaveNameBtn" class="btn" style="background:var(--accent-2); color:#fff; font-weight:600; padding:8px 16px; border-radius:8px; cursor:pointer;">Saqlash</button>' +
+          '</div>' +
+        '</div>' +
+        '<div style="margin-bottom:20px;">' +
+          '<h4 style="margin:0 0 10px; font-size:0.95rem; color:var(--ink);">Xotira va Zaxira (Offline Backup)</h4>' +
+          '<p style="margin:0 0 14px; font-size:0.85rem; color:var(--ink-soft); line-height:1.5;">Barcha to\'plangan XP, silsila va o\'zlashtirilgan darslaringizni bitta JSON faylga yuklab oling yoki boshqa qurilmaga tiklang.</p>' +
+          '<div style="display:flex; flex-wrap:wrap; gap:10px;">' +
+            '<button type="button" class="btn" id="btnExportBackup" style="background:var(--ink); color:#fff; font-weight:600; padding:8px 16px; border-radius:8px; font-size:0.88rem; cursor:pointer;">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; vertical-align:-1px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Zaxirani Yuklab Olish' +
+            '</button>' +
+            '<label class="btn" style="background:var(--white); border:1px solid var(--line-strong); color:var(--ink); font-weight:600; padding:8px 16px; border-radius:8px; font-size:0.88rem; cursor:pointer;">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; vertical-align:-1px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>Zaxiradan Tiklash' +
+              '<input type="file" id="btnRestoreFileInput" accept=".json" style="display:none;">' +
+            '</label>' +
+          '</div>' +
+        '</div>' +
+        '<div style="border-top:1px solid var(--line); padding-top:16px; text-align:right;">' +
+          '<button type="button" class="btn" id="btnHardReset" style="background:transparent; border:1px solid #d9534f; color:#d9534f; font-size:0.82rem; padding:6px 12px; border-radius:6px; cursor:pointer;">' +
+            'Zavod Sozlamalariga Qaytarish' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+
+    function closeModal() {
+      if (overlay.parentElement) overlay.parentElement.removeChild(overlay);
+    }
+
+    overlay.querySelector("#closeProfileModalBtn").addEventListener("click", closeModal);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    var nameInput = overlay.querySelector("#profileNameInput");
+    var saveNameBtn = overlay.querySelector("#profileSaveNameBtn");
+    saveNameBtn.addEventListener("click", function () {
+      var val = nameInput.value.trim();
+      if (val) {
+        currentState.user.displayName = val;
+        saveState();
+        saveNameBtn.textContent = "Saqlandi!";
+        setTimeout(function () { saveNameBtn.textContent = "Saqlash"; }, 1500);
+      }
+    });
+
+    overlay.querySelector("#btnExportBackup").addEventListener("click", function () {
+      exportBackup();
+    });
+
+    var fileInput = overlay.querySelector("#btnRestoreFileInput");
+    fileInput.addEventListener("change", function (e) {
+      var file = e.target.files && e.target.files[0];
+      if (file) {
+        restoreBackup(file).then(function () {
+          alert("Muvaffaqiyatli tiklandi!");
+          location.reload();
+        }).catch(function (err) {
+          alert("Xatolik: Zaxira faylini o'qib bo'lmadi (" + err.message + ")");
+        });
+      }
+    });
+
+    overlay.querySelector("#btnHardReset").addEventListener("click", function () {
+      hardReset();
+    });
+  }
+
+  function escapeHtml(s) {
+    return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    updateGlobalHUD();
+    checkOnboarding();
+
+    document.querySelectorAll(".profile-trigger-btn").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        openProfileModal();
+      });
+    });
+  });
+
+  window.JA_STATE = {
+    get: function () { return currentState; },
+    update: function (fn) {
+      if (typeof fn === "function") {
+        fn(currentState);
+      } else if (typeof fn === "object") {
+        currentState = Object.assign(currentState, fn);
+      }
+      saveState();
+    },
+    save: saveState,
+    subscribe: function (cb) {
+      subscribers.push(cb);
+      return function () {
+        subscribers = subscribers.filter(function (x) { return x !== cb; });
+      };
+    },
+    exportBackup: exportBackup,
+    restoreBackup: restoreBackup,
+    hardReset: hardReset,
+    openProfileModal: openProfileModal
+  };
+})();
+
 /* ---- manba: js/features/picker.js ---- */
 /* Jonli Algebra — Doskaga kim chiqadi? (tasodifiy o'quvchi tanlash)
    Barcha darslarda bir xil ishlaydi: har bir dars sahifasida
@@ -1672,50 +2598,37 @@
 
     var STORE_KEY = "ka-sinf-royxati";
     var USED_KEY = "ka-sinf-royxati-used";
-    var DEFAULT_NAMES = [
-      "Abduhalilova Shukrona",
-      "Abdurahimova Zulayho",
-      "Ahmadilyev Muhammadrizo",
-      "Ahmadjonov Abdulloh",
-      "Ahmadzulunov Abdunazar",
-      "Alixonova Muqaddasxon",
-      "Ashurboyev Saydjalol",
-      "Bahodirjonova Sojida",
-      "Begijonova Robiya",
-      "Ibragimova Shoxsanam",
-      "Ma'rufjonov Nabijon",
-      "Madaminxojayeva Munisa",
-      "Muxtorjonova Oydinoy",
-      "Nizomov Muhammadaziz",
-      "O'ktamova Shirinoy",
-      "Odiljonov Ubaydulloh",
-      "Qobiljonova Mohlaroy",
-      "Qodirjonov Muhammadali",
-      "Qosimov Muhammadrasul",
-      "Rafuqjonov Abdulboriy",
-      "Rafuqjonov Abdurahmon",
-      "Sobirov Muhammadsodiq",
-      "Tolqinboyev Abdulloh",
-      "Tolqinboyeva Oisha",
-      "Ubaydullayev Muhammadyusuf",
-      "Yoqubjonov Mominjon",
-      "Ziyohiddinova Oisha"
-    ];
+    var DEFAULT_NAMES = [];
     var names = [];
     var used = [];
     var spinning = false;
 
-    function loadNames() {
+    // Maxfiylik va xavfsizlik: Eski keshdagi maktab sinf ro'yxati aniqlansa, tozalash
+    function sanitizeLegacyStorage() {
       try {
         var raw = localStorage.getItem(STORE_KEY);
-        names = raw ? JSON.parse(raw) : DEFAULT_NAMES.slice();
-        if (!raw) { try { localStorage.setItem(STORE_KEY, JSON.stringify(names)); } catch (e) {} }
-      } catch (e) { names = DEFAULT_NAMES.slice(); }
+        if (raw && (raw.indexOf("Ahmadzulunov") !== -1 || raw.indexOf("Abduhalilova") !== -1 || raw.indexOf("Ahmadilyev") !== -1)) {
+          localStorage.removeItem(STORE_KEY);
+          localStorage.removeItem(USED_KEY);
+          sessionStorage.removeItem(USED_KEY);
+        }
+      } catch (e) {}
+    }
+
+    function loadNames() {
+      sanitizeLegacyStorage();
+      try {
+        var raw = localStorage.getItem(STORE_KEY);
+        names = raw ? JSON.parse(raw) : [];
+      } catch (e) { names = []; }
       try {
         var rawUsed = sessionStorage.getItem(USED_KEY);
         used = rawUsed ? JSON.parse(rawUsed) : [];
       } catch (e) { used = []; }
-      namesInput.value = names.join("\n");
+      if (namesInput) namesInput.value = names.join("\n");
+      if (names.length === 0 && nameEl) {
+        nameEl.textContent = "Ismlar ro'yxati bo'sh";
+      }
     }
 
     function saveNames() {
@@ -1760,8 +2673,8 @@
     function spin() {
       if (spinning) return;
       if (names.length === 0) {
-        nameEl.textContent = "Avval ismlarni kiriting";
-        namesPanel.hidden = false;
+        nameEl.textContent = "Ismlar ro'yxati bo'sh";
+        if (namesPanel) namesPanel.hidden = false;
         return;
       }
       spinning = true;
@@ -2169,6 +3082,30 @@ window.KA_SAHNA_EXPAND = (function () {
     });
   }
 
+  // Slayder va formula aylantirish uchun mikroskopik 8ms tick
+  function playScrubTick() {
+    if (isMuted()) return;
+    var ac = getAudioContext();
+    if (!ac) return;
+
+    var now = ac.currentTime;
+    var osc = ac.createOscillator();
+    var gain = ac.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(2200, now);
+    osc.frequency.exponentialRampToValueAtTime(800, now + 0.008);
+
+    gain.gain.setValueAtTime(0.05, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.008);
+
+    osc.connect(gain);
+    gain.connect(ac.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.01);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     updateSoundButtons();
     document.querySelectorAll(".sound-toggle-btn").forEach(function (btn) {
@@ -2179,12 +3116,20 @@ window.KA_SAHNA_EXPAND = (function () {
         toggleMute();
       });
     });
+
+    // Range sliderlar harakatlanganda tick tovushi chiqarish
+    document.addEventListener("input", function (e) {
+      if (e.target && e.target.type === "range") {
+        playScrubTick();
+      }
+    }, { passive: true });
   });
 
   window.JA_SOUND = {
     playCorrect: playCorrect,
     playError: playError,
     playFanfare: playFanfare,
+    playScrubTick: playScrubTick,
     isMuted: isMuted,
     setMuted: setMuted,
     toggleMute: toggleMute

@@ -1695,3 +1695,14 @@ input[type="range"] {
     justify-content: center;
   }
 }
+
+/* Tungi rejim (Dark Mode): Kitob va doska skanerlarini ko'zni qamashtirmaydigan e-ink filtr bilan ko'rsatish */
+html[data-theme="dark"] .kitob-sahifa img,
+html[data-theme="dark"] .kitob-lightbox img,
+html[data-theme="dark"] .doska-img img {
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.08) brightness(0.95);
+  background-color: #161e18;
+  border-color: #26332a;
+  transition: filter 0.25s ease, transform 0.12s ease;
+}
+
