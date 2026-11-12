@@ -429,27 +429,41 @@
 .kitob-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: nowrap;
 }
 
-
-.kitob-nav button {
+.kitob-nav button.kitob-nav-arrow,
+.kitob-nav > button:not(.kitob-nav-mode-btn),
+#kitobPrev,
+#kitobNext {
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: var(--white);
   color: var(--ink);
   width: 40px;
+  min-width: 40px;
   height: 40px;
   border-radius: 999px;
   font-size: 1.1rem;
   cursor: pointer;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: none;
+  flex-shrink: 0;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.kitob-nav button:hover:not(:disabled) { background: var(--paper-2); border-color: #fff; transform: none; }
-.kitob-nav button:active:not(:disabled) { transform: none; }
+.kitob-nav button.kitob-nav-arrow:hover:not(:disabled),
+.kitob-nav > button:not(.kitob-nav-mode-btn):hover:not(:disabled),
+#kitobPrev:hover:not(:disabled),
+#kitobNext:hover:not(:disabled) { background: var(--paper-2); border-color: #fff; transform: none; }
+
+.kitob-nav button.kitob-nav-arrow:active:not(:disabled),
+.kitob-nav > button:not(.kitob-nav-mode-btn):active:not(:disabled),
+#kitobPrev:active:not(:disabled),
+#kitobNext:active:not(:disabled) { transform: none; }
 
 .kitob-nav button:disabled {
   opacity: 0.35;
@@ -471,19 +485,32 @@
 }
 
 .kitob-nav-mode-btn {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.45);
+  justify-content: center;
+  gap: 8px;
+  width: auto !important;
+  min-width: max-content;
+  height: 38px;
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.55);
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  padding: 6px 14px;
   font-family: var(--font-sans);
   font-size: 0.86rem;
-  font-weight: 500;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.kitob-nav-mode-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 .kitob-nav-mode-btn:hover {
@@ -2022,5 +2049,11 @@ html[data-theme="dark"] .doska-lightbox-wrap {
 }
 html[data-theme="dark"] .doska-lightbox-wrap img {
   filter: brightness(0.92) contrast(1.03) !important;
+}
+.doska-lightbox-wrap.is-inverted {
+  background: #151a17 !important;
+}
+.doska-lightbox-wrap.is-inverted img {
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.05) !important;
 }
 

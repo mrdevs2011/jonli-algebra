@@ -112,17 +112,46 @@ a { color: inherit; }
   border: 1px solid var(--line-strong);
   border-radius: 10px;
   background: var(--white);
+  color: var(--ink);
   display: grid;
   place-items: center;
   flex-shrink: 0;
   box-shadow: none;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.mark svg {
+  display: block;
+}
+
+.mark svg path {
+  stroke: var(--ink);
+  transition: stroke 0.15s ease;
+}
+
+.mark svg circle {
+  fill: var(--accent);
+  transition: fill 0.15s ease;
 }
 
 .brand:hover .mark {
   border-color: var(--ink);
   box-shadow: none;
   transform: none;
+}
+
+/* Dark mode mark / brand adaptation */
+html[data-theme="dark"] .mark {
+  background: #1e2621 !important;
+  border-color: #2f3e33 !important;
+}
+
+html[data-theme="dark"] .mark svg path {
+  stroke: #f0f4f1 !important;
+}
+
+html[data-theme="dark"] .mark svg circle {
+  fill: #e8633e !important;
 }
 
 .brand-name {
@@ -425,7 +454,7 @@ html[data-theme="dark"] .pill-done {
   box-shadow: none;
 }
 
-.btn-icon {
+button.btn-icon, .btn.btn-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -435,9 +464,18 @@ html[data-theme="dark"] .pill-done {
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.btn-icon:hover {
+button.btn-icon:hover, .btn.btn-icon:hover {
   background: var(--paper-2);
   transform: none;
+}
+
+svg.btn-icon, svg.svg-icon {
+  display: inline-block !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  flex-shrink: 0;
 }
 
 .badge-unlock-toast {

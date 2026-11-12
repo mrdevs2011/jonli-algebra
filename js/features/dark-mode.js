@@ -15,6 +15,21 @@
     }
   }
 
+  function updateFavicon(theme) {
+    try {
+      var isDark = theme === "dark";
+      var bg = isDark ? "%23131a16" : "%23f3eee4";
+      var grid = isDark ? "%2326332a" : "%23d7cfc0";
+      var curve = isDark ? "%23f0f4f1" : "%231a221c";
+      var dot = isDark ? "%23e8633e" : "%23c24b2a";
+      var svgUri = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="108" fill="' + bg + '"/><g stroke="' + grid + '" stroke-width="4" stroke-dasharray="8 8"><line x1="56" y1="256" x2="456" y2="256"/><line x1="256" y1="56" x2="256" y2="456"/></g><path d="M 96 110 Q 256 460 416 110" fill="none" stroke="' + curve + '" stroke-width="28" stroke-linecap="round"/><circle cx="256" cy="372" r="22" fill="' + dot + '"/><circle cx="256" cy="372" r="32" fill="none" stroke="' + dot + '" stroke-width="4" stroke-opacity="0.4"/></svg>';
+      var link = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
+      if (link) {
+        link.setAttribute("href", svgUri);
+      }
+    } catch (e) {}
+  }
+
   function applyTheme(theme) {
     if (theme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
@@ -22,6 +37,7 @@
       document.documentElement.removeAttribute("data-theme");
     }
     updateButtons(theme);
+    updateFavicon(theme);
   }
 
   function toggleTheme() {

@@ -227,8 +227,8 @@
     } catch (e) {}
   }
 
-  var ICON_MONITOR = '<svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
-  var ICON_CHECK = '<svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  var ICON_MONITOR = '<svg class="svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;vertical-align:-2px;"><rect x="3" y="4" width="18" height="13" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
+  var ICON_CHECK = '<svg class="svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
   function updateBtn(btn, on) {
     if (!btn) return;
@@ -413,6 +413,21 @@
     }
   }
 
+  function updateFavicon(theme) {
+    try {
+      var isDark = theme === "dark";
+      var bg = isDark ? "%23131a16" : "%23f3eee4";
+      var grid = isDark ? "%2326332a" : "%23d7cfc0";
+      var curve = isDark ? "%23f0f4f1" : "%231a221c";
+      var dot = isDark ? "%23e8633e" : "%23c24b2a";
+      var svgUri = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="108" fill="' + bg + '"/><g stroke="' + grid + '" stroke-width="4" stroke-dasharray="8 8"><line x1="56" y1="256" x2="456" y2="256"/><line x1="256" y1="56" x2="256" y2="456"/></g><path d="M 96 110 Q 256 460 416 110" fill="none" stroke="' + curve + '" stroke-width="28" stroke-linecap="round"/><circle cx="256" cy="372" r="22" fill="' + dot + '"/><circle cx="256" cy="372" r="32" fill="none" stroke="' + dot + '" stroke-width="4" stroke-opacity="0.4"/></svg>';
+      var link = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
+      if (link) {
+        link.setAttribute("href", svgUri);
+      }
+    } catch (e) {}
+  }
+
   function applyTheme(theme) {
     if (theme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
@@ -420,6 +435,7 @@
       document.documentElement.removeAttribute("data-theme");
     }
     updateButtons(theme);
+    updateFavicon(theme);
   }
 
   function toggleTheme() {
@@ -480,21 +496,57 @@
 })();
 
 /* ---- manba: js/features/doska-lightbox.js ---- */
-// Doskada namuna yechish rasmlari lightbox'i (navigatsiya, prev/next, redo/boshidan)
+// Doskada namuna yechish rasmlari lightbox'i (navigatsiya, prev/next, redo/boshidan, tungi e-ink)
 (function () {
   "use strict";
 
   var items = []; // { src, alt, caption }
   var currentIdx = 0;
   var bound = false;
-  var lb, lbImg, lbCap, lbNavLabel, lbClose, prevBtn, nextBtn, resetBtn, wrapEl;
+  var lb, lbImg, lbCap, lbNavLabel, lbClose, prevBtn, nextBtn, resetBtn, invertBtn, invertLabel, wrapEl;
+  var isInverted = false;
 
   function setDisabled(btn, disabled) {
     if (!btn) return;
     btn.disabled = !!disabled;
   }
 
+  function collectItems() {
+    var links = document.querySelectorAll("a.doska-img");
+    items = [];
+    Array.prototype.forEach.call(links, function (a, i) {
+      var img = a.querySelector("img");
+      var captionEl = a.parentElement ? a.parentElement.querySelector(".doska-img-cap") : null;
+      var caption = a.getAttribute("data-caption") || (captionEl ? captionEl.textContent.trim() : "") || (img ? img.alt : "");
+      var src = a.getAttribute("href") || (img ? img.src : "");
+      items.push({
+        src: src,
+        alt: img ? img.alt : caption,
+        caption: caption
+      });
+
+      a.removeAttribute("target");
+      if (!a.getAttribute("data-doska-lb-bound")) {
+        a.setAttribute("data-doska-lb-bound", "1");
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          open(i);
+        });
+      }
+    });
+  }
+
+  function applyInvert(invert) {
+    isInverted = !!invert;
+    if (wrapEl) wrapEl.classList.toggle("is-inverted", isInverted);
+    if (invertLabel) {
+      invertLabel.textContent = isInverted ? "Tungi e-ink" : "Asl nusxa";
+    }
+  }
+
   function render(idx) {
+    if (items.length === 0) collectItems();
     if (!lbImg || items.length === 0) return;
     currentIdx = Math.max(0, Math.min(idx, items.length - 1));
     var cur = items[currentIdx];
@@ -530,6 +582,7 @@
   }
 
   function open(idx) {
+    collectItems();
     if (!lb || items.length === 0) return;
     render(typeof idx === "number" ? idx : 0);
     lb.hidden = false;
@@ -554,34 +607,13 @@
     prevBtn = document.getElementById("doskaLbPrev");
     nextBtn = document.getElementById("doskaLbNext");
     resetBtn = document.getElementById("doskaLbReset");
+    invertBtn = document.getElementById("doskaLbInvert");
+    invertLabel = document.getElementById("doskaLbInvertLabel");
     wrapEl = document.getElementById("doskaLightboxWrap");
 
     if (!lb) return;
 
-    // Sahifadagi barcha doska rasmlarini yig'ish
-    var links = document.querySelectorAll("a.doska-img");
-    items = [];
-    Array.prototype.forEach.call(links, function (a, i) {
-      var img = a.querySelector("img");
-      var captionEl = a.parentElement ? a.parentElement.querySelector(".doska-img-cap") : null;
-      var caption = a.getAttribute("data-caption") || (captionEl ? captionEl.textContent.trim() : "") || (img ? img.alt : "");
-      var src = a.getAttribute("href") || (img ? img.src : "");
-      items.push({
-        src: src,
-        alt: img ? img.alt : caption,
-        caption: caption
-      });
-
-      // target="_blank" ni olib tashlash va klikni lightbox'ga ulash
-      a.removeAttribute("target");
-      if (a.getAttribute("data-doska-lb-bound") === "1") return;
-      a.setAttribute("data-doska-lb-bound", "1");
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        open(i);
-      });
-    });
+    collectItems();
 
     if (bound) return;
     bound = true;
@@ -590,6 +622,12 @@
     if (prevBtn) prevBtn.addEventListener("click", goPrev);
     if (nextBtn) nextBtn.addEventListener("click", goNext);
     if (resetBtn) resetBtn.addEventListener("click", goReset);
+    if (invertBtn) {
+      invertBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        applyInvert(!isInverted);
+      });
+    }
 
     lb.addEventListener("click", function (e) {
       if (e.target === lb) close();
@@ -625,6 +663,24 @@
       }, { passive: true });
     }
   }
+
+  // Global delegation: har qanday a.doska-img bosilganda hech qachon yangi tab ochilmaydi
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a.doska-img") : null;
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    collectItems();
+    var all = document.querySelectorAll("a.doska-img");
+    var targetIdx = 0;
+    for (var i = 0; i < all.length; i++) {
+      if (all[i] === a) {
+        targetIdx = i;
+        break;
+      }
+    }
+    open(targetIdx);
+  });
 
   window.KA_DOSKA_LIGHTBOX = {
     init: init,

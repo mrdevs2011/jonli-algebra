@@ -212,6 +212,10 @@
       resetBtn.addEventListener("click", function () { shown = 0; update(); });
       update();
     });
+
+    if (window.KA_DOSKA_LIGHTBOX && window.KA_DOSKA_LIGHTBOX.init) {
+      window.KA_DOSKA_LIGHTBOX.init();
+    }
   }
 
   function renderMashqlar(d) {

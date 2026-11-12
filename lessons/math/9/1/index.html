@@ -28,8 +28,8 @@
       <a class="brand" href="../../../../index.html">
         <span class="mark" aria-hidden="true">
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
-            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+            <path class="mark-curve" d="M3 20 Q13 2 23 20" stroke="currentColor" stroke-width="1.6" fill="none"/>
+            <circle class="mark-dot" cx="13" cy="11" r="1.6" fill="var(--accent)"/>
           </svg>
         </span>
         <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
@@ -223,9 +223,9 @@
         <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
       </div>
       <div class="kitob-nav">
-        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <button id="kitobPrev" class="kitob-nav-arrow" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
         <span class="kitob-nav-label" id="kitobNavLabel"></span>
-        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+        <button id="kitobNext" class="kitob-nav-arrow" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
         <button id="kitobInvertBtn" class="kitob-nav-mode-btn" type="button" title="Sahifa rejimini almashtirish (Asl nusxa / Tungi e-ink)" aria-label="Rejim"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"></path></svg><span id="kitobInvertLabel">Asl nusxa</span></button>
       </div>
     </div>
@@ -245,6 +245,7 @@
         <span class="doska-nav-label" id="doskaNavLabel"></span>
         <button id="doskaLbNext" class="doska-nav-btn" aria-label="Keyingi namuna" title="Keyingi namuna"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
         <button id="doskaLbReset" class="doska-nav-btn doska-nav-reset" type="button" aria-label="Boshidan" title="Boshidan ko'rish"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-2px;"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg><span>Boshidan</span></button>
+        <button id="doskaLbInvert" class="kitob-nav-mode-btn" type="button" title="Sahifa rejimini almashtirish (Asl nusxa / Tungi e-ink)" aria-label="Rejim"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"></path></svg><span id="doskaLbInvertLabel">Asl nusxa</span></button>
       </div>
     </div>
   </div>

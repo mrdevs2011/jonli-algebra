@@ -53,7 +53,7 @@
   }
 
   // TOC
-  var toc = '<a href="#bob-poydevor" style="background:rgba(194,75,42,0.1); border-color:var(--accent); color:var(--accent); font-weight:700;">★ 0-bob · Poydevor (Litseyga tayyorgarlik)</a>' +
+  var toc = '<a href="#bob-poydevor" style="background:rgba(194,75,42,0.1); border-color:var(--accent); color:var(--accent); font-weight:700;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>0-bob · Poydevor (Litseyga tayyorgarlik)</a>' +
     KA_BOBLAR.map(function (b) {
       return '<a href="#bob-' + b.id + '">' + escapeHtml(b.roman) + " bob</a>";
     }).join("");
@@ -101,7 +101,7 @@
   var POYDEVOR_MODULES = [
     {
       id: "pre-1",
-      icon: "🔤",
+      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>',
       number: "0.1-Modul",
       title: "X o'zi nima? Harfli ifodalar alifbosi",
       shortDesc: "Nega sonlar o'rniga harflar ishlatiladi? O'xshash hadlarni ixchamlash va qavslarni ochish sirlari.",
@@ -126,7 +126,7 @@
     },
     {
       id: "pre-2",
-      icon: "➖",
+      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>',
       number: "0.2-Modul",
       title: "Manfiy sonlar siri: Minus-minus nega plyus?",
       shortDesc: "Qarzlar falsafasi, sonlar o'qida harakat va −3² bilan (−3)² o'rtasidagi ulkan farq.",
@@ -151,7 +151,7 @@
     },
     {
       id: "pre-3",
-      icon: "⚡",
+      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
       number: "0.3-Modul",
       title: "Qisqa ko'paytirish: Litsey imtihonlarining yuragi",
       shortDesc: "(a ± b)², a² − b² formulalarining geometrik isboti va sonlarni og'zaki kvadratga ko'tarish usuli.",
@@ -176,7 +176,7 @@
     },
     {
       id: "pre-4",
-      icon: "⚖️",
+      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>',
       number: "0.4-Modul",
       title: "Chiziqli tenglamalar: Matematik tarozi qoidasi",
       shortDesc: "Tenglamani tarozi kabi muvozanatda saqlab, x ni yolg'iz qoldirish va proporsiya sirlari.",
@@ -201,7 +201,7 @@
     },
     {
       id: "pre-5",
-      icon: "🎯",
+      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
       number: "0.5-Modul",
       title: "Kvadrat tenglamalar, Diskriminant va Viyet mo'jizasi",
       shortDesc: "ax² + bx + c = 0 tenglamani 5 soniyada og'zaki yechish va ildizlar tabiatini aniqlash.",
@@ -228,7 +228,7 @@
     },
     {
       id: "pre-6",
-      icon: "📈",
+      icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><polyline points="2 7 8 1 14 7"></polyline></svg>',
       number: "0.6-Modul",
       title: "Koordinatalar tekisligi va Funksiya g'oyasi: y = kx + b",
       shortDesc: "Funksiya mashinasi, chiziqning qiyaligi (k) va 9-sinf parabolalariga to'g'ridan-to'g'ri ko'prik.",
@@ -630,19 +630,19 @@
           '</button>' +
         '</div>' +
         '<div style="background:rgba(194,75,42,0.06); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:14px 18px; margin-bottom:18px;">' +
-          '<div style="font-weight:700; color:var(--accent); font-size:0.85rem; text-transform:uppercase; margin-bottom:6px;">💡 Hayotiy misol va Mantiqiy tushuntirish</div>' +
+          '<div style="font-weight:700; color:var(--accent); font-size:0.85rem; text-transform:uppercase; margin-bottom:6px; display:flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path></svg>Hayotiy misol va Mantiqiy tushuntirish</div>' +
           '<p style="margin:0; font-size:0.95rem; line-height:1.6; color:var(--ink);">' + escapeHtml(m.analogy) + '</p>' +
         '</div>' +
         '<div style="margin-bottom:18px;">' +
-          '<h4 style="margin:0 0 10px; font-size:1rem; color:var(--ink);">📐 Asosiy Qoidalar va Formulalar:</h4>' +
+          '<h4 style="margin:0 0 10px; font-size:1rem; color:var(--ink); display:flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"></path><path d="M4 18h16"></path><path d="M6 14h12"></path></svg>Asosiy Qoidalar va Formulalar:</h4>' +
           '<ul style="margin:0; padding-left:20px; color:var(--ink);">' + rulesHtml + '</ul>' +
         '</div>' +
         '<div style="background:rgba(217,119,6,0.08); border-radius:12px; padding:14px 16px; margin-bottom:20px; border:1px solid rgba(217,119,6,0.2);">' +
-          '<strong style="color:#b45309; font-size:0.85rem; text-transform:uppercase; display:block; margin-bottom:4px;">⚠️ Imtihonda eng ko\'p uchraydigan tuzoq:</strong>' +
+          '<strong style="color:#b45309; font-size:0.85rem; text-transform:uppercase; display:flex; align-items:center; gap:6px; margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Imtihonda eng ko\'p uchraydigan tuzoq:</strong>' +
           '<span style="font-size:0.92rem; color:var(--ink); line-height:1.5;">' + escapeHtml(m.traps) + '</span>' +
         '</div>' +
         '<div style="border-top:1px solid var(--line); padding-top:18px; margin-bottom:18px;">' +
-          '<h4 style="margin:0 0 6px; font-size:1rem; color:var(--ink);">🎯 O\'zingni sinab ko\'r:</h4>' +
+          '<h4 style="margin:0 0 6px; font-size:1rem; color:var(--ink); display:flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>O\'zingni sinab ko\'r:</h4>' +
           '<p style="margin:0 0 12px; font-weight:600; color:var(--ink);">' + escapeHtml(m.quiz.question) + '</p>' +
           '<div id="poydevorQuizContainer">' + quizOptionsHtml + '</div>' +
           '<div id="poydevorFeedback" style="display:none; margin:12px 0; padding:12px 14px; border-radius:10px; font-size:0.9rem; line-height:1.5;"></div>' +
@@ -681,7 +681,7 @@
           feedbackEl.style.background = "rgba(43, 107, 79, 0.12)";
           feedbackEl.style.border = "1px solid rgba(43, 107, 79, 0.3)";
           feedbackEl.style.color = "var(--ink)";
-          feedbackEl.innerHTML = '<strong style="color:var(--accent-2); display:block; margin-bottom:4px;">🎉 Barakalla, to\'g\'ri javob! +15 XP</strong>' + escapeHtml(m.quiz.explanation);
+          feedbackEl.innerHTML = '<strong style="color:var(--accent-2); display:flex; align-items:center; gap:6px; margin-bottom:4px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Barakalla, to\'g\'ri javob! +15 XP</strong>' + escapeHtml(m.quiz.explanation);
           if (window.JA_GAMIFICATION && window.JA_GAMIFICATION.addXp) {
             window.JA_GAMIFICATION.addXp(15, m.id + "_quiz");
           }
@@ -690,7 +690,7 @@
           feedbackEl.style.background = "rgba(194, 75, 42, 0.1)";
           feedbackEl.style.border = "1px solid rgba(194, 75, 42, 0.3)";
           feedbackEl.style.color = "var(--ink)";
-          feedbackEl.innerHTML = '<strong style="color:var(--accent); display:block; margin-bottom:4px;">Noto\'g\'ri, qayta urinib ko\'ring!</strong>' + escapeHtml(m.quiz.explanation);
+          feedbackEl.innerHTML = '<strong style="color:var(--accent); display:flex; align-items:center; gap:6px; margin-bottom:4px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>Noto\'g\'ri, qayta urinib ko\'ring!</strong>' + escapeHtml(m.quiz.explanation);
         }
       });
     }

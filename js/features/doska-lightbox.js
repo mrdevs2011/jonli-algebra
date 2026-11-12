@@ -1,18 +1,54 @@
-// Doskada namuna yechish rasmlari lightbox'i (navigatsiya, prev/next, redo/boshidan)
+// Doskada namuna yechish rasmlari lightbox'i (navigatsiya, prev/next, redo/boshidan, tungi e-ink)
 (function () {
   "use strict";
 
   var items = []; // { src, alt, caption }
   var currentIdx = 0;
   var bound = false;
-  var lb, lbImg, lbCap, lbNavLabel, lbClose, prevBtn, nextBtn, resetBtn, wrapEl;
+  var lb, lbImg, lbCap, lbNavLabel, lbClose, prevBtn, nextBtn, resetBtn, invertBtn, invertLabel, wrapEl;
+  var isInverted = false;
 
   function setDisabled(btn, disabled) {
     if (!btn) return;
     btn.disabled = !!disabled;
   }
 
+  function collectItems() {
+    var links = document.querySelectorAll("a.doska-img");
+    items = [];
+    Array.prototype.forEach.call(links, function (a, i) {
+      var img = a.querySelector("img");
+      var captionEl = a.parentElement ? a.parentElement.querySelector(".doska-img-cap") : null;
+      var caption = a.getAttribute("data-caption") || (captionEl ? captionEl.textContent.trim() : "") || (img ? img.alt : "");
+      var src = a.getAttribute("href") || (img ? img.src : "");
+      items.push({
+        src: src,
+        alt: img ? img.alt : caption,
+        caption: caption
+      });
+
+      a.removeAttribute("target");
+      if (!a.getAttribute("data-doska-lb-bound")) {
+        a.setAttribute("data-doska-lb-bound", "1");
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          open(i);
+        });
+      }
+    });
+  }
+
+  function applyInvert(invert) {
+    isInverted = !!invert;
+    if (wrapEl) wrapEl.classList.toggle("is-inverted", isInverted);
+    if (invertLabel) {
+      invertLabel.textContent = isInverted ? "Tungi e-ink" : "Asl nusxa";
+    }
+  }
+
   function render(idx) {
+    if (items.length === 0) collectItems();
     if (!lbImg || items.length === 0) return;
     currentIdx = Math.max(0, Math.min(idx, items.length - 1));
     var cur = items[currentIdx];
@@ -48,6 +84,7 @@
   }
 
   function open(idx) {
+    collectItems();
     if (!lb || items.length === 0) return;
     render(typeof idx === "number" ? idx : 0);
     lb.hidden = false;
@@ -72,34 +109,13 @@
     prevBtn = document.getElementById("doskaLbPrev");
     nextBtn = document.getElementById("doskaLbNext");
     resetBtn = document.getElementById("doskaLbReset");
+    invertBtn = document.getElementById("doskaLbInvert");
+    invertLabel = document.getElementById("doskaLbInvertLabel");
     wrapEl = document.getElementById("doskaLightboxWrap");
 
     if (!lb) return;
 
-    // Sahifadagi barcha doska rasmlarini yig'ish
-    var links = document.querySelectorAll("a.doska-img");
-    items = [];
-    Array.prototype.forEach.call(links, function (a, i) {
-      var img = a.querySelector("img");
-      var captionEl = a.parentElement ? a.parentElement.querySelector(".doska-img-cap") : null;
-      var caption = a.getAttribute("data-caption") || (captionEl ? captionEl.textContent.trim() : "") || (img ? img.alt : "");
-      var src = a.getAttribute("href") || (img ? img.src : "");
-      items.push({
-        src: src,
-        alt: img ? img.alt : caption,
-        caption: caption
-      });
-
-      // target="_blank" ni olib tashlash va klikni lightbox'ga ulash
-      a.removeAttribute("target");
-      if (a.getAttribute("data-doska-lb-bound") === "1") return;
-      a.setAttribute("data-doska-lb-bound", "1");
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        open(i);
-      });
-    });
+    collectItems();
 
     if (bound) return;
     bound = true;
@@ -108,6 +124,12 @@
     if (prevBtn) prevBtn.addEventListener("click", goPrev);
     if (nextBtn) nextBtn.addEventListener("click", goNext);
     if (resetBtn) resetBtn.addEventListener("click", goReset);
+    if (invertBtn) {
+      invertBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        applyInvert(!isInverted);
+      });
+    }
 
     lb.addEventListener("click", function (e) {
       if (e.target === lb) close();
@@ -143,6 +165,24 @@
       }, { passive: true });
     }
   }
+
+  // Global delegation: har qanday a.doska-img bosilganda hech qachon yangi tab ochilmaydi
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a.doska-img") : null;
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    collectItems();
+    var all = document.querySelectorAll("a.doska-img");
+    var targetIdx = 0;
+    for (var i = 0; i < all.length; i++) {
+      if (all[i] === a) {
+        targetIdx = i;
+        break;
+      }
+    }
+    open(targetIdx);
+  });
 
   window.KA_DOSKA_LIGHTBOX = {
     init: init,
