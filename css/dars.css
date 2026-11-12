@@ -1861,3 +1861,166 @@ html[data-theme="dark"] .doska-tab.is-active {
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   DOSKADA NAMUNA YECHISH LIGHTBOX — 100% FLAT AKADEMIK USLUB
+   ========================================================================== */
+.doska-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 20, 24, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10000;
+  animation: doskaFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doska-lightbox[hidden] {
+  display: none !important;
+}
+
+@keyframes doskaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.doska-lightbox-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: min(94vw, 840px);
+  width: 100%;
+}
+
+.doska-lightbox-head {
+  text-align: center;
+  width: 100%;
+}
+
+.doska-lightbox-cap {
+  display: inline-block;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 6px 18px;
+}
+
+.doska-lightbox-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: none;
+}
+
+.doska-lightbox-wrap img {
+  display: block;
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.doska-lightbox-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doska-nav-btn {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--white);
+  color: var(--ink);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.doska-nav-btn:hover:not(:disabled) {
+  background: var(--paper-2);
+  border-color: #ffffff;
+}
+
+.doska-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.doska-nav-label {
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 6px 14px;
+  min-width: 72px;
+  text-align: center;
+}
+
+.doska-nav-reset {
+  width: auto;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  gap: 6px;
+}
+
+.doska-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(24, 30, 36, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10005;
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.doska-lightbox-close:hover {
+  background: rgba(194, 75, 42, 0.95);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+/* Dark mode doska lightbox */
+html[data-theme="dark"] .doska-lightbox-wrap {
+  background: #19201b;
+  border-color: #26332a;
+}
+html[data-theme="dark"] .doska-lightbox-wrap img {
+  filter: brightness(0.92) contrast(1.03) !important;
+}
+

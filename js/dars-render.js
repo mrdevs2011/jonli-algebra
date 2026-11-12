@@ -162,7 +162,7 @@
       // bilan bo'sh joy ko'rsatiladi, matn (steps/static) baribir ishlaydi.
       var imgWrap = el("div", { class: "doska-masala-img" });
       if (m.img) {
-        var a = el("a", { href: m.img, target: "_blank", rel: "noopener", class: "doska-img" });
+        var a = el("a", { href: m.img, class: "doska-img", "data-caption": m.caption || "", "aria-label": m.caption || "Namuna masalasi" });
         a.appendChild(el("img", { src: m.img, alt: m.alt, loading: "lazy", width: m.width, height: m.height }));
         imgWrap.appendChild(a);
       } else {
@@ -621,6 +621,7 @@
     if (window.KA_AGENDA && KA_AGENDA.init) KA_AGENDA.init();
     if (window.KA_CLASSTIMER && KA_CLASSTIMER.init) KA_CLASSTIMER.init();
     if (window.KA_KITOB && KA_KITOB.init) KA_KITOB.init();
+    if (window.KA_DOSKA_LIGHTBOX && KA_DOSKA_LIGHTBOX.init) KA_DOSKA_LIGHTBOX.init();
     if (window.KA_SAHNA_EXPAND) window.KA_SAHNA_EXPAND.init();
     if (window.KA && KA.onLessonOpen) KA.onLessonOpen(d.id);
   }
