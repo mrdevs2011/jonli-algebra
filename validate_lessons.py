@@ -121,21 +121,24 @@ def check_new_terms(lesson_id: int, all_lessons: dict, issues: list):
                         )
 
 
-def check_sahna_lock(lesson_id: int, sahna: dict, issues: list):
+def check_sahna_lock(lesson_id: int, lesson: dict, issues: list):
     """Agar sahna turi 'abc-parabola' bo'lsa-yu, dars faqat bitta parametr
     haqida bo'lsa (title/lead da faqat 'a' zikr etilsa), b/c qulflanganmi tekshiradi."""
+    sahna = lesson.get("sahna", {})
     if not sahna:
         return
     vars_ = sahna.get("vars", {})
     if sahna.get("type") == "abc-parabola":
-        for param in ("b", "c"):
-            v = vars_.get(param)
-            if v and v.get("min") != v.get("max"):
-                # bu normal holat bo'lishi ham mumkin (agar dars aynan b,c haqida bo'lsa)
-                issues.append(
-                    f"[TEKSHIR] sahna.vars.{param} qulflanmagan (min={v.get('min')}, "
-                    f"max={v.get('max')}) — agar dars faqat 'a' haqida bo'lsa, bu xato."
-                )
+        title_lead = (lesson.get("title", "") + " " + lesson.get("lead", "")).lower()
+        # Agar mavzu aynan faqat 'a' haqida bo'lsa (masalan 3-dars: y = ax², lekin y = ax² + bx + c emas):
+        if ("y = ax²" in title_lead and "+ bx" not in title_lead) or "faqat a" in title_lead:
+            for param in ("b", "c"):
+                v = vars_.get(param)
+                if v and v.get("min") != v.get("max"):
+                    issues.append(
+                        f"[TEKSHIR] sahna.vars.{param} qulflanmagan (min={v.get('min')}, "
+                        f"max={v.get('max')}) — dars faqat 'a' haqida bo'lgani uchun b/c qulflanishi shart."
+                    )
 
 
 def validate_dir(lessons_dir: Path):
@@ -160,7 +163,7 @@ def validate_dir(lessons_dir: Path):
         check_agenda_reference(lesson_id, lesson.get("agenda", []), issues)
         check_kirish_bridge(lesson_id, lesson, issues)
         check_new_terms(lesson_id, all_lessons, issues)
-        check_sahna_lock(lesson_id, lesson.get("sahna", {}), issues)
+        check_sahna_lock(lesson_id, lesson, issues)
 
         if issues:
             total_issues += len(issues)

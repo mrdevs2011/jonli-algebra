@@ -30,8 +30,12 @@ echo "── 2/3: check_lessons.sh (umumiy JS ulanish + sinxronlik) ──"
 bash build/check_lessons.sh
 
 echo ""
-echo "── 3/3: run-all-render-tests.js (runtime smoke test, jsdom) ──"
+echo "── 3/4: run-all-render-tests.js (runtime smoke test, jsdom) ──"
 node build/run-all-render-tests.js "$@"
+
+echo ""
+echo "── 4/4: validate_lessons.py (pedagogik va ko'prik tekshiruvi) ──"
+python3 validate_lessons.py lessons/math/9
 
 echo ""
 echo "✅ Hammasi toza — deploy/commit qilsa bo'ladi."

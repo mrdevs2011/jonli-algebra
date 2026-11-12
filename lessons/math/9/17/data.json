@@ -18,7 +18,7 @@
   "agenda": [
     {
       "min": 5,
-      "name": "Kirish — yangi bob: burchakni yoy uzunligi bilan o'lchash"
+      "name": "Kirish — 16-§ (tengsizliklar) dan yangi bobga o'tish"
     },
     {
       "min": 10,
@@ -56,7 +56,7 @@
     }
   },
   "kirish": [
-    "<p class=\"kirish-nega\">Oldingi bobda tenglamalar va tengsizliklar sistemalarini yechishni o‘rgandik. Endi yangi bobga — <strong>trigonometriya elementlariga</strong> o‘tamiz. Birinchi tushuncha: burchakni faqat gradusda emas, balki <strong>yoy uzunligi</strong> orqali o‘lchash. Bu o‘lchov <strong>radian</strong> deb ataladi.</p>",
+    "<p class=\"kirish-nega\">16-§da tengsizliklarni isbotlash bilan II bobni yakunladik va oldingi darsda ko'rganimizdek tenglama hamda tengsizliklar sistemalarini o‘rgangan edik. Endi yangi bobga — <strong>trigonometriya elementlariga</strong> o‘tamiz. Birinchi tushuncha: burchakni faqat gradusda emas, balki <strong>yoy uzunligi</strong> orqali o‘lchash. Bu o‘lchov <strong>radian</strong> deb ataladi.</p>",
     "<p>Sahnada birlik aylana (radius = 1) ko‘rsatilgan. t slayderini o‘zgartiring: nuqta aylanada yuradi, uning absissasi cos t, ordinatasi sin t bo‘ladi. Hozircha t gradusda berilgan — keyinroq xuddi shu burchakni radianda ifodalashni o‘rganamiz. Kitobdagi 1–4-masalalar esa aynan gradus ↔ radian o‘girish va yoy uzunligini hisoblashga bag‘ishlangan.</p>"
   ],
   "reja": "1) 1 radian nima ekanini ta'riflaymiz — radiusga teng yoyni tortib turgan markaziy burchak. 2) Gradusdan radianga va aksincha o'tish formulalarini chiqaramiz. 3) Yoy uzunligi formulasi l = R·α (α radian) ni qo'llaymiz. 4) Doiraviy sektor yuzini isbotlaymiz. 5) Eng ko'p uchraydigan burchaklarning ikkala o'lchovini yodda tutamiz.",

@@ -109,7 +109,8 @@
   "eslabQol": [
     "Kvadrat funksiyada <strong>a ≠ 0</strong> shart — aks holda x² had yo'qoladi.",
     "<strong>a</strong> — shaklni (tarmoqni) belgilaydi: musbat bo'lsa yuqoriga, manfiy bo'lsa pastga qaraydi.",
-    "<strong>b</strong> va <strong>c</strong> grafikni suradi, lekin uni parabola bo'lishdan chiqarmaydi."
+    "<strong>b</strong> va <strong>c</strong> grafikni suradi, lekin uni parabola bo'lishdan chiqarmaydi.",
+    "Keyingi darsda simmetriya o'qi va y = x² grafigini o'rganamiz."
   ],
   "kitob": {
     "betlar": "5–7-betlar",
