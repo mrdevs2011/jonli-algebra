@@ -1352,12 +1352,15 @@
     if (ratio > 0.5) {
       badgeEl.style.borderColor = "var(--accent-2, #2b6b4f)";
       badgeEl.style.color = "var(--accent-2, #2b6b4f)";
+      badgeEl.classList.remove("is-urgent");
     } else if (ratio > 0.2) {
       badgeEl.style.borderColor = "#e67e22";
       badgeEl.style.color = "#e67e22";
+      badgeEl.classList.remove("is-urgent");
     } else {
-      badgeEl.style.borderColor = "#c24b2a";
-      badgeEl.style.color = "#c24b2a";
+      badgeEl.style.borderColor = "#d9534f";
+      badgeEl.style.color = "#d9534f";
+      badgeEl.classList.add("is-urgent");
     }
   }
 
@@ -1370,14 +1373,17 @@
     var header = document.createElement("div");
     header.className = "exam-session-header";
     header.innerHTML =
-      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">' +
-        '<h3 style="margin:0; font-size:1.18rem; color:var(--ink);">' + exam.title + '</h3>' +
-        '<div style="display:flex; align-items:center; gap:10px;">' +
-          '<div class="exam-timer-badge" id="examTimerBadge" style="display:inline-flex; align-items:center; gap:6px; background:var(--white); border:2px solid var(--accent-2); padding:6px 14px; border-radius:20px; font-weight:700; color:var(--accent-2); font-family:monospace; font-size:1.05rem;">' +
+      '<div class="exam-header-inner">' +
+        '<div class="exam-title-wrap">' +
+          '<h3 class="exam-title">' + exam.title + '</h3>' +
+          '<div class="exam-meta-text">10 ta masala · 15 daqiqa</div>' +
+        '</div>' +
+        '<div class="exam-header-controls">' +
+          '<div class="exam-timer-badge" id="examTimerBadge" title="Qolgan vaqt">' +
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
             '<span id="examTimerDisplay">' + formatTime(currentExam.remainingSec) + '</span>' +
           '</div>' +
-          (currentExam.isDialog ? '<button type="button" class="btn" id="examCloseBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' : '') +
+          (currentExam.isDialog ? '<button type="button" class="modal-close-btn" id="examCloseBtn" aria-label="Chiqish" title="Imtihondan chiqish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' : '') +
         '</div>' +
       '</div>';
     box.appendChild(header);
@@ -1618,17 +1624,17 @@
     var header = document.createElement("div");
     header.className = "mock-session-header";
     header.innerHTML =
-      '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">' +
-        '<div>' +
-          '<h3 style="margin:0; font-size:1.2rem; color:var(--ink);">' + mock.title + '</h3>' +
-          '<small style="color:var(--ink-soft);">25 ta test savoli + 5 ta yozma masala (Jami 30 ta) &bull; 60 daqiqa</small>' +
+      '<div class="exam-header-inner">' +
+        '<div class="exam-title-wrap">' +
+          '<h3 class="exam-title">' + mock.title + '</h3>' +
+          '<div class="exam-meta-text">30 ta test va yozma masala · 60 daqiqa</div>' +
         '</div>' +
-        '<div style="display:flex; align-items:center; gap:10px;">' +
-          '<div class="exam-timer-badge" id="mockTimerBadge" style="display:inline-flex; align-items:center; gap:6px; background:var(--white); border:2px solid var(--accent); padding:6px 14px; border-radius:20px; font-weight:700; color:var(--accent); font-family:monospace; font-size:1.1rem;">' +
+        '<div class="exam-header-controls">' +
+          '<div class="exam-timer-badge exam-timer-mock" id="mockTimerBadge" title="Qolgan vaqt">' +
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
             '<span id="mockTimerDisplay">' + formatTime(currentExam.remainingSec) + '</span>' +
           '</div>' +
-          (currentExam.isDialog ? '<button type="button" class="btn" id="mockCloseBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' : '') +
+          (currentExam.isDialog ? '<button type="button" class="modal-close-btn" id="mockCloseBtn" aria-label="Chiqish" title="Simulyatsiyadan chiqish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' : '') +
         '</div>' +
       '</div>';
     box.appendChild(header);

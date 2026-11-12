@@ -45,11 +45,53 @@
     return false;
   }
 
+  var LESSON_META = {
+    1: { vaqt: "15 daq", tag: "Ta'rif" },
+    2: { vaqt: "20 daq", tag: "Grafik" },
+    3: { vaqt: "20 daq", tag: "Koeffitsiyent" },
+    4: { vaqt: "25 daq", tag: "Uch koordinatasi" },
+    5: { vaqt: "35 daq", tag: "5 qadamli yasash" },
+    6: { vaqt: "25 daq", tag: "Tengsizlik" },
+    7: { vaqt: "25 daq", tag: "Grafik usul" },
+    8: { vaqt: "30 daq", tag: "Intervallar" },
+    9: { vaqt: "20 daq", tag: "Aniqlanish sohasi" },
+    10: { vaqt: "25 daq", tag: "O'sish-kamayish" },
+    11: { vaqt: "20 daq", tag: "Juftlik-toqlik" },
+    12: { vaqt: "30 daq", tag: "Darajali ifoda" },
+    13: { vaqt: "25 daq", tag: "Sistemalar" },
+    14: { vaqt: "30 daq", tag: "Yechish usullari" },
+    15: { vaqt: "30 daq", tag: "Tengsizliklar sistemasi" },
+    16: { vaqt: "25 daq", tag: "Isbotlash" },
+    17: { vaqt: "20 daq", tag: "Radian o'lchovi" },
+    18: { vaqt: "25 daq", tag: "Nuqtani burish" },
+    19: { vaqt: "35 daq", tag: "Sin, Cos, Tg" },
+    20: { vaqt: "20 daq", tag: "Chorak ishoralari" },
+    21: { vaqt: "25 daq", tag: "Asosiy ayniyatlar" },
+    22: { vaqt: "30 daq", tag: "Ayniyatlar isboti" },
+    23: { vaqt: "20 daq", tag: "Simmetriya" },
+    24: { vaqt: "40 daq", tag: "Qo'shish formulalari" },
+    25: { vaqt: "25 daq", tag: "2α burchak" },
+    26: { vaqt: "35 daq", tag: "Keltirish formulalari" },
+    27: { vaqt: "35 daq", tag: "Ko'paytmaga keltirish" },
+    28: { vaqt: "20 daq", tag: "Ketma-ketliklar" },
+    29: { vaqt: "25 daq", tag: "Arifmetik progressiya" },
+    30: { vaqt: "30 daq", tag: "Progressiya yig'indisi" },
+    31: { vaqt: "25 daq", tag: "Geometrik progressiya" },
+    32: { vaqt: "30 daq", tag: "Geometrik yig'indi" },
+    33: { vaqt: "30 daq", tag: "Cheksiz kamayuvchi" },
+    34: { vaqt: "20 daq", tag: "Hodisalar" },
+    35: { vaqt: "25 daq", tag: "Klassik ehtimollik" },
+    36: { vaqt: "25 daq", tag: "Nisbiy chastota" },
+    37: { vaqt: "25 daq", tag: "Tasodifiy miqdor" },
+    38: { vaqt: "30 daq", tag: "Statistika" }
+  };
+
   function pill(lessonId) {
     if (isLessonDone(lessonId)) {
       return '<span class="pill pill-done" style="display:inline-flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>O‘zlashtirildi</span>';
     }
-    return '<span class="lesson-meta-tag" style="font-size:0.75rem; color:var(--ink-soft); font-weight:600; padding:3px 8px; border-radius:12px; background:rgba(0,0,0,0.04);">35 daq</span>';
+    var meta = LESSON_META[lessonId] || { vaqt: "25 daq", tag: "Mavzu" };
+    return '<span class="lesson-meta-tag"><span class="lesson-meta-time">' + escapeHtml(meta.vaqt) + '</span><span class="lesson-meta-sep">·</span><span class="lesson-meta-topic">' + escapeHtml(meta.tag) + '</span></span>';
   }
 
   // TOC
@@ -67,13 +109,17 @@
     var rows = lessons.map(function (d) {
       return (
         '<a class="lesson" href="' + LESSONS_BASE + d.id + '/">' +
-          '<div class="lesson-num">' + escapeHtml(d.paragraf) + "</div>" +
-          "<div>" +
-            "<h3>" + escapeHtml(d.nom) + "</h3>" +
-            "<p>" + escapeHtml(d.qisqa) + "</p>" +
-          "</div>" +
-          pill(d.id) +
-        "</a>"
+          '<div class="lesson-left">' +
+            '<span class="lesson-num">' + escapeHtml(d.paragraf) + '</span>' +
+          '</div>' +
+          '<div class="lesson-body">' +
+            '<div class="lesson-title-row">' +
+              '<h3 class="lesson-title">' + escapeHtml(d.nom) + '</h3>' +
+              pill(d.id) +
+            '</div>' +
+            '<p class="lesson-desc">' + escapeHtml(d.qisqa) + '</p>' +
+          '</div>' +
+        '</a>'
       );
     }).join("");
 
