@@ -172,41 +172,42 @@
       {
         "id": "ex-10-1",
         "daraja": "asosiy",
-        "savol": "Funksiyaning o‘sishi va kamayishi mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "y = (x − 3)² + 2 parabola qaysi nuqtadan boshlab o'sishga o'tadi? Uning uchi abssissasini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Masalan: 3",
         "togriJavob": [
-          "2",
-          "+2"
+          "3"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*3\\s*$",
+        "hint": "Tarmoqlari yuqoriga qaragan parabolada funksiya [x₀; +∞) oraliqda o'suvchi bo'ladi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: Parabola uchi x₀ = 3 nuqtada.",
+            "2-qadam: x ≥ 3 bo'lganda argument ortishi bilan funksiya qiymati ham ortadi.",
+            "Javob: 3."
           ],
-          "javob": "2"
+          "javob": "3"
         }
       },
       {
         "id": "ex-10-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "y = −2x² + 8x funksiya [2; +∞) oraliqda o'suvchimi yoki kamayuvchi? (1 = o'suvchi, 2 = kamayuvchi deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "1 yoki 2",
         "togriJavob": [
-          "0"
+          "2",
+          "kamayuvchi"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*(2|kamayuvchi)\\s*$",
+        "hint": "Parabola uchi x₀ = −8 / (2·(−2)) = 2. a < 0 bo'lgani uchun uchidan o'ngda kamayadi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: Parabola uchi x₀ = 2 nuqtada va a = −2 < 0 (tarmoqlar pastga).",
+            "2-qadam: Uchidan o'ng tomonda funksiya pastga tushadi, ya'ni kamayuvchi.",
+            "Javob: 2 (kamayuvchi)."
           ],
-          "javob": "0"
+          "javob": "2"
         }
       }
     ]
@@ -234,17 +235,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Funksiyaning o‘sishi va kamayishi doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "y = x² − 4x + 7 funksiyaning [0; 5] kesmadagi eng katta va eng kichik qiymatlari yig'indisini toping.",
+    "korsatma": "Uchining abssissasini toping va kesma uchlaridagi qiymatlar bilan taqqoslang.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "x₀ = 2 ∈ [0; 5]. y_min = y(2) = 4 − 8 + 7 = 3. y(0) = 7, y(5) = 25 − 20 + 7 = 12. y_max = 12.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: Eng kichik qiymat parabola uchida: y(2) = 3.",
+        "2-qadam: Chegaralarni tekshiramiz: y(0) = 7, y(5) = 12. Eng kattasi 12.",
+        "3-qadam: Yig'indi: 3 + 12 = 15.",
+        "Javob: 15."
       ],
-      "javob": "8"
+      "javob": "15"
     }
   }
 }

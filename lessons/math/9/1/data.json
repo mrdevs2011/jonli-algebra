@@ -196,73 +196,65 @@
     "intro": "Interaktiv mashqlar: javobingizni kiriting va \"Tekshirish\" tugmasini bosing. Maslahat va to'liq yechimlar mavjud.",
     "items": [
       {
-        "id": "ex-1",
+        "id": "ex-1-1",
         "daraja": "asosiy",
-        "savol": "y = x² − 5x + 6 kvadrat funksiyaning nollarini toping (kichigidan boshlab vergul bilan):",
+        "savol": "y = 3x² − 5x + 2 kvadrat funksiyaning x = 2 dagi qiymatini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2, 3",
+        "inputPlaceholder": "Son kiriting (masalan: 4)",
         "togriJavob": [
-          "2, 3",
-          "2; 3",
-          "2 va 3",
-          "x=2, x=3",
-          "2,3"
+          "4"
         ],
-        "validationRegex": "^\\s*2\\s*[,;\\s]\\s*3\\s*$",
-        "hint": "y = 0 deb oling va x² − 5x + 6 = 0 tenglamani Viyet teoremasi bo'yicha yeching.",
+        "validationRegex": "^\\s*4\\s*$",
+        "hint": "Formula: x o'rniga 2 qo'ying: y(2) = 3·(2)² − 5·(2) + 2.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Funksiyaning nollarida y = 0 bo'ladi: x² − 5x + 6 = 0.",
-            "2-qadam: Viyet teoremasi bo'yicha: x₁ + x₂ = 5 va x₁ · x₂ = 6.",
-            "3-qadam: Ildizlar: x₁ = 2 va x₂ = 3."
+            "1-qadam: x = 2 ni funksiyaga qo'yamiz.",
+            "2-qadam: y(2) = 3·4 − 10 + 2 = 12 − 10 + 2 = 4.",
+            "Javob: 4."
           ],
-          "javob": "2 va 3"
+          "javob": "4"
         }
       },
       {
-        "id": "ex-2",
+        "id": "ex-1-2",
         "daraja": "ortacha",
-        "savol": "y = 2x² − 4x + 5 funksiya grafigining uchi koordinatalarini (x₀; y₀) ko'rinishida toping:",
+        "savol": "y = −2x² + 7x − 3 kvadrat funksiyaning a, b va c koeffitsiyentlari yig'indisini (a + b + c) hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: (1; 3)",
+        "inputPlaceholder": "Masalan: 2",
         "togriJavob": [
-          "(1; 3)",
-          "1, 3",
-          "1; 3",
-          "(1, 3)",
-          "1,3"
+          "2"
         ],
-        "validationRegex": "^\\s*\\(?\\s*1\\s*[,;]\\s*3\\s*\\)?\\s*$",
-        "hint": "Parabola uchining abssissasi x₀ = −b / (2a) formulasi bilan topiladi.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "Umumiy ko'rinish y = ax² + bx + c: a = −2, b = 7, c = −3.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 2, b = −4, c = 5.",
-            "2-qadam: x₀ = −(−4) / (2 · 2) = 4 / 4 = 1.",
-            "3-qadam: y₀ = 2(1)² − 4(1) + 5 = 2 − 4 + 5 = 3.",
-            "Xulosa: Parabola uchi M(1; 3) nuqtada joylashgan."
+            "1-qadam: a = −2, b = 7, c = −3 ekanini aniqlaymiz.",
+            "2-qadam: Yig'indi: (−2) + 7 + (−3) = 2.",
+            "Javob: 2."
           ],
-          "javob": "(1; 3)"
+          "javob": "2"
         }
       },
       {
-        "id": "ex-3",
+        "id": "ex-1-3",
         "daraja": "litsey",
-        "savol": "y = x² + px + q funksiyaning nollari 4 va −1 bo'lsa, p + q yig'indisini hisoblang:",
+        "savol": "y = (m − 3)x² + 4x − 1 ifoda kvadrat funksiya bo'lishi uchun m qaysi songa teng bo'la olmaydi?",
         "type": "input",
-        "inputPlaceholder": "Masalan: −7",
+        "inputPlaceholder": "Son kiriting (masalan: 3)",
         "togriJavob": [
-          "-7",
-          "−7"
+          "3",
+          "m=3"
         ],
-        "validationRegex": "^\\s*[-−]7\\s*$",
-        "hint": "Viyet teoremasiga ko'ra: p = −(x₁ + x₂) va q = x₁ · x₂.",
+        "validationRegex": "^\\s*(m\\s*=\\s*)?3\\s*$",
+        "hint": "Ta'rifga ko'ra x² oldidagi koeffitsiyent a ≠ 0 bo'lishi shart: m − 3 ≠ 0.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Viyet teoremasi bo'yicha x₁ + x₂ = 4 + (−1) = 3 = −p, demak p = −3.",
-            "2-qadam: q = x₁ · x₂ = 4 · (−1) = −4.",
-            "3-qadam: p + q = (−3) + (−4) = −7."
+            "1-qadam: Kvadrat funksiyada x² oldidagi koeffitsiyent nol bo'lishi mumkin emas (a ≠ 0).",
+            "2-qadam: m − 3 = 0 bo'lsa x² yo'qolib chiziqli funksiya qoladi.",
+            "3-qadam: Demak, m = 3 bo'la olmaydi.",
+            "Javob: 3."
           ],
-          "javob": "−7"
+          "javob": "3"
         }
       }
     ]
@@ -291,18 +283,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "f(x) = x² + ax + b kvadrat funksiya berilgan. Agar f(1) = 0 va barcha x haqiqiy sonlar uchun f(x) ≥ 0 bo'lsa, a va b koeffitsiyentlarni toping hamda a · b ko'paytmasini hisoblang.",
-    "korsatma": "f(x) ≥ 0 sharti parabola Ox o'qidan pastga tushmasligini, f(1) = 0 esa uchi Ox o'qida ekanini bildiradi.",
+    "masala": "f(x) = x² + px + q kvadrat funksiya berilgan. Agar f(0) = 4 va f(2) = 2 bo'lsa, p koeffitsiyentning qiymatini toping.",
+    "korsatma": "f(0) = q ekanidan q ni toping, so'ng f(2) ga qo'yib p ni hisoblang.",
     "yechim": {
-      "tahlil": "Har qanday x uchun f(x) ≥ 0 bo'lishi va bir vaqtda f(1) = 0 bo'lishi funksiyaning eng kichik qiymati 0 ga teng ekanligini, ya'ni parabolaning uchi aynan (1; 0) nuqtada joylashganini anglatadi.",
+      "tahlil": "Funksiya qiymatlarini ketma-ket qo'yib, noma'lum koeffitsiyentlarni aniqlaymiz.",
       "qadamlar": [
-        "1-qadam: Parabola yuqoriga qaragan (a_koeff = 1 > 0) va eng kichik qiymati x = 1 da 0 ga teng.",
-        "2-qadam: Demak, f(x) = (x − 1)² to'liq kvadrat shaklida bo'ladi.",
-        "3-qadam: Qavslarni ochamiz: (x − 1)² = x² − 2x + 1.",
-        "4-qadam: f(x) = x² + ax + b bilan solishtirsak: a = −2, b = 1 bo'ladi.",
-        "5-qadam: Ko'paytma: a · b = (−2) · 1 = −2."
+        "1-qadam: f(0) = 0² + p·0 + q = q = 4.",
+        "2-qadam: f(2) = 2² + 2p + 4 = 2p + 8.",
+        "3-qadam: 2p + 8 = 2 → 2p = −6 → p = −3.",
+        "Javob: −3."
       ],
-      "javob": "a = −2, b = 1, ko'paytma: −2"
+      "javob": "−3"
     }
   }
 }

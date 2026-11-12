@@ -189,40 +189,44 @@
       {
         "id": "ex-20-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "savol": "150° burchak qaysi koordinata choragida joylashgan? (Chorak raqamini kiriting: 1, 2, 3 yoki 4):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
+        "inputPlaceholder": "1, 2, 3 yoki 4",
         "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
+          "2"
         ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "90° < 150° < 180°, demak bu II chorak.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+            "1-qadam: II chorak burchaklari 90° dan 180° gacha bo'ladi.",
+            "2-qadam: 150° ikkinchi chorakka tegishli.",
+            "Javob: 2."
           ],
-          "javob": "0.8"
+          "javob": "2"
         }
       },
       {
         "id": "ex-20-2",
         "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "sin(130°) · cos(200°) ko'paytmaning ishorasi qanday? (Musbat bo'lsa 1, Manfiy bo'lsa −1 deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 1",
+        "inputPlaceholder": "1 yoki -1",
         "togriJavob": [
-          "1"
+          "-1",
+          "−1",
+          "manfiy"
         ],
-        "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "validationRegex": "^\\s*([-−]1|manfiy)\\s*$",
+        "hint": "130° II chorakda (sin musbat), 200° III chorakda (cos manfiy). Musbat · Manfiy = Manfiy.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: sin(130°) > 0 (II chorakda sinus musbat).",
+            "2-qadam: cos(200°) < 0 (III chorakda kosinus manfiy).",
+            "3-qadam: (+) · (−) = (−). Demak natija manfiy.",
+            "Javob: −1."
           ],
-          "javob": "1"
+          "javob": "−1"
         }
       }
     ]
@@ -253,16 +257,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "α burchak III chorakda joylashgan (180° < α < 270°). sinα · tgα ifodaning ishorasi qanday? (1 = Musbat, −1 = Manfiy):",
+    "korsatma": "III chorakda sinus va tangensning ishoralarini alohida aniqlab ko'paytiring.",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "III chorakda sinα < 0, tgα > 0. Ularning ko'paytmasi (−) · (+) = (−) manfiy bo'ladi.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
-        "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "1-qadam: sinα < 0.",
+        "2-qadam: tgα > 0.",
+        "3-qadam: Ko'paytma: manfiy (−1).",
+        "Javob: −1."
       ],
-      "javob": "7"
+      "javob": "−1"
     }
   }
 }

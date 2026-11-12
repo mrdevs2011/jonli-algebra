@@ -201,40 +201,41 @@
       {
         "id": "ex-17-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "savol": "120° burchakning radian o'lchovi (k·π) / 3 ko'rinishida bo'lsa, k butun sonini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
+        "inputPlaceholder": "Masalan: 2",
         "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
+          "2"
         ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "Gradusdan radianga o'tish: α_rad = 120° · (π / 180°).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+            "1-qadam: 120 · π / 180 = 2π / 3.",
+            "2-qadam: Demak, k = 2.",
+            "Javob: 2."
           ],
-          "javob": "0.8"
+          "javob": "2"
         }
       },
       {
         "id": "ex-17-2",
         "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "Radiusi R = 6 cm, markaziy burchagi α = π/3 rad bo'lgan yoy uzunligini toping (javobni π ko'paytuvchisisiz butun son qilib yozing, masalan 2π bo'lsa 2):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 1",
+        "inputPlaceholder": "Masalan: 2",
         "togriJavob": [
-          "1"
+          "2"
         ],
-        "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "Yoy uzunligi formulasi: l = R · α.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: l = 6 · (π / 3) = 2π cm.",
+            "2-qadam: π oldidagi koeffitsiyent 2.",
+            "Javob: 2."
           ],
-          "javob": "1"
+          "javob": "2"
         }
       }
     ]
@@ -263,16 +264,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "Soatning minut mili uzunligi 12 cm. 20 daqiqa davomida minut milining uchi bosib o'tgan masofa necha π santimetrga teng bo'ladi?",
+    "korsatma": "20 daqiqa to'liq aylananing 20/60 = 1/3 qismidir. Markaziy burchak α = 2π/3.",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "Minut mili 20 daqiqada 120° = 2π/3 radian buriladi. l = R · α = 12 · 2π/3 = 8π cm.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
-        "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "1-qadam: Burchak α = 360° · (20/60) = 120° = 2π/3 rad.",
+        "2-qadam: Yoy l = 12 · (2π / 3) = 8π cm.",
+        "3-qadam: Javob: 8.",
+        "Javob: 8"
       ],
-      "javob": "7"
+      "javob": "8"
     }
   }
 }

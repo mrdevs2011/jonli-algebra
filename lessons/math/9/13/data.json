@@ -196,39 +196,41 @@
       {
         "id": "ex-13-1",
         "daraja": "asosiy",
-        "savol": "x + y = 7 va x − y = 3 tenglamalar sistemasidan x ning qiymatini toping:",
+        "savol": "{ x + y = 6, xy = 8 } sistemasining yechimlari uchun x² + y² qiymatini hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 5",
+        "inputPlaceholder": "Masalan: 20",
         "togriJavob": [
-          "5"
+          "20"
         ],
-        "validationRegex": "^\\s*5\\s*$",
-        "hint": "Ikkala tenglamani qo'shib yuboring: 2x = 10.",
+        "validationRegex": "^\\s*20\\s*$",
+        "hint": "Qisqa ko'paytirish formulasi: x² + y² = (x + y)² − 2xy.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: (x + y) + (x − y) = 7 + 3.",
-            "2-qadam: 2x = 10 → x = 5."
+            "1-qadam: x² + y² = (x + y)² − 2xy ayniyatini qo'llaymiz.",
+            "2-qadam: x² + y² = 6² − 2·8 = 36 − 16 = 20.",
+            "Javob: 20."
           ],
-          "javob": "5"
+          "javob": "20"
         }
       },
       {
         "id": "ex-13-2",
         "daraja": "ortacha",
-        "savol": "x² + y² = 25 va x = 3 bo'lsa, musbat y ning qiymatini toping:",
+        "savol": "{ y = x², y = 4 } tenglamalar sistemasi nechta haqiqiy yechimlar juftligiga ega?",
         "type": "input",
-        "inputPlaceholder": "Masalan: 4",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "4"
+          "2"
         ],
-        "validationRegex": "^\\s*4\\s*$",
-        "hint": "3² + y² = 25 tenglamadan y² = 16 ni toping.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "x² = 4 tenglama x = 2 va x = −2 ikkita ildizga ega.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: 9 + y² = 25.",
-            "2-qadam: y² = 16 → y = 4 (musbat qiymat)."
+            "1-qadam: x² = 4 → x = ±2.",
+            "2-qadam: Yechimlar: (2; 4) va (−2; 4) — jami 2 ta juftlik.",
+            "Javob: 2."
           ],
-          "javob": "4"
+          "javob": "2"
         }
       }
     ]
@@ -256,16 +258,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "x + y = 10 va xy = 21 tenglamalar sistemasining yechimlari (x; y) juftliklarini toping hamda x² + y² yig'indisini hisoblang.",
-    "korsatma": "x² + y² = (x + y)² − 2xy ayniyatidan foydalaning.",
+    "masala": "{ x² + y² = 25, x − y = 1 } sistemasidan x · y ko'paytmaning qiymatini toping.",
+    "korsatma": "(x − y)² = x² − 2xy + y² formulasidan foydalaning.",
     "yechim": {
-      "tahlil": "To'g'ridan-to'g'ri kvadratlar yig'indisi ayniyatini qo'llash orqali ildizlarni alohida topmasdan ham hisoblash mumkin.",
+      "tahlil": "1² = 25 − 2xy → 2xy = 24 → xy = 12.",
       "qadamlar": [
-        "1-qadam: x² + y² = (x + y)² − 2xy.",
-        "2-qadam: (10)² − 2(21) = 100 − 42 = 58.",
-        "3-qadam: Ildizlarning o'zi esa Viyet bo'yicha {3, 7} bo'ladi."
+        "1-qadam: (x − y)² = (x² + y²) − 2xy.",
+        "2-qadam: 1 = 25 − 2xy.",
+        "3-qadam: 2xy = 24 → xy = 12.",
+        "Javob: 12."
       ],
-      "javob": "58"
+      "javob": "12"
     }
   }
 }

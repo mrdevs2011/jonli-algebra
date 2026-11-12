@@ -176,41 +176,44 @@
       {
         "id": "ex-11-1",
         "daraja": "asosiy",
-        "savol": "Funksiyaning juftligi va toqligi mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "f(x) = x⁴ − 2x² + 5 funksiyaning turini aniqlang (1 = Juft funksiya, 2 = Toq funksiya, 3 = Na juft na toq deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "1, 2 yoki 3",
         "togriJavob": [
-          "2",
-          "+2"
+          "1",
+          "juft"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*(1|juft)\\s*$",
+        "hint": "f(−x) = (−x)⁴ − 2(−x)² + 5 = x⁴ − 2x² + 5 = f(x).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: x o'rniga −x qo'yamiz.",
+            "2-qadam: f(−x) = f(x) ayniyati bajariladi.",
+            "3-qadam: Demak funksiya juft.",
+            "Javob: 1 (juft)."
           ],
-          "javob": "2"
+          "javob": "1"
         }
       },
       {
         "id": "ex-11-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "Agar f(x) toq funksiya bo'lib, f(4) = −7 bo'lsa, f(−4) qiymati nechaga teng bo'ladi?",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "0"
+          "7",
+          "+7"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*\\+?7\\s*$",
+        "hint": "Toq funksiya ta'rifiga ko'ra: f(−x) = −f(x).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: Toq funksiyada f(−4) = −f(4).",
+            "2-qadam: f(−4) = −(−7) = 7.",
+            "Javob: 7."
           ],
-          "javob": "0"
+          "javob": "7"
         }
       }
     ]
@@ -238,17 +241,16 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Funksiyaning juftligi va toqligi doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "f(x) = (a − 2)x³ + (b − 3)x² + 5x funksiya toq funksiya bo'lishi uchun b parametri nechaga teng bo'lishi shart?",
+    "korsatma": "Toq funksiyada barcha juft darajali hadlar (x² va erkin had) nolga aylanishi shart.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "f(−x) = −f(x) bo'lishi uchun juft darajali x² koeffitsiyenti nol bo'lishi kerak: b − 3 = 0.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: x² oldidagi koeffitsiyent b − 3 ni nolga tenglashtiramiz.",
+        "2-qadam: b − 3 = 0 → b = 3.",
+        "Javob: 3."
       ],
-      "javob": "8"
+      "javob": "3"
     }
   }
 }

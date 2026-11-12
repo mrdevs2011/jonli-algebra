@@ -179,7 +179,7 @@
     "betlar": "9-bet",
     "items": [
       {
-        "id": "ex-1",
+        "id": "ex-2-1",
         "daraja": "asosiy",
         "savol": "y = x² parabolaga tegishli A(k; 49) nuqta berilgan (k > 0). k ning qiymatini toping:",
         "type": "input",
@@ -189,38 +189,34 @@
           "+7"
         ],
         "validationRegex": "^\\s*\\+?7\\s*$",
-        "hint": "k² = 49 tenglamani musbat k uchun yeching.",
+        "hint": "k² = 49 va k > 0 bo'lgani uchun k = 7.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: A(k; 49) nuqta grafikda yotadi, demak 49 = k².",
-            "2-qadam: k = ±7 bo'ladi. Masala shartida k > 0 deyilgan, shuning uchun k = 7."
+            "1-qadam: y = x² tenglamaga qo'yamiz: 49 = k².",
+            "2-qadam: k > 0 bo'lgani uchun k = 7.",
+            "Javob: 7."
           ],
           "javob": "7"
         }
       },
       {
-        "id": "ex-2",
+        "id": "ex-2-2",
         "daraja": "ortacha",
-        "savol": "y = x² parabola va y = x + 6 to'g'ri chiziq kesishish nuqtalarining abssissalarini toping (kichigidan boshlab):",
+        "savol": "y = x² parabola va y = 9 to'g'ri chiziq kesishish nuqtalarining abssissalari yig'indisini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: −2, 3",
+        "inputPlaceholder": "Masalan: 0",
         "togriJavob": [
-          "-2, 3",
-          "−2, 3",
-          "-2; 3",
-          "−2; 3",
-          "-2 va 3",
-          "−2 va 3"
+          "0"
         ],
-        "validationRegex": "^\\s*[-−]2\\s*[,;\\s]\\s*3\\s*$",
-        "hint": "x² = x + 6 kvadrat tenglamani hosil qilib yeching.",
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "x² = 9 → x = 3 va x = −3. Yig'indi: 3 + (−3).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Grafiklar kesishgan joyda x² = x + 6 bo'ladi.",
-            "2-qadam: x² − x − 6 = 0.",
-            "3-qadam: (x − 3)(x + 2) = 0 bo'lib, x₁ = −2 va x₂ = 3."
+            "1-qadam: x² = 9 dan x₁ = −3 va x₂ = 3.",
+            "2-qadam: Yig'indi: (−3) + 3 = 0 (Oy o'qiga nisbatan simmetriya).",
+            "Javob: 0."
           ],
-          "javob": "−2 va 3"
+          "javob": "0"
         }
       }
     ],
@@ -250,17 +246,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "y = x² parabolada yotuvchi uchta A, B, C nuqtalarning abssissalari arifmetik progressiya tashkil qiladi: x_A = a − d, x_B = a, x_C = a + d. Uchburchak ABC yuzasining a ga bog'liq emasligini isbotlang va d = 2 bo'lganda yuzani hisoblang.",
-    "korsatma": "Uchta nuqta koordinatalari orqali uchburchak yuzasi formulasidan yoki trapetsiyalar ayirmasidan foydalaning.",
+    "masala": "y = x² parabolada yotuvchi A(−2; 4), O(0; 0) va B(2; 4) nuqtalar hosil qilgan uchburchak yuzini hisoblang.",
+    "korsatma": "AB kesma uzunligi asos bo'ladi, O(0;0) dan masofa balandlik bo'ladi.",
     "yechim": {
-      "tahlil": "Koordinatalar: A(a−d; (a−d)²), B(a; a²), C(a+d; (a+d)²).",
+      "tahlil": "Asos AB gorizontal kesma: 2 − (−2) = 4. Balandlik h = 4. Yuza S = (4 · 4) / 2 = 8.",
       "qadamlar": [
-        "1-qadam: Uchburchak yuzasi formulasi: S = 1/2 |x_A(y_B − y_C) + x_B(y_C − y_A) + x_C(y_A − y_B)|.",
-        "2-qadam: Ifodalarni qo'yamiz va qisqartiramiz: S = d³ ko'rinishiga keladi.",
-        "3-qadam: Yuza parametr a ga bog'liq bo'lmay, faqat ayirma d ga bog'liq bo'lib chiqadi.",
-        "4-qadam: d = 2 bo'lsa, S = 2³ = 8 kv. birlik."
+        "1-qadam: Asos uzunligi AB = 4.",
+        "2-qadam: Balandlik h = 4.",
+        "3-qadam: S = (4 · 4) / 2 = 8.",
+        "Javob: 8."
       ],
-      "javob": "S = d³; d = 2 bo'lganda S = 8"
+      "javob": "8"
     }
   }
 }

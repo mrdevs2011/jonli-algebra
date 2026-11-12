@@ -550,7 +550,7 @@
       dialog = document.createElement("dialog");
       dialog.id = "examModalDialog";
       dialog.className = "exam-modal";
-      dialog.style.cssText = "width:94%; max-width:880px; max-height:92vh; border:none; border-radius:16px; padding:24px; box-shadow:0 24px 72px rgba(0,0,0,0.3); background:var(--white, #fff); color:var(--ink, #1a221c); overflow-y:auto; margin:auto;";
+      dialog.style.cssText = "width:94%; max-width:880px; max-height:92vh; border:1px solid var(--line-strong); border-radius:12px; padding:24px; box-shadow:none; background:var(--white, #fff); color:var(--ink, #1a221c); overflow-y:auto; margin:auto;";
       document.body.appendChild(dialog);
     }
     return dialog;

@@ -194,45 +194,42 @@
       {
         "id": "ex-36-1",
         "daraja": "asosiy",
-        "savol": "Standart o'yin suyagi (zarracha) tashlanganda juft son (2, 4, 6) tushish ehtimolligini o'nli kasr ko'rinishida toping:",
+        "savol": "Tanga 100 marta tashlanganda 54 marta gerb tushdi. Gerb tushishining nisbiy chastotasi W(A) ni o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.5",
+        "inputPlaceholder": "Masalan: 0.54",
         "togriJavob": [
-          "0.5",
-          "0,5",
-          "1/2"
+          "0.54",
+          "0,54"
         ],
-        "validationRegex": "^\\s*(0[,.]5|1/2)\\s*$",
-        "hint": "P = m / n: jami holatlar 6 ta, qulay holatlar 3 ta.",
+        "validationRegex": "^\\s*0[.,]54\\s*$",
+        "hint": "Nisbiy chastota: W = m / N. N = 100, m = 54.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Jami yuzlar soni: n = 6.",
-            "2-qadam: Juft sonlar: 2, 4, 6 (m = 3 ta).",
-            "3-qadam: P = 3 / 6 = 1/2 = 0.5."
+            "1-qadam: W = 54 / 100 = 0.54.",
+            "Javob: 0.54."
           ],
-          "javob": "0.5"
+          "javob": "0.54"
         }
       },
       {
         "id": "ex-36-2",
         "daraja": "ortacha",
-        "savol": "Qutida 4 ta qizil va 6 ta ko'k shar bor. Tavakkaliga olingan sharning qizil bo'lish ehtimolligini o'nli kasrda toping:",
+        "savol": "Zavodda tekshirilgan 500 ta detaldan 10 tasi yaroqsiz chiqdi. Yaroqsiz detallarning nisbiy chastotasini o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.4",
+        "inputPlaceholder": "Masalan: 0.02",
         "togriJavob": [
-          "0.4",
-          "0,4",
-          "2/5"
+          "0.02",
+          "0,02"
         ],
-        "validationRegex": "^\\s*(0[,.]4|2/5)\\s*$",
-        "hint": "Jami sharlar soni 10 ta, qizil sharlar 4 ta.",
+        "validationRegex": "^\\s*0[.,]02\\s*$",
+        "hint": "W = 10 / 500 = 1 / 50 = 0.02.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: n = 4 + 6 = 10.",
-            "2-qadam: m = 4.",
-            "3-qadam: P = 4 / 10 = 0.4."
+            "1-qadam: W = 10 / 500.",
+            "2-qadam: W = 0.02.",
+            "Javob: 0.02."
           ],
-          "javob": "0.4"
+          "javob": "0.02"
         }
       }
     ]
@@ -256,16 +253,16 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Ikkita zarracha baravar tashlanganda, tushgan ochkolar yig'indisi 7 ga teng bo'lish ehtimolligini oddiy qisqarmas kasr shaklida toping (masalan 1/6):",
-    "korsatma": "Jami kombinatsiyalar soni 6 · 6 = 36 ta. Yig'indisi 7 bo'ladigan juftliklarni sanang.",
+    "masala": "Nishonga qarata 50 ta o'q uzildi. O'qning nishonga tegish nisbiy chastotasi 0.84 bo'lsa, aniq tekkan o'qlar sonini toping.",
+    "korsatma": "m = N · W formulasidan foydalaning.",
     "yechim": {
-      "tahlil": "Yig'indisi 7 bo'ladigan barcha juftliklar: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1).",
+      "tahlil": "m = 50 · 0.84 = 42.",
       "qadamlar": [
-        "1-qadam: Jami elementar hodisalar soni: n = 6 · 6 = 36.",
-        "2-qadam: Qulay hodisalar soni: m = 6 ta.",
-        "3-qadam: P = 6 / 36 = 1/6."
+        "1-qadam: m = 50 · 0.84.",
+        "2-qadam: m = 42 ta o'q tekkan.",
+        "Javob: 42."
       ],
-      "javob": "1/6"
+      "javob": "42"
     }
   }
 }

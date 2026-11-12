@@ -179,38 +179,45 @@
       {
         "id": "ex-28-1",
         "daraja": "asosiy",
-        "savol": "Arifmetik progressiyada a₁ = 3, d = 4 bo'lsa, a₅ hadi nechaga teng?",
+        "savol": "Ketma-ketlik umumiy hadi aₙ = 3n − 2 formulasi bilan berilgan. Uning dastlabki 3 ta hadi yig'indisini (a₁ + a₂ + a₃) toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 19",
+        "inputPlaceholder": "Masalan: 12",
         "togriJavob": [
-          "19"
+          "12"
         ],
-        "validationRegex": "^\\s*19\\s*$",
-        "hint": "aₙ = a₁ + (n − 1)d formuladan foydalaning.",
+        "validationRegex": "^\\s*12\\s*$",
+        "hint": "a₁ = 3(1)−2 = 1, a₂ = 3(2)−2 = 4, a₃ = 3(3)−2 = 7. Yig'indi: 1 + 4 + 7 = 12.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a₅ = 3 + (5 − 1) · 4.",
-            "2-qadam: a₅ = 3 + 16 = 19."
+            "1-qadam: a₁ = 3·1 − 2 = 1.",
+            "2-qadam: a₂ = 3·2 − 2 = 4.",
+            "3-qadam: a₃ = 3·3 − 2 = 7.",
+            "4-qadam: Yig'indi: 1 + 4 + 7 = 12.",
+            "Javob: 12."
           ],
-          "javob": "19"
+          "javob": "12"
         }
       },
       {
         "id": "ex-28-2",
         "daraja": "ortacha",
-        "savol": "Dastlabki 10 ta natural sonning yig'indisini (1 + 2 + ... + 10) toping:",
+        "savol": "Ketma-ketlik rekurrent formula bilan berilgan: a₁ = 2 va aₙ₊₁ = 2aₙ + 1. Ketma-ketlikning 4-hadi a₄ ni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 55",
+        "inputPlaceholder": "Masalan: 23",
         "togriJavob": [
-          "55"
+          "23"
         ],
-        "validationRegex": "^\\s*55\\s*$",
-        "hint": "Gauss formulasi: S = n(n + 1) / 2.",
+        "validationRegex": "^\\s*23\\s*$",
+        "hint": "a₁ = 2; a₂ = 2(2)+1 = 5; a₃ = 2(5)+1 = 11; a₄ = 2(11)+1 = 23.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: S₁₀ = 10 · 11 / 2 = 55."
+            "1-qadam: a₁ = 2.",
+            "2-qadam: a₂ = 2 · 2 + 1 = 5.",
+            "3-qadam: a₃ = 2 · 5 + 1 = 11.",
+            "4-qadam: a₄ = 2 · 11 + 1 = 23.",
+            "Javob: 23."
           ],
-          "javob": "55"
+          "javob": "23"
         }
       }
     ]
@@ -234,16 +241,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Arifmetik progressiyaning dastlabki n ta hadi yig'indisi Sₙ = 2n² + 3n formula bilan berilgan. Uning 10-hadi a₁₀ ni toping.",
-    "korsatma": "a₁₀ = S₁₀ − S₉ tenglikdan foydalaning.",
+    "masala": "Ketma-ketlik aₙ = n² − 6n + 14 formulasi bilan berilgan. Ketma-ketlikning eng kichik hadi qiymatini toping.",
+    "korsatma": "Kvadratik had minimumini topish uchun to'la kvadrat ajrating: n² − 6n + 14 = (n − 3)² + 5.",
     "yechim": {
-      "tahlil": "Ketma-ketlikning n-hadi n ta had yig'indisi bilan (n−1) ta had yig'indisi ayirmasiga tengdir.",
+      "tahlil": "aₙ = (n − 3)² + 5. Natural son n = 3 da kvadrat 0 ga aylanib eng kichik qiymat 5 ga teng bo'ladi.",
       "qadamlar": [
-        "1-qadam: S₁₀ = 2(10)² + 3(10) = 200 + 30 = 230.",
-        "2-qadam: S₉ = 2(9)² + 3(9) = 162 + 27 = 189.",
-        "3-qadam: a₁₀ = 230 − 189 = 41."
+        "1-qadam: To'la kvadrat ajratamiz: n² − 6n + 14 = (n − 3)² + 5.",
+        "2-qadam: Har qanday n uchun (n − 3)² ≥ 0.",
+        "3-qadam: n = 3 bo'lganda (n − 3)² = 0 bo'lib, eng kichik had a₃ = 5 ga erishiladi.",
+        "Javob: 5."
       ],
-      "javob": "41"
+      "javob": "5"
     }
   }
 }

@@ -200,7 +200,7 @@
       {
         "id": "ex-35-1",
         "daraja": "asosiy",
-        "savol": "Standart o'yin suyagi (zarracha) tashlanganda juft son (2, 4, 6) tushish ehtimolligini o'nli kasr ko'rinishida toping:",
+        "savol": "Olti yoqli o'yin kubigi tashlanganda tub son (2, 3, 5) tushish ehtimolligini o'nli kasrda toping:",
         "type": "input",
         "inputPlaceholder": "Masalan: 0.5",
         "togriJavob": [
@@ -208,13 +208,14 @@
           "0,5",
           "1/2"
         ],
-        "validationRegex": "^\\s*(0[,.]5|1/2)\\s*$",
-        "hint": "P = m / n: jami holatlar 6 ta, qulay holatlar 3 ta.",
+        "validationRegex": "^\\s*(0[.,]5|1/2)\\s*$",
+        "hint": "Klassik formula: P = m / n. Jami natijalar n = 6, qulay natijalar m = 3.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Jami yuzlar soni: n = 6.",
-            "2-qadam: Juft sonlar: 2, 4, 6 (m = 3 ta).",
-            "3-qadam: P = 3 / 6 = 1/2 = 0.5."
+            "1-qadam: Jami natijalar soni: n = 6.",
+            "2-qadam: Qulay natijalar (2, 3, 5): m = 3.",
+            "3-qadam: P = 3 / 6 = 1/2 = 0.5.",
+            "Javob: 0.5."
           ],
           "javob": "0.5"
         }
@@ -222,23 +223,24 @@
       {
         "id": "ex-35-2",
         "daraja": "ortacha",
-        "savol": "Qutida 4 ta qizil va 6 ta ko'k shar bor. Tavakkaliga olingan sharning qizil bo'lish ehtimolligini o'nli kasrda toping:",
+        "savol": "Qutida 3 ta oq va 7 ta qora shar bor. Tavakkaliga olingan sharning oq bo'lish ehtimolligini o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.4",
+        "inputPlaceholder": "Masalan: 0.3",
         "togriJavob": [
-          "0.4",
-          "0,4",
-          "2/5"
+          "0.3",
+          "0,3",
+          "3/10"
         ],
-        "validationRegex": "^\\s*(0[,.]4|2/5)\\s*$",
-        "hint": "Jami sharlar soni 10 ta, qizil sharlar 4 ta.",
+        "validationRegex": "^\\s*(0[.,]3|3/10)\\s*$",
+        "hint": "Jami sharlar soni n = 10, oq sharlar soni m = 3.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: n = 4 + 6 = 10.",
-            "2-qadam: m = 4.",
-            "3-qadam: P = 4 / 10 = 0.4."
+            "1-qadam: Jami sharlar: 3 + 7 = 10.",
+            "2-qadam: Oq sharlar: m = 3.",
+            "3-qadam: P = 3 / 10 = 0.3.",
+            "Javob: 0.3."
           ],
-          "javob": "0.4"
+          "javob": "0.3"
         }
       }
     ]
@@ -262,14 +264,15 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Ikkita zarracha baravar tashlanganda, tushgan ochkolar yig'indisi 7 ga teng bo'lish ehtimolligini oddiy qisqarmas kasr shaklida toping (masalan 1/6):",
-    "korsatma": "Jami kombinatsiyalar soni 6 · 6 = 36 ta. Yig'indisi 7 bo'ladigan juftliklarni sanang.",
+    "masala": "Ikkita o'yin kubigi baravar tashlanganda tushgan ochkolar yig'indisi 7 bo'lish ehtimolligini qisqarmas kasr ko'rinishida yozing (masalan 1/6):",
+    "korsatma": "Jami teng ehtimolli natijalar n = 36. Yig'indisi 7 bo'ladigan juftliklarni sanang.",
     "yechim": {
-      "tahlil": "Yig'indisi 7 bo'ladigan barcha juftliklar: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1).",
+      "tahlil": "Yig'indisi 7 bo'lgan juftliklar: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) — jami m = 6 ta. P = 6/36 = 1/6.",
       "qadamlar": [
-        "1-qadam: Jami elementar hodisalar soni: n = 6 · 6 = 36.",
-        "2-qadam: Qulay hodisalar soni: m = 6 ta.",
-        "3-qadam: P = 6 / 36 = 1/6."
+        "1-qadam: Jami natijalar n = 6 · 6 = 36.",
+        "2-qadam: Qulay natijalar m = 6 ta.",
+        "3-qadam: P = 6 / 36 = 1/6.",
+        "Javob: 1/6."
       ],
       "javob": "1/6"
     }

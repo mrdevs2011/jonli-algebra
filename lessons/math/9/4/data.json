@@ -120,41 +120,41 @@
       {
         "id": "ex-4-1",
         "daraja": "asosiy",
-        "savol": "y = ax² + bx + c funksiya mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "y = x² − 6x + 5 parabola uchining abssissasi x₀ ni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "2",
-          "+2"
+          "3"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*3\\s*$",
+        "hint": "Parabola uchining abssissasi x₀ = −b / (2a) formulasi bilan topiladi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: a = 1, b = −6, c = 5.",
+            "2-qadam: x₀ = −(−6) / (2 · 1) = 6 / 2 = 3.",
+            "Javob: 3."
           ],
-          "javob": "2"
+          "javob": "3"
         }
       },
       {
         "id": "ex-4-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "y = 2x² − 8x + 11 parabola uchining ordinatasi y₀ ni hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "0"
+          "3"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*3\\s*$",
+        "hint": "Avval x₀ = −b/(2a) ni toping, so'ng funksiyaga qo'ying: y₀ = y(x₀).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: x₀ = −(−8) / (2 · 2) = 8 / 4 = 2.",
+            "2-qadam: y₀ = y(2) = 2·(2)² − 8·2 + 11 = 8 − 16 + 11 = 3.",
+            "Javob: 3."
           ],
-          "javob": "0"
+          "javob": "3"
         }
       }
     ],
@@ -290,17 +290,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "y = ax² + bx + c funksiya doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "y = x² − 4x + k parabolaning uchi Ox o'qida yotsa, k parametrining qiymatini toping.",
+    "korsatma": "Parabola uchi Ox o'qida yotishi uchun uning ordinatasi y₀ = 0 bo'lishi yoki D = 0 bo'lishi kerak.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "To'la kvadrat ko'rinishiga keltiramiz: y = (x − 2)² + k − 4. Uchi Ox da bo'lsa k − 4 = 0 bo'ladi.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: x₀ = 2, y₀ = (2)² − 4(2) + k = k − 4.",
+        "2-qadam: Uchi Ox da yotishi uchun y₀ = 0 bo'lishi shart.",
+        "3-qadam: k − 4 = 0 → k = 4.",
+        "Javob: 4."
       ],
-      "javob": "8"
+      "javob": "4"
     }
   }
 }

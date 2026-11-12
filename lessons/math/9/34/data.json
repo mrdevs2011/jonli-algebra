@@ -198,45 +198,43 @@
       {
         "id": "ex-34-1",
         "daraja": "asosiy",
-        "savol": "Standart o'yin suyagi (zarracha) tashlanganda juft son (2, 4, 6) tushish ehtimolligini o'nli kasr ko'rinishida toping:",
+        "savol": "Olti yoqli standart o'yin kubigi tashlanganda 8 raqami tushishi qanday hodisa? (1 = Muqarrar, 2 = Imkonsiz, 3 = Tasodifiy deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.5",
+        "inputPlaceholder": "1, 2 yoki 3",
         "togriJavob": [
-          "0.5",
-          "0,5",
-          "1/2"
+          "2",
+          "imkonsiz"
         ],
-        "validationRegex": "^\\s*(0[,.]5|1/2)\\s*$",
-        "hint": "P = m / n: jami holatlar 6 ta, qulay holatlar 3 ta.",
+        "validationRegex": "^\\s*(2|imkonsiz)\\s*$",
+        "hint": "Kubikda faqat 1, 2, 3, 4, 5, 6 raqamlari bor, 8 hech qachon tushmaydi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Jami yuzlar soni: n = 6.",
-            "2-qadam: Juft sonlar: 2, 4, 6 (m = 3 ta).",
-            "3-qadam: P = 3 / 6 = 1/2 = 0.5."
+            "1-qadam: Berilgan shartda ro'y berishi mumkin bo'lmagan hodisa imkonsiz hodisa deyiladi.",
+            "2-qadam: 8 tushishi imkonsiz.",
+            "Javob: 2 (imkonsiz)."
           ],
-          "javob": "0.5"
+          "javob": "2"
         }
       },
       {
         "id": "ex-34-2",
         "daraja": "ortacha",
-        "savol": "Qutida 4 ta qizil va 6 ta ko'k shar bor. Tavakkaliga olingan sharning qizil bo'lish ehtimolligini o'nli kasrda toping:",
+        "savol": "1 dan 10 gacha sonlar yozilgan kartochkalardan tavakkaliga olingan son 15 dan kichik bo'lishi qanday hodisa? (1 = Muqarrar, 2 = Imkonsiz, 3 = Tasodifiy deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.4",
+        "inputPlaceholder": "1, 2 yoki 3",
         "togriJavob": [
-          "0.4",
-          "0,4",
-          "2/5"
+          "1",
+          "muqarrar"
         ],
-        "validationRegex": "^\\s*(0[,.]4|2/5)\\s*$",
-        "hint": "Jami sharlar soni 10 ta, qizil sharlar 4 ta.",
+        "validationRegex": "^\\s*(1|muqarrar)\\s*$",
+        "hint": "Har qanday olingan son 1..10 oraliqda bo'lgani uchun albatta 15 dan kichik bo'ladi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: n = 4 + 6 = 10.",
-            "2-qadam: m = 4.",
-            "3-qadam: P = 4 / 10 = 0.4."
+            "1-qadam: Har qanday sinovda albatta yuz beradigan hodisa muqarrar hodisa deyiladi.",
+            "2-qadam: 1..10 sonlarining barchasi 15 dan kichik.",
+            "Javob: 1 (muqarrar)."
           ],
-          "javob": "0.4"
+          "javob": "1"
         }
       }
     ]
@@ -260,16 +258,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Ikkita zarracha baravar tashlanganda, tushgan ochkolar yig'indisi 7 ga teng bo'lish ehtimolligini oddiy qisqarmas kasr shaklida toping (masalan 1/6):",
-    "korsatma": "Jami kombinatsiyalar soni 6 · 6 = 36 ta. Yig'indisi 7 bo'ladigan juftliklarni sanang.",
+    "masala": "Qutida 5 ta oq va 5 ta qora shar bor. Tavakkaliga bitta shar olindi. 'Olingan shar qizil emas' degan hodisa qanday hodisa bo'ladi? (1 = Muqarrar, 2 = Imkonsiz):",
+    "korsatma": "Qutida qizil shar yo'q, shuning uchun olingan shar har doim qizil bo'lmaydi.",
     "yechim": {
-      "tahlil": "Yig'indisi 7 bo'ladigan barcha juftliklar: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1).",
+      "tahlil": "Har qanday olingan shar oq yoki qora bo'ladi, ya'ni hech qachon qizil bo'lmaydi. Bu hodisa albatta ro'y beradi (muqarrar).",
       "qadamlar": [
-        "1-qadam: Jami elementar hodisalar soni: n = 6 · 6 = 36.",
-        "2-qadam: Qulay hodisalar soni: m = 6 ta.",
-        "3-qadam: P = 6 / 36 = 1/6."
+        "1-qadam: Qutida faqat oq va qora shar bor.",
+        "2-qadam: Olingan shar hech qachon qizil bo'la olmaydi.",
+        "3-qadam: Demak, 'qizil emas' hodisasi 100% muqarrar hodisadir.",
+        "Javob: 1."
       ],
-      "javob": "1/6"
+      "javob": "1"
     }
   }
 }

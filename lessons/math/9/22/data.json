@@ -204,40 +204,44 @@
       {
         "id": "ex-22-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "savol": "(1 − sinα)(1 + sinα) − cos²α ifodaning qiymatini hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
+        "inputPlaceholder": "Masalan: 0",
         "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
+          "0"
         ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "(1 − sinα)(1 + sinα) = 1 − sin²α = cos²α. cos²α − cos²α = 0.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+            "1-qadam: (1 − sinα)(1 + sinα) = 1 − sin²α.",
+            "2-qadam: 1 − sin²α = cos²α.",
+            "3-qadam: cos²α − cos²α = 0.",
+            "Javob: 0."
           ],
-          "javob": "0.8"
+          "javob": "0"
         }
       },
       {
         "id": "ex-22-2",
         "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "tgα · cosα ifoda sinα ga teng. α = 30° da uning qiymatini o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 1",
+        "inputPlaceholder": "Masalan: 0.5",
         "togriJavob": [
-          "1"
+          "0.5",
+          "0,5",
+          "1/2"
         ],
-        "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "validationRegex": "^\\s*(0[.,]5|1/2)\\s*$",
+        "hint": "tgα = sinα / cosα bo'lgani uchun tgα · cosα = sinα. sin30° = 0.5.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: (sinα / cosα) · cosα = sinα.",
+            "2-qadam: sin30° = 1/2 = 0.5.",
+            "Javob: 0.5."
           ],
-          "javob": "1"
+          "javob": "0.5"
         }
       }
     ]
@@ -265,14 +269,15 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
+    "korsatma": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α formulasidan foydalaning.",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "3² = tg²α + 2(1) + ctg²α → tg²α + ctg²α = 9 − 2 = 7.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
+        "1-qadam: (tgα + ctgα)² = tg²α + 2 + ctg²α.",
         "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "3-qadam: tg²α + ctg²α = 7.",
+        "Javob: 7."
       ],
       "javob": "7"
     }

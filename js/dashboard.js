@@ -53,9 +53,10 @@
   }
 
   // TOC
-  var toc = KA_BOBLAR.map(function (b) {
-    return '<a href="#bob-' + b.id + '">' + escapeHtml(b.roman) + " bob</a>";
-  }).join("");
+  var toc = '<a href="#bob-poydevor" style="background:rgba(194,75,42,0.1); border-color:var(--accent); color:var(--accent); font-weight:700;">★ 0-bob · Poydevor (Litseyga tayyorgarlik)</a>' +
+    KA_BOBLAR.map(function (b) {
+      return '<a href="#bob-' + b.id + '">' + escapeHtml(b.roman) + " bob</a>";
+    }).join("");
 
   // Darslar ro'yxati
   var chapters = KA_BOBLAR.map(function (bob) {
@@ -95,6 +96,198 @@
       "</section>"
     );
   }).join("");
+
+  // 0. Poydevor (Pre-Algebra) Boshlang'ich Modullari
+  var POYDEVOR_MODULES = [
+    {
+      id: "pre-1",
+      icon: "🔤",
+      number: "0.1-Modul",
+      title: "X o'zi nima? Harfli ifodalar alifbosi",
+      shortDesc: "Nega sonlar o'rniga harflar ishlatiladi? O'xshash hadlarni ixchamlash va qavslarni ochish sirlari.",
+      analogy: "Daftar va qalam misoli: Tasavvur qiling, sizda 3 ta daftar (3d) va 2 ta qalam (2q) bor. Do'stingiz yana 2 ta daftar berdi: endi sizda 3d + 2d = 5 ta daftar bo'ladi. Lekin daftarga qalam qo'shib '7 ta daftor-qalam' deb bo'lmaydi! Mana shuning uchun 3x + 5 ifodani 8x deb yozish qo'pol xato hisoblanadi: faqat bir xil harfli (o'xshash) hadlar qo'shiladi yoki ayriladi.",
+      rules: [
+        "Bir xil narsalarni qo'shish: a + a + a = 3a (ko'paytirish — bir xil sonlarni takroriy qo'shishdir).",
+        "Bir xil narsalarni ko'paytirish: a · a · a = a³ (daraja — bir xil ko'paytuvchilar sonidir).",
+        "Qavs oldida minus: -(a - b) = -a + b (Minus butun qavs ichidagi har bir ishorani teskarisiga aylantiradi)."
+      ],
+      traps: "Ko'pchilik o'quvchilar x · x ni 2x deb adashadi. Esda tuting: x + x = 2x, lekin x · x = x²!",
+      quiz: {
+        question: "Qavslarni oching va soddalashtiring: 5x - (2x - 4)",
+        options: [
+          "3x + 4",
+          "3x - 4",
+          "7x - 4",
+          "7x + 4"
+        ],
+        correct: 0,
+        explanation: "1-qadam: Qavs oldida minus turgani uchun: -(2x - 4) = -2x + 4 bo'ladi. 2-qadam: 5x - 2x + 4 = 3x + 4."
+      }
+    },
+    {
+      id: "pre-2",
+      icon: "➖",
+      number: "0.2-Modul",
+      title: "Manfiy sonlar siri: Minus-minus nega plyus?",
+      shortDesc: "Qarzlar falsafasi, sonlar o'qida harakat va −3² bilan (−3)² o'rtasidagi ulkan farq.",
+      analogy: "Qarzdan qutulish: Sizning do'stingizdan 50 000 so'm qarzingiz bor (-50). Agar kimdir kelib sizning shu qarzingizni bekor qilsa (ya'ni qarzni ayirib tashlasa: -(-50)), siz amalda 50 000 so'm boyiysiz (+50)! Shuning uchun minus minus har doim plyus beradi.",
+      rules: [
+        "Ko'paytirish qoidasi: (+) · (+) = (+), (+) · (-) = (-), (-) · (-) = (+).",
+        "Qo'shish: Agar ikkala son manfiy bo'lsa, ularning modullari qo'shilib oldiga minus qo'yiladi: (-5) + (-7) = -12.",
+        "Ayrish: Ayirish bu qarama-qarshi sonni qo'shish demakdir: 8 - (-3) = 8 + 3 = 11."
+      ],
+      traps: "ENG KATTA TUZOQ: -3² = -9 bo'ladi (chunki kvadrat faqat 3 ga tegishli: -(3·3) = -9). Lekin (-3)² = +9 bo'ladi (chunki kvadrat qavs ichidagi manfiy songa tegishli: (-3)·(-3) = 9)!",
+      quiz: {
+        question: "Hisoblang: -4² + (-2)³",
+        options: [
+          "-24",
+          "-8",
+          "+8",
+          "+24"
+        ],
+        correct: 0,
+        explanation: "1-qadam: -4² = -16 (kvadrat faqat 4 ga tegishli). 2-qadam: (-2)³ = (-2)·(-2)·(-2) = -8. 3-qadam: -16 + (-8) = -24."
+      }
+    },
+    {
+      id: "pre-3",
+      icon: "⚡",
+      number: "0.3-Modul",
+      title: "Qisqa ko'paytirish: Litsey imtihonlarining yuragi",
+      shortDesc: "(a ± b)², a² − b² formulalarining geometrik isboti va sonlarni og'zaki kvadratga ko'tarish usuli.",
+      analogy: "Geometrik kvadrat yuzi: Tomoni (a + b) bo'lgan katta kvadratni tasavvur qiling. Uni bo'laklarga ajratsak: bitta a² yuzali kvadrat, bitta b² yuzali kvadrat va ikkita a·b yuzali to'g'ri to'rtburchak chiqadi. Jami: a² + 2ab + b²! Shuning uchun (a+b)² hech qachon a² + b² ga teng emas!",
+      rules: [
+        "Yig'indi kvadrati: (a + b)² = a² + 2ab + b².",
+        "Ayirma kvadrati: (a - b)² = a² - 2ab + b².",
+        "Kvadratlar ayirmasi: a² - b² = (a - b)(a + b) (Bu formula kasrlarni qisqartirishda eng ko'p ishlatiladi)."
+      ],
+      traps: "Og'zaki hisoblash super-usuli: 99² = (100 - 1)² = 10000 - 200 + 1 = 9801. Yoki 102² = (100 + 2)² = 10000 + 400 + 4 = 10404!",
+      quiz: {
+        question: "Hisoblang: 52² - 48²",
+        options: [
+          "400",
+          "200",
+          "800",
+          "100"
+        ],
+        correct: 0,
+        explanation: "Kvadratlar ayirmasi formulasi a² - b² = (a - b)(a + b) bo'yicha: (52 - 48)(52 + 48) = 4 · 100 = 400. Kvadratlarni alohida hisoblash shart emas!"
+      }
+    },
+    {
+      id: "pre-4",
+      icon: "⚖️",
+      number: "0.4-Modul",
+      title: "Chiziqli tenglamalar: Matematik tarozi qoidasi",
+      shortDesc: "Tenglamani tarozi kabi muvozanatda saqlab, x ni yolg'iz qoldirish va proporsiya sirlari.",
+      analogy: "Palla tarozi: Tenglama — bu har ikki tomoni muvozanatda turgan palla tarozi. Chap pallaga nima qilsangiz (qo'shish, ayirish, ko'paytirish, bo'lish), muvozanat buzilmasligi uchun o'ng tomonga ham xuddi shuni qilishingiz shart. Bir son chapdan o'ngga o'tganda ishorasi o'zgarishi — bu ikkala tomondan o'sha sonni ayirib tashlash natijasidir.",
+      rules: [
+        "Asosiy maqsad: x ni bir tomonda, sonlarni ikkinchi tomonda yolg'iz qoldirish.",
+        "ax + b = c → ax = c - b → x = (c - b) / a (a ≠ 0).",
+        "Proporsiya (Xoch usuli): a/b = c/d bo'lsa, a·d = b·c bo'ladi."
+      ],
+      traps: "Qavs oldidagi ko'paytuvchini ichkaridagi har bir hadga ko'paytirishni unutmang: 3(x - 4) = 3x - 12 (ko'pchilik 3x - 4 deb xato qiladi).",
+      quiz: {
+        question: "Tenglamani yeching: 4(x - 2) + 3 = 19",
+        options: [
+          "6",
+          "5",
+          "7",
+          "4"
+        ],
+        correct: 0,
+        explanation: "1-qadam: Qavsni ochamiz: 4x - 8 + 3 = 19 → 4x - 5 = 19. 2-qadam: -5 ni o'ngga o'tkazamiz: 4x = 24. 3-qadam: x = 24 / 4 = 6."
+      }
+    },
+    {
+      id: "pre-5",
+      icon: "🎯",
+      number: "0.5-Modul",
+      title: "Kvadrat tenglamalar, Diskriminant va Viyet mo'jizasi",
+      shortDesc: "ax² + bx + c = 0 tenglamani 5 soniyada og'zaki yechish va ildizlar tabiatini aniqlash.",
+      analogy: "Ildiz izlash siri: Agar x² - 7x + 12 = 0 tenglama berilgan bo'lsa, uni uzoq diskriminant bilan yechish shart emas! O'zingizga savol bering: 'Qaysi 2 ta sonning ko'paytmasi 12, yig'indisi esa +7 bo'ladi?' Albatta, 3 va 4! Mana shu Viyet teoremasining kuchi.",
+      rules: [
+        "Umumiy formula: ax² + bx + c = 0. Diskriminant: D = b² - 4ac.",
+        "D > 0 bo'lsa: 2 ta turli ildiz x₁,₂ = (-b ± √D) / (2a).",
+        "D = 0 bo'lsa: 1 ta ildiz x = -b / (2a).",
+        "D < 0 bo'lsa: Haqiqiy ildizlar yo'q.",
+        "Viyet teoremasi: x₁ + x₂ = -b/a, x₁ · x₂ = c/a."
+      ],
+      traps: "Viyet formulasida ildizlar yig'indisi har doim -b/a (qarama-qarshi ishora bilan!) olinadi. x² - 5x + 6 = 0 bo'lsa, yig'indi -5 emas, +5 bo'ladi!",
+      quiz: {
+        question: "x² - 8x + 15 = 0 tenglamaning ildizlarini Viyet orqali toping:",
+        options: [
+          "x₁ = 3, x₂ = 5",
+          "x₁ = -3, x₂ = -5",
+          "x₁ = 1, x₂ = 15",
+          "x₁ = 2, x₂ = 6"
+        ],
+        correct: 0,
+        explanation: "Viyet teoremasiga ko'ra: x₁ + x₂ = 8 va x₁ · x₂ = 15. Ko'paytmasi 15 va yig'indisi 8 bo'lgan sonlar 3 va 5 dir."
+      }
+    },
+    {
+      id: "pre-6",
+      icon: "📈",
+      number: "0.6-Modul",
+      title: "Koordinatalar tekisligi va Funksiya g'oyasi: y = kx + b",
+      shortDesc: "Funksiya mashinasi, chiziqning qiyaligi (k) va 9-sinf parabolalariga to'g'ridan-to'g'ri ko'prik.",
+      analogy: "Funksiya bu konveyer mashinasi: Siz unga x (xom-ashyo) berasiz, uning ichida qoida bor (masalan, 2 ga ko'paytirib 1 ni qo'shish: 2x+1), va natijada y (tayyor mahsulot) chiqadi. Masalan x=3 bersangiz, mashina y=7 chiqaradi. Buni tekislikda (3; 7) nuqta sifatida belgilaymiz.",
+      rules: [
+        "Dekart tekisligi: Gorizontal o'q — abssissa (x), vertikal o'q — ordinata (y).",
+        "Chiziqli funksiya y = kx + b: Grafigi to'g'ri chiziq.",
+        "k — burchak koeffitsiyenti (chiziq qiyaligi). Agar k > 0 bo'lsa, chiziq o'ngga ko'tariladi; k < 0 bo'lsa, pastga tushadi.",
+        "b — erkin had: to'g'ri chiziq y o'qini (0; b) nuqtada kesib o'tadi."
+      ],
+      traps: "Bu poydevorsiz 9-sinfdagi parabola (y = ax² + bx + c) va uning grafigini tushunib bo'lmaydi. Parabola — to'g'ri chiziqning egri singlisidir!",
+      quiz: {
+        question: "y = -3x + 6 to'g'ri chiziq ordinata (y) o'qini qaysi nuqtada kesib o'tadi?",
+        options: [
+          "(0; 6)",
+          "(6; 0)",
+          "(0; -3)",
+          "(2; 0)"
+        ],
+        correct: 0,
+        explanation: "To'g'ri chiziq y o'qini kesib o'tganda x = 0 bo'ladi. x = 0 qo'ysak: y = -3(0) + 6 = 6. Demak, nuqta (0; 6)."
+      }
+    }
+  ];
+
+  function renderPreAlgebraSectionHTML() {
+    var cards = POYDEVOR_MODULES.map(function(m) {
+      return (
+        '<div class="poydevor-card" data-pid="' + m.id + '">' +
+          '<div>' +
+            '<div class="poydevor-card-icon">' + m.icon + '</div>' +
+            '<div class="poydevor-card-num">' + escapeHtml(m.number) + '</div>' +
+            '<h3 class="poydevor-card-h">' + escapeHtml(m.title) + '</h3>' +
+            '<p class="poydevor-card-p">' + escapeHtml(m.shortDesc) + '</p>' +
+          '</div>' +
+          '<div class="poydevor-card-btn">' +
+            '<span>O\'rganish va Mashq</span>' +
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+
+    return (
+      '<section class="poydevor-section" id="bob-poydevor">' +
+        '<div class="poydevor-header">' +
+          '<div>' +
+            '<div class="poydevor-badge">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>' +
+              '0-Bosqich · Litseyga Poydevor (Pre-Algebra)' +
+            '</div>' +
+            '<h2 class="poydevor-title">Algebrani Noldan Boshlayotganlar Uchun Mahorat Darslari</h2>' +
+            '<p class="poydevor-desc">9-sinf darslariga o\'tishdan oldin bilish SHART bo\'lgan 6 ta asosiy tushuncha. Agar siz formulalarni yodlay olmayotgan bo\'lsangiz yoki X dan qo\'rqsangiz — avval ushbu 6 ta modulni o\'rganing!</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="poydevor-grid">' + cards + '</div>' +
+      '</section>'
+    );
+  }
 
   // 1. Gamifikatsiya vitrinasi HTML
   function renderAchievementsHTML() {
@@ -170,7 +363,8 @@
           '</div>' +
         '</div>' +
         '<div class="formulas-filter-tabs" id="formulaFilterTabs">' +
-          '<button type="button" class="filter-tab-btn is-active" data-bob="all">Barchasi (38+)</button>' +
+          '<button type="button" class="filter-tab-btn is-active" data-bob="all">Barchasi (66 ta)</button>' +
+          '<button type="button" class="filter-tab-btn" data-bob="0">0-bob · Poydevor (12)</button>' +
           '<button type="button" class="filter-tab-btn" data-bob="1">I bob · Kvadrat funksiya</button>' +
           '<button type="button" class="filter-tab-btn" data-bob="2">II bob · Sistemalar</button>' +
           '<button type="button" class="filter-tab-btn" data-bob="3">III bob · Trigonometriya</button>' +
@@ -196,6 +390,7 @@
         "</div>" +
       "</aside>" +
     "</section>" +
+    renderPreAlgebraSectionHTML() +
     renderAchievementsHTML() +
     renderMockBannerHTML() +
     renderFormulasHTML() +
@@ -401,6 +596,118 @@
     }
   });
 
+  function openPreAlgebraModal(m) {
+    var overlay = document.getElementById("modalOverlay");
+    if (!overlay) return;
+
+    overlay.className = "formula-modal-backdrop";
+    overlay.style.display = "flex";
+
+    var rulesHtml = m.rules.map(function (r) {
+      return '<li style="margin-bottom:8px; line-height:1.5;">' + r + '</li>';
+    }).join("");
+
+    var quizOptionsHtml = m.quiz.options.map(function (opt, idx) {
+      return (
+        '<label style="display:flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--line); border-radius:10px; margin-bottom:8px; cursor:pointer; background:var(--paper); transition:background 0.15s ease;">' +
+          '<input type="radio" name="poydevorQuizOpt" value="' + idx + '" style="cursor:pointer;">' +
+          '<span style="font-size:0.95rem; font-weight:600;">' + escapeHtml(opt) + '</span>' +
+        '</label>'
+      );
+    }).join("");
+
+    overlay.innerHTML =
+      '<div class="formula-modal" style="max-width:760px; max-height:92vh; overflow-y:auto;">' +
+        '<div style="display:flex; justify-content:space-between; align-items:start; gap:16px; margin-bottom:16px;">' +
+          '<div>' +
+            '<div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent); font-weight:800; letter-spacing:0.05em;">' + escapeHtml(m.number) + ' · Litsey Poydevori</div>' +
+            '<h3 style="margin:4px 0 0; font-size:1.35rem; color:var(--ink); font-family:var(--font-serif); display:flex; align-items:center; gap:8px;">' +
+              '<span>' + m.icon + '</span> ' + escapeHtml(m.title) +
+            '</h3>' +
+          '</div>' +
+          '<button type="button" id="closePoydevorModal" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:4px;">' +
+            '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+          '</button>' +
+        '</div>' +
+        '<div style="background:rgba(194,75,42,0.06); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:14px 18px; margin-bottom:18px;">' +
+          '<div style="font-weight:700; color:var(--accent); font-size:0.85rem; text-transform:uppercase; margin-bottom:6px;">💡 Hayotiy misol va Mantiqiy tushuntirish</div>' +
+          '<p style="margin:0; font-size:0.95rem; line-height:1.6; color:var(--ink);">' + escapeHtml(m.analogy) + '</p>' +
+        '</div>' +
+        '<div style="margin-bottom:18px;">' +
+          '<h4 style="margin:0 0 10px; font-size:1rem; color:var(--ink);">📐 Asosiy Qoidalar va Formulalar:</h4>' +
+          '<ul style="margin:0; padding-left:20px; color:var(--ink);">' + rulesHtml + '</ul>' +
+        '</div>' +
+        '<div style="background:rgba(217,119,6,0.08); border-radius:12px; padding:14px 16px; margin-bottom:20px; border:1px solid rgba(217,119,6,0.2);">' +
+          '<strong style="color:#b45309; font-size:0.85rem; text-transform:uppercase; display:block; margin-bottom:4px;">⚠️ Imtihonda eng ko\'p uchraydigan tuzoq:</strong>' +
+          '<span style="font-size:0.92rem; color:var(--ink); line-height:1.5;">' + escapeHtml(m.traps) + '</span>' +
+        '</div>' +
+        '<div style="border-top:1px solid var(--line); padding-top:18px; margin-bottom:18px;">' +
+          '<h4 style="margin:0 0 6px; font-size:1rem; color:var(--ink);">🎯 O\'zingni sinab ko\'r:</h4>' +
+          '<p style="margin:0 0 12px; font-weight:600; color:var(--ink);">' + escapeHtml(m.quiz.question) + '</p>' +
+          '<div id="poydevorQuizContainer">' + quizOptionsHtml + '</div>' +
+          '<div id="poydevorFeedback" style="display:none; margin:12px 0; padding:12px 14px; border-radius:10px; font-size:0.9rem; line-height:1.5;"></div>' +
+          '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; flex-wrap:wrap; gap:10px;">' +
+            '<button type="button" class="btn" id="btnCheckPoydevorQuiz" style="background:var(--accent); color:#fff; font-weight:700; padding:9px 20px; border-radius:8px;">Tekshirish</button>' +
+            '<button type="button" class="btn" id="btnClosePoydevorSecondary" style="padding:9px 18px; border-radius:8px;">Tushundim, yopish</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    function closeModal() {
+      overlay.style.display = "none";
+      overlay.innerHTML = "";
+    }
+
+    var closeBtn = document.getElementById("closePoydevorModal");
+    var closeBtnSec = document.getElementById("btnClosePoydevorSecondary");
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (closeBtnSec) closeBtnSec.addEventListener("click", closeModal);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    var checkBtn = document.getElementById("btnCheckPoydevorQuiz");
+    var feedbackEl = document.getElementById("poydevorFeedback");
+    if (checkBtn && feedbackEl) {
+      checkBtn.addEventListener("click", function () {
+        var selected = document.querySelector('input[name="poydevorQuizOpt"]:checked');
+        if (!selected) {
+          alert("Iltimos, avval variantlardan birini tanlang!");
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        feedbackEl.style.display = "block";
+        if (val === m.quiz.correct) {
+          feedbackEl.style.background = "rgba(43, 107, 79, 0.12)";
+          feedbackEl.style.border = "1px solid rgba(43, 107, 79, 0.3)";
+          feedbackEl.style.color = "var(--ink)";
+          feedbackEl.innerHTML = '<strong style="color:var(--accent-2); display:block; margin-bottom:4px;">🎉 Barakalla, to\'g\'ri javob! +15 XP</strong>' + escapeHtml(m.quiz.explanation);
+          if (window.JA_GAMIFICATION && window.JA_GAMIFICATION.addXp) {
+            window.JA_GAMIFICATION.addXp(15, m.id + "_quiz");
+          }
+          checkBtn.style.display = "none";
+        } else {
+          feedbackEl.style.background = "rgba(194, 75, 42, 0.1)";
+          feedbackEl.style.border = "1px solid rgba(194, 75, 42, 0.3)";
+          feedbackEl.style.color = "var(--ink)";
+          feedbackEl.innerHTML = '<strong style="color:var(--accent); display:block; margin-bottom:4px;">Noto\'g\'ri, qayta urinib ko\'ring!</strong>' + escapeHtml(m.quiz.explanation);
+        }
+      });
+    }
+  }
+
+  function initPreAlgebraModule() {
+    var cards = document.querySelectorAll(".poydevor-card");
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        var pid = card.getAttribute("data-pid");
+        var m = POYDEVOR_MODULES.find(function (x) { return x.id === pid; });
+        if (m) openPreAlgebraModal(m);
+      });
+    });
+  }
+
+  initPreAlgebraModule();
   initFormulasModule();
   initMockLauncher();
   initChapterExamLaunchers();

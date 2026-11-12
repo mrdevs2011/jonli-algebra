@@ -114,20 +114,20 @@
       {
         "id": "ex-6-1",
         "daraja": "asosiy",
-        "savol": "Kvadrat tengsizlik va uning yechimi mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "(x − 2)(x − 5) < 0 kvadrat tengsizlikning barcha butun yechimlari sonini toping:",
         "type": "input",
         "inputPlaceholder": "Masalan: 2",
         "togriJavob": [
-          "2",
-          "+2"
+          "2"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "Ko'paytma noldan kichik bo'lishi uchun x ildizlar orasida yotadi: 2 < x < 5.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: Tenglama ildizlari: x = 2 va x = 5.",
+            "2-qadam: (x − 2)(x − 5) < 0 yechimi: x ∈ (2; 5).",
+            "3-qadam: Ushbu oraliqdagi butun sonlar: 3 va 4 — jami 2 ta.",
+            "Javob: 2."
           ],
           "javob": "2"
         }
@@ -135,20 +135,22 @@
       {
         "id": "ex-6-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "x² − 9 ≤ 0 kvadrat tengsizlikning eng katta butun yechimini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Masalan: 3",
         "togriJavob": [
-          "0"
+          "3"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*3\\s*$",
+        "hint": "(x − 3)(x + 3) ≤ 0 tengsizlik yechimi [−3; 3] kesma bo'ladi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: Ko'paytuvchilarga ajratamiz: (x − 3)(x + 3) ≤ 0.",
+            "2-qadam: Yechim: −3 ≤ x ≤ 3.",
+            "3-qadam: Eng katta butun yechim: 3.",
+            "Javob: 3."
           ],
-          "javob": "0"
+          "javob": "3"
         }
       }
     ]
@@ -247,17 +249,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Kvadrat tengsizlik va uning yechimi doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "x² − 6x + 8 ≤ 0 va x ≥ 3 shartlarini bir vaqtda qanoatlantiruvchi oraliq uzunligini toping.",
+    "korsatma": "Kvadrat tengsizlikni yeching va x ≥ 3 nurlari bilan kesishmasini oling.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "x² − 6x + 8 = (x − 2)(x − 4) ≤ 0 → x ∈ [2; 4]. x ≥ 3 bilan kesishma [3; 4] bo'ladi.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: x² − 6x + 8 ≤ 0 yechimi: [2; 4].",
+        "2-qadam: x ≥ 3 nurlari bilan umumiy qismi: [3; 4].",
+        "3-qadam: Oraliq uzunligi: 4 − 3 = 1.",
+        "Javob: 1."
       ],
-      "javob": "8"
+      "javob": "1"
     }
   }
 }

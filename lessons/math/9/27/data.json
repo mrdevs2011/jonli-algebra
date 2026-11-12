@@ -206,40 +206,47 @@
       {
         "id": "ex-27-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "savol": "sin(75°) + sin(15°) ifodaning qiymati √6/2 ga teng. Uning kvadratini o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
+        "inputPlaceholder": "Masalan: 1.5",
         "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
+          "1.5",
+          "1,5",
+          "3/2"
         ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "validationRegex": "^\\s*(1[.,]5|3/2)\\s*$",
+        "hint": "sinα + sinβ = 2·sin((α+β)/2)·cos((α−β)/2) = 2·sin45°·cos30° = √6/2. Uning kvadrati (√6/2)² = 6/4 = 1.5.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+            "1-qadam: Yig'indini ko'paytmaga keltiramiz: sin75° + sin15° = 2·sin45°·cos30°.",
+            "2-qadam: 2 · (√2/2) · (√3/2) = √6/2.",
+            "3-qadam: Kvadratini hisoblaymiz: (√6/2)² = 6/4 = 1.5.",
+            "Javob: 1.5."
           ],
-          "javob": "0.8"
+          "javob": "1.5"
         }
       },
       {
         "id": "ex-27-2",
         "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "cos(105°) + cos(15°) ifodaning qiymati √2/2 ga teng. Uning kvadratini o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 1",
+        "inputPlaceholder": "Masalan: 0.5",
         "togriJavob": [
-          "1"
+          "0.5",
+          "0,5",
+          "1/2"
         ],
-        "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "validationRegex": "^\\s*(0[.,]5|1/2)\\s*$",
+        "hint": "cosα + cosβ = 2·cos((α+β)/2)·cos((α−β)/2) = 2·cos60°·cos45° = √2/2. Kvadrati: (√2/2)² = 0.5.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: cos105° + cos15° = 2·cos60°·cos45°.",
+            "2-qadam: 2 · (1/2) · (√2/2) = √2/2.",
+            "3-qadam: Kvadratini olamiz: (√2/2)² = 2/4 = 0.5.",
+            "Javob: 0.5."
           ],
-          "javob": "1"
+          "javob": "0.5"
         }
       }
     ]
@@ -266,16 +273,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "(sin(50°) + sin(10°)) / cos(20°) kasrning qiymatini hisoblang.",
+    "korsatma": "Suratga sinα + sinβ = 2sin((α+β)/2)cos((α−β)/2) formulasini qo'llang.",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "Surat: 2·sin30°·cos20° = 2·(1/2)·cos20° = cos20°. Maxraj bilan qisqaradi: cos20° / cos20° = 1.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
-        "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "1-qadam: Surat: sin50° + sin10° = 2 · sin(30°) · cos(20°).",
+        "2-qadam: sin30° = 1/2 bo'lgani uchun: 2 · (1/2) · cos20° = cos20°.",
+        "3-qadam: Surat va maxrajni qisqartiramiz: cos20° / cos20° = 1.",
+        "Javob: 1."
       ],
-      "javob": "7"
+      "javob": "1"
     }
   }
 }

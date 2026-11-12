@@ -194,39 +194,43 @@
       {
         "id": "ex-16-1",
         "daraja": "asosiy",
-        "savol": "x + y = 7 va x − y = 3 tenglamalar sistemasidan x ning qiymatini toping:",
+        "savol": "Musbat a va b sonlar uchun a + b = 10 bo'lsa, Koshi tengsizligiga ko'ra a · b ko'paytmaning eng katta qiymatini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 5",
+        "inputPlaceholder": "Masalan: 25",
         "togriJavob": [
-          "5"
+          "25"
         ],
-        "validationRegex": "^\\s*5\\s*$",
-        "hint": "Ikkala tenglamani qo'shib yuboring: 2x = 10.",
+        "validationRegex": "^\\s*25\\s*$",
+        "hint": "√(ab) ≤ (a + b)/2 = 5 → ab ≤ 25.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: (x + y) + (x − y) = 7 + 3.",
-            "2-qadam: 2x = 10 → x = 5."
+            "1-qadam: Koshi tengsizligi: (a + b)/2 ≥ √(ab).",
+            "2-qadam: 10/2 = 5 ≥ √(ab) → ab ≤ 25.",
+            "3-qadam: Eng katta qiymat a = b = 5 da erishiladi: 25.",
+            "Javob: 25."
           ],
-          "javob": "5"
+          "javob": "25"
         }
       },
       {
         "id": "ex-16-2",
         "daraja": "ortacha",
-        "savol": "x² + y² = 25 va x = 3 bo'lsa, musbat y ning qiymatini toping:",
+        "savol": "Agar x > 0 bo'lsa, x + 9/x ifodaning qabul qilishi mumkin bo'lgan eng kichik qiymatini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 4",
+        "inputPlaceholder": "Masalan: 6",
         "togriJavob": [
-          "4"
+          "6"
         ],
-        "validationRegex": "^\\s*4\\s*$",
-        "hint": "3² + y² = 25 tenglamadan y² = 16 ni toping.",
+        "validationRegex": "^\\s*6\\s*$",
+        "hint": "x + 9/x ≥ 2√(x · 9/x) = 2√9 = 6.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: 9 + y² = 25.",
-            "2-qadam: y² = 16 → y = 4 (musbat qiymat)."
+            "1-qadam: Koshi tengsizligi: a + b ≥ 2√(ab).",
+            "2-qadam: x + 9/x ≥ 2√(x · 9/x) = 2 · 3 = 6.",
+            "3-qadam: Eng kichik qiymat 6.",
+            "Javob: 6."
           ],
-          "javob": "4"
+          "javob": "6"
         }
       }
     ]
@@ -254,16 +258,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "x + y = 10 va xy = 21 tenglamalar sistemasining yechimlari (x; y) juftliklarini toping hamda x² + y² yig'indisini hisoblang.",
-    "korsatma": "x² + y² = (x + y)² − 2xy ayniyatidan foydalaning.",
+    "masala": "a, b, c musbat sonlar va a + b + c = 6 bo'lsa, 1/a + 1/b + 1/c ifodaning eng kichik qiymatini o'nli kasrda toping.",
+    "korsatma": "(a + b + c)(1/a + 1/b + 1/c) ≥ 9 Koshi-Bunyakovskiy tengsizligidan foydalaning.",
     "yechim": {
-      "tahlil": "To'g'ridan-to'g'ri kvadratlar yig'indisi ayniyatini qo'llash orqali ildizlarni alohida topmasdan ham hisoblash mumkin.",
+      "tahlil": "(a+b+c)(1/a+1/b+1/c) ≥ 9 → 6 · (1/a+1/b+1/c) ≥ 9 → 1/a+1/b+1/c ≥ 9/6 = 1.5.",
       "qadamlar": [
-        "1-qadam: x² + y² = (x + y)² − 2xy.",
-        "2-qadam: (10)² − 2(21) = 100 − 42 = 58.",
-        "3-qadam: Ildizlarning o'zi esa Viyet bo'yicha {3, 7} bo'ladi."
+        "1-qadam: (a + b + c)(1/a + 1/b + 1/c) ≥ 9.",
+        "2-qadam: 6 · (1/a + 1/b + 1/c) ≥ 9.",
+        "3-qadam: 1/a + 1/b + 1/c ≥ 9 / 6 = 1.5.",
+        "Javob: 1.5."
       ],
-      "javob": "58"
+      "javob": "1.5"
     }
   }
 }

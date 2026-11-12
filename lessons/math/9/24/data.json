@@ -217,40 +217,43 @@
       {
         "id": "ex-24-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "savol": "cos(60° − 30°) qo'shish formulasi bo'yicha hisoblanganda cos30° chiqadi. cos²(30°) qiymatini o'nli kasrda toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
+        "inputPlaceholder": "Masalan: 0.75",
         "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
+          "0.75",
+          "0,75",
+          "3/4"
         ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "validationRegex": "^\\s*(0[.,]75|3/4)\\s*$",
+        "hint": "cos30° = √3 / 2. Uning kvadrati (√3/2)² = 3/4 = 0.75.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+            "1-qadam: cos(60° − 30°) = cos30° = √3/2.",
+            "2-qadam: (√3/2)² = 3/4 = 0.75.",
+            "Javob: 0.75."
           ],
-          "javob": "0.8"
+          "javob": "0.75"
         }
       },
       {
         "id": "ex-24-2",
         "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "cos75°·cos15° − sin75°·sin15° ifodaning aniq son qiymatini hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 1",
+        "inputPlaceholder": "Masalan: 0",
         "togriJavob": [
-          "1"
+          "0"
         ],
-        "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "Kosinus qo'shish formulasi: cosα cosβ − sinα sinβ = cos(α + β).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: cos75° cos15° − sin75° sin15° = cos(75° + 15°).",
+            "2-qadam: cos(90°) = 0.",
+            "Javob: 0."
           ],
-          "javob": "1"
+          "javob": "0"
         }
       }
     ]
@@ -278,16 +281,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "sin40°·cos20° + cos40°·sin20° ifodaning kvadratini o'nli kasrda hisoblang.",
+    "korsatma": "Sinus qo'shish formulasi: sinα cosβ + cosα sinβ = sin(α + β).",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "sin(40° + 20°) = sin60° = √3/2. Kvadrat: (√3/2)² = 3/4 = 0.75.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
-        "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "1-qadam: sin40° cos20° + cos40° sin20° = sin(40° + 20°) = sin60°.",
+        "2-qadam: sin60° = √3/2.",
+        "3-qadam: Kvadrat: (√3/2)² = 3/4 = 0.75.",
+        "Javob: 0.75."
       ],
-      "javob": "7"
+      "javob": "0.75"
     }
   }
 }

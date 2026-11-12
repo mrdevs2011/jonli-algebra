@@ -198,38 +198,41 @@
       {
         "id": "ex-32-1",
         "daraja": "asosiy",
-        "savol": "Arifmetik progressiyada a₁ = 3, d = 4 bo'lsa, a₅ hadi nechaga teng?",
+        "savol": "b₁ = 1 va q = 2 bo'lsa, dastlabki 6 ta had yig'indisi S₆ = 1 + 2 + 4 + 8 + 16 + 32 ni hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 19",
+        "inputPlaceholder": "Masalan: 63",
         "togriJavob": [
-          "19"
+          "63"
         ],
-        "validationRegex": "^\\s*19\\s*$",
-        "hint": "aₙ = a₁ + (n − 1)d formuladan foydalaning.",
+        "validationRegex": "^\\s*63\\s*$",
+        "hint": "Sₙ = b₁(qⁿ − 1) / (q − 1) = 1 · (2⁶ − 1) / (2 − 1).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a₅ = 3 + (5 − 1) · 4.",
-            "2-qadam: a₅ = 3 + 16 = 19."
+            "1-qadam: 2⁶ = 64.",
+            "2-qadam: S₆ = (64 − 1) / 1 = 63.",
+            "Javob: 63."
           ],
-          "javob": "19"
+          "javob": "63"
         }
       },
       {
         "id": "ex-32-2",
         "daraja": "ortacha",
-        "savol": "Dastlabki 10 ta natural sonning yig'indisini (1 + 2 + ... + 10) toping:",
+        "savol": "b₁ = 5 va q = 3 bo'lsa, dastlabki 3 ta had yig'indisi S₃ ni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 55",
+        "inputPlaceholder": "Masalan: 65",
         "togriJavob": [
-          "55"
+          "65"
         ],
-        "validationRegex": "^\\s*55\\s*$",
-        "hint": "Gauss formulasi: S = n(n + 1) / 2.",
+        "validationRegex": "^\\s*65\\s*$",
+        "hint": "Hadlar: 5, 15, 45. Yig'indi: 5 + 15 + 45.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: S₁₀ = 10 · 11 / 2 = 55."
+            "1-qadam: b₁ = 5, b₂ = 15, b₃ = 45.",
+            "2-qadam: S₃ = 5 + 15 + 45 = 65.",
+            "Javob: 65."
           ],
-          "javob": "55"
+          "javob": "65"
         }
       }
     ]
@@ -253,16 +256,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Arifmetik progressiyaning dastlabki n ta hadi yig'indisi Sₙ = 2n² + 3n formula bilan berilgan. Uning 10-hadi a₁₀ ni toping.",
-    "korsatma": "a₁₀ = S₁₀ − S₉ tenglikdan foydalaning.",
+    "masala": "1 + 2 + 4 + ... + 2⁹ yig'indisini hisoblang.",
+    "korsatma": "b₁ = 1, q = 2, hadlar soni n = 10. S₁₀ = 2¹⁰ − 1.",
     "yechim": {
-      "tahlil": "Ketma-ketlikning n-hadi n ta had yig'indisi bilan (n−1) ta had yig'indisi ayirmasiga tengdir.",
+      "tahlil": "S₁₀ = 1 · (2¹⁰ − 1) / (2 − 1) = 1024 − 1 = 1023.",
       "qadamlar": [
-        "1-qadam: S₁₀ = 2(10)² + 3(10) = 200 + 30 = 230.",
-        "2-qadam: S₉ = 2(9)² + 3(9) = 162 + 27 = 189.",
-        "3-qadam: a₁₀ = 230 − 189 = 41."
+        "1-qadam: n = 10 ta had yig'indisi.",
+        "2-qadam: 2¹⁰ = 1024.",
+        "3-qadam: S₁₀ = 1024 − 1 = 1023.",
+        "Javob: 1023."
       ],
-      "javob": "41"
+      "javob": "1023"
     }
   }
 }

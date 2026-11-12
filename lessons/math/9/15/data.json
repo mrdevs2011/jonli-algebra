@@ -184,39 +184,43 @@
       {
         "id": "ex-15-1",
         "daraja": "asosiy",
-        "savol": "x + y = 7 va x − y = 3 tenglamalar sistemasidan x ning qiymatini toping:",
+        "savol": "{ x² − 16 ≤ 0, x > 1 } tengsizliklar sistemasining barcha butun yechimlari sonini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 5",
+        "inputPlaceholder": "Masalan: 3",
         "togriJavob": [
-          "5"
+          "3"
         ],
-        "validationRegex": "^\\s*5\\s*$",
-        "hint": "Ikkala tenglamani qo'shib yuboring: 2x = 10.",
+        "validationRegex": "^\\s*3\\s*$",
+        "hint": "Birinchi tengsizlik: [−4; 4]. x > 1 bilan kesishmasi: (1; 4].",
         "yechim": {
           "qadamlar": [
-            "1-qadam: (x + y) + (x − y) = 7 + 3.",
-            "2-qadam: 2x = 10 → x = 5."
+            "1-qadam: x² ≤ 16 → x ∈ [−4; 4].",
+            "2-qadam: x > 1 sharti bilan kesishma: (1; 4].",
+            "3-qadam: Butun sonlar: 2, 3, 4 — jami 3 ta.",
+            "Javob: 3."
           ],
-          "javob": "5"
+          "javob": "3"
         }
       },
       {
         "id": "ex-15-2",
         "daraja": "ortacha",
-        "savol": "x² + y² = 25 va x = 3 bo'lsa, musbat y ning qiymatini toping:",
+        "savol": "{ x² − 5x + 6 ≤ 0, x ≤ 2.5 } sistemasining yechimi bo'lgan kesmaning chap chegarasini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 4",
+        "inputPlaceholder": "Masalan: 2",
         "togriJavob": [
-          "4"
+          "2"
         ],
-        "validationRegex": "^\\s*4\\s*$",
-        "hint": "3² + y² = 25 tenglamadan y² = 16 ni toping.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "x² − 5x + 6 ≤ 0 yechimi [2; 3]. x ≤ 2.5 bilan kesishma [2; 2.5].",
         "yechim": {
           "qadamlar": [
-            "1-qadam: 9 + y² = 25.",
-            "2-qadam: y² = 16 → y = 4 (musbat qiymat)."
+            "1-qadam: x² − 5x + 6 ≤ 0 → x ∈ [2; 3].",
+            "2-qadam: x ≤ 2.5 bilan umumiy qism: [2; 2.5].",
+            "3-qadam: Chap chegara: 2.",
+            "Javob: 2."
           ],
-          "javob": "4"
+          "javob": "2"
         }
       }
     ]
@@ -244,16 +248,18 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "x + y = 10 va xy = 21 tenglamalar sistemasining yechimlari (x; y) juftliklarini toping hamda x² + y² yig'indisini hisoblang.",
-    "korsatma": "x² + y² = (x + y)² − 2xy ayniyatidan foydalaning.",
+    "masala": "{ x² − 7x + 10 < 0, x² − 9 > 0 } tengsizliklar sistemasining yagona butun yechimini toping.",
+    "korsatma": "Har ikkala tengsizlikni alohida intervallar usulida yechib, kesishmasini oling.",
     "yechim": {
-      "tahlil": "To'g'ridan-to'g'ri kvadratlar yig'indisi ayniyatini qo'llash orqali ildizlarni alohida topmasdan ham hisoblash mumkin.",
+      "tahlil": "1) (x − 2)(x − 5) < 0 → x ∈ (2; 5). 2) x² > 9 → x < −3 yoki x > 3. Kesishma: (3; 5).",
       "qadamlar": [
-        "1-qadam: x² + y² = (x + y)² − 2xy.",
-        "2-qadam: (10)² − 2(21) = 100 − 42 = 58.",
-        "3-qadam: Ildizlarning o'zi esa Viyet bo'yicha {3, 7} bo'ladi."
+        "1-qadam: 1-tengsizlik: x ∈ (2; 5).",
+        "2-qadam: 2-tengsizlik: x ∈ (−∞; −3) ∪ (3; +∞).",
+        "3-qadam: Umumiy qism: (3; 5).",
+        "4-qadam: Bu oraliqdagi yagona butun son 4 dir.",
+        "Javob: 4."
       ],
-      "javob": "58"
+      "javob": "4"
     }
   }
 }

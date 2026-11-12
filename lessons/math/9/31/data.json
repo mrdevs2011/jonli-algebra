@@ -205,38 +205,41 @@
       {
         "id": "ex-31-1",
         "daraja": "asosiy",
-        "savol": "Arifmetik progressiyada a₁ = 3, d = 4 bo'lsa, a₅ hadi nechaga teng?",
+        "savol": "b₁ = 3 va maxraji q = 2 bo'lgan geometrik progressiyaning 5-hadi b₅ ni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 19",
+        "inputPlaceholder": "Masalan: 48",
         "togriJavob": [
-          "19"
+          "48"
         ],
-        "validationRegex": "^\\s*19\\s*$",
-        "hint": "aₙ = a₁ + (n − 1)d formuladan foydalaning.",
+        "validationRegex": "^\\s*48\\s*$",
+        "hint": "Formula: bₙ = b₁ · qⁿ⁻¹ → b₅ = 3 · 2⁴.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a₅ = 3 + (5 − 1) · 4.",
-            "2-qadam: a₅ = 3 + 16 = 19."
+            "1-qadam: b₅ = 3 · 2⁴.",
+            "2-qadam: 2⁴ = 16 → b₅ = 3 · 16 = 48.",
+            "Javob: 48."
           ],
-          "javob": "19"
+          "javob": "48"
         }
       },
       {
         "id": "ex-31-2",
         "daraja": "ortacha",
-        "savol": "Dastlabki 10 ta natural sonning yig'indisini (1 + 2 + ... + 10) toping:",
+        "savol": "Musbat hadli geometrik progressiyada b₂ = 6 va b₄ = 54 bo'lsa, maxraj q ni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 55",
+        "inputPlaceholder": "Masalan: 3",
         "togriJavob": [
-          "55"
+          "3"
         ],
-        "validationRegex": "^\\s*55\\s*$",
-        "hint": "Gauss formulasi: S = n(n + 1) / 2.",
+        "validationRegex": "^\\s*3\\s*$",
+        "hint": "b₄ / b₂ = q² → q² = 54 / 6 = 9.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: S₁₀ = 10 · 11 / 2 = 55."
+            "1-qadam: b₄ / b₂ = q² = 54 / 6 = 9.",
+            "2-qadam: Musbat hadli bo'lgani uchun q = 3.",
+            "Javob: 3."
           ],
-          "javob": "55"
+          "javob": "3"
         }
       }
     ]
@@ -260,16 +263,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Arifmetik progressiyaning dastlabki n ta hadi yig'indisi Sₙ = 2n² + 3n formula bilan berilgan. Uning 10-hadi a₁₀ ni toping.",
-    "korsatma": "a₁₀ = S₁₀ − S₉ tenglikdan foydalaning.",
+    "masala": "Uchta ketma-ket musbat son geometrik progressiya tashkil etadi. Ularning ko'paytmasi 64 bo'lsa, ikkinchi had b₂ ni hisoblang.",
+    "korsatma": "Xarakteristik xossadan: b₁ · b₃ = b₂². Ko'paytma b₁ b₂ b₃ = b₂³.",
     "yechim": {
-      "tahlil": "Ketma-ketlikning n-hadi n ta had yig'indisi bilan (n−1) ta had yig'indisi ayirmasiga tengdir.",
+      "tahlil": "b₁ · b₂ · b₃ = b₂³ = 64 → b₂ = 4.",
       "qadamlar": [
-        "1-qadam: S₁₀ = 2(10)² + 3(10) = 200 + 30 = 230.",
-        "2-qadam: S₉ = 2(9)² + 3(9) = 162 + 27 = 189.",
-        "3-qadam: a₁₀ = 230 − 189 = 41."
+        "1-qadam: b₁ · b₃ = b₂².",
+        "2-qadam: b₁ · b₂ · b₃ = b₂³ = 64.",
+        "3-qadam: b₂ = ∛64 = 4.",
+        "Javob: 4."
       ],
-      "javob": "41"
+      "javob": "4"
     }
   }
 }

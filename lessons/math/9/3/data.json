@@ -119,43 +119,44 @@
     "intro": "Interaktiv mashqlar: a koeffitsiyentining parabola shakliga ta'sirini tekshiring.",
     "items": [
       {
-        "id": "ex-1",
+        "id": "ex-3-1",
         "daraja": "asosiy",
         "savol": "Agar y = ax² parabolasi M(2; −12) nuqtadan o'tsa, a koeffitsiyentning qiymatini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: −3",
+        "inputPlaceholder": "Masalan: -3",
         "togriJavob": [
           "-3",
           "−3"
         ],
         "validationRegex": "^\\s*[-−]3\\s*$",
-        "hint": "M nuqtaning x va y koordinatalarini formulaga qo'ying: −12 = a · 2².",
+        "hint": "−12 = a · (2)² tenglamadan a ni toping.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: −12 = a · (2)².",
-            "2-qadam: 4a = −12.",
-            "3-qadam: a = −3."
+            "1-qadam: −12 = a · 4.",
+            "2-qadam: a = −12 / 4 = −3.",
+            "Javob: −3."
           ],
           "javob": "−3"
         }
       },
       {
-        "id": "ex-2",
+        "id": "ex-3-2",
         "daraja": "ortacha",
-        "savol": "Qaysi parabolaning tarmoqlari ingichkaroq (siqilganroq): y = 5x² mi yoki y = 0.2x² mi? (5 yoki 0.2 deb yozing):",
+        "savol": "Qaysi parabolaning tarmoqlari ingichkaroq (Oy o'qiga yaqinroq siqilgan): y = 5x² mi yoki y = 0.2x² mi? (5 yoki 0.2 deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 5",
+        "inputPlaceholder": "5 yoki 0.2",
         "togriJavob": [
           "5",
           "y=5x²",
           "5x²"
         ],
         "validationRegex": "^\\s*(y\\s*=\\s*)?5(x²)?\\s*$",
-        "hint": "|a| qancha katta bo'lsa, tarmoqlar Oy o'qiga shuncha yaqin (ingichka) bo'ladi.",
+        "hint": "|a| moduli qanchalik katta bo'lsa, parabola shunchalik ingichka bo'lib Oy o'qiga siqiladi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: |a| kattaligi parabola tarmoqlarining vertikal cho'zilishini bildiradi.",
-            "2-qadam: |5| > |0.2| bo'lgani uchun y = 5x² parabolasi ingichkaroq."
+            "1-qadam: |a| kattalashganda parabola torayadi.",
+            "2-qadam: 5 > 0.2 bo'lgani uchun y = 5x² parabolasi ingichkaroq.",
+            "Javob: 5."
           ],
           "javob": "5"
         }
@@ -295,17 +296,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "y = ax² parabolaga y = 4x − 1 to'g'ri chiziq urinadi (faqat bitta umumiy nuqtaga ega bo'ladi). a koeffitsiyentini toping.",
-    "korsatma": "Kvadrat tenglama yagona ildizga ega bo'lishi uchun D = b² − 4ac ifodasi 0 bo'lishi shart.",
+    "masala": "y = ax² parabolaga y = 4x − 1 to'g'ri chiziq urinadi (bitta umumiy nuqtaga ega). a koeffitsiyentning qiymatini toping.",
+    "korsatma": "ax² − 4x + 1 = 0 tenglamaning diskriminanti D = 0 bo'lishi shart.",
     "yechim": {
-      "tahlil": "Urinish nuqtasida ax² = 4x − 1 tenglama yagona yechimga ega bo'lishi zarur.",
+      "tahlil": "D = (−4)² − 4·a·1 = 16 − 4a = 0 → a = 4.",
       "qadamlar": [
-        "1-qadam: ax² − 4x + 1 = 0 kvadrat tenglama hosil qilamiz.",
-        "2-qadam: Yagona yechim sharti: D = b² − 4ac = 0.",
-        "3-qadam: (−4)² − 4 · a · 1 = 16 − 4a = 0.",
-        "4-qadam: 4a = 16 → a = 4."
+        "1-qadam: ax² = 4x − 1 → ax² − 4x + 1 = 0.",
+        "2-qadam: Urinish sharti: D = 16 − 4a = 0.",
+        "3-qadam: 4a = 16 → a = 4.",
+        "Javob: 4."
       ],
-      "javob": "a = 4"
+      "javob": "4"
     }
   }
 }

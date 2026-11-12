@@ -191,38 +191,40 @@
       {
         "id": "ex-23-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
+        "savol": "cos(−60°) + sin(−30°) ifodaning son qiymatini hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
+        "inputPlaceholder": "Masalan: 0",
         "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
+          "0"
         ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
+        "validationRegex": "^\\s*0\\s*$",
+        "hint": "cos(−60°) = cos60° = 0.5 va sin(−30°) = −sin30° = −0.5.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
+            "1-qadam: cos(−60°) = cos60° = 0.5.",
+            "2-qadam: sin(−30°) = −sin30° = −0.5.",
+            "3-qadam: 0.5 + (−0.5) = 0.",
+            "Javob: 0."
           ],
-          "javob": "0.8"
+          "javob": "0"
         }
       },
       {
         "id": "ex-23-2",
         "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "tg(−α) = −tgα ayniyati to'g'rimi? (Ha bo'lsa 1, Yo'q bo'lsa 0 deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 1",
+        "inputPlaceholder": "1 yoki 0",
         "togriJavob": [
-          "1"
+          "1",
+          "ha"
         ],
-        "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "validationRegex": "^\\s*(1|ha)\\s*$",
+        "hint": "Tangens toq funksiya bo'lgani uchun minus ishorasi tashqariga chiqadi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: tg(−α) = sin(−α) / cos(−α) = (−sinα) / cosα = −tgα.",
+            "Javob: 1 (Ha)."
           ],
           "javob": "1"
         }
@@ -252,16 +254,16 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "[sin(−α) · cos(−α)] / tg(−α) ifodaning α = 45° dagi qiymatini o'nli kasrda hisoblang.",
+    "korsatma": "Ishoralarni chiqaring: sin(−α) = −sinα, cos(−α) = cosα, tg(−α) = −tgα.",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "(−sinα · cosα) / (−tgα) = (sinα cosα) / (sinα / cosα) = cos²α. cos²(45°) = (√2/2)² = 0.5.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
-        "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "1-qadam: (−sinα cosα) / (−tgα) = cos²α.",
+        "2-qadam: cos²(45°) = 0.5.",
+        "Javob: 0.5."
       ],
-      "javob": "7"
+      "javob": "0.5"
     }
   }
 }

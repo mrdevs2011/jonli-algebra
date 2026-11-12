@@ -108,41 +108,43 @@
       {
         "id": "ex-9-1",
         "daraja": "asosiy",
-        "savol": "Funksiyaning aniqlanish sohasi mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "y = √(2x − 8) funksiyaning aniqlanish sohasiga tegishli eng kichik butun sonni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Masalan: 4",
         "togriJavob": [
-          "2",
-          "+2"
+          "4"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*4\\s*$",
+        "hint": "Kvadrat ildiz ostidagi ifoda manfiy bo'la olmaydi: 2x − 8 ≥ 0.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: 2x − 8 ≥ 0 shartini tuzamiz.",
+            "2-qadam: 2x ≥ 8 → x ≥ 4.",
+            "3-qadam: Eng kichik butun son 4.",
+            "Javob: 4."
           ],
-          "javob": "2"
+          "javob": "4"
         }
       },
       {
         "id": "ex-9-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "y = 5 / (x² − 16) funksiya x ning nechta nuqtasida aniqlanmagan (mavjud emas)?",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "0"
+          "2"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*2\\s*$",
+        "hint": "Nolga bo'lish mumkin emas: x² − 16 = 0 bo'lgan nuqtalarni toping.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: Maxraj nolga teng bo'la olmaydi: x² − 16 ≠ 0.",
+            "2-qadam: x = 4 va x = −4 nuqtalarda maxraj nolga aylanadi.",
+            "3-qadam: Jami 2 ta taqiqlangan nuqta bor.",
+            "Javob: 2."
           ],
-          "javob": "0"
+          "javob": "2"
         }
       }
     ]
@@ -229,17 +231,18 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Funksiyaning aniqlanish sohasi doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "y = √(6 − x − x²) funksiyaning aniqlanish sohasiga tegishli barcha butun sonlar yig'indisini hisoblang.",
+    "korsatma": "Ildiz osti manfiy emas: 6 − x − x² ≥ 0 → x² + x − 6 ≤ 0.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "x² + x − 6 = (x + 3)(x − 2) ≤ 0 → x ∈ [−3; 2].",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: x² + x − 6 ≤ 0 kvadrat tengsizlikni yechamiz.",
+        "2-qadam: Yechim: [−3; 2].",
+        "3-qadam: Butun sonlar: −3, −2, −1, 0, 1, 2.",
+        "4-qadam: Yig'indi: (−3) + (−2) + (−1) + 0 + 1 + 2 = −3.",
+        "Javob: −3."
       ],
-      "javob": "8"
+      "javob": "−3"
     }
   }
 }

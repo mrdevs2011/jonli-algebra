@@ -200,38 +200,41 @@
       {
         "id": "ex-30-1",
         "daraja": "asosiy",
-        "savol": "Arifmetik progressiyada a₁ = 3, d = 4 bo'lsa, a₅ hadi nechaga teng?",
+        "savol": "a₁ = 2 va a₁₀ = 20 bo'lgan arifmetik progressiyaning dastlabki 10 ta hadi yig'indisi S₁₀ ni toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 19",
+        "inputPlaceholder": "Masalan: 110",
         "togriJavob": [
-          "19"
+          "110"
         ],
-        "validationRegex": "^\\s*19\\s*$",
-        "hint": "aₙ = a₁ + (n − 1)d formuladan foydalaning.",
+        "validationRegex": "^\\s*110\\s*$",
+        "hint": "Sₙ = ((a₁ + aₙ) / 2) · n.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a₅ = 3 + (5 − 1) · 4.",
-            "2-qadam: a₅ = 3 + 16 = 19."
+            "1-qadam: S₁₀ = ((2 + 20) / 2) · 10.",
+            "2-qadam: S₁₀ = 11 · 10 = 110.",
+            "Javob: 110."
           ],
-          "javob": "19"
+          "javob": "110"
         }
       },
       {
         "id": "ex-30-2",
         "daraja": "ortacha",
-        "savol": "Dastlabki 10 ta natural sonning yig'indisini (1 + 2 + ... + 10) toping:",
+        "savol": "1 dan 50 gacha bo'lgan barcha natural sonlar yig'indisini Gauss formulasi bo'yicha hisoblang:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 55",
+        "inputPlaceholder": "Masalan: 1275",
         "togriJavob": [
-          "55"
+          "1275"
         ],
-        "validationRegex": "^\\s*55\\s*$",
-        "hint": "Gauss formulasi: S = n(n + 1) / 2.",
+        "validationRegex": "^\\s*1275\\s*$",
+        "hint": "S = (n · (n + 1)) / 2 formulasi (n = 50).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: S₁₀ = 10 · 11 / 2 = 55."
+            "1-qadam: S = 50 · 51 / 2.",
+            "2-qadam: S = 25 · 51 = 1275.",
+            "Javob: 1275."
           ],
-          "javob": "55"
+          "javob": "1275"
         }
       }
     ]
@@ -255,16 +258,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Arifmetik progressiyaning dastlabki n ta hadi yig'indisi Sₙ = 2n² + 3n formula bilan berilgan. Uning 10-hadi a₁₀ ni toping.",
-    "korsatma": "a₁₀ = S₁₀ − S₉ tenglikdan foydalaning.",
+    "masala": "Arifmetik progressiyaning dastlabki n ta hadi yig'indisi Sₙ = 2n² + 3n formula bilan berilgan bo'lsa, beshinchi had a₅ ni toping.",
+    "korsatma": "a₅ = S₅ − S₄ ayirmasidan foydalaning.",
     "yechim": {
-      "tahlil": "Ketma-ketlikning n-hadi n ta had yig'indisi bilan (n−1) ta had yig'indisi ayirmasiga tengdir.",
+      "tahlil": "S₅ = 2(25) + 3(5) = 65. S₄ = 2(16) + 3(4) = 44. a₅ = 65 − 44 = 21.",
       "qadamlar": [
-        "1-qadam: S₁₀ = 2(10)² + 3(10) = 200 + 30 = 230.",
-        "2-qadam: S₉ = 2(9)² + 3(9) = 162 + 27 = 189.",
-        "3-qadam: a₁₀ = 230 − 189 = 41."
+        "1-qadam: S₅ = 2·25 + 15 = 65.",
+        "2-qadam: S₄ = 2·16 + 12 = 44.",
+        "3-qadam: a₅ = S₅ − S₄ = 65 − 44 = 21.",
+        "Javob: 21."
       ],
-      "javob": "41"
+      "javob": "21"
     }
   }
 }

@@ -237,38 +237,38 @@
       {
         "id": "ex-19-1",
         "daraja": "asosiy",
-        "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini toping:",
-        "type": "input",
-        "inputPlaceholder": "Masalan: 0.8",
-        "togriJavob": [
-          "0.8",
-          "0,8",
-          "4/5"
-        ],
-        "validationRegex": "^\\s*(0[,.]8|4/5)\\s*$",
-        "hint": "Asosiy trigonometrik ayniyat: sin²α + cos²α = 1.",
-        "yechim": {
-          "qadamlar": [
-            "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
-            "2-qadam: I chorakda cosα > 0, demak cosα = 0.8."
-          ],
-          "javob": "0.8"
-        }
-      },
-      {
-        "id": "ex-19-2",
-        "daraja": "ortacha",
-        "savol": "sin²(37°) + cos²(37°) ifodaning qiymatini hisoblang:",
+        "savol": "α = 30° da sin30° + cos60° yig'indisini hisoblang:",
         "type": "input",
         "inputPlaceholder": "Masalan: 1",
         "togriJavob": [
           "1"
         ],
         "validationRegex": "^\\s*1\\s*$",
-        "hint": "Har qanday burchak uchun sin²x + cos²x = 1 ayniyati o'rinli.",
+        "hint": "sin30° = 1/2 va cos60° = 1/2. Yig'indi: 1/2 + 1/2.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: Pifagor ayniyatiga ko'ra har qanday burchakda yig'indi 1 ga teng."
+            "1-qadam: sin30° = 0.5, cos60° = 0.5.",
+            "2-qadam: 0.5 + 0.5 = 1.",
+            "Javob: 1."
+          ],
+          "javob": "1"
+        }
+      },
+      {
+        "id": "ex-19-2",
+        "daraja": "ortacha",
+        "savol": "sin²(45°) + cos²(45°) ning aniq son qiymatini hisoblang:",
+        "type": "input",
+        "inputPlaceholder": "Masalan: 1",
+        "togriJavob": [
+          "1"
+        ],
+        "validationRegex": "^\\s*1\\s*$",
+        "hint": "Asosiy trigonometrik ayniyat: istalgan burchak uchun sin²α + cos²α = 1.",
+        "yechim": {
+          "qadamlar": [
+            "1-qadam: (√2/2)² + (√2/2)² = 2/4 + 2/4 = 1.",
+            "Javob: 1."
           ],
           "javob": "1"
         }
@@ -299,16 +299,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Agar tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
-    "korsatma": "Ikkala tomonni kvadratga ko'taring va tgα · ctgα = 1 ayniyatidan foydalaning.",
+    "masala": "To'g'ri burchakli uchburchakda gipotenuza c = 10, o'tkir burchak sinusi sinα = 0.6 bo'lsa, uchburchak yuzini toping.",
+    "korsatma": "Katetlar a = c·sinα va b = √(c² − a²). Yuza S = (a·b)/2.",
     "yechim": {
-      "tahlil": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α.",
+      "tahlil": "a = 10 · 0.6 = 6. b = √(100 − 36) = 8. S = (6 · 8) / 2 = 24.",
       "qadamlar": [
-        "1-qadam: 3² = tg²α + 2(1) + ctg²α.",
-        "2-qadam: 9 = tg²α + ctg²α + 2.",
-        "3-qadam: tg²α + ctg²α = 9 − 2 = 7."
+        "1-qadam: 1-katet a = 6.",
+        "2-qadam: 2-katet b = 8.",
+        "3-qadam: Yuza S = (6 · 8) / 2 = 24.",
+        "Javob: 24."
       ],
-      "javob": "7"
+      "javob": "24"
     }
   }
 }

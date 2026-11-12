@@ -189,41 +189,43 @@
       {
         "id": "ex-12-1",
         "daraja": "asosiy",
-        "savol": "Daraja qatnashgan tenglama va tengsizlik mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "√(2x + 5) = 5 tenglamaning ildizini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Masalan: 10",
         "togriJavob": [
-          "2",
-          "+2"
+          "10"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*10\\s*$",
+        "hint": "Ikkala tomonni kvadratga oshiring: 2x + 5 = 25.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: 2x + 5 = 5² = 25.",
+            "2-qadam: 2x = 20 → x = 10.",
+            "3-qadam: Tekshirish: √(2·10 + 5) = √25 = 5 (to'g'ri).",
+            "Javob: 10."
           ],
-          "javob": "2"
+          "javob": "10"
         }
       },
       {
         "id": "ex-12-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "x³ = −64 tenglamaning haqiqiy ildizini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Masalan: -4",
         "togriJavob": [
-          "0"
+          "-4",
+          "−4"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*[-−]4\\s*$",
+        "hint": "Toq darajali ildizdan manfiy son chiqishi mumkin: ∛(−64) = −4.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: (−4)³ = −64.",
+            "2-qadam: Toq darajali tenglama yagona haqiqiy ildizga ega: x = −4.",
+            "Javob: −4."
           ],
-          "javob": "0"
+          "javob": "−4"
         }
       }
     ]
@@ -251,17 +253,18 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Daraja qatnashgan tenglama va tengsizlik doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "√(x + 1) = x − 1 tenglamaning barcha haqiqiy ildizlari yig'indisini toping.",
+    "korsatma": "O'ng tomon x − 1 ≥ 0 (x ≥ 1) bo'lishi shart. Kvadratga ko'targandan keyin chet ildizlarni tekshiring.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "x + 1 = (x − 1)² = x² − 2x + 1 → x² − 3x = 0 → x(x − 3) = 0. x = 0 (chet ildiz, chunki √1 ≠ −1), x = 3 (haqiqiy ildiz).",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: x + 1 = x² − 2x + 1 → x² − 3x = 0.",
+        "2-qadam: x₁ = 0, x₂ = 3.",
+        "3-qadam: x = 0 da √1 = −1 (xato, chet ildiz). x = 3 da √4 = 2 (to'g'ri).",
+        "4-qadam: Yagona ildiz 3.",
+        "Javob: 3."
       ],
-      "javob": "8"
+      "javob": "3"
     }
   }
 }

@@ -179,41 +179,43 @@
       {
         "id": "ex-7-1",
         "daraja": "asosiy",
-        "savol": "Tengsizlikni grafik bilan yechish mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "y = x² − 4x + 3 parabolaning Ox dan yuqorida turgan sohasini hisobga olib, x² − 4x + 3 > 0 ning eng kichik musbat butun yechimini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Masalan: 4",
         "togriJavob": [
-          "2",
-          "+2"
+          "4"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*4\\s*$",
+        "hint": "Ildizlar: x = 1 va x = 3. x > 3 oraliqdagi eng kichik butun sonni toping.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: x² − 4x + 3 = (x − 1)(x − 3) > 0.",
+            "2-qadam: Yechim: x < 1 yoki x > 3.",
+            "3-qadam: x > 3 oraliqdagi eng kichik musbat butun son 4 dir.",
+            "Javob: 4."
           ],
-          "javob": "2"
+          "javob": "4"
         }
       },
       {
         "id": "ex-7-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "x² + 4 > 0 tengsizlik har qanday haqiqiy sonda bajariladimi? (Ha = 1, Yo'q = 0 deb yozing):",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "1 yoki 0",
         "togriJavob": [
-          "0"
+          "1",
+          "ha"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*(1|ha)\\s*$",
+        "hint": "x² ≥ 0 bo'lgani uchun x² + 4 har doim kamida 4 ga teng, ya'ni doim musbat.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: Har qanday haqiqiy son kvadrati manfiy emas: x² ≥ 0.",
+            "2-qadam: x² + 4 ≥ 4 > 0 har doim o'rinli.",
+            "Javob: 1 (Ha)."
           ],
-          "javob": "0"
+          "javob": "1"
         }
       }
     ]
@@ -241,17 +243,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Tengsizlikni grafik bilan yechish doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "Har qanday x haqiqiy sonda x² + 2mx + 9 > 0 tengsizlik o'rinli bo'ladigan m parametrining barcha butun qiymatlari sonini toping.",
+    "korsatma": "Kvadrat uchhad har doim musbat bo'lishi uchun a > 0 va D < 0 bo'lishi shart.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "a = 1 > 0. D = (2m)² − 4·1·9 = 4m² − 36 < 0 → m² < 9 → −3 < m < 3.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: Diskriminant manfiy bo'lishi shart: 4m² − 36 < 0.",
+        "2-qadam: m² < 9 → −3 < m < 3.",
+        "3-qadam: Butun sonlar: −2, −1, 0, 1, 2 — jami 5 ta.",
+        "Javob: 5."
       ],
-      "javob": "8"
+      "javob": "5"
     }
   }
 }

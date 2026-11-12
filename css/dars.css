@@ -260,15 +260,16 @@
   width: 100%;
   height: auto;
   border: 1px solid var(--line-strong);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--white);
-  box-shadow: var(--shadow);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
 }
 
 .kitob-sahifa:hover img {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 24px rgba(26, 34, 28, 0.16);
+  border-color: var(--ink);
+  transform: none;
+  box-shadow: none;
 }
 
 @media (max-width: 520px) {
@@ -334,7 +335,8 @@
   object-fit: contain;
   border-radius: 6px;
   background: var(--white);
-  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: none;
   transition: opacity 0.16s ease, transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
   transform-origin: center center;
   backface-visibility: hidden;
@@ -430,7 +432,7 @@
 
 
 .kitob-nav button {
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   background: var(--white);
   color: var(--ink);
   width: 40px;
@@ -440,12 +442,12 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: transform 0.15s ease, background 0.15s ease;
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.kitob-nav button:hover:not(:disabled) { transform: scale(1.08); background: var(--paper); }
-.kitob-nav button:active:not(:disabled) { transform: scale(0.96); }
+.kitob-nav button:hover:not(:disabled) { background: var(--paper-2); border-color: #fff; transform: none; }
+.kitob-nav button:active:not(:disabled) { transform: none; }
 
 .kitob-nav button:disabled {
   opacity: 0.35;
@@ -485,22 +487,22 @@
 .kitob-nav-mode-btn:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-1px);
+  transform: none;
 }
 
 .kitob-nav-mode-btn:active {
-  transform: translateY(0);
+  transform: none;
 }
 
 .kitob-lightbox-close {
   position: fixed;
   top: 20px;
   right: 24px;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(24, 30, 36, 0.82);
+  background: rgba(24, 30, 36, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: var(--white);
@@ -509,19 +511,19 @@
   align-items: center;
   justify-content: center;
   z-index: 10005;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background 0.18s ease, border-color 0.18s ease;
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .kitob-lightbox-close:hover {
-  transform: scale(1.08) rotate(90deg);
-  background: rgba(220, 53, 69, 0.9);
+  background: rgba(194, 75, 42, 0.95);
   border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
+  transform: none;
 }
 
 .kitob-lightbox-close:active {
-  transform: scale(0.95) rotate(90deg);
+  transform: none;
 }
 
 /* Doska rejimi — kitob varaqlash */
@@ -1212,12 +1214,12 @@
       width: 100%;
       height: auto;
       border: 1px solid var(--line-strong);
-      border-radius: 10px;
+      border-radius: 8px;
       background: var(--white);
-      box-shadow: var(--shadow);
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      box-shadow: none;
+      transition: border-color 0.15s ease;
     }
-    .doska-img:hover img { transform: scale(1.015); box-shadow: 0 10px 24px rgba(26,34,28,0.16); }
+    .doska-img:hover img { border-color: var(--ink); transform: none; box-shadow: none; }
     .doska-img-cap { font-size: 0.78rem; color: var(--ink-soft); text-align: center; }
     .doska-img-placeholder {
       display: flex;
@@ -1383,7 +1385,8 @@
 .mode-btn.is-active {
   background: var(--white);
   color: var(--ink);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--line-strong);
+  box-shadow: none;
 }
 
 /* Default Student Mode: Sinf va doska boshqaruv vositalari yashiriladi */
@@ -1421,10 +1424,10 @@ html.teacher-mode .block-classtimer {
 .mashq-item-card {
   background: var(--white);
   border: 1px solid var(--line-strong);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 18px 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
 }
 
 .mashq-item-card.is-correct {
@@ -1499,12 +1502,15 @@ html.teacher-mode .block-classtimer {
   border: 1.5px solid var(--line-strong);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
 }
 
 .mashq-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(194, 75, 42, 0.15);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  box-shadow: none;
   background: var(--white);
 }
 
@@ -1644,12 +1650,12 @@ html.teacher-mode .block-classtimer {
    ========================================================================== */
 .block-olimpiada {
   margin-top: 32px;
-  background: linear-gradient(135deg, rgba(251, 248, 241, 0.95), rgba(245, 238, 222, 0.92));
-  border: 1.5px solid var(--gold);
-  border-left: 6px solid var(--gold);
-  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--line-strong);
+  border-left: 5px solid var(--gold);
+  border-radius: 12px;
   padding: 22px 24px;
-  box-shadow: 0 8px 24px rgba(184, 135, 43, 0.08);
+  box-shadow: none;
 }
 
 .olimpiada-badge {
@@ -1797,7 +1803,9 @@ html[data-theme="dark"] .mashq-input {
 
 html[data-theme="dark"] .mashq-input:focus {
   border-color: var(--accent) !important;
-  box-shadow: 0 0 0 3px rgba(226, 99, 64, 0.25) !important;
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 1px !important;
+  box-shadow: none !important;
 }
 
 html[data-theme="dark"] .mashq-hint-box {

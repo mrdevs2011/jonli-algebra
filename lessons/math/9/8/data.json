@@ -214,41 +214,44 @@
       {
         "id": "ex-8-1",
         "daraja": "asosiy",
-        "savol": "Intervallar usuli mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "(x + 1)(x − 3)(x − 7) > 0 tengsizlikning (0; 10) oralig'idagi eng kichik butun yechimini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "2",
-          "+2"
+          "1"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*1\\s*$",
+        "hint": "Nollar: −1, 3, 7. Musbat oraliqlar: (−1; 3) va (7; +∞).",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: Son o'qida intervallar ishoralari: (−∞; −1) [-], (−1; 3) [+], (3; 7) [-], (7; +∞) [+].",
+            "2-qadam: Musbat oraliqlar: (−1; 3) ∪ (7; +∞).",
+            "3-qadam: (0; 10) oralig'idagi eng kichik butun yechim: 1.",
+            "Javob: 1."
           ],
-          "javob": "2"
+          "javob": "1"
         }
       },
       {
         "id": "ex-8-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "(x − 4) / (x + 2) ≤ 0 kasr tengsizlikni qanoatlantiruvchi manfiy bo'lmagan butun sonlar yig'indisini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Masalan: 10",
         "togriJavob": [
-          "0"
+          "10"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*10\\s*$",
+        "hint": "Kasr noldan kichik yoki teng bo'lishi: x ∈ (−2; 4]. Manfiy bo'lmagan sonlar: 0, 1, 2, 3, 4.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: Surat noli 4 (bo'yaladi), maxraj noli −2 (teshiladi).",
+            "2-qadam: Yechim: x ∈ (−2; 4].",
+            "3-qadam: Manfiy bo'lmagan (≥ 0) butun sonlar: 0, 1, 2, 3, 4.",
+            "4-qadam: Yig'indi: 0 + 1 + 2 + 3 + 4 = 10.",
+            "Javob: 10."
           ],
-          "javob": "0"
+          "javob": "10"
         }
       }
     ]
@@ -277,15 +280,15 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Intervallar usuli doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "((x − 1)² · (x − 5)) / (x + 3) ≤ 0 tengsizlikning barcha butun yechimlari sonini toping.",
+    "korsatma": "(x−1)² har doim manfiy emas. x = 1 tengsizlikni nol qiladi va yechimga kiradi.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "(x − 5)/(x + 3) ≤ 0 yechimi (−3; 5]. (x−1)² = 0 nuqtasi x = 1 ushbu oraliqda mavjud.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: Maxraj x ≠ −3. Surat nollari: x = 1 (juft karrali) va x = 5.",
+        "2-qadam: Ishora tahlilida yechim: (−3; 5].",
+        "3-qadam: Butun sonlar: −2, −1, 0, 1, 2, 3, 4, 5 — jami 8 ta.",
+        "Javob: 8."
       ],
       "javob": "8"
     }

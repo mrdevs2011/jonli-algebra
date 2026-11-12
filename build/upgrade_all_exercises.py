@@ -196,6 +196,342 @@ CURRICULUM_EXERCISES = {
             }
         }
     },
+    18: {
+        "items": [
+            {
+                "id": "ex-18-1",
+                "daraja": "asosiy",
+                "savol": "P(1; 0) nuqta koordinata boshi atrofida 90° ga burilganda uning ordinatasi y nechaga teng bo'ladi?",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 1",
+                "togriJavob": ["1"],
+                "validationRegex": r"^\s*1\s*$",
+                "hint": "90° burilishda nuqta Oy o'qidagi (0; 1) nuqtaga o'tadi.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: Birlik aylanada 90° ga burish nuqtani (0; 1) ga keltiradi.",
+                        "2-qadam: Ordinata y = 1.",
+                        "Javob: 1."
+                    ],
+                    "javob": "1"
+                }
+            },
+            {
+                "id": "ex-18-2",
+                "daraja": "ortacha",
+                "savol": "P(1; 0) nuqta 180° ga burilganda hosil bo'lgan nuqtaning abssissasi x nechaga teng?",
+                "type": "input",
+                "inputPlaceholder": "Masalan: -1",
+                "togriJavob": ["-1", "−1"],
+                "validationRegex": r"^\s*[-−]1\s*$",
+                "hint": "180° burilish nuqtani Ox ning manfiy tomonidagi (−1; 0) nuqtaga o'tkazadi.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: 180° burilganda nuqta qarama-qarshi nuqtaga o'tadi: (−1; 0).",
+                        "2-qadam: Abssissa x = −1.",
+                        "Javob: −1."
+                    ],
+                    "javob": "−1"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "P(1; 0) nuqta ketma-ket +45°, +90° va −45° burildi. Yakuniy nuqtaning koordinatalari yig'indisi (x + y) ni toping.",
+            "korsatma": "Ketma-ket burilishlar qo'shiladi: 45° + 90° − 45° = 90°.",
+            "yechim": {
+                "tahlil": "Jami burilish burchagi: 45 + 90 − 45 = 90°. Nuqta (0; 1) ga keladi. x + y = 0 + 1 = 1.",
+                "qadamlar": [
+                    "1-qadam: Jami burchak: 90°.",
+                    "2-qadam: Nuqta: (0; 1).",
+                    "3-qadam: Yig'indi: 0 + 1 = 1.",
+                    "Javob: 1."
+                ],
+                "javob": "1"
+            }
+        }
+    },
+    19: {
+        "items": [
+            {
+                "id": "ex-19-1",
+                "daraja": "asosiy",
+                "savol": "α = 30° da sin30° + cos60° yig'indisini hisoblang:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 1",
+                "togriJavob": ["1"],
+                "validationRegex": r"^\s*1\s*$",
+                "hint": "sin30° = 1/2 va cos60° = 1/2. Yig'indi: 1/2 + 1/2.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: sin30° = 0.5, cos60° = 0.5.",
+                        "2-qadam: 0.5 + 0.5 = 1.",
+                        "Javob: 1."
+                    ],
+                    "javob": "1"
+                }
+            },
+            {
+                "id": "ex-19-2",
+                "daraja": "ortacha",
+                "savol": "sin²(45°) + cos²(45°) ning aniq son qiymatini hisoblang:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 1",
+                "togriJavob": ["1"],
+                "validationRegex": r"^\s*1\s*$",
+                "hint": "Asosiy trigonometrik ayniyat: istalgan burchak uchun sin²α + cos²α = 1.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: (√2/2)² + (√2/2)² = 2/4 + 2/4 = 1.",
+                        "Javob: 1."
+                    ],
+                    "javob": "1"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "To'g'ri burchakli uchburchakda gipotenuza c = 10, o'tkir burchak sinusi sinα = 0.6 bo'lsa, uchburchak yuzini toping.",
+            "korsatma": "Katetlar a = c·sinα va b = √(c² − a²). Yuza S = (a·b)/2.",
+            "yechim": {
+                "tahlil": "a = 10 · 0.6 = 6. b = √(100 − 36) = 8. S = (6 · 8) / 2 = 24.",
+                "qadamlar": [
+                    "1-qadam: 1-katet a = 6.",
+                    "2-qadam: 2-katet b = 8.",
+                    "3-qadam: Yuza S = (6 · 8) / 2 = 24.",
+                    "Javob: 24."
+                ],
+                "javob": "24"
+            }
+        }
+    },
+    20: {
+        "items": [
+            {
+                "id": "ex-20-1",
+                "daraja": "asosiy",
+                "savol": "150° burchak qaysi koordinata choragida joylashgan? (Chorak raqamini kiriting: 1, 2, 3 yoki 4):",
+                "type": "input",
+                "inputPlaceholder": "1, 2, 3 yoki 4",
+                "togriJavob": ["2"],
+                "validationRegex": r"^\s*2\s*$",
+                "hint": "90° < 150° < 180°, demak bu II chorak.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: II chorak burchaklari 90° dan 180° gacha bo'ladi.",
+                        "2-qadam: 150° ikkinchi chorakka tegishli.",
+                        "Javob: 2."
+                    ],
+                    "javob": "2"
+                }
+            },
+            {
+                "id": "ex-20-2",
+                "daraja": "ortacha",
+                "savol": "sin(130°) · cos(200°) ko'paytmaning ishorasi qanday? (Musbat bo'lsa 1, Manfiy bo'lsa −1 deb yozing):",
+                "type": "input",
+                "inputPlaceholder": "1 yoki -1",
+                "togriJavob": ["-1", "−1", "manfiy"],
+                "validationRegex": r"^\s*([-−]1|manfiy)\s*$",
+                "hint": "130° II chorakda (sin musbat), 200° III chorakda (cos manfiy). Musbat · Manfiy = Manfiy.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: sin(130°) > 0 (II chorakda sinus musbat).",
+                        "2-qadam: cos(200°) < 0 (III chorakda kosinus manfiy).",
+                        "3-qadam: (+) · (−) = (−). Demak natija manfiy.",
+                        "Javob: −1."
+                    ],
+                    "javob": "−1"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "α burchak III chorakda joylashgan (180° < α < 270°). sinα · tgα ifodaning ishorasi qanday? (1 = Musbat, −1 = Manfiy):",
+            "korsatma": "III chorakda sinus va tangensning ishoralarini alohida aniqlab ko'paytiring.",
+            "yechim": {
+                "tahlil": "III chorakda sinα < 0, tgα > 0. Ularning ko'paytmasi (−) · (+) = (−) manfiy bo'ladi.",
+                "qadamlar": [
+                    "1-qadam: sinα < 0.",
+                    "2-qadam: tgα > 0.",
+                    "3-qadam: Ko'paytma: manfiy (−1).",
+                    "Javob: −1."
+                ],
+                "javob": "−1"
+            }
+        }
+    },
+    21: {
+        "items": [
+            {
+                "id": "ex-21-1",
+                "daraja": "asosiy",
+                "savol": "Agar sinα = 0.6 va α birinchi chorakda bo'lsa, cosα ning qiymatini o'nli kasrda toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0.8",
+                "togriJavob": ["0.8", "0,8"],
+                "validationRegex": r"^\s*0[.,]8\s*$",
+                "hint": "cosα = √(1 − sin²α) = √(1 − 0.36) = √0.64 = 0.8.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: cos²α = 1 − sin²α = 1 − 0.36 = 0.64.",
+                        "2-qadam: I chorakda cosα > 0 bo'lgani uchun cosα = 0.8.",
+                        "Javob: 0.8."
+                    ],
+                    "javob": "0.8"
+                }
+            },
+            {
+                "id": "ex-21-2",
+                "daraja": "ortacha",
+                "savol": "Agar tgα = 2 bo'lsa, ctgα ning qiymatini o'nli kasrda toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0.5",
+                "togriJavob": ["0.5", "0,5", "1/2"],
+                "validationRegex": r"^\s*(0[.,]5|1/2)\s*$",
+                "hint": "ctgα = 1 / tgα = 1 / 2 = 0.5.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: tgα · ctgα = 1 ayniyatidan: ctgα = 1 / 2.",
+                        "2-qadam: 1/2 = 0.5.",
+                        "Javob: 0.5."
+                    ],
+                    "javob": "0.5"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "sinα + cosα = 1.2 bo'lsa, sinα · cosα ko'paytmani o'nli kasrda hisoblang.",
+            "korsatma": "Ikkala tomonni kvadratga ko'taring: (sinα + cosα)² = sin²α + 2sinα cosα + cos²α.",
+            "yechim": {
+                "tahlil": "(sin+cos)² = 1 + 2sinα cosα = 1.44 → 2sinα cosα = 0.44 → sinα cosα = 0.22.",
+                "qadamlar": [
+                    "1-qadam: 1 + 2sinα cosα = 1.2² = 1.44.",
+                    "2-qadam: 2sinα cosα = 0.44.",
+                    "3-qadam: sinα cosα = 0.22.",
+                    "Javob: 0.22."
+                ],
+                "javob": "0.22"
+            }
+        }
+    },
+    22: {
+        "items": [
+            {
+                "id": "ex-22-1",
+                "daraja": "asosiy",
+                "savol": "(1 − sinα)(1 + sinα) − cos²α ifodaning qiymatini hisoblang:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0",
+                "togriJavob": ["0"],
+                "validationRegex": r"^\s*0\s*$",
+                "hint": "(1 − sinα)(1 + sinα) = 1 − sin²α = cos²α. cos²α − cos²α = 0.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: (1 − sinα)(1 + sinα) = 1 − sin²α.",
+                        "2-qadam: 1 − sin²α = cos²α.",
+                        "3-qadam: cos²α − cos²α = 0.",
+                        "Javob: 0."
+                    ],
+                    "javob": "0"
+                }
+            },
+            {
+                "id": "ex-22-2",
+                "daraja": "ortacha",
+                "savol": "tgα · cosα ifoda sinα ga teng. α = 30° da uning qiymatini o'nli kasrda toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0.5",
+                "togriJavob": ["0.5", "0,5", "1/2"],
+                "validationRegex": r"^\s*(0[.,]5|1/2)\s*$",
+                "hint": "tgα = sinα / cosα bo'lgani uchun tgα · cosα = sinα. sin30° = 0.5.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: (sinα / cosα) · cosα = sinα.",
+                        "2-qadam: sin30° = 1/2 = 0.5.",
+                        "Javob: 0.5."
+                    ],
+                    "javob": "0.5"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "tgα + ctgα = 3 bo'lsa, tg²α + ctg²α qiymatini hisoblang.",
+            "korsatma": "(tgα + ctgα)² = tg²α + 2·tgα·ctgα + ctg²α formulasidan foydalaning.",
+            "yechim": {
+                "tahlil": "3² = tg²α + 2(1) + ctg²α → tg²α + ctg²α = 9 − 2 = 7.",
+                "qadamlar": [
+                    "1-qadam: (tgα + ctgα)² = tg²α + 2 + ctg²α.",
+                    "2-qadam: 9 = tg²α + ctg²α + 2.",
+                    "3-qadam: tg²α + ctg²α = 7.",
+                    "Javob: 7."
+                ],
+                "javob": "7"
+            }
+        }
+    },
+    23: {
+        "items": [
+            {
+                "id": "ex-23-1",
+                "daraja": "asosiy",
+                "savol": "cos(−60°) + sin(−30°) ifodaning son qiymatini hisoblang:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0",
+                "togriJavob": ["0"],
+                "validationRegex": r"^\s*0\s*$",
+                "hint": "cos(−60°) = cos60° = 0.5 va sin(−30°) = −sin30° = −0.5.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: cos(−60°) = cos60° = 0.5.",
+                        "2-qadam: sin(−30°) = −sin30° = −0.5.",
+                        "3-qadam: 0.5 + (−0.5) = 0.",
+                        "Javob: 0."
+                    ],
+                    "javob": "0"
+                }
+            },
+            {
+                "id": "ex-23-2",
+                "daraja": "ortacha",
+                "savol": "tg(−α) = −tgα ayniyati to'g'rimi? (Ha bo'lsa 1, Yo'q bo'lsa 0 deb yozing):",
+                "type": "input",
+                "inputPlaceholder": "1 yoki 0",
+                "togriJavob": ["1", "ha"],
+                "validationRegex": r"^\s*(1|ha)\s*$",
+                "hint": "Tangens toq funksiya bo'lgani uchun minus ishorasi tashqariga chiqadi.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: tg(−α) = sin(−α) / cos(−α) = (−sinα) / cosα = −tgα.",
+                        "Javob: 1 (Ha)."
+                    ],
+                    "javob": "1"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "[sin(−α) · cos(−α)] / tg(−α) ifodaning α = 45° dagi qiymatini o'nli kasrda hisoblang.",
+            "korsatma": "Ishoralarni chiqaring: sin(−α) = −sinα, cos(−α) = cosα, tg(−α) = −tgα.",
+            "yechim": {
+                "tahlil": "(−sinα · cosα) / (−tgα) = (sinα cosα) / (sinα / cosα) = cos²α. cos²(45°) = (√2/2)² = 0.5.",
+                "qadamlar": [
+                    "1-qadam: (−sinα cosα) / (−tgα) = cos²α.",
+                    "2-qadam: cos²(45°) = 0.5.",
+                    "Javob: 0.5."
+                ],
+                "javob": "0.5"
+            }
+        }
+    },
     4: {
         "items": [
             {
@@ -1107,6 +1443,181 @@ CURRICULUM_EXERCISES = {
                     "Javob: 0.5."
                 ],
                 "javob": "0.5"
+            }
+        }
+    },
+    26: {
+        "items": [
+            {
+                "id": "ex-26-1",
+                "daraja": "asosiy",
+                "savol": "sin(150°) ning qiymatini o'nli kasrda toping. (Keltirish formulasi: sin(180° − 30°) = sin30°):",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0.5",
+                "togriJavob": ["0.5", "0,5", "1/2"],
+                "validationRegex": r"^\s*(0[.,]5|1/2)\s*$",
+                "hint": "sin(180° − α) = sinα bo'lgani uchun sin(150°) = sin30° = 0.5 bo'ladi.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: 150° burchak 2-chorakka tegishli: sin(150°) = sin(180° − 30°).",
+                        "2-qadam: 2-chorakda sinus musbat: sin(180° − 30°) = sin30° = 0.5.",
+                        "Javob: 0.5."
+                    ],
+                    "javob": "0.5"
+                }
+            },
+            {
+                "id": "ex-26-2",
+                "daraja": "ortacha",
+                "savol": "cos(120°) ning qiymatini o'nli kasrda toping. (Keltirish formulasi: cos(180° − 60°) = −cos60°):",
+                "type": "input",
+                "inputPlaceholder": "Masalan: -0.5",
+                "togriJavob": ["-0.5", "-0,5", "-1/2"],
+                "validationRegex": r"^\s*(-0[.,]5|-1/2)\s*$",
+                "hint": "2-chorakda kosinus manfiy: cos(180° − 60°) = −cos60°.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: cos(120°) = cos(180° − 60°).",
+                        "2-qadam: 2-chorakda kosinus manfiy: cos(180° − 60°) = −cos60° = −0.5.",
+                        "Javob: -0.5."
+                    ],
+                    "javob": "-0.5"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "Ifodaning qiymatini hisoblang: sin(150°) + cos(240°) + tg(135°).",
+            "korsatma": "Har bir burchakka keltirish formulasini qo'llang: sin150° = 0.5, cos240° = −0.5, tg135° = −1.",
+            "yechim": {
+                "tahlil": "sin150° = 0.5, cos240° = −cos60° = −0.5, tg135° = −tg45° = −1. Yig'indi: 0.5 − 0.5 − 1 = −1.",
+                "qadamlar": [
+                    "1-qadam: sin(150°) = sin(180° − 30°) = sin30° = 0.5.",
+                    "2-qadam: cos(240°) = cos(180° + 60°) = −cos60° = −0.5.",
+                    "3-qadam: tg(135°) = tg(180° − 45°) = −tg45° = −1.",
+                    "4-qadam: Yig'indi: 0.5 + (−0.5) + (−1) = −1.",
+                    "Javob: -1."
+                ],
+                "javob": "-1"
+            }
+        }
+    },
+    27: {
+        "items": [
+            {
+                "id": "ex-27-1",
+                "daraja": "asosiy",
+                "savol": "sin(75°) + sin(15°) ifodaning qiymati √6/2 ga teng. Uning kvadratini o'nli kasrda toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 1.5",
+                "togriJavob": ["1.5", "1,5", "3/2"],
+                "validationRegex": r"^\s*(1[.,]5|3/2)\s*$",
+                "hint": "sinα + sinβ = 2·sin((α+β)/2)·cos((α−β)/2) = 2·sin45°·cos30° = √6/2. Uning kvadrati (√6/2)² = 6/4 = 1.5.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: Yig'indini ko'paytmaga keltiramiz: sin75° + sin15° = 2·sin45°·cos30°.",
+                        "2-qadam: 2 · (√2/2) · (√3/2) = √6/2.",
+                        "3-qadam: Kvadratini hisoblaymiz: (√6/2)² = 6/4 = 1.5.",
+                        "Javob: 1.5."
+                    ],
+                    "javob": "1.5"
+                }
+            },
+            {
+                "id": "ex-27-2",
+                "daraja": "ortacha",
+                "savol": "cos(105°) + cos(15°) ifodaning qiymati √2/2 ga teng. Uning kvadratini o'nli kasrda toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 0.5",
+                "togriJavob": ["0.5", "0,5", "1/2"],
+                "validationRegex": r"^\s*(0[.,]5|1/2)\s*$",
+                "hint": "cosα + cosβ = 2·cos((α+β)/2)·cos((α−β)/2) = 2·cos60°·cos45° = √2/2. Kvadrati: (√2/2)² = 0.5.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: cos105° + cos15° = 2·cos60°·cos45°.",
+                        "2-qadam: 2 · (1/2) · (√2/2) = √2/2.",
+                        "3-qadam: Kvadratini olamiz: (√2/2)² = 2/4 = 0.5.",
+                        "Javob: 0.5."
+                    ],
+                    "javob": "0.5"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "(sin(50°) + sin(10°)) / cos(20°) kasrning qiymatini hisoblang.",
+            "korsatma": "Suratga sinα + sinβ = 2sin((α+β)/2)cos((α−β)/2) formulasini qo'llang.",
+            "yechim": {
+                "tahlil": "Surat: 2·sin30°·cos20° = 2·(1/2)·cos20° = cos20°. Maxraj bilan qisqaradi: cos20° / cos20° = 1.",
+                "qadamlar": [
+                    "1-qadam: Surat: sin50° + sin10° = 2 · sin(30°) · cos(20°).",
+                    "2-qadam: sin30° = 1/2 bo'lgani uchun: 2 · (1/2) · cos20° = cos20°.",
+                    "3-qadam: Surat va maxrajni qisqartiramiz: cos20° / cos20° = 1.",
+                    "Javob: 1."
+                ],
+                "javob": "1"
+            }
+        }
+    },
+    28: {
+        "items": [
+            {
+                "id": "ex-28-1",
+                "daraja": "asosiy",
+                "savol": "Ketma-ketlik umumiy hadi aₙ = 3n − 2 formulasi bilan berilgan. Uning dastlabki 3 ta hadi yig'indisini (a₁ + a₂ + a₃) toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 12",
+                "togriJavob": ["12"],
+                "validationRegex": r"^\s*12\s*$",
+                "hint": "a₁ = 3(1)−2 = 1, a₂ = 3(2)−2 = 4, a₃ = 3(3)−2 = 7. Yig'indi: 1 + 4 + 7 = 12.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: a₁ = 3·1 − 2 = 1.",
+                        "2-qadam: a₂ = 3·2 − 2 = 4.",
+                        "3-qadam: a₃ = 3·3 − 2 = 7.",
+                        "4-qadam: Yig'indi: 1 + 4 + 7 = 12.",
+                        "Javob: 12."
+                    ],
+                    "javob": "12"
+                }
+            },
+            {
+                "id": "ex-28-2",
+                "daraja": "ortacha",
+                "savol": "Ketma-ketlik rekurrent formula bilan berilgan: a₁ = 2 va aₙ₊₁ = 2aₙ + 1. Ketma-ketlikning 4-hadi a₄ ni toping:",
+                "type": "input",
+                "inputPlaceholder": "Masalan: 23",
+                "togriJavob": ["23"],
+                "validationRegex": r"^\s*23\s*$",
+                "hint": "a₁ = 2; a₂ = 2(2)+1 = 5; a₃ = 2(5)+1 = 11; a₄ = 2(11)+1 = 23.",
+                "yechim": {
+                    "qadamlar": [
+                        "1-qadam: a₁ = 2.",
+                        "2-qadam: a₂ = 2 · 2 + 1 = 5.",
+                        "3-qadam: a₃ = 2 · 5 + 1 = 11.",
+                        "4-qadam: a₄ = 2 · 11 + 1 = 23.",
+                        "Javob: 23."
+                    ],
+                    "javob": "23"
+                }
+            }
+        ],
+        "olimpiada": {
+            "sarlavha": "Litsey va Olimpiada tayyorgarligi",
+            "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
+            "masala": "Ketma-ketlik aₙ = n² − 6n + 14 formulasi bilan berilgan. Ketma-ketlikning eng kichik hadi qiymatini toping.",
+            "korsatma": "Kvadratik had minimumini topish uchun to'la kvadrat ajrating: n² − 6n + 14 = (n − 3)² + 5.",
+            "yechim": {
+                "tahlil": "aₙ = (n − 3)² + 5. Natural son n = 3 da kvadrat 0 ga aylanib eng kichik qiymat 5 ga teng bo'ladi.",
+                "qadamlar": [
+                    "1-qadam: To'la kvadrat ajratamiz: n² − 6n + 14 = (n − 3)² + 5.",
+                    "2-qadam: Har qanday n uchun (n − 3)² ≥ 0.",
+                    "3-qadam: n = 3 bo'lganda (n − 3)² = 0 bo'lib, eng kichik had a₃ = 5 ga erishiladi.",
+                    "Javob: 5."
+                ],
+                "javob": "5"
             }
         }
     },

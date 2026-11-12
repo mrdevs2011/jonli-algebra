@@ -229,41 +229,45 @@
       {
         "id": "ex-5-1",
         "daraja": "asosiy",
-        "savol": "Kvadrat funksiyaning grafigini yasash mavzusidagi asosiy xossa bo'yicha tenglama ildizini toping: agar x² − 4 = 0 bo'lsa, musbat ildiz nechaga teng?",
+        "savol": "y = x² − 5x + 6 funksiyaning nollarini (Ox bilan kesishish nuqtalarini) kichigidan boshlab vergul bilan yozing:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 2",
+        "inputPlaceholder": "Masalan: 2, 3",
         "togriJavob": [
-          "2",
-          "+2"
+          "2, 3",
+          "2; 3",
+          "2 va 3",
+          "2,3"
         ],
-        "validationRegex": "^\\s*\\+?2\\s*$",
-        "hint": "x² = 4 tenglamaning musbat ildizini oling.",
+        "validationRegex": "^\\s*2\\s*[,;\\s]\\s*3\\s*$",
+        "hint": "y = 0 deb oling va x² − 5x + 6 = 0 kvadrat tenglamani yeching.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: x² = 4.",
-            "2-qadam: x = ±2.",
-            "3-qadam: Musbat ildiz: x = 2."
+            "1-qadam: x² − 5x + 6 = 0 kvadrat tenglama tuzamiz.",
+            "2-qadam: Viyet teoremasi bo'yicha: x₁ = 2, x₂ = 3.",
+            "Javob: 2, 3."
           ],
-          "javob": "2"
+          "javob": "2, 3"
         }
       },
       {
         "id": "ex-5-2",
         "daraja": "ortacha",
-        "savol": "x² − 6x + 9 = 0 kvadrat tenglamaning D = b² − 4ac ifodasi qiymatini hisoblang:",
+        "savol": "y = −x² + 4x − 3 parabola tarmoqlari pastga qaragan. Funksiyaning eng katta qiymatini toping:",
         "type": "input",
-        "inputPlaceholder": "Masalan: 0",
+        "inputPlaceholder": "Son kiriting",
         "togriJavob": [
-          "0"
+          "1"
         ],
-        "validationRegex": "^\\s*0\\s*$",
-        "hint": "D = b² − 4ac formulani qo'llang.",
+        "validationRegex": "^\\s*1\\s*$",
+        "hint": "Tarmoqlari pastga qaragan parabolaning eng katta qiymati uning uchida (y₀) erishiladi.",
         "yechim": {
           "qadamlar": [
-            "1-qadam: a = 1, b = −6, c = 9.",
-            "2-qadam: D = (−6)² − 4 · 1 · 9 = 36 − 36 = 0."
+            "1-qadam: a = −1 < 0, demak eng katta qiymat parabola uchida bo'ladi.",
+            "2-qadam: x₀ = −4 / (2 · (−1)) = 2.",
+            "3-qadam: y_max = y(2) = −(2)² + 4·2 − 3 = −4 + 8 − 3 = 1.",
+            "Javob: 1."
           ],
-          "javob": "0"
+          "javob": "1"
         }
       }
     ]
@@ -292,17 +296,17 @@
   "olimpiada": {
     "sarlavha": "Litsey va Olimpiada tayyorgarligi",
     "qiyinlik": "Yuqori daraja (Litsey imtihoni)",
-    "masala": "Kvadrat funksiyaning grafigini yasash doirasida: x² + (m − 2)x + 9 = 0 tenglama ikkita teng haqiqiy ildizga ega bo'ladigan musbat m parametr qiymatini toping.",
-    "korsatma": "Kvadrat tenglama ikkita teng ildizga ega bo'lishi uchun D = 0 bo'lishi lozim.",
+    "masala": "y = x² − 2x − 8 parabolaning koordinata o'qlari bilan kesishgan 3 ta nuqtasini tutashtirishdan hosil bo'lgan uchburchak yuzini toping.",
+    "korsatma": "Ox bilan kesishish nuqtalari asosini, Oy bilan kesishish nuqtasi balandligini beradi.",
     "yechim": {
-      "tahlil": "D = (m − 2)² − 4 · 1 · 9 = (m − 2)² − 36 = 0.",
+      "tahlil": "Ox nollari: x² − 2x − 8 = 0 → x₁ = −2, x₂ = 4. Asos uzunligi: 4 − (−2) = 6. Oy nuqtasi: (0; −8), balandlik: 8.",
       "qadamlar": [
-        "1-qadam: (m − 2)² = 36.",
-        "2-qadam: m − 2 = 6 yoki m − 2 = −6.",
-        "3-qadam: m₁ = 8, m₂ = −4.",
-        "4-qadam: Musbat m so'ralgan, demak m = 8."
+        "1-qadam: Ox o'qida A(−2; 0) va B(4; 0) nuqtalar, oraliq masofa AB = 6.",
+        "2-qadam: Oy o'qida C(0; −8) nuqta, balandlik h = 8.",
+        "3-qadam: Yuza S = (AB · h) / 2 = (6 · 8) / 2 = 24.",
+        "Javob: 24."
       ],
-      "javob": "8"
+      "javob": "24"
     }
   }
 }

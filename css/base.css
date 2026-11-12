@@ -10,8 +10,8 @@
   --accent-2: #2b6b4f;
   --gold: #b8872b;
   --white: #fbf8f1;
-  --shadow: 0 10px 30px rgba(26, 34, 28, 0.06);
-  --radius: 18px;
+  --shadow: none;
+  --radius: 14px;
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
   --font-sans: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1120px;
@@ -110,18 +110,19 @@ a { color: inherit; }
   width: 42px;
   height: 42px;
   border: 1px solid var(--line-strong);
-  border-radius: 13px;
+  border-radius: 10px;
   background: var(--white);
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
 }
 
 .brand:hover .mark {
-  transform: rotate(-3deg) scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+  border-color: var(--ink);
+  box-shadow: none;
+  transform: none;
 }
 
 .brand-name {
@@ -165,30 +166,37 @@ a { color: inherit; }
   background: var(--white);
   color: var(--ink);
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 7px 15px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(26,34,28,0.05);
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
-  background: #ffffff;
+  background: var(--paper-2);
   border-color: var(--ink);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(26,34,28,0.1);
+  box-shadow: none;
+  transform: none;
 }
 .btn:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(26,34,28,0.04);
+  background: var(--line);
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-accent {
   background: var(--ink);
   color: var(--paper);
   border-color: var(--ink);
+}
+
+.btn-accent:hover {
+  background: var(--ink-soft);
+  color: #ffffff;
+  border-color: var(--ink-soft);
 }
 
 .pill {
@@ -357,7 +365,7 @@ html[data-theme="dark"] {
   --accent-2: #3da374;
   --gold: #d4a343;
   --white: #171e19;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow: none;
 }
 
 html[data-theme="dark"] body {
@@ -376,6 +384,7 @@ html[data-theme="dark"] .btn {
 
 html[data-theme="dark"] .btn:hover {
   background: #253029;
+  border-color: var(--ink);
 }
 
 html[data-theme="dark"] .mode-btn {
@@ -405,14 +414,15 @@ html[data-theme="dark"] .pill-done {
   font-weight: 700;
   color: var(--ink);
   white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .hud-pill:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: var(--paper-2);
   border-color: var(--ink);
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-icon {
@@ -422,11 +432,12 @@ html[data-theme="dark"] .pill-done {
   padding: 6px 12px;
   min-height: 36px;
   border-radius: 999px;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-icon:hover {
-  transform: translateY(-1px);
+  background: var(--paper-2);
+  transform: none;
 }
 
 .badge-unlock-toast {
@@ -434,17 +445,17 @@ html[data-theme="dark"] .pill-done {
   bottom: 24px;
   right: 24px;
   background: var(--white);
-  border: 2px solid var(--gold);
-  border-radius: 14px;
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
   padding: 12px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+  box-shadow: none;
   z-index: 9999;
   transform: translateY(120%);
   opacity: 0;
-  transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .badge-unlock-toast.is-visible {
   transform: translateY(0);
