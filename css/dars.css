@@ -177,9 +177,10 @@
 
 /* Dars ochilganda sahna to‘ldirilganda */
 .stage.is-live {
-  border-style: solid;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
   background: var(--white);
-  box-shadow: var(--shadow);
+  box-shadow: none;
   padding: 16px;
   text-align: left;
   overflow: visible;
