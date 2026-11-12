@@ -1707,3 +1707,105 @@ html[data-theme="dark"] .doska-masala-img img {
   transition: filter 0.25s ease, transform 0.12s ease;
 }
 
+/* ==========================================================================
+   100% SEAMLESS DARK MODE FOR LESSON VIEW & INTERACTIVE STAGES
+   ========================================================================== */
+html[data-theme="dark"] .block-agenda,
+html[data-theme="dark"] .block-kitob,
+html[data-theme="dark"] .block-doska,
+html[data-theme="dark"] .block-mashq,
+html[data-theme="dark"] .block-olimpiada,
+html[data-theme="dark"] .block-xulosa,
+html[data-theme="dark"] .block-chapter-exam {
+  background: var(--white) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .stage {
+  background:
+    linear-gradient(180deg, rgba(22,30,24,0.96), rgba(22,30,24,0.96)),
+    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(38,51,42,0.35) 24px),
+    repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(38,51,42,0.28) 24px) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .stage.is-live {
+  background: var(--paper-2) !important;
+  border-color: var(--line-strong) !important;
+}
+
+html[data-theme="dark"] .sahna1-graf {
+  background: #141b16 !important;
+}
+
+html[data-theme="dark"] .mashq-item-card {
+  background: var(--paper-2) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .mashq-item-card.is-correct {
+  border-color: #3da374 !important;
+  background: rgba(61, 163, 116, 0.12) !important;
+}
+
+html[data-theme="dark"] .mashq-input {
+  background: var(--paper) !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .mashq-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(226, 99, 64, 0.25) !important;
+}
+
+html[data-theme="dark"] .mashq-hint-box {
+  background: rgba(184, 135, 43, 0.1) !important;
+  border-color: rgba(184, 135, 43, 0.3) !important;
+  color: #e2c17c !important;
+}
+
+html[data-theme="dark"] .mashq-yechim-accordion {
+  background: var(--paper) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .agenda-steps li.is-active {
+  background: rgba(184, 135, 43, 0.18) !important;
+  color: #e2c17c !important;
+}
+
+html[data-theme="dark"] .savol-opts button {
+  background: var(--paper-2) !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .savol-opts button:hover {
+  background: #232c25 !important;
+}
+
+html[data-theme="dark"] .savol-opts button.togri {
+  background: rgba(61, 163, 116, 0.22) !important;
+  border-color: var(--accent-2) !important;
+  color: #55d697 !important;
+}
+
+html[data-theme="dark"] .savol-opts button.notogri {
+  background: rgba(194, 75, 42, 0.22) !important;
+  border-color: var(--accent) !important;
+  color: #f28b72 !important;
+}
+
+html[data-theme="dark"] .doska-tab {
+  background: var(--paper-2) !important;
+  border-color: var(--line) !important;
+  color: var(--ink-soft) !important;
+}
+
+html[data-theme="dark"] .doska-tab.is-active {
+  background: var(--accent-2) !important;
+  border-color: var(--accent-2) !important;
+  color: #ffffff !important;
+}
+

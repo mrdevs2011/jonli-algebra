@@ -84,6 +84,12 @@
             "<h2>" + escapeHtml(bob.nom) + "</h2>" +
             "<p>" + escapeHtml(bob.izoh) + " · " + lessons.length + " dars</p>" +
           "</div>" +
+          '<div class="chapter-actions">' +
+            '<button type="button" class="btn btn-chapter-exam" data-bob="' + bob.id + '" title="' + escapeHtml(bob.roman) + ' bob yakuniy nazorat testi">' +
+              '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px; vertical-align:-2px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>' +
+              'Nazorat Testi (15 daq)' +
+            '</button>' +
+          '</div>' +
         "</div>" +
         '<div class="lessons">' + rows + "</div>" +
       "</section>"
@@ -345,6 +351,57 @@
     });
   }
 
+  // Bob Nazorat Testlarini boshlash (Chapter Mastery Exams)
+  function initChapterExamLaunchers() {
+    var overlay = document.getElementById("modalOverlay");
+    if (!overlay) return;
+
+    document.querySelectorAll(".btn-chapter-exam").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var bobId = parseInt(btn.getAttribute("data-bob"), 10);
+        if (!bobId) return;
+
+        overlay.className = "formula-modal-backdrop";
+        overlay.style.display = "flex";
+        overlay.innerHTML =
+          '<div class="formula-modal" style="max-width:880px; max-height:92vh;">' +
+            '<div style="text-align:right; margin-bottom:8px;">' +
+              '<button type="button" id="closeChapterExamModal" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:4px;">' +
+                '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+              '</button>' +
+            '</div>' +
+            '<div id="chapterExamActiveRoot"></div>' +
+          '</div>';
+
+        var closeBtn = document.getElementById("closeChapterExamModal");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function () {
+            overlay.style.display = "none";
+            overlay.innerHTML = "";
+          });
+        }
+
+        var rootEl = document.getElementById("chapterExamActiveRoot");
+        if (window.JA_EXAM && window.JA_EXAM.startChapterExam) {
+          window.JA_EXAM.startChapterExam(bobId, rootEl);
+        }
+      });
+    });
+  }
+
+  // Tezkor klaviatura qidiruvi: "/" tugmasi formulalar qidiruviga o'tkazadi
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && document.activeElement && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+      var sInp = document.getElementById("formulaSearchInput");
+      if (sInp) {
+        e.preventDefault();
+        sInp.focus();
+        sInp.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  });
+
   initFormulasModule();
   initMockLauncher();
+  initChapterExamLaunchers();
 })();
