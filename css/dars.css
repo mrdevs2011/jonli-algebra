@@ -392,8 +392,9 @@
   width: 54px;
   height: 70px;
   background: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 4px 10px 10px 4px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
   animation: kitobLoaderPulse 1s ease-in-out infinite;
 }
 
