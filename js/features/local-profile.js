@@ -212,39 +212,64 @@
     });
   }
 
-  // Onboarding popover (Agar o'quvchi birinchi marta kirgan bo'lsa)
-  function checkOnboarding() {
-    if (currentState.user.onboarded) return;
-    var popover = document.createElement("div");
-    popover.className = "onboarding-popover";
-    popover.innerHTML =
-      '<div class="onboarding-card">' +
-        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
-          '<div style="font-weight:700; font-size:1.05rem; color:var(--ink);">Xush kelibsiz!</div>' +
-          '<button type="button" id="closeOnboardingBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft);">' +
-            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+  // Onboarding modal (Agar o'quvchi birinchi marta kirgan bo'lsa)
+  function checkOnboarding(force) {
+    if (!force && currentState.user && currentState.user.onboarded) return;
+    if (document.getElementById("onboardingModal")) return;
+
+    var backdrop = document.createElement("div");
+    backdrop.id = "onboardingModal";
+    backdrop.className = "modal-backdrop onboarding-backdrop";
+    backdrop.innerHTML =
+      '<div class="modal-card onboarding-card" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">' +
+        '<div class="onboarding-head">' +
+          '<div class="onboarding-icon-wrap" aria-hidden="true">' +
+            '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+              '<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>' +
+              '<path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>' +
+            '</svg>' +
+          '</div>' +
+          '<div class="onboarding-head-content">' +
+            '<h3 id="onboardingTitle" class="onboarding-title">Xush kelibsiz!</h3>' +
+            '<p class="onboarding-subtitle">Jonli Algebra — 9-sinf vizual matematika</p>' +
+          '</div>' +
+          '<button type="button" class="modal-close-btn" id="closeOnboardingBtn" aria-label="Yopish" title="Yopish">' +
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
           '</button>' +
         '</div>' +
-        '<p style="font-size:0.88rem; color:var(--ink-soft); margin:0 0 12px; line-height:1.4;">Ismingizni kiriting — natijalar va sertifikatlar o\'z nomingizga rasmiylashtiriladi.</p>' +
-        '<div style="display:flex; gap:8px;">' +
-          '<input type="text" id="onboardingNameInput" placeholder="Ismingiz (masalan: Alisher)" style="flex:1; padding:7px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:0.9rem; background:var(--paper); color:var(--ink);">' +
-          '<button type="button" id="saveOnboardingBtn" class="btn" style="background:var(--accent); color:#fff; font-weight:600; padding:7px 16px; border-radius:8px; font-size:0.88rem; cursor:pointer;">Saqlash</button>' +
+        '<div class="onboarding-body">' +
+          '<label for="onboardingNameInput" class="onboarding-label">Ismingizni kiriting:</label>' +
+          '<input type="text" id="onboardingNameInput" class="onboarding-input" placeholder="Masalan: Alisher yoki Ziyoda" autocomplete="name" maxlength="32" value="' + escapeHtml(currentState.user.displayName && currentState.user.displayName !== "Yosh Matematik" ? currentState.user.displayName : "") + '">' +
+          '<p class="onboarding-hint">To\'plangan XP ballar, kunlik silsila va litsey sinov natijalari sizning nomingizga saqlanadi.</p>' +
+        '</div>' +
+        '<div class="onboarding-footer">' +
+          '<button type="button" id="skipOnboardingBtn" class="btn btn-ghost" style="padding:8px 16px;">Keyinroq</button>' +
+          '<button type="button" id="saveOnboardingBtn" class="btn btn-accent" style="padding:8px 20px; font-weight:600;">Boshlash</button>' +
         '</div>' +
       '</div>';
 
-    document.body.appendChild(popover);
+    document.body.appendChild(backdrop);
 
-    function closePopover() {
+    function closeModal() {
       currentState.user.onboarded = true;
       saveState();
-      popover.parentElement.removeChild(popover);
+      updateGlobalHUD();
+      if (backdrop.parentElement) {
+        backdrop.parentElement.removeChild(backdrop);
+      }
     }
 
-    var saveBtn = popover.querySelector("#saveOnboardingBtn");
-    var input = popover.querySelector("#onboardingNameInput");
-    var closeBtn = popover.querySelector("#closeOnboardingBtn");
+    var saveBtn = backdrop.querySelector("#saveOnboardingBtn");
+    var skipBtn = backdrop.querySelector("#skipOnboardingBtn");
+    var input = backdrop.querySelector("#onboardingNameInput");
+    var closeBtn = backdrop.querySelector("#closeOnboardingBtn");
 
-    if (closeBtn) closeBtn.addEventListener("click", closePopover);
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (skipBtn) skipBtn.addEventListener("click", closeModal);
+
+    backdrop.addEventListener("click", function (e) {
+      if (e.target === backdrop) closeModal();
+    });
 
     if (saveBtn && input) {
       saveBtn.addEventListener("click", function () {
@@ -252,29 +277,35 @@
         if (val) {
           currentState.user.displayName = val;
         }
-        closePopover();
+        closeModal();
       });
       input.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
           e.preventDefault();
           saveBtn.click();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          closeModal();
         }
       });
+      setTimeout(function () {
+        input.focus();
+      }, 100);
     }
   }
 
   // Profil va Ma'lumotlarni Boshqarish Modali (Backup / Restore / Reset)
   function openProfileModal() {
     var overlay = document.createElement("div");
-    overlay.className = "formula-modal-backdrop";
+    overlay.className = "modal-backdrop formula-modal-backdrop";
     overlay.style.display = "flex";
 
     overlay.innerHTML =
-      '<div class="formula-modal" style="max-width:520px;">' +
+      '<div class="modal-card formula-modal" style="max-width:520px;">' +
         '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">' +
           '<h3 style="margin:0; font-size:1.25rem; font-family:var(--font-serif); color:var(--ink);">Profil va Ma\'lumotlar Boshqaruvi</h3>' +
-          '<button type="button" id="closeProfileModalBtn" style="background:transparent; border:none; cursor:pointer; color:var(--ink-soft); padding:4px;">' +
-            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+          '<button type="button" class="modal-close-btn" id="closeProfileModalBtn" aria-label="Yopish" title="Yopish">' +
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
           '</button>' +
         '</div>' +
         '<div style="background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:18px;">' +
@@ -385,6 +416,7 @@
     exportBackup: exportBackup,
     restoreBackup: restoreBackup,
     hardReset: hardReset,
-    openProfileModal: openProfileModal
+    openProfileModal: openProfileModal,
+    openOnboarding: function (force) { checkOnboarding(force !== false); }
   };
 })();

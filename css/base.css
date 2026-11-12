@@ -517,3 +517,191 @@ svg.btn-icon, svg.svg-icon {
   color: var(--ink);
 }
 
+/* ==========================================================================
+   GLOBAL MODAL SYSTEM (ONBOARDING, PROFILES, FORMULAS)
+   ========================================================================== */
+.modal-backdrop,
+.formula-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 20, 24, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-card,
+.formula-modal {
+  background: var(--white);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 26px;
+  max-width: 580px;
+  width: 100%;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalPopIn 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPopIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.modal-close-btn:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+/* Onboarding Modal specifics */
+.onboarding-card {
+  max-width: 460px;
+  padding: 28px 24px;
+}
+
+.onboarding-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.onboarding-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.onboarding-head-content {
+  flex: 1;
+}
+
+.onboarding-title {
+  margin: 0 0 4px;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.onboarding-subtitle {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.onboarding-body {
+  margin-bottom: 22px;
+}
+
+.onboarding-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.onboarding-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.onboarding-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(194, 75, 42, 0.14);
+}
+
+.onboarding-hint {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.onboarding-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+/* Dark mode for modals */
+html[data-theme="dark"] .modal-card,
+html[data-theme="dark"] .formula-modal {
+  background: #19201b !important;
+  border-color: #2f3e33 !important;
+  color: #e6eae6 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="dark"] .onboarding-icon-wrap {
+  background: #1e2621 !important;
+  border-color: #2f3e33 !important;
+  color: #e8633e !important;
+}
+
+html[data-theme="dark"] .onboarding-input {
+  background: #131a16 !important;
+  border-color: #37473b !important;
+  color: #f0f4f1 !important;
+}
+
+html[data-theme="dark"] .onboarding-input:focus {
+  border-color: #e8633e !important;
+  box-shadow: 0 0 0 3px rgba(232, 99, 62, 0.22) !important;
+}
+
+html[data-theme="dark"] .modal-close-btn:hover {
+  background: #253229 !important;
+  color: #f0f4f1 !important;
+}
+
