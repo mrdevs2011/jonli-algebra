@@ -375,15 +375,51 @@
     }
   };
 
+  // Shuffle helper: randomizes options so correct answer is not always first option (A)
+  function shuffleQuestionOptions(q) {
+    var originalCorrect = q.correct || 0;
+    var correctText = q.options[originalCorrect];
+    var indexed = q.options.map(function (opt, idx) {
+      return { text: opt, isCorrect: idx === originalCorrect };
+    });
+    for (var i = indexed.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = indexed[i];
+      indexed[i] = indexed[j];
+      indexed[j] = temp;
+    }
+    var newOptions = indexed.map(function (item) { return item.text; });
+    var newCorrect = 0;
+    for (var k = 0; k < indexed.length; k++) {
+      if (indexed[k].isCorrect) {
+        newCorrect = k;
+        break;
+      }
+    }
+    return {
+      q: q.q,
+      options: newOptions,
+      correct: newCorrect,
+      topic: q.topic,
+      explanation: q.explanation || ("To'g'ri javob: " + correctText)
+    };
+  }
+
   // Litsey Kirish Imtihoni (Full 60-min Westminster ALWIUT / PM / WIUT Mock Simulator)
   function generateLyceumMock() {
-    var allQuestions = [];
-    // Collect from all chapters
+    var tests = [];
+    // Har bir bobdan 5 tadan savol olib, jami 25 ta keng qamrovli test hosil qilamiz (5 bob x 5 = 25)
     for (var ch = 1; ch <= 5; ch++) {
-      allQuestions = allQuestions.concat(CHAPTER_EXAMS[ch].questions);
+      var chQuestions = CHAPTER_EXAMS[ch].questions.slice();
+      for (var ci = chQuestions.length - 1; ci > 0; ci--) {
+        var cj = Math.floor(Math.random() * (ci + 1));
+        var ctmp = chQuestions[ci];
+        chQuestions[ci] = chQuestions[cj];
+        chQuestions[cj] = ctmp;
+      }
+      var picked = chQuestions.slice(0, 5).map(shuffleQuestionOptions);
+      tests = tests.concat(picked);
     }
-    // Take 25 tests + 5 open written problems
-    var tests = allQuestions.slice(0, 25);
     var written = [
       {
         q: "1-yozma masala: y = x² − 6x + 5 parabola bilan y = 2x − 2 to'g'ri chiziqning kesishish nuqtalari abssissalari yig'indisini toping:",
@@ -521,8 +557,16 @@
   }
 
   function startChapterExam(bobId, containerEl) {
-    var exam = CHAPTER_EXAMS[bobId];
-    if (!exam) return;
+    var rawExam = CHAPTER_EXAMS[bobId];
+    if (!rawExam) return;
+
+    var exam = {
+      bobId: rawExam.bobId,
+      title: rawExam.title,
+      badgeId: rawExam.badgeId,
+      durationSec: rawExam.durationSec,
+      questions: rawExam.questions.map(shuffleQuestionOptions)
+    };
 
     var targetBox = containerEl;
     var dialogMode = false;

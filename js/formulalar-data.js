@@ -3,6 +3,140 @@
  * Barcha 65 ta algebraik formula, ta'rifi, isboti va darslarga deep linklar.
  */
 window.JA_FORMULALAR = [
+  // --- 0-BOB: LITSEYGA POYDEVOR (PRE-ALGEBRA) ---
+  {
+    id: "f-pre-1",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Yig'indi kvadrati formulasi",
+    formula: "(a + b)² = a² + 2ab + b²",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Ikkita son yig'indisining kvadrati: birinchi son kvadrati, ikkilangan ko'paytma va ikkinchi son kvadrati yig'indisiga teng.",
+    isbot: "(a + b)(a + b) = a·a + a·b + b·a + b·b = a² + 2ab + b² (geometrik kvadrat yuzasi orqali)."
+  },
+  {
+    id: "f-pre-2",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Ayirma kvadrati formulasi",
+    formula: "(a − b)² = a² − 2ab + b²",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Ikkita son ayirmasining kvadrati har doim musbat yoki nol bo'ladi ((a-b)² ≥ 0).",
+    isbot: "(a − b)(a − b) = a² − ab − ba + b² = a² − 2ab + b²."
+  },
+  {
+    id: "f-pre-3",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Kvadratlar ayirmasi formulasi",
+    formula: "a² − b² = (a − b)(a + b)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Algebrada eng ko'p ishlatiladigan ko'paytuvchilarga ajratish quroli. Litsey imtihonlarining 80% masalasida uchraydi.",
+    isbot: "(a − b)(a + b) = a² + ab − ba − b² = a² − b²."
+  },
+  {
+    id: "f-pre-4",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Kublar yig'indisi va ayirmasi",
+    formula: "a³ ± b³ = (a ± b)(a² ∓ ab + b²)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Qisqa ko'paytirish formulalari: chala kvadrat bilan ko'paytma orqali kublar hosil bo'ladi.",
+    isbot: "O'ng qismdagi qavslarni hadma-had ko'paytirib ochish orqali ayniyat isbotlanadi."
+  },
+  {
+    id: "f-pre-5",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Darajalar ko'paytmasi va bo'linmasi",
+    formula: "aᵐ · aⁿ = aᵐ⁺ⁿ, &nbsp; aᵐ / aⁿ = aᵐ⁻ⁿ &nbsp;(a ≠ 0)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Bir xil asosli darajalarni ko'paytirganda daraja ko'rsatkichlari qo'shiladi, bo'lganda ayiriladi.",
+    isbot: "a sonini m marta va n marta ketma-ket ko'paytirishdan m+n marta ko'paytma hosil bo'ladi."
+  },
+  {
+    id: "f-pre-6",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Manfiy va nol daraja qoidasi",
+    formula: "a⁰ = 1, &nbsp; a⁻ⁿ = 1 / aⁿ &nbsp;(a ≠ 0)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Nol daraja doim 1 ga teng. Manfiy daraja kasr maxrajiga tushib musbat darajaga aylanadi.",
+    isbot: "aⁿ / aⁿ = aⁿ⁻ⁿ = a⁰ = 1; &nbsp; 1 / aⁿ = a⁰ / aⁿ = a⁰⁻ⁿ = a⁻ⁿ."
+  },
+  {
+    id: "f-pre-7",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Kvadrat ildiz ko'paytmasi va bo'linmasi",
+    formula: "√(a · b) = √a · √b, &nbsp; √(a / b) = √a / √b &nbsp;(a ≥ 0, b > 0)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Manfiy bo'lmagan sonlarning ko'paytmasidan olingan kvadrat ildiz har birining ildizlari ko'paytmasiga teng.",
+    isbot: "(√a · √b)² = (√a)² · (√b)² = a · b."
+  },
+  {
+    id: "f-pre-8",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Chiziqli funksiya va to'g'ri chiziq tenglamasi",
+    formula: "y = kx + b",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "k — burchak koeffitsiyenti (grafik qiyaligi), b — to'g'ri chiziqning Oy o'qini kesib o'tish nuqtasi.",
+    isbot: "x = 0 bo'lganda y = b (kesishish nuqtasi). Δy / Δx = k doimiy o'zgarmas nisbat."
+  },
+  {
+    id: "f-pre-9",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Ikki to'g'ri chiziqning parallelligi va perpendikulyarligi",
+    formula: "k₁ = k₂ &nbsp;(Parallel), &nbsp; k₁ · k₂ = −1 &nbsp;(Perpendikulyar)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Parallel to'g'ri chiziqlarning burchak koeffitsiyentlari teng, perpendikulyar chiziqlar koeffitsiyentlari ko'paytmasi −1 ga teng.",
+    isbot: "Qiyalik burchaklari teng bo'lsa tgα₁ = tgα₂ → k₁ = k₂. α₂ = α₁ + 90° da tg(α+90°) = −ctgα = −1/tgα."
+  },
+  {
+    id: "f-pre-10",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Koordinata tekisligida ikki nuqta orasidagi masofa",
+    formula: "d = √((x₂ − x₁)² + (y₂ − y₁)²)",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "A(x₁; y₁) va B(x₂; y₂) nuqtalar orasidagi to'g'ri chiziqli masofani hisoblash.",
+    isbot: "To'g'ri burchakli uchburchakda Pifagor teoremasi: gipotenuza d² = Δx² + Δy²."
+  },
+  {
+    id: "f-pre-11",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Kesma o'rtasi koordinatalari",
+    formula: "x₀ = (x₁ + x₂) / 2, &nbsp; y₀ = (y₁ + y₂) / 2",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Uchlari A va B bo'lgan kesmaning qoq markaziy nuqtasi koordinatalari abssissa va ordinatalarning o'rta arifmetigidir.",
+    isbot: "Fales teoremasi va o'xshash uchburchaklar nisbati 1:1 ekanligidan kelib chiqadi."
+  },
+  {
+    id: "f-pre-12",
+    bob: 0,
+    bobNom: "0-bob · Litseyga Poydevor",
+    title: "Keltirilgan kvadrat tenglamada Viyet",
+    formula: "x² + px + q = 0 &nbsp;⇒&nbsp; x₁ + x₂ = −p, &nbsp; x₁ · x₂ = q",
+    lessonId: 1,
+    lessonLink: "#poydevor",
+    desc: "Bosh koeffitsiyenti a = 1 bo'lgan kvadrat tenglamaning ildizlari yig'indisi qarama-qarshi ishora bilan olingan ikkinchi koeffitsiyentga, ko'paytmasi esa erkin hadga teng.",
+    isbot: "(x − x₁)(x − x₂) = x² − (x₁+x₂)x + x₁x₂ ayniyatini x² + px + q bilan solishtirishdan."
+  },
+
   // --- I BOB ---
   {
     id: "f-1",
@@ -53,11 +187,11 @@ window.JA_FORMULALAR = [
     bob: 1,
     bobNom: "I bob · Kvadrat funksiya",
     title: "Parabola uchining ordinatasi",
-    formula: "y₀ = −(b² − 4ac) / (4a) = 4ac − b² / (4a)",
+    formula: "y₀ = (4ac − b²) / (4a) = −D / (4a)",
     lessonId: 4,
     lessonLink: "lessons/math/9/4/",
     desc: "Parabola uchining vertikal balandligi yoki eng chuqur nuqtasi qiymati.",
-    isbot: "y₀ = f(x₀) funksiyaga x = −b/(2a) qiymatini qo'yish orqali hisoblanadi."
+    isbot: "y₀ = f(x₀) funksiyaga x = −b/(2a) qiymatini qo'yish orqali hisoblanadi: a(−b/2a)² + b(−b/2a) + c = (4ac − b²) / (4a)."
   },
   {
     id: "f-6",
@@ -90,7 +224,7 @@ window.JA_FORMULALAR = [
     lessonId: 5,
     lessonLink: "lessons/math/9/5/",
     desc: "ax² + bx + c = 0 tenglamaning barcha haqiqiy ildizlarini topish umumiy formulasi.",
-    isbot: "a(x + b/(2a))² = D / (4a) → (x + b/(2a)) = ±√D / (2a)."
+    isbot: "ax² + bx + c = 0 → (x + b/(2a))² = (b² − 4ac)/(4a²) = D/(4a²) → x + b/(2a) = ±√D/(2a) → x = (−b ± √D)/(2a)."
   },
   {
     id: "f-9",
@@ -429,5 +563,181 @@ window.JA_FORMULALAR = [
     lessonLink: "lessons/math/9/38/",
     desc: "Statistik tanlanmadagi barcha kuzatilgan qiymatlarning o'rtacha kattaligi.",
     isbot: "Ma'lumotlar markaziy tendensiyasini ifodalovchi eng asosiy ko'rsatkich."
+  },
+  {
+    id: "f-39",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Tangens va kotangens ko'paytmasi",
+    formula: "tgα · ctgα = 1 &nbsp;(α ≠ πk/2)",
+    lessonId: 21,
+    lessonLink: "lessons/math/9/21/",
+    desc: "Ayni bir burchakning tangensi va kotangensi o'zaro teskari sonlardir.",
+    isbot: "tgα = sinα/cosα va ctgα = cosα/sinα bo'lgani uchun: (sinα/cosα) · (cosα/sinα) = 1."
+  },
+  {
+    id: "f-40",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Tangens va kosinus munosabati",
+    formula: "1 + tg²α = 1 / cos²α &nbsp;(α ≠ π/2 + πk)",
+    lessonId: 21,
+    lessonLink: "lessons/math/9/21/",
+    desc: "Tangens qiymati orqali to'g'ridan-to'g'ri kosinusni hisoblash ayniyati.",
+    isbot: "1 + sin²α/cos²α = (cos²α + sin²α) / cos²α = 1 / cos²α."
+  },
+  {
+    id: "f-41",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Kotangens va sinus munosabati",
+    formula: "1 + ctg²α = 1 / sin²α &nbsp;(α ≠ πk)",
+    lessonId: 21,
+    lessonLink: "lessons/math/9/21/",
+    desc: "Kotangens qiymati orqali to'g'ridan-to'g'ri sinusni hisoblash ayniyati.",
+    isbot: "1 + cos²α/sin²α = (sin²α + cos²α) / sin²α = 1 / sin²α."
+  },
+  {
+    id: "f-42",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Kosinus ikkilangan burchak",
+    formula: "cos2α = cos²α − sin²α = 2cos²α − 1 = 1 − 2sin²α",
+    lessonId: 25,
+    lessonLink: "lessons/math/9/25/",
+    desc: "cos(α+α) qo'shish formulasidan kelib chiqadigan uch xil qulay ko'rinish.",
+    isbot: "cos(α+β) = cosα cosβ − sinα sinβ da β = α deb olinsa: cos2α = cos²α − sin²α."
+  },
+  {
+    id: "f-43",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Tangens ikkilangan burchak",
+    formula: "tg2α = 2tgα / (1 − tg²α)",
+    lessonId: 25,
+    lessonLink: "lessons/math/9/25/",
+    desc: "Ikkilangan burchak tangensini bir karrali burchak orqali hisoblash.",
+    isbot: "tg(α+β) = (tgα + tgβ)/(1 − tgα tgβ) formulasida β = α qo'yish orqali chiqadi."
+  },
+  {
+    id: "f-44",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Darajani pasaytirish formulalari",
+    formula: "sin²α = (1 − cos2α) / 2, &nbsp; cos²α = (1 + cos2α) / 2",
+    lessonId: 25,
+    lessonLink: "lessons/math/9/25/",
+    desc: "Trigonometriyada kvadratik hadlarni birinchi darajali ikkilangan burchakka aylantirish.",
+    isbot: "cos2α = 1 − 2sin²α → 2sin²α = 1 − cos2α; cos2α = 2cos²α − 1 → 2cos²α = 1 + cos2α."
+  },
+  {
+    id: "f-45",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Sinus va kosinus ko'paytmasini yig'indiga aylantirish",
+    formula: "sinα · cosβ = ½ [sin(α + β) + sin(α − β)]",
+    lessonId: 27,
+    lessonLink: "lessons/math/9/27/",
+    desc: "Ko'paytmani integrallash yoki soddalashtirish uchun yig'indiga o'girish.",
+    isbot: "sin(α+β) va sin(α−β) qo'shish formulalarini hadma-had qo'shishdan kelib chiqadi."
+  },
+  {
+    id: "f-46",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Kosinuslar ko'paytmasini yig'indiga aylantirish",
+    formula: "cosα · cosβ = ½ [cos(α − β) + cos(α + β)]",
+    lessonId: 27,
+    lessonLink: "lessons/math/9/27/",
+    desc: "Ikki kosinus ko'paytmasini yig'indiga o'tkazish ayniyati.",
+    isbot: "cos(α−β) va cos(α+β) formulalarini qo'shish orqali isbotlanadi."
+  },
+  {
+    id: "f-47",
+    bob: 3,
+    bobNom: "III bob · Trigonometriya",
+    title: "Sinuslar ko'paytmasini ayirmaga aylantirish",
+    formula: "sinα · sinβ = ½ [cos(α − β) − cos(α + β)]",
+    lessonId: 27,
+    lessonLink: "lessons/math/9/27/",
+    desc: "Ikki sinus ko'paytmasini kosinuslar ayirmasiga keltirish.",
+    isbot: "cos(α−β) dan cos(α+β) ni ayirish orqali olinadi: ayirma 2sinα sinβ ga teng bo'ladi."
+  },
+  {
+    id: "f-48",
+    bob: 4,
+    bobNom: "IV bob · Progressiyalar",
+    title: "Arifmetik progressiyaning xarakteristik xossasi",
+    formula: "aₙ = (aₙ₋₁ + aₙ₊₁) / 2 &nbsp;(n ≥ 2)",
+    lessonId: 29,
+    lessonLink: "lessons/math/9/29/",
+    desc: "Arifmetik progressiyaning ikkinchi hadidan boshlab har bir hadi o'ziga qo'shni ikki hadning o'rta arifmetigiga teng.",
+    isbot: "aₙ − aₙ₋₁ = d va aₙ₊₁ − aₙ = d tengliklarni tenglashtirib: 2aₙ = aₙ₋₁ + aₙ₊₁."
+  },
+  {
+    id: "f-49",
+    bob: 4,
+    bobNom: "IV bob · Progressiyalar",
+    title: "Arifmetik progressiyada ixtiyoriy ikki had ayirmasi",
+    formula: "aₙ − aₖ = (n − k) · d",
+    lessonId: 29,
+    lessonLink: "lessons/math/9/29/",
+    desc: "Istalgan ikkita had va ayirma d orasidagi tezkor aloqa. Litsey testlarida vaqtni 3 barobar tejaydi.",
+    isbot: "aₙ = a₁ + (n−1)d va aₖ = a₁ + (k−1)d ayirmasidan to'g'ridan-to'g'ri (n−k)d chiqadi."
+  },
+  {
+    id: "f-50",
+    bob: 4,
+    bobNom: "IV bob · Progressiyalar",
+    title: "Geometrik progressiyaning xarakteristik xossasi",
+    formula: "bₙ² = bₙ₋₁ · bₙ₊₁ &nbsp;(n ≥ 2)",
+    lessonId: 31,
+    lessonLink: "lessons/math/9/31/",
+    desc: "Geometrik progressiyaning har bir hadining kvadrati unga qo'shni ikki hadning ko'paytmasiga teng.",
+    isbot: "bₙ / bₙ₋₁ = q va bₙ₊₁ / bₙ = q ekanligidan: bₙ² = bₙ₋₁ · bₙ₊₁."
+  },
+  {
+    id: "f-51",
+    bob: 4,
+    bobNom: "IV bob · Progressiyalar",
+    title: "Geometrik progressiyada ixtiyoriy ikki had nisbati",
+    formula: "bₙ / bₖ = qⁿ⁻ᵏ",
+    lessonId: 31,
+    lessonLink: "lessons/math/9/31/",
+    desc: "Istalgan ikki had orqali progressiya maxraji q ni tezkor hisoblash formulasi.",
+    isbot: "bₙ = b₁ qⁿ⁻¹ va bₖ = b₁ qᵏ⁻¹ nisbatidan qⁿ⁻¹⁻⁽ᵏ⁻¹⁾ = qⁿ⁻ᵏ kelib chiqadi."
+  },
+  {
+    id: "f-52",
+    bob: 5,
+    bobNom: "V bob · Ehtimollik va Statistika",
+    title: "Hodisalar birlashmasi ehtimolligi (Qo'shish teoremasi)",
+    formula: "P(A ∪ B) = P(A) + P(B) − P(A ∩ B)",
+    lessonId: 35,
+    lessonLink: "lessons/math/9/35/",
+    desc: "Ikkita hodisadan kamida birining ro'y berish ehtimolligi ularning ehtimolliklari yig'indisidan umumiy qismi ehtimolligi ayirmasiga teng.",
+    isbot: "To'plamlar quvvati formulasi: |A ∪ B| = |A| + |B| − |A ∩ B|. Ikkala tomonni umumiy n ga bo'lishdan."
+  },
+  {
+    id: "f-53",
+    bob: 5,
+    bobNom: "V bob · Ehtimollik va Statistika",
+    title: "Mustaqil hodisalar ko'paytmasi",
+    formula: "P(A ∩ B) = P(A) · P(B)",
+    lessonId: 35,
+    lessonLink: "lessons/math/9/35/",
+    desc: "Biri ikkinchisining ro'y berishiga ta'sir qilmaydigan mustaqil hodisalarning bir vaqtda sodir bo'lish ehtimolligi.",
+    isbot: "Kombinatorika bo'yicha mustaqil tanlovlar soni ko'paytmasi m_A · m_B / (n_A · n_B)."
+  },
+  {
+    id: "f-54",
+    bob: 5,
+    bobNom: "V bob · Ehtimollik va Statistika",
+    title: "Tanlanma dispersiyasi va standart og'ishi",
+    formula: "D = [∑ (xᵢ − X̄)²] / n, &nbsp; σ = √D",
+    lessonId: 38,
+    lessonLink: "lessons/math/9/38/",
+    desc: "Qiymatlarning o'rtacha qiymat atrofida qanchalik tarqalganligini ko'rsatuvchi muhim ko'rsatkich.",
+    isbot: "Har bir og'ish kvadrati o'rtachasi dispersiyani, uning kvadrat ildizi esa o'rtacha kvadratik og'ishni beradi."
   }
 ];

@@ -70,13 +70,14 @@
         note.textContent = notes.subst || "Almashtirish: birini ifodalab qo‘yamiz.";
       } else {
         content.innerHTML = '<div style="font-family:monospace;font-size:14px;line-height:1.6;">' +
-          '<div>{ x + y = 5</div><div>&nbsp;&nbsp;x − y = 1 }</div>' +
-          '<div style="margin-top:8px;">(x + y) + (x − y) = 5 + 1</div>' +
-          '<div>2x = 6</div>' +
-          '<div><strong>x = 3</strong></div>' +
-          '<div>3 + y = 5 → <strong>y = 2</strong></div>' +
+          '<div>{ −x + y = 1 &nbsp; (y = x + 1 dan)</div>' +
+          '<div>&nbsp;&nbsp;x + y = 5 &nbsp; (y = −x + 5 dan) }</div>' +
+          '<div style="margin-top:8px;">(−x + y) + (x + y) = 1 + 5</div>' +
+          '<div>2y = 6 &nbsp;→&nbsp; <strong>y = 3</strong></div>' +
+          '<div>x + 3 = 5 &nbsp;→&nbsp; <strong>x = 2</strong></div>' +
+          '<div style="margin-top:6px; color:#16a34a;"><strong>Yechim: (2; 3) — barcha 3 ta usulda bir xil!</strong></div>' +
           '</div>';
-        note.textContent = notes.add || "Qo‘shish: o‘zgaruvchini yo‘qotamiz.";
+        note.textContent = notes.add || "Qo‘shish: tenglamalarni qo‘shib x ni yo‘qotamiz, y = 3, keyin x = 2 chiqadi.";
       }
     }
 

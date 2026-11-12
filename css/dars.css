@@ -465,28 +465,64 @@
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
+
+.kitob-nav-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.kitob-nav-mode-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.kitob-nav-mode-btn:active {
+  transform: translateY(0);
 }
 
 .kitob-lightbox-close {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  border: none;
-  background: var(--white);
-  color: var(--ink);
-  font-size: 1.3rem;
-  line-height: 1;
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(24, 30, 36, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--white);
   cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: transform 0.15s ease, background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10005;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background 0.18s ease, border-color 0.18s ease;
 }
 
-.kitob-lightbox-close:hover { transform: scale(1.08) rotate(90deg); background: var(--paper); }
-.kitob-lightbox-close:active { transform: scale(0.96) rotate(90deg); }
+.kitob-lightbox-close:hover {
+  transform: scale(1.08) rotate(90deg);
+  background: rgba(220, 53, 69, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.kitob-lightbox-close:active {
+  transform: scale(0.95) rotate(90deg);
+}
 
 /* Doska rejimi — kitob varaqlash */
 .board-mode .kitob-lightbox { padding: 40px; }
@@ -1696,15 +1732,20 @@ input[type="range"] {
   }
 }
 
-/* Tungi rejim (Dark Mode): Kitob va doska skanerlarini ko'zni qamashtirmaydigan e-ink filtr bilan ko'rsatish */
+/* Tungi rejim (Dark Mode): Kitob va doska skanerlarini ko'zni qamashtirmaydigan qulay rejimda ko'rsatish */
 html[data-theme="dark"] .kitob-sahifa img,
 html[data-theme="dark"] .kitob-lightbox img,
 html[data-theme="dark"] .doska-img img,
 html[data-theme="dark"] .doska-masala-img img {
-  filter: invert(0.92) hue-rotate(180deg) contrast(1.08) brightness(0.95) !important;
-  background-color: #161e18 !important;
+  filter: brightness(0.92) contrast(1.03) !important;
   border-color: #26332a !important;
   transition: filter 0.25s ease, transform 0.12s ease;
+}
+
+/* O'quvchi xohlasa: toza monoxrom E-ink qog'oz rejimi (ranglar buzilmasdan sof oq-qora e-ink) */
+html[data-theme="dark"] .kitob-lightbox img.kitob-eink {
+  filter: grayscale(100%) invert(0.92) contrast(1.15) brightness(0.9) !important;
+  background-color: #121814 !important;
 }
 
 /* ==========================================================================

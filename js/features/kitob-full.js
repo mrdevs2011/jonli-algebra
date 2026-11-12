@@ -10,7 +10,28 @@
   var reqId = 0;
   var showLoaderTimer = null;
   var hideFlipTimer = null;
-  var lb, lbImg, lbClose, prevBtn, nextBtn, navLabel, pageWrap;
+  var lb, lbImg, lbClose, prevBtn, nextBtn, navLabel, pageWrap, invertBtn, invertLabel;
+  var EINK_KEY = "ja_kitob_eink";
+
+  function applyEinkState() {
+    var isEink = false;
+    try { isEink = localStorage.getItem(EINK_KEY) === "1"; } catch (e) {}
+    if (lbImg) {
+      if (isEink) lbImg.classList.add("kitob-eink");
+      else lbImg.classList.remove("kitob-eink");
+    }
+    if (invertLabel) {
+      invertLabel.textContent = isEink ? "Tungi e-ink" : "Asl nusxa";
+    }
+  }
+
+  function toggleEink() {
+    var isEink = false;
+    try { isEink = localStorage.getItem(EINK_KEY) === "1"; } catch (e) {}
+    isEink = !isEink;
+    try { localStorage.setItem(EINK_KEY, isEink ? "1" : "0"); } catch (e) {}
+    applyEinkState();
+  }
 
   function pageSrc(bet) {
     return "../../../../kitob/kitob-" + bet + ".png";
@@ -42,6 +63,7 @@
       clearTimeout(showLoaderTimer);
       lbImg.src = img.src;
       lbImg.alt = bet + "-bet";
+      applyEinkState();
       pageWrap.classList.remove("is-loading");
       if (direction) {
         var flipClass = direction === "next" ? "flip-left" : "flip-right";
@@ -88,7 +110,11 @@
     nextBtn = document.getElementById("kitobNext");
     navLabel = document.getElementById("kitobNavLabel");
     pageWrap = document.getElementById("kitobPageWrap");
+    invertBtn = document.getElementById("kitobInvertBtn");
+    invertLabel = document.getElementById("kitobInvertLabel");
     if (!lb || !pageWrap) return;
+
+    applyEinkState();
 
     if (!pageWrap.querySelector(".kitob-loader")) {
       var loader = document.createElement("div");
@@ -117,6 +143,7 @@
 
     if (prevBtn) prevBtn.addEventListener("click", goPrev);
     if (nextBtn) nextBtn.addEventListener("click", goNext);
+    if (invertBtn) invertBtn.addEventListener("click", toggleEink);
 
     function closeLb() {
       lb.classList.remove("is-open");
