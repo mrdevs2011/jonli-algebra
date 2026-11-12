@@ -344,6 +344,12 @@ html[data-theme="dark"] .mode-btn.is-active {
   color: var(--ink);
 }
 
+html[data-theme="dark"] .pill-done {
+  background: rgba(61, 163, 116, 0.22) !important;
+  color: #55d697 !important;
+  border: 1px solid rgba(61, 163, 116, 0.35) !important;
+}
+
 .hud-pill {
   display: inline-flex;
   align-items: center;

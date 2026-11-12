@@ -493,3 +493,91 @@
   .formulas-search-box { max-width: 100%; }
 }
 
+/* =========================================================
+   100% SEAMLESS DARK MODE (NO LIGHT BLEEDTHROUGH)
+   ========================================================= */
+html[data-theme="dark"] .chapter {
+  background: var(--paper-2) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .toc a {
+  background: var(--paper-2) !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .lesson:hover,
+html[data-theme="dark"] .lesson:focus-visible {
+  background: #232c25 !important; /* Yumshoq to'q zumrad, hech qanday oq chaqnash bo'lmaydi! */
+}
+
+html[data-theme="dark"] .stats,
+html[data-theme="dark"] .dashboard-achievements,
+html[data-theme="dark"] .dashboard-formulas,
+html[data-theme="dark"] .formula-modal,
+html[data-theme="dark"] .exam-modal {
+  background: var(--white) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .dashboard-mock-banner {
+  background: linear-gradient(135deg, rgba(194,75,42,0.18) 0%, rgba(43,107,79,0.2) 100%), #171e19 !important;
+  border-color: var(--accent) !important;
+}
+
+html[data-theme="dark"] .formula-card {
+  background: var(--paper) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .formula-card-math {
+  background: #141b16 !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .filter-tab-btn {
+  background: var(--paper-2) !important;
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .filter-tab-btn.is-active {
+  background: var(--accent-2) !important;
+  border-color: var(--accent-2) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .formulas-search-box input {
+  background: var(--paper) !important;
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .lesson-meta-tag {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--ink-soft) !important;
+}
+
+html[data-theme="dark"] .exam-q-card,
+html[data-theme="dark"] .exam-result-card,
+html[data-theme="dark"] .mock-result-card,
+html[data-theme="dark"] .exam-timer-badge {
+  background: var(--paper-2) !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .exam-jump-matrix {
+  background: var(--paper) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .exam-nav-pill,
+html[data-theme="dark"] .mock-nav-pill {
+  background: var(--paper-2) !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}
+
+

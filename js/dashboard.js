@@ -28,10 +28,28 @@
       .replace(/"/g, "&quot;");
   }
 
-  function pill(state) {
-    if (state === "done") return '<span class="pill pill-done">O‘tilgan</span>';
-    if (state === "ready") return '<span class="pill pill-ready">Tayyor</span>';
-    return '<span class="pill pill-soon">Tez orada</span>';
+  function isLessonDone(lessonId) {
+    try {
+      if (window.JA_STATE && window.JA_STATE.get) {
+        var st = window.JA_STATE.get();
+        if (st && st.progress && st.progress.completedLessons && st.progress.completedLessons[lessonId]) {
+          return true;
+        }
+      }
+    } catch (e) {}
+    try {
+      if (window.KA && KA.state) {
+        return KA.state(lessonId) === "done";
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  function pill(lessonId) {
+    if (isLessonDone(lessonId)) {
+      return '<span class="pill pill-done" style="display:inline-flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>O‘zlashtirildi</span>';
+    }
+    return '<span class="lesson-meta-tag" style="font-size:0.75rem; color:var(--ink-soft); font-weight:600; padding:3px 8px; border-radius:12px; background:rgba(0,0,0,0.04);">35 daq</span>';
   }
 
   // TOC
@@ -46,7 +64,6 @@
     });
 
     var rows = lessons.map(function (d) {
-      var state = KA.state(d.id);
       return (
         '<a class="lesson" href="' + LESSONS_BASE + d.id + '/">' +
           '<div class="lesson-num">' + escapeHtml(d.paragraf) + "</div>" +
@@ -54,7 +71,7 @@
             "<h3>" + escapeHtml(d.nom) + "</h3>" +
             "<p>" + escapeHtml(d.qisqa) + "</p>" +
           "</div>" +
-          pill(state) +
+          pill(d.id) +
         "</a>"
       );
     }).join("");
