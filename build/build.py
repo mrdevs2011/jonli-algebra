@@ -16,7 +16,7 @@ v2'da nima o'zgardi (poydevor mustahkamlash):
     o'tmagan sahna.type, mavjud bo'lmagan rasm fayli — hammasi build
     vaqtida, browserda emas, terminalda ko'rinadi.
   - data.json yo'q bo'lsa endi JIM emas — aniq xato bilan to'xtaydi.
-  - Har bir darsning natijasi (✓/✗) va xato tafsiloti chiqadi, oxirida
+  - Har bir darsning natijasi ([OK]/[FAIL]) va xato tafsiloti chiqadi, oxirida
     umumiy hisobot: nechta muvaffaqiyatli, nechta xato bilan.
   - Exit code: biror dars xato bersa 1 (CI/pre-commit buni ushlab oladi).
 
@@ -103,7 +103,7 @@ class BuildFailure(Exception):
 
 def build_lesson(folder: Path, template: str) -> None:
     """Muvaffaqiyatli bo'lsa hech narsa qaytarmaydi, xato bo'lsa BuildFailure tashlaydi.
-    Jim ютиш YO'Q — har doim yo ✓ chiqadi, yo aniq sabab bilan portlaydi."""
+    Jim yutish YO'Q — har doim yo [OK] chiqadi, yo aniq sabab bilan to'xtaydi."""
     data_path = folder / "data.json"
     if not data_path.exists():
         raise BuildFailure(f"{folder.name}/data.json — fayl topilmadi")
@@ -148,7 +148,7 @@ def build_lesson(folder: Path, template: str) -> None:
 
     (folder / "index.html").write_text(html, encoding="utf-8")
     off_note = f" (o'chirilgan: {', '.join(off)})" if off else ""
-    print(f"  ✓ {folder.name}/index.html yangilandi ({folder.name}/data.json asosida){off_note}")
+    print(f"  [OK] {folder.name}/index.html yangilandi ({folder.name}/data.json asosida){off_note}")
 
 
 def main():
@@ -177,7 +177,7 @@ def main():
             build_lesson(folder, template)
             built += 1
         except BuildFailure as e:
-            print(f"  ✗ {e}\n")
+            print(f"  [FAIL] {e}\n")
             failed.append(folder.name)
 
     print(f"\nJami: {built} ta dars build qilindi, {len(failed)} ta xato bilan.")

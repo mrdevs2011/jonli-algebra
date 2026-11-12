@@ -103,15 +103,15 @@ async function main() {
   let okCount = 0, failCount = 0, skipCount = 0;
   for (const num of nums) {
     const r = await testLesson(num);
-    if (r.skipped) { console.log(`  ⏭  ${num}-dars — ${r.skipped}`); skipCount++; continue; }
+    if (r.skipped) { console.log(`  [SKIP] ${num}-dars - ${r.skipped}`); skipCount++; continue; }
     if ((r.fails && r.fails.length) || r.fail) {
       failCount++;
-      console.log(`  ✗ ${num}-dars:`);
+      console.log(`  [FAIL] ${num}-dars:`);
       (r.fail || r.fails).forEach((f) => console.log(`      - ${f}`));
       if (r.jsErrors && r.jsErrors.length) r.jsErrors.forEach((e) => console.log(`      - JS xato: ${e}`));
     } else {
       okCount++;
-      console.log(`  ✓ ${num}-dars`);
+      console.log(`  [PASS] ${num}-dars`);
     }
   }
 

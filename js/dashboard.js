@@ -73,11 +73,11 @@
   root.innerHTML =
     '<section class="hero">' +
       "<div>" +
-        "<h1>Algebra<br>ko‘rinsin.</h1>" +
-        "<p>9-sinf. Alimov darsligi tartibida. Har dars — avval chizma, keyin qoida. Hozir poydevor mustahkam: darslar sekin-asta, 1–2 yil ichida ochiladi.</p>" +
+        "<h1>9-sinf Algebra<br>Interaktiv Majmuasi</h1>" +
+        "<p>O'zbekiston Respublikasi umumiy o'rta ta'lim davlat standarti va Sh.A. Alimov darsligi (2019) asosida yaratilgan interaktiv elektron kurs. Barcha 38 ta mavzu to'liq interaktiv grafik sahnalar, qat'iy matematik ta'riflar va darslik skanerlari bilan ta'minlangan.</p>" +
       "</div>" +
       '<aside class="stats">' +
-        '<div class="stats-label">Ochilgan darslar</div>' +
+        '<div class="stats-label">O\'quv dasturi holati</div>' +
         '<div class="stats-num">' + counts.ready + " / " + counts.total + "</div>" +
         '<div class="bar" role="progressbar" aria-valuenow="' + percent + '" aria-valuemin="0" aria-valuemax="100">' +
           '<span style="width:' + percent + '%"></span>' +
@@ -86,5 +86,5 @@
     "</section>" +
     '<nav class="toc" aria-label="Boblar">' + toc + "</nav>" +
     chapters +
-    '<p class="note">Har kartochka o‘z papkasiga olib boradi: <code>./lessons/math/9/1/</code> … <code>./lessons/math/9/38/</code>. Qurish hujjatlari: <code>ilovani-qurish/</code></p>';
+    '<p class="note">9-sinf algebra kursi barcha 38 ta paragrafni to\'liq qamrab olgan (1-§ dan 38-§ gacha). Har bir mavzu avtonom ishlaydi va internet talab qilmaydi.</p>';
 })();

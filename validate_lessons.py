@@ -149,7 +149,7 @@ def validate_dir(lessons_dir: Path):
     for f in lesson_files:
         data = load_lesson(f)
         if "__error__" in data:
-            print(f"❌ {f}: JSON XATOSI — {data['__error__']}")
+            print(f"[FAIL] {f}: JSON XATOSI — {data['__error__']}")
             continue
         all_lessons[data.get("id")] = data
 
@@ -172,7 +172,7 @@ def validate_dir(lessons_dir: Path):
                 print(f"  {i}. {msg}")
             print()
         else:
-            print(f"✅ {lesson_id}-dars ({lesson.get('paragraf', '?')}) — muammo topilmadi")
+            print(f"[PASS] {lesson_id}-dars ({lesson.get('paragraf', '?')}) — muammo topilmadi")
 
     print(f"\nJami muammolar: {total_issues}")
     return total_issues

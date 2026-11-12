@@ -1032,7 +1032,7 @@ LESSONS_DATA = [
             {"html": "<strong>O'rta arifmetik (x̄)</strong> = ∑xᵢ / N"},
             {"html": "<strong>Moda (M₀)</strong>: eng ko'p takrorlangan"},
             {"html": "<strong>Mediana (Mₑ)</strong>: qoq o'rtadagi qiymat"},
-            {"html": "🎉 38-dars: 9-sinf kursi to'liq tayyor!"}
+            {"html": "38-dars: 9-sinf kursi to'liq tayyor!"}
         ]
     }
 ]
@@ -1092,7 +1092,7 @@ def main():
 
         data_json_path = ldir / "data.json"
         data_json_path.write_text(json.dumps(clean_data, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"  ✓ {lid}-dars ({ldata['paragraf']}) data.json va {len(masalalar)} ta crop yaratildi.")
+        print(f"  [OK] {lid}-dars ({ldata['paragraf']}) data.json va {len(masalalar)} ta crop yaratildi.")
 
 if __name__ == "__main__":
     main()

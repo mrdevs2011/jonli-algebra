@@ -238,11 +238,11 @@ def main():
     data = json.loads((folder / "data.json").read_text(encoding="utf-8"))
     errors = validate_lesson(data, folder, js_dir)
     if errors:
-        print(f"✗ {folder.name} — {len(errors)} ta xato:")
+        print(f"[FAIL] {folder.name} — {len(errors)} ta xato:")
         for e in errors:
             print(f"    - {e}")
         sys.exit(1)
-    print(f"✓ {folder.name} — schema to'g'ri")
+    print(f"[OK] {folder.name} — schema to'g'ri")
 
 
 if __name__ == "__main__":

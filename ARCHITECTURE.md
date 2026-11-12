@@ -11,8 +11,8 @@
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  LAYER 2: DETERMINISTIC COMPILER & BUILD PIPELINE            │
-│  build/build.py ➔ Merges data.json into dars-template.html   │
-│  Feature Bundler: js/features/*.js ➔ js/features.js          │
+│  build/build.py -> Merges data.json into dars-template.html   │
+│  Feature Bundler: js/features/*.js -> js/features.js          │
 │  Output: Zero-CORS, file:// & HTTP compatible index.html     │
 └──────────────────────────────┬───────────────────────────────┘
                                ▼
@@ -61,7 +61,7 @@
 jonli-algebra/
 ├── assets/                  # Favicons, vector branding, static illustrations
 ├── build/                   # Compilation, code-generation and testing harness
-│   ├── build.py             # Deterministic compiler (JSON + template ➔ HTML)
+│   ├── build.py             # Deterministic compiler (JSON + template -> HTML)
 │   ├── check_lessons.sh     # Fast shell consistency validator
 │   ├── dars-template.html   # Universal lesson shell template
 │   ├── lesson_schema.py     # Rigorous structural schema validator
