@@ -66,17 +66,21 @@ jonli-algebra/
 │   ├── dars-template.html   # Universal lesson shell template
 │   ├── lesson_schema.py     # Rigorous structural schema validator
 │   ├── run-all-render-tests.js # JSDOM headless runtime smoke test
+│   ├── validate_lessons.py  # Cross-lesson pedagogical validator
 │   └── verify.sh            # Universal verification runner
 ├── css/                     # Low-overhead, zero-jank stylesheet architecture
 │   ├── base.css             # Design tokens, reset, typography, theme variables
 │   ├── dashboard.css        # Course index, bob cards, progress indicators
-│   ├── dars.css             # Lesson stage, whiteboard, steps, interactive controls
-│   └── sahna.css            # Mathematical stage grid, SVG layers, responsiveness
+│   └── dars.css             # Lesson stage, whiteboard, steps, interactive controls
 ├── js/                      # Modular runtime and visualization plugins
 │   ├── features/            # Isolated plug-and-play lesson utilities (IIFE)
 │   │   ├── agenda.js        # Lesson timeline and section duration tracker
+│   │   ├── board.js         # Fullscreen board mode orchestrator
 │   │   ├── classtimer.js    # Interactive countdown and classroom timer
+│   │   ├── kitob-full.js    # Academic book reader with natural 3D page turns
 │   │   ├── picker.js        # Random student caller with anti-repeat state
+│   │   ├── progress.js      # Lesson completion state manager
+│   │   ├── sahna-expand.js  # Interactive stage enlargement
 │   │   ├── whiteboard.js    # Freeform canvas blackboard for teacher notes
 │   │   └── xulosa-board.js  # Key takeaways and blackboard summary cards
 │   ├── features.js          # Compiled bundle of all js/features/*.js
@@ -94,9 +98,9 @@ jonli-algebra/
 │           │   ├── index.html # Standalone compiled delivery file
 │           │   └── png/     # Pixel-accurate textbook problem crops (640px)
 │           └── ... (1 to 38)
-├── package.json             # Development scripts and test dependencies
-├── validate_lessons.py      # Cross-lesson pedagogical validator
-└── STATUS.md                # Engineering audit and development ledger
+├── ARCHITECTURE.md          # Systems architecture and technical specification
+├── RELIABILITY.md           # Engineering verification & reliability report
+└── package.json             # Development scripts and test dependencies
 ```
 
 ---

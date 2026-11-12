@@ -15,7 +15,7 @@
   "scripts": {
     "build": "python3 build/build.py",
     "check": "bash build/check_lessons.sh",
-    "validate": "python3 validate_lessons.py lessons/math/9",
+    "validate": "python3 build/validate_lessons.py lessons/math/9",
     "test:render": "node build/run-all-render-tests.js",
     "test": "bash build/verify.sh",
     "verify": "bash build/verify.sh"

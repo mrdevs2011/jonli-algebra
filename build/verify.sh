@@ -35,7 +35,7 @@ node build/run-all-render-tests.js "$@"
 
 echo ""
 echo "── 4/4: validate_lessons.py (pedagogik va ko'prik tekshiruvi) ──"
-python3 validate_lessons.py lessons/math/9
+python3 build/validate_lessons.py lessons/math/9
 
 echo ""
 echo "[OK] Hammasi toza — deploy/commit qilsa bo'ladi."
