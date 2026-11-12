@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":34,"bob":{"roman":"V","nom":"Ehtimolliklar nazariyasi va matematik statistika elementlari"},"paragraf":"34-§","title":"Hodisalar","lead":"Tasodifiy, muqarrar va mumkin bo'lmagan hodisalar, teng imkoniyatli hodisalar tushunchasi.","prev":{"href":"../33/","label":"33-dars"},"next":{"href":"../35/","label":"35-dars"},"agenda":[{"min":4,"name":"Kirish — 33-§ (cheksiz kamayuvchi progressiya) dan yangi bobga o'tish"},{"min":7,"name":"Sahna — qutidagi sharlar va hodisalar turlari"},{"min":8,"name":"Qoida — muqarrar, imkonsiz va tasodifiy hodisa ta'riflari"},{"min":11,"name":"Doska — 4 ta masalani birga tahlil qilish"},{"min":5,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":5,"name":"Darslikdan mashqlar — 460, 461, 462-mashqlar"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"prob-classic","ariaLabel":"Interaktiv chizma: hodisalar turlari","hint":"Qulay sharlar soni m ni 0 (imkonsiz), o'rtacha (tasodifiy) va n (muqarrar) qilib ko'ring.","vars":{"m":{"min":0,"max":8,"step":1,"value":3,"desc":"qulay sharlar m"},"n":{"min":1,"max":8,"step":1,"value":8,"desc":"jami sharlar n"}}},"kirish":["<p class=\"kirish-nega\">33-§da progressiyalarni tugatib, oxirgi V bobga — <strong>Ehtimolliklar nazariyasi va matematik statistika<\/strong>ga o'tamiz. Hayotda hamma narsa qat'iy formula bilan oldindan belgilanmagan — ko'p jarayonlar tasodifga bog'liq.<\/p>","<p>Ehtimolliklar nazariyasi aynan tasodifiy hodisalarni matematik jihatdan o'rganadigan, ularning qonuniyatlarini kashf etadigan fandir.<\/p>"],"reja":"Hodisa tushunchasi, muqarrar, imkonsiz, tasodifiy va teng imkoniyatli hodisalar bilan tanishamiz.","qoida":"<p>Sinov yoki tajriba natijasida ro'y berishi mumkin bo'lgan har qanday natija <strong>hodisa<\/strong> deyiladi.<\/p><p>Hodisalar 3 turga bo'linadi:<\/p><p><strong>1. Muqarrar hodisa:<\/strong> berilgan sharoitda <em>albatta<\/em> ro'y beradigan hodisa (masalan, suvning 100°C da qaynashi, kubikda 7 dan kichik son tushishi).<\/p><p><strong>2. Mumkin bo'lmagan (imkonsiz) hodisa:<\/strong> berilgan sharoitda <em>hech qachon<\/em> ro'y bermaydigan hodisa (masalan, kubikda 7 ochko tushishi).<\/p><p><strong>3. Tasodifiy hodisa:<\/strong> ro'y berishi ham, ro'y bermasligi ham mumkin bo'lgan hodisa (tanga tashlaganda gerb tushishi).<\/p><p>Agar birorta hodisaning ro'y berishi boshqasiga nisbatan ustunlikka ega bo'lmasa, ular <strong>teng imkoniyatli hodisalar<\/strong> deyiladi.<\/p>","savollar":[{"savol":"Ertaga quyosh chiqishi qanday hodisa?","variantlar":["Tasodifiy","Muqarrar","Imkonsiz"],"togri":1},{"savol":"Oddiy 6 qirrali o'yin kubigini tashlaganda 8 ochko chiqishi qanday hodisa?","variantlar":["Muqarrar","Imkonsiz","Tasodifiy"],"togri":1},{"savol":"Tanga tashlaganda gerb yoki raqam tushishi qanday hodisalar?","variantlar":["Teng imkoniyatli","Imkonsiz","Biri ikkinchisidan ustun"],"togri":0}],"eslabQol":["<strong>Muqarrar hodisa<\/strong> — albatta ro'y beradi (P = 1).","<strong>Mumkin bo'lmagan hodisa<\/strong> — ro'y berishi mumkin emas (P = 0).","<strong>Tasodifiy hodisa<\/strong> — ro'y berishi ham, bermasligi ham mumkin (0 < P < 1).","Teng imkoniyatli hodisalarda natijalar bir xil sharoitga ega."],"kitob":{"betlar":"186–189-betlar","sahifalar":[{"img":"../../../../kitob/kitob-186.png","bet":"186-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-187.png","bet":"187-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-188.png","bet":"188-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-189.png","bet":"189-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 34-§ — masalalar va namunalar tahlili.","masalalar":[{"caption":"1-masala · Tasodifiy hodisalar · 186-bet","kirish":"Hayotiy misollar tahlili.","img":"png/1-masala.png","alt":"1-masala: tasodifiy hodisa misollari, 186-bet","width":640,"height":240,"steps":["Qutida 5 oq va 5 qora shar bor.","Tavakkal olingan shar oq bo'lishi — <strong>tasodifiy hodisa<\/strong>.","Chunki oq shar chiqishi ham, qora shar chiqishi ham mumkin."]},{"caption":"2-masala · Imkonsiz hodisa · 187-bet","kirish":"Ro'y bermaydigan holatlar.","img":"png/2-masala.png","alt":"2-masala: imkonsiz hodisa, 187-bet","width":640,"height":200,"steps":["O'yin kubigida 1, 2, 3, 4, 5, 6 raqamlari bor.","Bitta kubik tashlanganda 7 ochko tushishi — <strong>mumkin bo'lmagan (imkonsiz) hodisa<\/strong>."]},{"caption":"3-masala · Muqarrar hodisa · 187-bet","kirish":"Albatta yuz beradigan hodisalar.","img":"png/3-masala.png","alt":"3-masala: muqarrar hodisa, 187-bet","width":640,"height":220,"steps":["O'yin kubigini tashlaganda 7 dan kichik butun son tushishi — <strong>muqarrar hodisa<\/strong>.","Chunki barcha 6 ta ochko ham 7 dan kichik."]},{"caption":"4-masala · Teng imkoniyatli hodisalar · 188-bet","kirish":"Simmetrik tajribalar.","img":"png/4-masala.png","alt":"4-masala: teng imkoniyatli hodisalar, 188-bet","width":640,"height":220,"steps":["Ideal tanga tashlanganda gerb yoki raqam tomoni tushishi.","Hech bir tomon ustunlikka ega emas.","Bunday hodisalar — <strong>teng imkoniyatli<\/strong> hodisalardir."]}]},"mashqlar":{"betlar":"188–189-bet","intro":"Daftarga yeching. O'qituvchi doskada tekshiradi.","items":[{"title":"460-mashq.","body":"Quyidagi hodisalar turini aniqlang (muqarrar, imkonsiz, tasodifiy):","sub":"1) Yozdan keyin kuz keladi; 2) Ertaga yomg'ir yog'adi; 3) 13 oylik yil bo'ladi; 4) 2 ta kubik tashlanganda yig'indi 1 bo'ladi."},{"title":"461-mashq.","body":"Birgalikda bo'lishi mumkin bo'lgan va mumkin bo'lmagan hodisalar:","sub":"1) Qish keldi va daraxtlar gulladi; 2) Chipta yutuqli chiqdi va yutuqsiz chiqdi."},{"title":"462-mashq.","body":"Qutida 10 ta oq shar bor. Qora shar chiqishi qanday hodisa?"}]},"xulosa":["Barcha hodisalar muqarrar, imkonsiz va tasodifiy turlarga bo'linadi.","Teng imkoniyatlilik — ehtimollikning matematik poydevoridir.","Ehtimolliklar nazariyasi tasodifiy hodisalarning qonuniyatlarini o'rganadi."],"xulosaBoard":[{"html":"<strong>Muqarrar<\/strong>: albatta ro'y beradi (P = 1)"},{"html":"<strong>Imkonsiz<\/strong>: hech qachon ro'y bermaydi (P = 0)"},{"html":"<strong>Tasodifiy<\/strong>: bo'lishi ham, bo'lmasligi ham mumkin (0 < P < 1)"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <script src="../../../../js/sahna-seq-discrete.js"></script>
+  <script src="../../../../js/sahna-prog-arith.js"></script>
+  <script src="../../../../js/sahna-prog-geom.js"></script>
+  <script src="../../../../js/sahna-prob-classic.js"></script>
+  <script src="../../../../js/sahna-stat-freq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

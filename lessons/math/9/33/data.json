@@ -1,0 +1,239 @@
+{
+  "id": 33,
+  "bob": {
+    "roman": "IV",
+    "nom": "Sonli ketma-ketliklar. Progressiyalar"
+  },
+  "paragraf": "33-§",
+  "title": "Cheksiz kamayuvchi geometrik progressiya",
+  "lead": "Maxraji |q| < 1 bo'lgan cheksiz geometrik progressiya va uning hadlari yig'indisi: S = b₁ / (1 − q).",
+  "prev": {
+    "href": "../32/",
+    "label": "32-dars"
+  },
+  "next": {
+    "href": "../34/",
+    "label": "34-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 32-§ (geometrik progressiya yig'indisi) ni eslash"
+    },
+    {
+      "min": 7,
+      "name": "Sahna — cheksiz yig'indining songa intilishini kuzatish"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — |q| < 1 sharti va S = b₁/(1−q) formulasi"
+    },
+    {
+      "min": 11,
+      "name": "Doska — 4 ta masalani birga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — 418, 419, 420-mashqlar"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "prog-geom",
+    "mode": "infinite",
+    "ariaLabel": "Interaktiv chizma: cheksiz kamayuvchi geometrik progressiya",
+    "hint": "q slayderini 1 dan kichik qilib o'rnating — cheksiz ko'p hadlar yig'indisi chekli aniq S soniga intiladi.",
+    "vars": {
+      "b": {
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "value": 1,
+        "desc": "boshlang'ich had b₁"
+      },
+      "q": {
+        "min": 0.2,
+        "max": 0.8,
+        "step": 0.1,
+        "value": 0.5,
+        "desc": "maxraj q (|q| < 1)"
+      }
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">32-§da <strong>geometrik progressiya yig'indisi</strong>ni o'rgangan edik. Agar progressiyada cheksiz ko'p had bo'lsa, ularni qo'shganda cheksizlik chiqmaydimi?</p>",
+    "<p>Ajablanarlisi shundaki, agar <strong>|q| < 1</strong> bo'lsa (masalan, 1/2 + 1/4 + 1/8 + 1/16 + ...), cheksiz ko'p sonlar qo'shilsa ham yig'indi hech qachon 1 dan oshmaydi, balki aynan 1 ga teng bo'ladi!</p>"
+  ],
+  "reja": "Cheksiz kamayuvchi geometrik progressiya ta'rifi, yig'indisi formulasi va davriy o'nli kasrlarni oddiy kasrga aylantirishni o'rganamiz.",
+  "qoida": "<p><strong>Ta'rif:</strong> Maxraji <strong>|q| < 1</strong> bo'lgan geometrik progressiya <strong>cheksiz kamayuvchi geometrik progressiya</strong> deyiladi.</p><p>n → ∞ da qⁿ nolga intiladi (qⁿ → 0). Shuning uchun Sₙ = b₁(1 − qⁿ)/(1 − q) formulasidan:</p><p><strong>S = b₁ / (1 − q)</strong></p><p>Bu formula orqali cheksiz davriy o'nli kasrlar (masalan 0,(7) yoki 0,2(35)) osongina oddiy kasrga aylantiriladi.</p>",
+  "savollar": [
+    {
+      "savol": "Cheksiz geometrik progressiya kamayuvchi bo'lishi uchun q qanday bo'lishi kerak?",
+      "variantlar": [
+        "q > 1",
+        "|q| < 1",
+        "q = 0"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "b₁ = 1 va q = 1/2 bo'lsa, cheksiz yig'indi qancha?",
+      "variantlar": [
+        "1",
+        "2",
+        "cheksiz"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "0,(3) davriy kasri qaysi oddiy kasrga teng?",
+      "variantlar": [
+        "1/3",
+        "3/10",
+        "3/100"
+      ],
+      "togri": 0
+    }
+  ],
+  "eslabQol": [
+    "<strong>S = b₁ / (1 − q)</strong> — cheksiz kamayuvchi progressiya yig'indisi.",
+    "Faqat va faqat <strong>|q| < 1</strong> bo'lgandagina yig'indi mavjud.",
+    "Cheksiz davriy kasrlar shu formula bilan oddiy kasrga aylanadi.",
+    "Geometrik ma'no: butun maydonning yarmi, choragi, sakkizdan biri qo'shilib butunni beradi."
+  ],
+  "kitob": {
+    "betlar": "171–175-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-171.png",
+        "bet": "171-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-172.png",
+        "bet": "172-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-173.png",
+        "bet": "173-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-174.png",
+        "bet": "174-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-175.png",
+        "bet": "175-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 33-§ — masalalar va namunalar tahlili.",
+    "masalalar": [
+      {
+        "caption": "1-masala · 1 + 1/2 + 1/4 + ... yig'indisi · 172-bet",
+        "kirish": "Klassik cheksiz yig'indi.",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: cheksiz yig'indi 1+1/2+..., 172-bet",
+        "width": 640,
+        "height": 180,
+        "steps": [
+          "b₁ = 1, q = 1/2. |q| = 1/2 < 1.",
+          "S = b₁ / (1 − q) = 1 / (1 − 1/2) = 1 / (1/2) = <strong>2</strong>."
+        ]
+      },
+      {
+        "caption": "2-masala · 0,(7) ni oddiy kasrga aylantirish · 172-bet",
+        "kirish": "Davriy o'nli kasr masalasi.",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: 0,(7) kasrga aylantirish, 172-bet",
+        "width": 640,
+        "height": 200,
+        "steps": [
+          "0,(7) = 0,7 + 0,07 + 0,007 + ...",
+          "b₁ = 0,7 = 7/10, q = 0,1 = 1/10.",
+          "S = (7/10) / (1 − 1/10) = (7/10) / (9/10) = <strong>7/9</strong>."
+        ]
+      },
+      {
+        "caption": "3-masala · 0,2(35) ni oddiy kasrga aylantirish · 173-bet",
+        "kirish": "Aralash davriy kasr.",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: 0,2(35) kasrga aylantirish, 173-bet",
+        "width": 640,
+        "height": 200,
+        "steps": [
+          "0,2(35) = 0,2 + (0,035 + 0,00035 + ...)",
+          "Qavs ichida: b₁ = 35/1000, q = 1/100.",
+          "Qavs yig'indisi: (35/1000) / (99/100) = 35/990.",
+          "Jami: 2/10 + 35/990 = (198 + 35)/990 = <strong>233/990</strong>."
+        ]
+      },
+      {
+        "caption": "4-masala · Kvadratlar yuzalari yig'indisi · 173-bet",
+        "kirish": "Geometrik fractal masalasi.",
+        "img": "png/4-masala.png",
+        "alt": "4-masala: kvadratlar yuzalari cheksiz yig'indisi, 173-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "Birinchi kvadrat yuzi S₁ = a².",
+          "Har safar yuz 2 marta kamayadi: q = 1/2.",
+          "Cheksiz barcha kvadratlar yuzalari yig'indisi: S = a² / (1 − 1/2) = <strong>2a²</strong>."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "174–175-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "418-mashq.",
+        "body": "Cheksiz kamayuvchi geometrik progressiya yig'indisini toping:",
+        "sub": "1) b₁ = 1, q = 1/3; 2) b₁ = −2, q = 1/4; 3) b₁ = 4, q = −1/2."
+      },
+      {
+        "title": "419-mashq.",
+        "body": "Davriy kasrni oddiy kasrga aylantiring:",
+        "sub": "1) 0,(2); 2) 0,(8); 3) 0,(15); 4) 0,1(6)."
+      },
+      {
+        "title": "420-mashq.",
+        "body": "Cheksiz yig'indisi 6 ga, birinchi hadi 3 ga teng progressiyaning maxrajini toping."
+      }
+    ]
+  },
+  "xulosa": [
+    "|q| < 1 bo'lganda cheksiz ko'p hadlar yig'indisi aniq chegaralangan songa ega bo'ladi.",
+    "S = b₁ / (1 − q) formulasi davriy kasrlarni oddiy kasrga aylantirishning eng aniq usulidir.",
+    "Bu mavzu oliy matematikadagi limit va qatorlar nazariyasining poydevori hisoblanadi."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>S</strong> = b₁ / (1 − q) (|q| < 1)"
+    },
+    {
+      "html": "1/2 + 1/4 + 1/8 + ... = 1"
+    },
+    {
+      "html": "0,(7) = 7/9, 0,(3) = 1/3"
+    }
+  ]
+}

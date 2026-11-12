@@ -43,7 +43,15 @@
 - Git holati: 7a944df Add files via upload
 
 ---
-### 2026-09-26 13:20
-- Qilindi: HAQIQIY BUG topildi va tuzatildi: MR yubordigan screenshotda 25-dars sahifasi 24-darsning sarlavhasini korsatayotgani sezildi. Sabab: 23 va 25-darslarning index.html fayllari (GitHub web orqali yuklanganda) mos ravishda ESKI 22 va 24-darsning dars-data JSON'ini saqlab qolgan edi (data.json to'g'ri edi, lekin index.html eskirgan) - shu uchun ular boshqa darsning rasm/matn/mashqlarini chiqarardi, ozi papkasidagi rasmlar esa mos kelmasdi. build/build.py 23 va build.py 25 bilan ikkalasi qayta build qilindi, jonli-algebra.vercel.app da tasdiqlandi (title va rasmlar togri). Push qilindi: c95b792.
-- Keyingi qadam: Boshqa darslarda (1-22, 24) bunday mismatch yoq - hammasi tekshirilgan.
-- Git holati: c95b792 Bug topildi va tuzatildi: 23 va 25-dars index.html eski (22 va 24-darsning) dars-data JSON'ini saqlab qolgan edi - shu sabab noto'g'ri rasm/matn chiqargan. build.py bilan ikkalasi ham qayta build qilindi.
+### 2026-11-12 13:05
+- Qilindi: 26-darsdan 38-darsgacha (13 ta yangi dars) to'liq ishlab chiqildi va "full production ready" holatiga keltirildi:
+  - III bob: 26-dars (Keltirish formulalari) va 27-dars (Sinus/kosinuslar yig'indisi va ayirmasi) to'liq qo'shildi.
+  - IV bob: 28–33-darslar (Sonli ketma-ketliklar, Arifmetik progressiya va uning yig'indisi, Geometrik progressiya va uning yig'indisi, Cheksiz kamayuvchi geometrik progressiya) to'liq yaratildi.
+  - V bob: 34–38-darslar (Hodisalar, Hodisaning ehtimolligi, Nisbiy chastota, Tasodifiy miqdorlar, Sonli xarakteristikalar) to'liq yakunlandi.
+  - 5 ta yangi interaktiv sahna moduli yaratildi: `sahna-seq-discrete.js`, `sahna-prog-arith.js`, `sahna-prog-geom.js`, `sahna-prob-classic.js`, `sahna-stat-freq.js`.
+  - Kitob skanerlaridan (`kitob-*.png`) har bir darsning doska masalalari uchun pikselligi aniq 50 ta PNG crop qirqib olindi (`png/`).
+  - `build.py` orqali barcha 38 ta dars 0 ta xato bilan to'liq qayta qurildi.
+  - `progress.js` dagi `readyIds` 1–38 gacha yangilandi — endi dashboardda barcha darslar "Tayyor".
+  - `check_lessons.sh` va `validate_lessons.py` muvaffaqiyatli o'tdi.
+- Keyingi qadam: Tayyor. Loyihani commit va push qilish yoki foydalanuvchiga taqdim etish.
+- Git holati: Barcha 38 ta dars to'liq tayyor.

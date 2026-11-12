@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":31,"bob":{"roman":"IV","nom":"Sonli ketma-ketliklar. Progressiyalar"},"paragraf":"31-§","title":"Geometrik progressiya","lead":"Har bir hadi oldingisiga noldan farqli o'zgarmas q sonini ko'paytirish bilan olinadigan ketma-ketlik va bₙ formulasi.","prev":{"href":"../30/","label":"30-dars"},"next":{"href":"../32/","label":"32-dars"},"agenda":[{"min":4,"name":"Kirish — 30-§ (arifmetik progressiya yig'indisi) ni eslash"},{"min":7,"name":"Sahna — b₁ va q slayderlari bilan eksponentsial o'sish"},{"min":8,"name":"Qoida — geometrik progressiya ta'rifi va bₙ formulasi"},{"min":11,"name":"Doska — 4 ta masalani birga yechish"},{"min":5,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":5,"name":"Darslikdan mashqlar — 387, 388, 389-mashqlar"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"prog-geom","ariaLabel":"Interaktiv chizma: geometrik progressiya","hint":"b₁ va q slayderlarini suring — hadlar har bir qadamda q martadan ko'payib boradi.","vars":{"b":{"min":1,"max":4,"step":1,"value":2,"desc":"boshlang'ich had b₁"},"q":{"min":0.5,"max":2,"step":0.5,"value":2,"desc":"maxraj q"}}},"kirish":["<p class=\"kirish-nega\">30-§da <strong>arifmetik progressiya yig'indisi<\/strong>ni o'rgangan edik. Endi har safar qo'shish emas, balki <em>ko'paytirish<\/em> orqali o'sadigan ketma-ketlik — <strong>geometrik progressiya<\/strong>ga o'tamiz.<\/p>","<p>Masalan: bakteriyalarning bo'linishi (1 ta bakteriya 2 taga, so'ng 4, 8, 16, ... bo'ladi). Bu progressiya arifmetik progressiyaga qaraganda ancha tez — shiddat bilan o'sadi.<\/p>"],"reja":"Geometrik progressiya ta'rifi, maxraji q va n-hadini topish formulasini o'rganamiz.","qoida":"<p><strong>Ta'rif:<\/strong> Birinchi hadi b₁ ≠ 0 bo'lib, ikkinchisidan boshlab har bir hadi oldingi hadga biror <strong>q ≠ 0<\/strong> sonini ko'paytirish bilan olinadigan ketma-ketlik <strong>geometrik progressiya<\/strong> deyiladi.<\/p><p><strong>bₙ₊₁ = bₙ · q<\/strong>, bundan <strong>q = bₙ₊₁ / bₙ<\/strong> (geometrik progressiya maxraji).<\/p><p><strong>n-had formulasi:<\/strong><\/p><p><strong>bₙ = b₁ · qⁿ⁻¹<\/strong><\/p><p><strong>Xossasi:<\/strong> bₙ² = bₙ₋₁ · bₙ₊₁ (har bir had qo'shnilarining o'rta geometrigi).<\/p>","savollar":[{"savol":"Geometrik progressiyada q soni nima deyiladi?","variantlar":["Ayirma","Maxraj","Daraja"],"togri":1},{"savol":"b₁ = 3 va q = 2 bo'lsa, b₄ qancha?","variantlar":["24","18","48"],"togri":0},{"savol":"q soni 0 ga teng bo'lishi mumkinmi?","variantlar":["Mumkin","Mumkin emas (q ≠ 0)","Faqat birinchi hadda"],"togri":1}],"eslabQol":["<strong>bₙ = b₁ · qⁿ⁻¹<\/strong> — n-had formulasi.","<strong>q = bₙ₊₁ / bₙ<\/strong> — progressiya maxraji.","Agar |q| > 1 bo'lsa — hadlar keskin kattalashadi (eksponentsial o'sish).","O'rta geometrik xossa: |bₙ| = √(bₙ₋₁ · bₙ₊₁)."],"kitob":{"betlar":"162–166-betlar","sahifalar":[{"img":"../../../../kitob/kitob-162.png","bet":"162-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-163.png","bet":"163-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-164.png","bet":"164-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-165.png","bet":"165-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-166.png","bet":"166-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 31-§ — masalalar va namunalar tahlili.","masalalar":[{"caption":"1-masala · b₅ ni topish · 163-bet","kirish":"b₁ = 3 va q = 2 bo'lsa b₅ va bₙ ni topish.","img":"png/1-masala.png","alt":"1-masala: b5 hisoblash, 163-bet","width":640,"height":140,"steps":["bₙ = b₁ · qⁿ⁻¹ formulasiga qo'yamiz.","b₅ = 3 · 2⁵⁻¹ = 3 · 2⁴ = 3 · 16 = <strong>48<\/strong>.","bₙ = 3 · 2ⁿ⁻¹."]},{"caption":"2-masala · b₁ va q ni topish · 163-bet","kirish":"b₃ = 12 va b₅ = 48 bo'lsa.","img":"png/2-masala.png","alt":"2-masala: b1 va q ni topish, 163-bet","width":640,"height":180,"steps":["b₅ / b₃ = q² → q² = 48 / 12 = 4 → q = ±2.","Agar q = 2 bo'lsa: b₁ = b₃ / q² = 12 / 4 = <strong>3<\/strong>.","Agar q = −2 bo'lsa: b₁ = <strong>3<\/strong>."]},{"caption":"3-masala · Nomerini topish · 164-bet","kirish":"b₁ = 5, q = 3 bo'lsa, 405 soni nechanchi had?","img":"png/3-masala.png","alt":"3-masala: nomerni topish, 164-bet","width":640,"height":160,"steps":["405 = 5 · 3ⁿ⁻¹ → 3ⁿ⁻¹ = 81.","3⁴ = 81 → n − 1 = 4 → n = <strong>5<\/strong> (5-had)."]},{"caption":"4-masala · Geometriya bilan bog'liq masala · 164-bet","kirish":"Kvadratlar yuzlarining geometrik progressiyasi.","img":"png/4-masala.png","alt":"4-masala: kvadratlar yuzalari progressiyasi, 164-bet","width":640,"height":200,"steps":["Kvadrat tomoni 4 cm, yuzi S₁ = 16.","Har safar tomon o'rtalari tutashtirilsa yuzi 2 marta kamayadi: q = 1/2.","Yuzalar ketma-ketligi: 16, 8, 4, 2, 1, ... (q = 1/2)."]}]},"mashqlar":{"betlar":"165–166-bet","intro":"Daftarga yeching. O'qituvchi doskada tekshiradi.","items":[{"title":"387-mashq.","body":"Geometrik progressiyaning n-hadini toping:","sub":"1) b₁ = 2, q = 3, n = 6; 2) b₁ = 4, q = −1/2, n = 7; 3) b₁ = −1, q = 2, n = 10."},{"title":"388-mashq.","body":"Geometrik progressiya maxraji q ni toping:","sub":"1) b₁ = 4, b₃ = 36; 2) b₂ = 6, b₄ = 54; 3) b₃ = 25, b₅ = 625."},{"title":"389-mashq.","body":"Berilgan son progressiya hadimi:","sub":"bₙ = 2 · 3ⁿ⁻¹ ketma-ketlikda 162 va 54 sonlarining nomerini toping."}]},"xulosa":["Geometrik progressiyada har bir had oldingisiga q sonini ko'paytirish bilan olinadi.","bₙ = b₁ · qⁿ⁻¹ formulasi istalgan hadni tezkor topishga xizmat qiladi.","bₙ² = bₙ₋₁ · bₙ₊₁ xossasi har qanday 3 ta ketma-ket had uchun o'rinlidir."],"xulosaBoard":[{"html":"<strong>bₙ<\/strong> = b₁ · qⁿ⁻¹"},{"html":"<strong>q<\/strong> = bₙ₊₁ / bₙ (q ≠ 0)"},{"html":"<strong>Xossa<\/strong>: bₙ² = bₙ₋₁ · bₙ₊₁"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <script src="../../../../js/sahna-seq-discrete.js"></script>
+  <script src="../../../../js/sahna-prog-arith.js"></script>
+  <script src="../../../../js/sahna-prog-geom.js"></script>
+  <script src="../../../../js/sahna-prob-classic.js"></script>
+  <script src="../../../../js/sahna-stat-freq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

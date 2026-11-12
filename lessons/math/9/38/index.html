@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":38,"bob":{"roman":"V","nom":"Ehtimolliklar nazariyasi va matematik statistika elementlari"},"paragraf":"38-§","title":"Tasodifiy miqdorlarning sonli xarakteristikalari","lead":"Tasodifiy miqdorning o'rta qiymati (o'rta arifmetik), modasi va medianasi — statistikaning asosiy ko'rsatkichlari.","prev":{"href":"../37/","label":"37-dars"},"next":null,"agenda":[{"min":4,"name":"Kirish — 37-§ (tasodifiy miqdorlar) ni eslash"},{"min":7,"name":"Sahna — o'rta qiymat, moda va mediananing dinamik hisobi"},{"min":8,"name":"Qoida — o'rta qiymat x̄, moda M₀ va mediana Mₑ ta'riflari"},{"min":11,"name":"Doska — 4 ta masalani birga yechish"},{"min":5,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":5,"name":"Darslikdan mashqlar — 492, 493, 494-mashqlar"},{"min":5,"name":"Eslab qol — kurs xulosasi va yakuniy testga tayyorgarlik"}],"sahna":{"type":"stat-freq","mode":"metrics","ariaLabel":"Interaktiv chizma: o'rta qiymat, moda, mediana","hint":"Slayderni suring — o'rtacha qiymat x̄, eng ko'p takrorlangan qiymat (moda) va o'rtadagi son (mediana) hisoblanadi.","vars":{"n":{"min":20,"max":200,"step":10,"value":60,"desc":"tanlanma hajmi N"}}},"kirish":["<p class=\"kirish-nega\">37-§da <strong>tasodifiy miqdorlar va ularning taqsimoti<\/strong>ni o'rgangan edik. Bugun 9-sinf algebra kursining yakuniy mavzusi — ma'lumotlarni bitta aniq son bilan tavsiflovchi <strong>sonli xarakteristikalar<\/strong>ni ko'rib chiqamiz.<\/p>","<p>Minglab o'quvchilar natijasi yoki butun viloyatdagi oylik maoshlarni bittalab aytib bo'lmaydi. Ular o'rniga o'rtacha qiymat, eng ko'p uchraydigan qiymat (moda) va qoq o'rtadagi qiymat (mediana) aytiladi.<\/p>"],"reja":"O'rta qiymat (x̄), moda (M₀) va mediana (Mₑ) hisoblash qoidalarini to'liq egallaymiz.","qoida":"<p>Ma'lumotlar tahlilining 3 ta asosiy ko'rsatkichi:<\/p><p><strong>1. O'rta qiymat (o'rta arifmetik):<\/strong> Barcha qiymatlar yig'indisining ularning umumiy soniga nisbati:<\/p><p><strong>x̄ = (x₁·M₁ + x₂·M₂ + ... + xₖ·Mₖ) / N<\/strong><\/p><p><strong>2. Moda (M₀):<\/strong> Tanlanmada <em>eng ko'p takrorlangan<\/em> (chastotasi eng katta bo'lgan) qiymat.<\/p><p><strong>3. Mediana (Mₑ):<\/strong> O'sish tartibida joylashtirilgan sonli qatorning <em>qoq o'rtasida<\/em> turgan qiymat (agar sonlar juft bo'lsa, o'rtadagi ikkita sonning o'rta arifmetigi).<\/p>","savollar":[{"savol":"3, 5, 5, 7, 9 qatorning modasi nechaga teng?","variantlar":["5 (eng ko'p takrorlangan)","3","7"],"togri":0},{"savol":"2, 4, 6, 8, 10 qatorning medianasi nechaga teng?","variantlar":["4","6 (o'rtada turgan)","5"],"togri":1},{"savol":"O'rta arifmetik qanday hisoblanadi?","variantlar":["Barcha sonlar yig'indisi / sonlar soni","Eng katta va eng kichik ayirmasi","Faqat birinchi son"],"togri":0}],"eslabQol":["<strong>O'rta arifmetik (x̄)<\/strong> — ma'lumotlar massasining markazi.","<strong>Moda (M₀)<\/strong> — eng ommabop, eng ko'p uchraydigan qiymat.","<strong>Mediana (Mₑ)<\/strong> — qatorni teng ikkiga bo'luvchi o'rta chegara.","Uchala xarakteristika birgalikda to'liq statistik manzarani ko'rsatadi."],"kitob":{"betlar":"206–210-betlar","sahifalar":[{"img":"../../../../kitob/kitob-206.png","bet":"206-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-207.png","bet":"207-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-208.png","bet":"208-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-209.png","bet":"209-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-210.png","bet":"210-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 38-§ — masalalar va namunalar tahlili.","masalalar":[{"caption":"1-masala · O'rtacha bahoni hisoblash · 206-bet","kirish":"Sinfning o'rtacha balli.","img":"png/1-masala.png","alt":"1-masala: o'rtacha qiymat hisoblash, 206-bet","width":640,"height":260,"steps":["Baholar: «5» (5 ta), «4» (10 ta), «3» (5 ta). Jami N = 20 o'quvchi.","Yig'indi: 5·5 + 4·10 + 3·5 = 25 + 40 + 15 = 80.","O'rta arifmetik: x̄ = 80 / 20 = <strong>4,0<\/strong>."]},{"caption":"2-masala · Modani topish · 207-bet","kirish":"Eng ko'p takrorlangan qiymat.","img":"png/2-masala.png","alt":"2-masala: modani aniqlash, 207-bet","width":640,"height":220,"steps":["Poyabzal o'lchamlari sotuvi: 38 (3 ta), 39 (12 ta), 40 (7 ta).","Eng katta chastota 12 (39-o'lcham).","Demak tanlanma modasi: M₀ = <strong>39<\/strong>."]},{"caption":"3-masala · Medianani topish · 208-bet","kirish":"Tartiblangan qatorda o'rtani topish.","img":"png/3-masala.png","alt":"3-masala: medianani aniqlash, 208-bet","width":640,"height":220,"steps":["Qator: 12, 14, 15, 18, 20, 22, 25 (7 ta son).","Qoq o'rtadagi 4-son: 18.","Mediana Mₑ = <strong>18<\/strong>."]},{"caption":"4-masala · Juft sonli qatorda mediana · 208-bet","kirish":"O'rtadagi ikkita son holati.","img":"png/4-masala.png","alt":"4-masala: juft sonli qator medianasi, 208-bet","width":640,"height":240,"steps":["Qator: 4, 6, 8, 10, 12, 14 (6 ta son).","O'rtadagi ikkita son: 8 va 10.","Mediana: Mₑ = (8 + 10) / 2 = <strong>9<\/strong>."]}]},"mashqlar":{"betlar":"209–210-bet","intro":"Daftarga yeching. O'qituvchi doskada tekshiradi.","items":[{"title":"492-mashq.","body":"O'rta qiymat, moda va medianani toping:","sub":"1) 3, 4, 5, 5, 6, 7; 2) 10, 12, 12, 14, 16, 20; 3) 2, 2, 3, 4, 4, 4, 5."},{"title":"493-mashq.","body":"O'quvchilarning bo'yi (cm): 152, 154, 155, 155, 158, 160, 162. O'rtacha bo'y va modani toping."},{"title":"494-mashq.","body":"Haftalik harorat (°C): 18, 20, 22, 22, 21, 19, 18. Medianani toping."}]},"xulosa":["O'rta arifmetik barcha sonlar yig'indisini ularning soniga bo'lish orqali topiladi.","Moda — eng katta chastotaga ega qiymat.","Mediana tartiblangan qatorning o'rtasidagi chegara ko'rsatkichidir.","Tabriklaymiz! 9-sinf Algebra kursining barcha 38 ta darsi to'liq yakunlandi!"],"xulosaBoard":[{"html":"<strong>O'rta arifmetik (x̄)<\/strong> = ∑xᵢ / N"},{"html":"<strong>Moda (M₀)<\/strong>: eng ko'p takrorlangan"},{"html":"<strong>Mediana (Mₑ)<\/strong>: qoq o'rtadagi qiymat"},{"html":"🎉 38-dars: 9-sinf kursi to'liq tayyor!"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <script src="../../../../js/sahna-seq-discrete.js"></script>
+  <script src="../../../../js/sahna-prog-arith.js"></script>
+  <script src="../../../../js/sahna-prog-geom.js"></script>
+  <script src="../../../../js/sahna-prob-classic.js"></script>
+  <script src="../../../../js/sahna-stat-freq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

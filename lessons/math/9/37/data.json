@@ -1,0 +1,249 @@
+{
+  "id": 37,
+  "bob": {
+    "roman": "V",
+    "nom": "Ehtimolliklar nazariyasi va matematik statistika elementlari"
+  },
+  "paragraf": "37-§",
+  "title": "Tasodifiy miqdorlar",
+  "lead": "Sinov natijasida turli son qiymatlarni qabul qiluvchi miqdorlar, ularning taqsimot jadvali va poligoni.",
+  "prev": {
+    "href": "../36/",
+    "label": "36-dars"
+  },
+  "next": {
+    "href": "../38/",
+    "label": "38-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 36-§ (nisbiy chastota) ni eslash"
+    },
+    {
+      "min": 7,
+      "name": "Sahna — tasodifiy miqdor taqsimot gistogrammasi"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — diskret tasodifiy miqdor va taqsimot qonuni"
+    },
+    {
+      "min": 11,
+      "name": "Doska — 4 ta masalani birga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — 484, 485, 486-mashqlar"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "stat-freq",
+    "mode": "random_var",
+    "ariaLabel": "Interaktiv chizma: tasodifiy miqdor taqsimoti",
+    "hint": "N parametrini suring — tasodifiy miqdor qiymatlari chastotalarining taqsimoti ko'rinadi.",
+    "vars": {
+      "n": {
+        "min": 20,
+        "max": 200,
+        "step": 20,
+        "value": 80,
+        "desc": "kuzatuvlar soni N"
+      }
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">36-§da <strong>nisbiy chastota</strong>ni o'rgangan edik. Endi sinov natijasi sonlar bilan ifodalanadigan tushunchaga — <strong>tasodifiy miqdor</strong>ga o'tamiz.</p>",
+    "<p>Masalan: kunlik havo harorati, bir kunda do'konga kirgan xaridorlar soni, o'yin kubigida tushgan ochko — bularning barchasi oldindan aniq aytib bo'lmaydigan tasodifiy miqdorlardir.</p>"
+  ],
+  "reja": "Tasodifiy miqdor tushunchasi, taqsimot jadvali va chastotalar poligonini yasashni o'rganamiz.",
+  "qoida": "<p><strong>Ta'rif:</strong> Sinov natijasida u yoki bu ehtimollik bilan ma'lum son qiymatlarini qabul qiladigan miqdor <strong>tasodifiy miqdor</strong> deyiladi (odatda X, Y bilan belgilanadi).</p><p>Tasodifiy miqdor qabul qiladigan qiymatlari va ularga mos ehtimolliklar (yoki chastotalar) jadvali <strong>taqsimot qonuni</strong> deyiladi:</p><table style=\"margin:8px auto;border-collapse:collapse;text-align:center;\"><tr><th style=\"border:1px solid #999;padding:4px 8px;\">X</th><td style=\"border:1px solid #999;padding:4px 8px;\">x₁</td><td style=\"border:1px solid #999;padding:4px 8px;\">x₂</td><td style=\"border:1px solid #999;padding:4px 8px;\">...</td><td style=\"border:1px solid #999;padding:4px 8px;\">xₖ</td></tr><tr><th style=\"border:1px solid #999;padding:4px 8px;\">P</th><td style=\"border:1px solid #999;padding:4px 8px;\">p₁</td><td style=\"border:1px solid #999;padding:4px 8px;\">p₂</td><td style=\"border:1px solid #999;padding:4px 8px;\">...</td><td style=\"border:1px solid #999;padding:4px 8px;\">pₖ</td></tr></table><p>Asosiy shart: barcha ehtimolliklar yig'indisi 1 ga teng: <strong>p₁ + p₂ + ... + pₖ = 1</strong>.</p>",
+  "savollar": [
+    {
+      "savol": "Bitta o'yin kubigidagi ochkolar soni X qanday qiymatlarni qabul qiladi?",
+      "variantlar": [
+        "{1, 2, 3, 4, 5, 6}",
+        "Istalgan son",
+        "{0, 1}"
+      ],
+      "togri": 0
+    },
+    {
+      "savol": "Taqsimot jadvalidagi barcha ehtimolliklar yig'indisi nechaga teng bo'lishi shart?",
+      "variantlar": [
+        "0",
+        "1",
+        "100"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "Chastotalar poligoni nima?",
+      "variantlar": [
+        "Ko'pburchak shaklidagi grafik",
+        "Nuqtalarni tutashtiruvchi siniq chiziq",
+        "Aylana"
+      ],
+      "togri": 1
+    }
+  ],
+  "eslabQol": [
+    "Tasodifiy miqdor X sinov natijasida aniq bir son qiymatini oladi.",
+    "Taqsimot jadvalida barcha ehtimolliklar yig'indisi doim <strong>∑pᵢ = 1</strong> bo'ladi.",
+    "Grafik tasvirlash uchun gistogramma va chastotalar poligonidan foydalaniladi."
+  ],
+  "kitob": {
+    "betlar": "198–205-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-198.png",
+        "bet": "198-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-199.png",
+        "bet": "199-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-200.png",
+        "bet": "200-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-201.png",
+        "bet": "201-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-202.png",
+        "bet": "202-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-203.png",
+        "bet": "203-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-204.png",
+        "bet": "204-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-205.png",
+        "bet": "205-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 37-§ — masalalar va namunalar tahlili.",
+    "masalalar": [
+      {
+        "caption": "1-masala · Ikkita kubik ochkolari yig'indisi · 198-bet",
+        "kirish": "Tasodifiy miqdor qiymatlari.",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: ikkita kubik ochkolari yig'indisi, 198-bet",
+        "width": 640,
+        "height": 260,
+        "steps": [
+          "Ikkita kubik tashlanganda ochkolar yig'indisi X tasodifiy miqdordir.",
+          "X qabul qilishi mumkin bo'lgan qiymatlar: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.",
+          "Eng katta ehtimollik 7 soniga to'g'ri keladi (6 ta holat)."
+        ]
+      },
+      {
+        "caption": "2-masala · Taqsimot jadvalini tuzish · 199-bet",
+        "kirish": "Jadval ko'rinishida yozish.",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: taqsimot jadvali, 199-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "Har bir xᵢ qiymatga uning pᵢ ehtimolligi mos qo'yiladi.",
+          "Jami ehtimolliklar: p₁ + p₂ + ... + pₖ = 1.",
+          "Bu jadval orqali jarayon to'liq matematik tavsiflanadi."
+        ]
+      },
+      {
+        "caption": "3-masala · Chastotalar poligoni · 200-bet",
+        "kirish": "Koordinata tekisligida chizish.",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: chastotalar poligoni, 200-bet",
+        "width": 640,
+        "height": 240,
+        "steps": [
+          "Gorizontal o'qqa X ning qiymatlari (xᵢ), vertikal o'qqa chastotalar (Mᵢ) qo'yiladi.",
+          "(xᵢ, Mᵢ) nuqtalar kesmalar bilan tutashtiriladi.",
+          "Hosil bo'lgan siniq chiziq — <strong>chastotalar poligoni</strong> deyiladi."
+        ]
+      },
+      {
+        "caption": "4-masala · Gistogramma yasash · 201-bet",
+        "kirish": "Ustunli diagramma ko'rinishi.",
+        "img": "png/4-masala.png",
+        "alt": "4-masala: gistogramma yasash, 201-bet",
+        "width": 640,
+        "height": 240,
+        "steps": [
+          "Har bir oraliq ustiga balandligi chastotaga mos to'g'ri to'rtburchak yasaladi.",
+          "Gistogramma ma'lumotlarning tarqalish shaklini yaqqol ko'rsatadi."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "203–205-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "484-mashq.",
+        "body": "Taqsimot jadvalini tuzing:",
+        "sub": "Tanga 3 marta tashlanganda gerb tushishlar soni X ning taqsimot jadvalini yozing."
+      },
+      {
+        "title": "485-mashq.",
+        "body": "Chastotalar poligonini chizing:",
+        "sub": "Nazorat ishida olingan baholar: 3 (8 ta), 4 (12 ta), 5 (6 ta)."
+      },
+      {
+        "title": "486-mashq.",
+        "body": "Noma'lum ehtimollikni toping:",
+        "sub": "X miqdor uchun p₁ = 0,2; p₂ = 0,5; p₃ = ? bo'lsa, p₃ ni hisoblang."
+      }
+    ]
+  },
+  "xulosa": [
+    "Tasodifiy miqdor tajriba natijasida ehtimollik bilan ma'lum son qiymatini qabul qiladi.",
+    "Taqsimot qonuni barcha mumkin bo'lgan qiymatlar va ularning ehtimolliklarini ko'rsatadi.",
+    "Poligon va gistogramma ma'lumotlarni ko'rgazmali tahlil qilish vositasidir."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>Tasodifiy miqdor</strong>: X = {x₁, x₂, ..., xₙ}"
+    },
+    {
+      "html": "<strong>Shart</strong>: p₁ + p₂ + ... + pₙ = 1"
+    },
+    {
+      "html": "<strong>Grafik</strong>: Poligon va Gistogramma"
+    }
+  ]
+}

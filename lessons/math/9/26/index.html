@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#f3eee4">
+  <title>Jonli Algebra</title>
+  <link rel="icon" href="../../../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/favicon-32.png">
+  <link rel="stylesheet" href="../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../css/dars.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="../../../../index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M3 20 Q13 2 23 20" stroke="#1a221c" stroke-width="1.6" fill="none"/>
+            <circle cx="13" cy="11" r="1.6" fill="#c24b2a"/>
+          </svg>
+        </span>
+        <span class="brand-name">Jonli Algebra<small>9-sinf · vizual darslar</small></span>
+      </a>
+      <div class="header-right">
+        <a class="btn" href="../../../../index.html">Bosh sahifa</a>
+        <a class="btn" href="../../../../kitob/darslik.pdf" download>Darslik PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <p class="kicker" id="darsKicker"></p>
+      <h1 class="dars-title" id="darsTitle"></h1>
+      <p class="lead" id="darsLead"></p>
+
+      <!--#feature:agenda-->
+      <section class="block-agenda" id="agenda" aria-label="45 daqiqalik dars rejasi va taymer">
+        <div class="agenda-head">
+          <h2>Dars rejasi · 45 daqiqa</h2>
+          <div class="agenda-timer">
+            <span id="agendaClock">45:00</span>
+            <button type="button" id="agendaToggle" class="btn">Boshlash</button>
+            <button type="button" id="agendaReset" class="btn btn-ghost">Qayta</button>
+          </div>
+        </div>
+        <ol class="agenda-steps" id="agendaSteps"></ol>
+      </section>
+      <!--/feature:agenda-->
+
+      <section class="stage is-live sahna-stage" id="sahna" aria-label="Interaktiv sahna">
+        <button type="button" class="sahna-expand-btn" id="sahnaExpandBtn" aria-label="Butun ekranga yoyish" aria-pressed="false">
+          <svg class="icon-expand" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <polyline points="4 14 10 14 10 20"></polyline>
+            <polyline points="20 10 14 10 14 4"></polyline>
+            <line x1="14" y1="10" x2="21" y2="3"></line>
+            <line x1="10" y1="14" x2="3" y2="21"></line>
+          </svg>
+        </button>
+        <!-- Sahna mazmuni js/sahna-*.js orqali data.json'dagi "sahna.type" asosida shu yerga quriladi -->
+      </section>
+
+      <!--#feature:picker-->
+      <section class="block-picker" id="picker" aria-label="Sinfdan tasodifiy o'quvchi tanlash">
+        <div class="picker-head">
+          <h2>Doskaga kim chiqadi?</h2>
+          <p class="picker-sub">Ismlarni bir marta kiriting — dars davomida istalgancha ishlatasiz.</p>
+        </div>
+        <div class="picker-body">
+          <div class="picker-display" id="pickerDisplay" aria-live="polite">
+            <span class="picker-name" id="pickerName">Tayyor</span>
+          </div>
+          <div class="picker-controls">
+            <button type="button" class="btn btn-primary picker-spin-btn" id="pickerSpinBtn">🎲 Tanlash</button>
+            <button type="button" class="btn btn-ghost" id="pickerListBtn">Ismlar ro'yxati</button>
+          </div>
+        </div>
+        <div class="picker-names-panel" id="pickerNamesPanel" hidden>
+          <label for="pickerNamesInput">Sinf ro'yxati (har bir ism yangi qatorda):</label>
+          <textarea id="pickerNamesInput" rows="6" placeholder="Aziz&#10;Malika&#10;Sardor&#10;..."></textarea>
+          <div class="picker-names-actions">
+            <button type="button" class="btn" id="pickerNamesSave">Saqlash</button>
+            <label class="picker-checkbox"><input type="checkbox" id="pickerNoRepeat" checked> Chiqqan ismni takrorlamasin</label>
+          </div>
+        </div>
+      </section>
+      <!--/feature:picker-->
+
+      <!--#feature:classtimer-->
+      <section class="block-classtimer" id="classtimer" aria-label="Sinf birga yechish taymeri">
+        <div class="classtimer-head">
+          <h2>Sinf birga yechadi</h2>
+          <p class="classtimer-sub">Masalani ekranda ko'rsating, taymerni ishga tushiring — vaqt tugagach javobni oching.</p>
+        </div>
+        <div class="classtimer-body">
+          <div class="classtimer-clock" id="classtimerClock">01:00</div>
+          <div class="classtimer-presets">
+            <button type="button" class="btn btn-ghost" data-secs="30">30 s</button>
+            <button type="button" class="btn btn-ghost" data-secs="60">1 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="120">2 daq</button>
+            <button type="button" class="btn btn-ghost" data-secs="180">3 daq</button>
+          </div>
+          <div class="classtimer-controls">
+            <button type="button" class="btn btn-primary" id="classtimerToggle">Boshlash</button>
+            <button type="button" class="btn btn-ghost" id="classtimerReset">Qayta</button>
+          </div>
+        </div>
+      </section>
+      <!--/feature:classtimer-->
+
+      <section class="dars-body">
+        <div class="block block-kirish" id="blockKirish">
+          <h2>Kirish</h2>
+        </div>
+
+        <div class="block block-reja">
+          <h2>Reja</h2>
+          <p id="blockReja"></p>
+        </div>
+
+        <div class="block block-qoida">
+          <h2>Qoida</h2>
+          <div id="blockQoida"></div>
+        </div>
+
+        <div class="block block-savollar">
+          <h2>Savollar</h2>
+          <div class="savollar" id="savollar"></div>
+        </div>
+
+        <div class="block block-eslab" id="blockEslab">
+          <h2>Eslab qol</h2>
+        </div>
+
+        <div class="block block-kitob">
+          <h2>Darslikda</h2>
+          <p>Alimov, Xolmuhamedov, Mirzaahmedov — 9-sinf algebra (2019): <strong id="kitobBetlar"></strong>.</p>
+          <div class="kitob-sahifalar" id="kitobSahifalar"></div>
+        </div>
+
+        <div class="block block-doska" id="doska-namuna">
+          <h2>Doskada namuna yechish</h2>
+          <p class="doska-intro" id="doskaIntro"></p>
+          <div id="doskaMasalalar"></div>
+        </div>
+
+        <div class="block block-mashq">
+          <h2 id="mashqHead">Darslikdan mashqlar</h2>
+          <p class="mashq-intro" id="mashqIntro"></p>
+          <ol class="mashq-list" id="mashqList"></ol>
+        </div>
+
+        <div class="block block-xulosa">
+          <div class="xulosa-head">
+            <h2>Xulosa</h2>
+            <!--#feature:xulosaBoard--><button type="button" class="btn xulosa-board-btn" id="xulosaBoardBtn">🖥️ Doskaga chiqarish</button><!--/feature:xulosaBoard-->
+          </div>
+          <ul class="xulosa-list" id="xulosaList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!--#feature:xulosaBoard-->
+    <div class="xulosa-board" id="xulosaBoard" hidden>
+      <button type="button" class="xulosa-board-close" id="xulosaBoardClose" aria-label="Yopish">✕</button>
+      <div class="xulosa-board-inner">
+        <h2>Bugun nimani o'rgandik</h2>
+        <ul id="xulosaBoardList"></ul>
+      </div>
+    </div>
+    <!--/feature:xulosaBoard-->
+
+    <footer class="site-footer">
+      <a href="#" id="footerPrev" hidden></a>
+      <span class="footer-mid" id="footerMid"></span>
+      <a href="#" id="footerNext" hidden></a>
+    </footer>
+  </div>
+
+  <div class="kitob-lightbox" id="kitobLightbox">
+    <button class="kitob-lightbox-close" id="kitobLightboxClose" aria-label="Yopish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <div class="kitob-book">
+      <div class="kitob-page-wrap" id="kitobPageWrap">
+        <img id="kitobLightboxImg" src="" alt="Darslik sahifasi">
+      </div>
+      <div class="kitob-nav">
+        <button id="kitobPrev" aria-label="Oldingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <span class="kitob-nav-label" id="kitobNavLabel"></span>
+        <button id="kitobNext" aria-label="Keyingi bet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dars mazmuni — build.py shu yerga shu darsning data.json'ini inline qiladi (offline file:// uchun, fetch() ishlatilmaydi) -->
+  <script type="application/json" id="dars-data">{"id":26,"bob":{"roman":"III","nom":"Trigonometriya elementlari"},"paragraf":"26-§","title":"Keltirish formulalari","lead":"Istalgan burchakning trigonometrik funksiyalarini 0° dan 90° gacha bo'lgan o'tkir burchak funksiyalariga keltirish formulalari va qoidalari.","prev":{"href":"../25/","label":"25-dars"},"next":{"href":"../27/","label":"27-dars"},"agenda":[{"min":4,"name":"Kirish — 25-§ (ikkilangan burchak) ni eslash"},{"min":7,"name":"Sahna — burchakni birlik aylanada burish va chorak ishoralari"},{"min":8,"name":"Qoida — π/2±α va π±α keltirish qoidalari"},{"min":11,"name":"Doska — 4 ta masalani birga yechish"},{"min":5,"name":"Savollar — sinf ovoz bilan javob beradi"},{"min":5,"name":"Darslikdan mashqlar — 310, 311, 312-mashqlar"},{"min":5,"name":"Eslab qol — xulosa va uyga vazifa"}],"sahna":{"type":"unit-circle","ariaLabel":"Interaktiv chizma: keltirish formulalari va burchak","hint":"Slayderni suring — burchak o'zgarganda uning o'tkir burchakka keltirilgan qiymati va ishorasi ko'rinadi.","vars":{"t":{"min":0,"max":360,"step":15,"value":150,"desc":"burchak α (gradus)"}},"notes":{"q1":"α = {t}° — I chorakda, qiymatlar to'g'ridan-to'g'ri hisoblanadi.","q2":"α = {t}° — II chorakda: sin(180°−α) = sinα, cos(180°−α) = −cosα.","q3":"α = {t}° — III chorakda: sin va cos manfiy, tg musbat.","q4":"α = {t}° — IV chorakda: cos musbat, sin manfiy."}},"kirish":["<p class=\"kirish-nega\">25-§da <strong>ikkilangan burchak<\/strong> formulalarini o'rgangan edik. Endi istalgan katta (yoki manfiy) burchakning sinus, kosinus va tangensini 0° dan 90° gacha bo'lgan o'tkir burchakka keltirish usullarini ko'ramiz.<\/p>","<p>Keltirish formulalari 2 ta asosiy qoidaga bo'ysunadi: 1) Funksiya nomi o'zgaradimi (π/2, 3π/2 da o'zgaradi, π, 2π da o'zgarmaydi); 2) Boshlang'ich funksiyaning shu chorakdagi ishorasi saqlanadi.<\/p>"],"reja":"Burchaklarni 2πk davriyligi va π/2±α, π±α keltirish formulalari orqali o'tkir burchakka keltirishni o'rganamiz.","qoida":"<p>Asosiy keltirish qoidasi:<\/p><p><strong>1. π ± α, 2π ± α<\/strong> burchaklarda funksiya nomi <em>o'zgarmaydi<\/em>: sin→sin, cos→cos, tg→tg.<\/p><p><strong>2. π/2 ± α, 3π/2 ± α<\/strong> burchaklarda nom <em>kofunksiyaga o'zgaradi<\/em>: sin↔cos, tg↔ctg.<\/p><p><strong>3. Ishora<\/strong> berilgan ifodaning dastlabki choragidagi ishorasi bilan bir xil olinadi.<\/p><p>Masalan: <strong>sin(180° − α) = sinα<\/strong>, <strong>cos(180° − α) = −cosα<\/strong>, <strong>sin(90° + α) = cosα<\/strong>.<\/p>","savollar":[{"savol":"sin(180° − α) nimaga teng?","variantlar":["−sinα","sinα","cosα"],"togri":1},{"savol":"cos(90° + α) qaysi ifodaga teng?","variantlar":["−sinα","sinα","cosα"],"togri":0},{"savol":"tg(180° + α) qanday bo'ladi?","variantlar":["−tgα","ctgα","tgα"],"togri":2}],"eslabQol":["<strong>π va 2π<\/strong> qatnashsa — nom o'zgarmaydi (sin→sin, cos→cos).","<strong>π/2 va 3π/2<\/strong> qatnashsa — nom o'zgaradi (sin↔cos, tg↔ctg).","<strong>Ishora<\/strong> — dastlabki burchak tushgan chorak bo'yicha aniqlanadi.","Davriylik: sin va cos uchun 2πk, tg va ctg uchun πk tashlab yuboriladi."],"kitob":{"betlar":"129–135-betlar","sahifalar":[{"img":"../../../../kitob/kitob-129.png","bet":"129-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-130.png","bet":"130-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-131.png","bet":"131-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-132.png","bet":"132-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-133.png","bet":"133-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-134.png","bet":"134-bet","width":640,"height":758},{"img":"../../../../kitob/kitob-135.png","bet":"135-bet","width":640,"height":758}]},"doska":{"intro":"Kitobdagi 26-§ — masalalar va namunalar tahlili.","masalalar":[{"caption":"1-masala · sin870° va cos870° · 130-bet","kirish":"870° ni to'la aylanishlar 2·360° + 150° ga ajratamiz.","img":"png/1-masala.png","alt":"1-masala: sin870 va cos870 hisoblash, 130-bet","width":640,"height":270,"steps":["870° = 2·360° + 150°.","sin870° = sin150° = sin(180° − 30°) = sin30° = <strong>1/2<\/strong>.","cos870° = cos150° = cos(180° − 30°) = −cos30° = <strong>−√3/2<\/strong>."]},{"caption":"2-masala · sin930° · 131-bet","kirish":"930° burchakni keltiramiz.","img":"png/2-masala.png","alt":"2-masala: sin930 hisoblash, 131-bet","width":640,"height":230,"steps":["930° = 2·360° + 210° = 720° + 210°.","sin930° = sin210° = sin(180° + 30°).","III chorakda sinus manfiy: sin(180° + 30°) = −sin30° = <strong>−1/2<\/strong>."]},{"caption":"3-masala · cos(15π/4) · 131-bet","kirish":"Radiandagi burchakni keltiramiz.","img":"png/3-masala.png","alt":"3-masala: cos(15pi/4) hisoblash, 131-bet","width":640,"height":120,"steps":["15π/4 = 4π − π/4 = 2·2π − π/4.","cos(15π/4) = cos(−π/4) = cos(π/4) = <strong>√2/2<\/strong>."]},{"caption":"4-masala · tg(11π/6) va tg1050° · 132-bet","kirish":"Tangens uchun keltirish formulalari.","img":"png/4-masala.png","alt":"4-masala: tg hisoblash, 132-bet","width":640,"height":220,"steps":["tg(11π/6) = tg(2π − π/6) = −tg(π/6) = <strong>−√3/3<\/strong>.","tg1050° = tg(3·360° − 30°) = tg(−30°) = <strong>−√3/3<\/strong>."]}]},"mashqlar":{"betlar":"134–135-bet","intro":"Daftarga yeching. O'qituvchi doskada tekshiradi.","items":[{"title":"310-mashq.","body":"Hisoblang:","sub":"1) tg(5π/6); 2) sin(7π/6); 3) cos(4π/3); 4) sin(−5π/3)."},{"title":"311-mashq.","body":"Ifodaning son qiymatini toping:","sub":"1) cos630° − sin1470° − ctg1125°; 2) tg1800° − sin495° + cos945°."},{"title":"312-mashq.","body":"Ifodani soddalashtiring:","sub":"1) cos²(π − α) + sin²(α − π); 2) cos(π − α)cos(3π − α) − sin(α − π)sin(α − 3π)."},{"title":"313–314-mashq.","body":"Keltirish formulalari yordamida soddalashtiring (kitob 134-bet)."}]},"xulosa":["<strong>π va 2π<\/strong> burchaklarda trigonometrik nom o'zgarmaydi.","<strong>π/2 va 3π/2<\/strong> burchaklarda nom kofunksiyaga o'zgaradi (sin↔cos, tg↔ctg).","Ifoda oldidagi ishora doim dastlabki burchakning choragidagi ishorasiga qarab qo'yiladi."],"xulosaBoard":[{"html":"<strong>sin(180° − α)<\/strong> = sinα"},{"html":"<strong>cos(180° − α)<\/strong> = −cosα"},{"html":"<strong>sin(90° ± α)<\/strong> = cosα"},{"html":"<strong>cos(90° ± α)<\/strong> = ∓sinα"}]}</script>
+
+  <script src="../../../../js/features.js"></script>
+  <!-- Yangi umumiy funksiya (har darsda bir xil ishlaydigan narsa) qo'shsangiz,
+       BU YERGA TEGMANG — js/features/<nomi>.js qo'shing, build.py avtomatik
+       shu features.js ichiga qo'shadi. -->
+      <script src="../../../../js/sahna-base.js"></script>
+  <script src="../../../../js/sahna-abc-parabola.js"></script>
+  <script src="../../../../js/sahna-x2-parabola.js"></script>
+  <script src="../../../../js/sahna-graph-steps.js"></script>
+  <script src="../../../../js/sahna-sign-line.js"></script>
+  <script src="../../../../js/sahna-sign-chain.js"></script>
+  <script src="../../../../js/sahna-ineq-parabola.js"></script>
+  <script src="../../../../js/sahna-domain-line.js"></script>
+  <script src="../../../../js/sahna-mono-parabola.js"></script>
+  <script src="../../../../js/sahna-even-odd.js"></script>
+  <script src="../../../../js/sahna-unit-circle.js"></script>
+  <script src="../../../../js/sahna-line-parabola.js"></script>
+  <script src="../../../../js/sahna-system-methods.js"></script>
+  <script src="../../../../js/sahna-power-growth.js"></script>
+  <script src="../../../../js/sahna-ineq-intersect.js"></script>
+  <script src="../../../../js/sahna-quadrant-signs.js"></script>
+  <script src="../../../../js/sahna-am-gm-ineq.js"></script>
+  <script src="../../../../js/sahna-seq-discrete.js"></script>
+  <script src="../../../../js/sahna-prog-arith.js"></script>
+  <script src="../../../../js/sahna-prog-geom.js"></script>
+  <script src="../../../../js/sahna-prob-classic.js"></script>
+  <script src="../../../../js/sahna-stat-freq.js"></script>
+  <!-- Yangi sahna turi qo'shsangiz, shu yerga yana bitta <script> qatori qo'shing
+       (sahna-base.js'dan KEYIN, chunki KA_SAHNA_BASE'ga bog'liq). -->
+  <script src="../../../../js/dars-render.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+{
+  "id": 30,
+  "bob": {
+    "roman": "IV",
+    "nom": "Sonli ketma-ketliklar. Progressiyalar"
+  },
+  "paragraf": "30-§",
+  "title": "Arifmetik progressiya dastlabki n ta hadining yig'indisi",
+  "lead": "Gauss usuli va arifmetik progressiya dastlabki n ta hadining yig'indisi formulalari.",
+  "prev": {
+    "href": "../29/",
+    "label": "29-dars"
+  },
+  "next": {
+    "href": "../31/",
+    "label": "31-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 29-§ (arifmetik progressiya) ni eslash"
+    },
+    {
+      "min": 7,
+      "name": "Sahna — Sₙ yig'indisini pog'onalar maydoni sifatida ko'rish"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — Gauss usuli va Sₙ formulalari"
+    },
+    {
+      "min": 11,
+      "name": "Doska — 4 ta masalani birga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — 375, 376, 377-mashqlar"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "prog-arith",
+    "showSum": true,
+    "ariaLabel": "Interaktiv chizma: arifmetik progressiya yig'indisi",
+    "hint": "Slayderlarni suring — dastlabki hadlar yig'indisi S₅ formuladagidek hisoblanib boradi.",
+    "vars": {
+      "a": {
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "value": 2,
+        "desc": "boshlang'ich had a₁"
+      },
+      "d": {
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "value": 2,
+        "desc": "ayirma d"
+      }
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">29-§da <strong>arifmetik progressiya</strong> hadlarini topishni o'rgangan edik. Endi ularning dastlabki n ta hadini qo'shib chiqish kerak bo'lsa nima qilamiz?</p>",
+    "<p>Mashhur matematik Karl Gauss 10 yoshida 1 dan 100 gacha sonlar yig'indisini bir daqiqada hisoblab hayratga solgan: boshidan va oxiridan olingan juftliklar (1+100=101, 2+99=101, ...) bir xil yig'indini beradi!</p>"
+  ],
+  "reja": "Arifmetik progressiya dastlabki n ta hadi yig'indisi formulalarini chiqaramiz va amaliyotda qo'llaymiz.",
+  "qoida": "<p><strong>Dastlabki n ta had yig'indisi formulalari:</strong></p><p><strong>Sₙ = ((a₁ + aₙ) / 2) · n</strong> &nbsp;(1)</p><p>Agar aₙ o'rniga a₁ + (n − 1)d formulani qo'ysak:</p><p><strong>Sₙ = ((2a₁ + (n − 1)d) / 2) · n</strong> &nbsp;(2)</p><p>Bu formulalar yordamida yuzlab hadlarni bittalab qo'shmasdan darhol javob topiladi.</p>",
+  "savollar": [
+    {
+      "savol": "1 dan 100 gacha sonlar yig'indisi qancha?",
+      "variantlar": [
+        "5000",
+        "5050",
+        "5500"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "Sₙ formulasida n nimani bildiradi?",
+      "variantlar": [
+        "Oxirgi hadni",
+        "Qo'shilayotgan hadlar sonini",
+        "Ayirmani"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "Agar a₁ = 1, a₁₀ = 19 bo'lsa, S₁₀ qancha?",
+      "variantlar": [
+        "100",
+        "200",
+        "190"
+      ],
+      "togri": 0
+    }
+  ],
+  "eslabQol": [
+    "<strong>Sₙ = ((a₁ + aₙ) / 2) · n</strong> — birinchi va oxirgi had ma'lum bo'lganda.",
+    "<strong>Sₙ = ((2a₁ + (n − 1)d) / 2) · n</strong> — faqat a₁ va d ma'lum bo'lganda.",
+    "Trapeziya maydoniga o'xshaydi: asoslar yig'indisi yarmi ko'paytirilgan balandlik.",
+    "Gauss juftlash qoidasi: a₁ + aₙ = a₂ + aₙ₋₁ = a₃ + aₙ₋₂ = ..."
+  ],
+  "kitob": {
+    "betlar": "158–161-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-158.png",
+        "bet": "158-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-159.png",
+        "bet": "159-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-160.png",
+        "bet": "160-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-161.png",
+        "bet": "161-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 30-§ — masalalar va namunalar tahlili.",
+    "masalalar": [
+      {
+        "caption": "1-masala · 1 dan 100 gacha yig'indi · 158-bet",
+        "kirish": "Gauss usuli bilan hisoblash.",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: 1 dan 100 gacha sonlar yig'indisi, 158-bet",
+        "width": 640,
+        "height": 280,
+        "steps": [
+          "S = 1 + 2 + ... + 100.",
+          "Teskari yozib qo'shamiz: 2S = 100 · 101 = 10100.",
+          "S = 10100 / 2 = <strong>5050</strong>."
+        ]
+      },
+      {
+        "caption": "2-masala · S₂₀ ni topish · 159-bet",
+        "kirish": "a₁ = 3, d = 2 bo'lsa S₂₀ ni topish.",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: S20 hisoblash, 159-bet",
+        "width": 640,
+        "height": 160,
+        "steps": [
+          "S₂₀ = ((2a₁ + 19d) / 2) · 20.",
+          "= (2·3 + 19·2) · 10 = (6 + 38) · 10 = 44 · 10 = <strong>440</strong>."
+        ]
+      },
+      {
+        "caption": "3-masala · Barcha 2 xonali sonlar yig'indisi · 159-bet",
+        "kirish": "10 dan 99 gacha bo'lgan sonlar.",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: 2 xonali sonlar yig'indisi, 159-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "a₁ = 10, aₙ = 99, d = 1.",
+          "Hadlar soni: n = 99 − 10 + 1 = 90 ta.",
+          "S₉₀ = ((10 + 99) / 2) · 90 = 109 · 45 = <strong>4905</strong>."
+        ]
+      },
+      {
+        "caption": "4-masala · Sₙ = 330 bo'lsa n ni topish · 160-bet",
+        "kirish": "a₁ = 10, d = 4, Sₙ = 330.",
+        "img": "png/4-masala.png",
+        "alt": "4-masala: n ni topish, 160-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "((2·10 + (n − 1)·4) / 2) · n = 330.",
+          "(10 + 2(n − 1)) · n = 330 → (2n + 8)·n = 330 → 2n² + 8n − 330 = 0.",
+          "n² + 4n − 165 = 0 → (n − 11)(n + 15) = 0 → n = <strong>11</strong>."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "160–161-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "375-mashq.",
+        "body": "Dastlabki n ta had yig'indisini toping:",
+        "sub": "1) a₁ = 1, aₙ = 20, n = 50; 2) a₁ = 1, aₙ = 200, n = 100; 3) a₁ = −5, aₙ = −50, n = 10."
+      },
+      {
+        "title": "376-mashq.",
+        "body": "Yig'indini hisoblang:",
+        "sub": "1) a₁ = 3, d = 2 bo'lsa S₁₁; 2) a₁ = −4, d = 3 bo'lsa S₁₅."
+      },
+      {
+        "title": "377-mashq.",
+        "body": "Barcha juft natural sonlar yig'indisini toping:",
+        "sub": "1 dan 100 gacha bo'lgan juft sonlar (2 + 4 + ... + 100)."
+      }
+    ]
+  },
+  "xulosa": [
+    "Arifmetik progressiya yig'indisi chetki hadlar o'rta arifmetigini hadlar soniga ko'paytirish bilan topiladi.",
+    "Gauss juftlash printsipi barcha arifmetik qatorlar uchun universal ishlaydi.",
+    "Sₙ dan foydalanib masalalarda hadlar soni n ni kvadrat tenglama orqali topish mumkin."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>Sₙ</strong> = ((a₁ + aₙ) / 2) · n"
+    },
+    {
+      "html": "<strong>Sₙ</strong> = ((2a₁ + (n − 1)d) / 2) · n"
+    },
+    {
+      "html": "Gauss: 1 + 2 + ... + 100 = 5050"
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "id": 27,
+  "bob": {
+    "roman": "III",
+    "nom": "Trigonometriya elementlari"
+  },
+  "paragraf": "27-§",
+  "title": "Sinuslar va kosinuslar yig'indisi hamda ayirmasi",
+  "lead": "Trigonometrik funksiyalar yig'indisi va ayirmasini ko'paytmaga keltirish formulalari.",
+  "prev": {
+    "href": "../26/",
+    "label": "26-dars"
+  },
+  "next": {
+    "href": "../28/",
+    "label": "28-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 26-§ (keltirish formulalari) ni eslash"
+    },
+    {
+      "min": 7,
+      "name": "Sahna — burchaklar yig'indisi va ko'paytmaga aylanish"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — sinα±sinβ va cosα±cosβ formulalari"
+    },
+    {
+      "min": 11,
+      "name": "Doska — 4 ta masalani birga yechish"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — 318, 319, 320-mashqlar"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "unit-circle",
+    "ariaLabel": "Interaktiv chizma: trigonometrik yig'indilar",
+    "hint": "Slayderni suring — burchaklar o'zgarishi bilan funksiyalar yig'indisi ko'paytma orqali qanday ixchamlashishi ko'rinadi.",
+    "vars": {
+      "t": {
+        "min": 0,
+        "max": 180,
+        "step": 15,
+        "value": 45,
+        "desc": "burchak α (gradus)"
+      }
+    },
+    "notes": {
+      "q1": "α = {t}°: sinα va cosα qiymatlari hisoblanadi.",
+      "q2": "sinα + cosα = √2 · sin(α + 45°) yordamchi burchak usuli bilan ko'paytmaga keladi.",
+      "q3": "Yig'indi ko'paytmaga aylanganda tenglamalarni yechish juda osonlashadi.",
+      "q4": "cosα − cosβ = −2 sin((α+β)/2) sin((α−β)/2) — oldidagi minus ishorasiga e'tibor bering."
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">26-§da <strong>keltirish formulalari</strong>ni o'rgangan edik. Bugungi darsda trigonometriyadagi eng foydali formulalardan biri — <strong>yig'indi va ayirmani ko'paytmaga keltirish</strong>ni ko'ramiz.</p>",
+    "<p>Tenglamalarni yechishda yig'indini 0 ga tenglash qiyin, lekin ko'paytma 0 ga teng bo'lsa, har bir ko'paytuvchini alohida 0 ga tenglab osongina ildiz topamiz.</p>"
+  ],
+  "reja": "sinα±sinβ va cosα±cosβ formulalarini o'rganamiz va ifodalarni ko'paytuvchilarga ajratamiz.",
+  "qoida": "<p>Yig'indi va ayirmani ko'paytmaga keltirish formulalari:</p><p><strong>sinα + sinβ = 2 sin((α+β)/2) · cos((α−β)/2)</strong></p><p><strong>sinα − sinβ = 2 sin((α−β)/2) · cos((α+β)/2)</strong></p><p><strong>cosα + cosβ = 2 cos((α+β)/2) · cos((α−β)/2)</strong></p><p><strong>cosα − cosβ = −2 sin((α+β)/2) · sin((α−β)/2)</strong></p><p>Diqqat: cosα − cosβ formulasida oldinda <em>minus</em> belgisi bor!</p>",
+  "savollar": [
+    {
+      "savol": "sinα + sinβ ko'paytmaga qanday aylanadi?",
+      "variantlar": [
+        "2 cos((α+β)/2)cos((α−β)/2)",
+        "2 sin((α+β)/2)cos((α−β)/2)",
+        "−2 sin((α+β)/2)sin((α−β)/2)"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "cosα − cosβ formulasida qanday ishora bo'ladi?",
+      "variantlar": [
+        "Doim musbat",
+        "Minus ishora (−2)",
+        "Ishorasiz"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "sin75° + sin15° nimaga teng?",
+      "variantlar": [
+        "√6/2",
+        "1",
+        "√2"
+      ],
+      "togri": 0
+    }
+  ],
+  "eslabQol": [
+    "<strong>sin ± sin</strong> da sin va cos qatnashadi.",
+    "<strong>cos + cos</strong> da faqat cos·cos bo'ladi.",
+    "<strong>cos − cos</strong> da oldida <strong>−2</strong> va faqat sin·sin bo'ladi.",
+    "Bu formulalar trigonometrik tenglamalarni yechishning asosiy kalitidir."
+  ],
+  "kitob": {
+    "betlar": "135–139-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-135.png",
+        "bet": "135-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-136.png",
+        "bet": "136-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-137.png",
+        "bet": "137-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-138.png",
+        "bet": "138-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-139.png",
+        "bet": "139-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 27-§ — masalalar va namunalar tahlili.",
+    "masalalar": [
+      {
+        "caption": "1-masala · Ifodani soddalashtirish · 135-bet",
+        "kirish": "Yig'indini ko'paytmaga almashtirish namunasi.",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: ifodani soddalashtirish, 135-bet",
+        "width": 640,
+        "height": 290,
+        "steps": [
+          "sin(α + π/12) + sin(α − π/12) yig'indisini olamiz.",
+          "= 2 sinα · cos(π/12).",
+          "Natijada ifoda <strong>1/2 sinα</strong> ko'rinishiga keladi."
+        ]
+      },
+      {
+        "caption": "2-masala · sin75° + cos75° · 136-bet",
+        "kirish": "cos75° = sin15° deb olamiz.",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: sin75 + cos75 hisoblash, 136-bet",
+        "width": 640,
+        "height": 140,
+        "steps": [
+          "cos75° = sin(90° − 75°) = sin15°.",
+          "sin75° + sin15° = 2 sin(90°/2) · cos(60°/2).",
+          "= 2 sin45° · cos30° = 2 · (√2/2) · (√3/2) = <strong>√6/2</strong>."
+        ]
+      },
+      {
+        "caption": "3-masala · 2sinα + √3 ni ko'paytmaga keltirish · 136-bet",
+        "kirish": "Ko'paytuvchiga ajratish.",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: ko'paytmaga almashtirish, 136-bet",
+        "width": 640,
+        "height": 140,
+        "steps": [
+          "2(sinα + √3/2) = 2(sinα + sin(π/3)).",
+          "Formula bo'yicha: 2 · 2 sin((α+π/3)/2) cos((α−π/3)/2).",
+          "= <strong>4 sin(α/2 + π/6) cos(α/2 − π/6)</strong>."
+        ]
+      },
+      {
+        "caption": "4-masala · sinα + cosα baholash · 137-bet",
+        "kirish": "Eng kichik va eng katta qiymatni topish.",
+        "img": "png/4-masala.png",
+        "alt": "4-masala: sin+cos min va max qiymati, 137-bet",
+        "width": 640,
+        "height": 200,
+        "steps": [
+          "sinα + cosα = √2 · sin(α + 45°).",
+          "−1 ≤ sin(α + 45°) ≤ 1 bo'lgani sababli:",
+          "Eng kichik qiymat: <strong>−√2</strong>, eng katta qiymat: <strong>√2</strong>."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "137–139-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "318-mashq.",
+        "body": "Ko'paytmaga almashtiring:",
+        "sub": "1) sin40° + sin10°; 2) sin(4π/15) − sin(2π/15); 3) cos73° + cos17°; 4) cos(π/6) − cos(π/4)."
+      },
+      {
+        "title": "319-mashq.",
+        "body": "Hisoblang:",
+        "sub": "1) cos105° + cos75°; 2) sin105° − sin75°; 3) cos(11π/12) + cos(5π/12)."
+      },
+      {
+        "title": "320-mashq.",
+        "body": "Ko'paytmaga almashtiring:",
+        "sub": "1) 1/2 + cosα; 2) √3/2 − sinα; 3) 1 − 2cosα; 4) 1 + 2sinα."
+      }
+    ]
+  },
+  "xulosa": [
+    "Trigonometrik yig'indi va ayirmalar ko'paytmaga aylantirilganda soddalashadi.",
+    "cosα − cosβ formulasidagi oldingi minus ishora (−2) ga doim e'tibor bering.",
+    "Yordamchi burchak kiritish orqali a·sinα + b·cosα ifoda bitta sinusga keltiriladi."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>sinα + sinβ</strong> = 2 sin((α+β)/2) cos((α−β)/2)"
+    },
+    {
+      "html": "<strong>sinα − sinβ</strong> = 2 sin((α−β)/2) cos((α+β)/2)"
+    },
+    {
+      "html": "<strong>cosα + cosβ</strong> = 2 cos((α+β)/2) cos((α−β)/2)"
+    },
+    {
+      "html": "<strong>cosα − cosβ</strong> = −2 sin((α+β)/2) sin((α−β)/2)"
+    }
+  ]
+}

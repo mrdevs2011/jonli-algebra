@@ -1,0 +1,230 @@
+{
+  "id": 34,
+  "bob": {
+    "roman": "V",
+    "nom": "Ehtimolliklar nazariyasi va matematik statistika elementlari"
+  },
+  "paragraf": "34-§",
+  "title": "Hodisalar",
+  "lead": "Tasodifiy, muqarrar va mumkin bo'lmagan hodisalar, teng imkoniyatli hodisalar tushunchasi.",
+  "prev": {
+    "href": "../33/",
+    "label": "33-dars"
+  },
+  "next": {
+    "href": "../35/",
+    "label": "35-dars"
+  },
+  "agenda": [
+    {
+      "min": 4,
+      "name": "Kirish — 33-§ (cheksiz kamayuvchi progressiya) dan yangi bobga o'tish"
+    },
+    {
+      "min": 7,
+      "name": "Sahna — qutidagi sharlar va hodisalar turlari"
+    },
+    {
+      "min": 8,
+      "name": "Qoida — muqarrar, imkonsiz va tasodifiy hodisa ta'riflari"
+    },
+    {
+      "min": 11,
+      "name": "Doska — 4 ta masalani birga tahlil qilish"
+    },
+    {
+      "min": 5,
+      "name": "Savollar — sinf ovoz bilan javob beradi"
+    },
+    {
+      "min": 5,
+      "name": "Darslikdan mashqlar — 460, 461, 462-mashqlar"
+    },
+    {
+      "min": 5,
+      "name": "Eslab qol — xulosa va uyga vazifa"
+    }
+  ],
+  "sahna": {
+    "type": "prob-classic",
+    "ariaLabel": "Interaktiv chizma: hodisalar turlari",
+    "hint": "Qulay sharlar soni m ni 0 (imkonsiz), o'rtacha (tasodifiy) va n (muqarrar) qilib ko'ring.",
+    "vars": {
+      "m": {
+        "min": 0,
+        "max": 8,
+        "step": 1,
+        "value": 3,
+        "desc": "qulay sharlar m"
+      },
+      "n": {
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "value": 8,
+        "desc": "jami sharlar n"
+      }
+    }
+  },
+  "kirish": [
+    "<p class=\"kirish-nega\">33-§da progressiyalarni tugatib, oxirgi V bobga — <strong>Ehtimolliklar nazariyasi va matematik statistika</strong>ga o'tamiz. Hayotda hamma narsa qat'iy formula bilan oldindan belgilanmagan — ko'p jarayonlar tasodifga bog'liq.</p>",
+    "<p>Ehtimolliklar nazariyasi aynan tasodifiy hodisalarni matematik jihatdan o'rganadigan, ularning qonuniyatlarini kashf etadigan fandir.</p>"
+  ],
+  "reja": "Hodisa tushunchasi, muqarrar, imkonsiz, tasodifiy va teng imkoniyatli hodisalar bilan tanishamiz.",
+  "qoida": "<p>Sinov yoki tajriba natijasida ro'y berishi mumkin bo'lgan har qanday natija <strong>hodisa</strong> deyiladi.</p><p>Hodisalar 3 turga bo'linadi:</p><p><strong>1. Muqarrar hodisa:</strong> berilgan sharoitda <em>albatta</em> ro'y beradigan hodisa (masalan, suvning 100°C da qaynashi, kubikda 7 dan kichik son tushishi).</p><p><strong>2. Mumkin bo'lmagan (imkonsiz) hodisa:</strong> berilgan sharoitda <em>hech qachon</em> ro'y bermaydigan hodisa (masalan, kubikda 7 ochko tushishi).</p><p><strong>3. Tasodifiy hodisa:</strong> ro'y berishi ham, ro'y bermasligi ham mumkin bo'lgan hodisa (tanga tashlaganda gerb tushishi).</p><p>Agar birorta hodisaning ro'y berishi boshqasiga nisbatan ustunlikka ega bo'lmasa, ular <strong>teng imkoniyatli hodisalar</strong> deyiladi.</p>",
+  "savollar": [
+    {
+      "savol": "Ertaga quyosh chiqishi qanday hodisa?",
+      "variantlar": [
+        "Tasodifiy",
+        "Muqarrar",
+        "Imkonsiz"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "Oddiy 6 qirrali o'yin kubigini tashlaganda 8 ochko chiqishi qanday hodisa?",
+      "variantlar": [
+        "Muqarrar",
+        "Imkonsiz",
+        "Tasodifiy"
+      ],
+      "togri": 1
+    },
+    {
+      "savol": "Tanga tashlaganda gerb yoki raqam tushishi qanday hodisalar?",
+      "variantlar": [
+        "Teng imkoniyatli",
+        "Imkonsiz",
+        "Biri ikkinchisidan ustun"
+      ],
+      "togri": 0
+    }
+  ],
+  "eslabQol": [
+    "<strong>Muqarrar hodisa</strong> — albatta ro'y beradi (P = 1).",
+    "<strong>Mumkin bo'lmagan hodisa</strong> — ro'y berishi mumkin emas (P = 0).",
+    "<strong>Tasodifiy hodisa</strong> — ro'y berishi ham, bermasligi ham mumkin (0 < P < 1).",
+    "Teng imkoniyatli hodisalarda natijalar bir xil sharoitga ega."
+  ],
+  "kitob": {
+    "betlar": "186–189-betlar",
+    "sahifalar": [
+      {
+        "img": "../../../../kitob/kitob-186.png",
+        "bet": "186-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-187.png",
+        "bet": "187-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-188.png",
+        "bet": "188-bet",
+        "width": 640,
+        "height": 758
+      },
+      {
+        "img": "../../../../kitob/kitob-189.png",
+        "bet": "189-bet",
+        "width": 640,
+        "height": 758
+      }
+    ]
+  },
+  "doska": {
+    "intro": "Kitobdagi 34-§ — masalalar va namunalar tahlili.",
+    "masalalar": [
+      {
+        "caption": "1-masala · Tasodifiy hodisalar · 186-bet",
+        "kirish": "Hayotiy misollar tahlili.",
+        "img": "png/1-masala.png",
+        "alt": "1-masala: tasodifiy hodisa misollari, 186-bet",
+        "width": 640,
+        "height": 240,
+        "steps": [
+          "Qutida 5 oq va 5 qora shar bor.",
+          "Tavakkal olingan shar oq bo'lishi — <strong>tasodifiy hodisa</strong>.",
+          "Chunki oq shar chiqishi ham, qora shar chiqishi ham mumkin."
+        ]
+      },
+      {
+        "caption": "2-masala · Imkonsiz hodisa · 187-bet",
+        "kirish": "Ro'y bermaydigan holatlar.",
+        "img": "png/2-masala.png",
+        "alt": "2-masala: imkonsiz hodisa, 187-bet",
+        "width": 640,
+        "height": 200,
+        "steps": [
+          "O'yin kubigida 1, 2, 3, 4, 5, 6 raqamlari bor.",
+          "Bitta kubik tashlanganda 7 ochko tushishi — <strong>mumkin bo'lmagan (imkonsiz) hodisa</strong>."
+        ]
+      },
+      {
+        "caption": "3-masala · Muqarrar hodisa · 187-bet",
+        "kirish": "Albatta yuz beradigan hodisalar.",
+        "img": "png/3-masala.png",
+        "alt": "3-masala: muqarrar hodisa, 187-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "O'yin kubigini tashlaganda 7 dan kichik butun son tushishi — <strong>muqarrar hodisa</strong>.",
+          "Chunki barcha 6 ta ochko ham 7 dan kichik."
+        ]
+      },
+      {
+        "caption": "4-masala · Teng imkoniyatli hodisalar · 188-bet",
+        "kirish": "Simmetrik tajribalar.",
+        "img": "png/4-masala.png",
+        "alt": "4-masala: teng imkoniyatli hodisalar, 188-bet",
+        "width": 640,
+        "height": 220,
+        "steps": [
+          "Ideal tanga tashlanganda gerb yoki raqam tomoni tushishi.",
+          "Hech bir tomon ustunlikka ega emas.",
+          "Bunday hodisalar — <strong>teng imkoniyatli</strong> hodisalardir."
+        ]
+      }
+    ]
+  },
+  "mashqlar": {
+    "betlar": "188–189-bet",
+    "intro": "Daftarga yeching. O'qituvchi doskada tekshiradi.",
+    "items": [
+      {
+        "title": "460-mashq.",
+        "body": "Quyidagi hodisalar turini aniqlang (muqarrar, imkonsiz, tasodifiy):",
+        "sub": "1) Yozdan keyin kuz keladi; 2) Ertaga yomg'ir yog'adi; 3) 13 oylik yil bo'ladi; 4) 2 ta kubik tashlanganda yig'indi 1 bo'ladi."
+      },
+      {
+        "title": "461-mashq.",
+        "body": "Birgalikda bo'lishi mumkin bo'lgan va mumkin bo'lmagan hodisalar:",
+        "sub": "1) Qish keldi va daraxtlar gulladi; 2) Chipta yutuqli chiqdi va yutuqsiz chiqdi."
+      },
+      {
+        "title": "462-mashq.",
+        "body": "Qutida 10 ta oq shar bor. Qora shar chiqishi qanday hodisa?"
+      }
+    ]
+  },
+  "xulosa": [
+    "Barcha hodisalar muqarrar, imkonsiz va tasodifiy turlarga bo'linadi.",
+    "Teng imkoniyatlilik — ehtimollikning matematik poydevoridir.",
+    "Ehtimolliklar nazariyasi tasodifiy hodisalarning qonuniyatlarini o'rganadi."
+  ],
+  "xulosaBoard": [
+    {
+      "html": "<strong>Muqarrar</strong>: albatta ro'y beradi (P = 1)"
+    },
+    {
+      "html": "<strong>Imkonsiz</strong>: hech qachon ro'y bermaydi (P = 0)"
+    },
+    {
+      "html": "<strong>Tasodifiy</strong>: bo'lishi ham, bo'lmasligi ham mumkin (0 < P < 1)"
+    }
+  ]
+}
