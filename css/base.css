@@ -1159,3 +1159,94 @@ html[data-theme="dark"] .exam-timer-mock {
   }
 }
 
+/* ==========================================================================
+   Resumable Offline Sync & Image Blur Placeholders
+   ========================================================================== */
+.ja-offline-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--line-strong);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.ja-offline-badge.is-syncing {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(194, 75, 42, 0.08);
+}
+
+.ja-offline-badge.is-tier1 {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  background: rgba(43, 107, 79, 0.08);
+}
+
+.ja-offline-badge.is-ready {
+  border-color: var(--accent-2);
+  color: #1e7048;
+  background: rgba(43, 107, 79, 0.12);
+}
+
+html[data-theme="dark"] .ja-offline-badge.is-ready {
+  color: #55d697;
+  background: rgba(61, 163, 116, 0.18);
+  border-color: rgba(61, 163, 116, 0.4);
+}
+
+@keyframes ja-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Image Blur Placeholder Engine */
+img.img-blur-loading,
+.kitob-sahifa img.img-blur-loading,
+.doska-img img.img-blur-loading {
+  filter: blur(12px) brightness(0.96);
+  opacity: 0.7;
+  transform: scale(0.995);
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+img.img-loaded,
+.kitob-sahifa img.img-loaded,
+.doska-img img.img-loaded {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+img.img-offline-pending,
+.kitob-sahifa img.img-offline-pending,
+.doska-img img.img-offline-pending {
+  filter: grayscale(1) opacity(0.4) blur(3px) !important;
+}
+
+html[data-theme="dark"] img.img-blur-loading,
+html[data-theme="dark"] .kitob-sahifa img.img-blur-loading,
+html[data-theme="dark"] .kitob-lightbox img.img-blur-loading:not(.kitob-asl),
+html[data-theme="dark"] .doska-img img.img-blur-loading,
+html[data-theme="dark"] .doska-masala-img img.img-blur-loading {
+  filter: invert(0.92) hue-rotate(180deg) blur(12px) brightness(0.85) !important;
+  opacity: 0.7 !important;
+}
+
+html[data-theme="dark"] img.img-loaded,
+html[data-theme="dark"] .kitob-sahifa img.img-loaded,
+html[data-theme="dark"] .kitob-lightbox img.img-loaded:not(.kitob-asl),
+html[data-theme="dark"] .doska-img img.img-loaded,
+html[data-theme="dark"] .doska-masala-img img.img-loaded {
+  filter: invert(0.92) hue-rotate(180deg) !important;
+  opacity: 1 !important;
+}
+
+

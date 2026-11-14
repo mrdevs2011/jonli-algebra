@@ -515,6 +515,12 @@
 
     overlay.className = "formula-modal-backdrop";
     overlay.style.display = "flex";
+
+    var targetUrl = window.JA_FORMULA_DIRECTORY ? window.JA_FORMULA_DIRECTORY.getDeepLinkUrl(f) : f.lessonLink;
+    if (f.bob === 0 || f.lessonLink === "#poydevor" || f.lessonLink === "#bob-poydevor") {
+      targetUrl = "#bob-poydevor";
+    }
+
     overlay.innerHTML =
       '<div class="formula-modal">' +
         '<div style="display:flex; justify-content:space-between; align-items:start; gap:16px; margin-bottom:14px;">' +
@@ -536,9 +542,9 @@
           '<strong>Mantiqiy isboti:</strong> ' + f.isbot +
         '</div>' +
         '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">' +
-          '<a class="btn" href="' + (window.JA_FORMULA_DIRECTORY ? window.JA_FORMULA_DIRECTORY.getDeepLinkUrl(f) : f.lessonLink) + '" style="background:var(--accent); color:#fff; font-weight:600; text-decoration:none; padding:10px 20px; border-radius:8px; display:inline-flex; align-items:center; gap:8px;">' +
+          '<a class="btn btn-jonli-korish" id="btnJonliKorish" href="' + escapeHtml(targetUrl) + '" style="background:var(--accent); color:#fff; font-weight:600; text-decoration:none; padding:10px 20px; border-radius:8px; display:inline-flex; align-items:center; gap:8px;">' +
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0-14 0"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg>' +
-            'Jonli Sahnada Sinash &rarr;' +
+            'Jonli ko\'rish &rarr;' +
           '</a>' +
           '<button type="button" class="btn" id="btnModalCloseSecondary" style="padding:10px 18px; border-radius:8px;">Yopish</button>' +
         '</div>' +
@@ -551,8 +557,22 @@
 
     var btnClose1 = document.getElementById("closeFormulaModal");
     var btnClose2 = document.getElementById("btnModalCloseSecondary");
+    var btnJonli = document.getElementById("btnJonliKorish");
+
     if (btnClose1) btnClose1.addEventListener("click", closeModal);
     if (btnClose2) btnClose2.addEventListener("click", closeModal);
+    if (btnJonli) {
+      btnJonli.addEventListener("click", function (e) {
+        closeModal();
+        if (targetUrl.startsWith("#")) {
+          e.preventDefault();
+          var targetEl = document.querySelector(targetUrl);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    }
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) closeModal();
     });

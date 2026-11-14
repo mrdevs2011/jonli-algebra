@@ -64,9 +64,9 @@ self.addEventListener("fetch", function (event) {
   if (url.origin !== self.location.origin) return;
 
   event.respondWith(
-    caches.match(event.request).then(function (cachedResponse) {
+    caches.match(event.request, { ignoreSearch: true }).then(function (cachedResponse) {
       if (cachedResponse) {
-        // Cache hit — serve cached, update cache in background
+        // Cache hit — serve cached immediately
         fetch(event.request).then(function (networkResponse) {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then(function (cache) {
@@ -90,7 +90,7 @@ self.addEventListener("fetch", function (event) {
       }).catch(function () {
         // Offline fallback for navigation requests
         if (event.request.mode === "navigate") {
-          return caches.match("./index.html");
+          return caches.match("./index.html", { ignoreSearch: true });
         }
       });
     })

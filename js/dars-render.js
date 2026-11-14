@@ -135,7 +135,27 @@
     if (!wrap) return;
     d.kitob.sahifalar.forEach(function (p) {
       var a = el("a", { class: "kitob-sahifa", href: p.img });
-      a.appendChild(el("img", { src: p.img, alt: "Darslik, " + p.bet, loading: "lazy", width: p.width, height: p.height }));
+      var img = el("img", {
+        src: p.img,
+        alt: "Darslik, " + p.bet,
+        loading: "lazy",
+        width: p.width,
+        height: p.height,
+        class: "img-blur-loading"
+      });
+      img.onload = function () {
+        img.classList.remove("img-blur-loading");
+        img.classList.add("img-loaded");
+      };
+      img.onerror = function () {
+        img.classList.remove("img-blur-loading");
+        img.classList.add("img-offline-pending");
+      };
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.remove("img-blur-loading");
+        img.classList.add("img-loaded");
+      }
+      a.appendChild(img);
       a.appendChild(el("span", null, p.bet + " · kattalashtirish"));
       wrap.appendChild(a);
     });
@@ -163,7 +183,27 @@
       var imgWrap = el("div", { class: "doska-masala-img" });
       if (m.img) {
         var a = el("a", { href: m.img, class: "doska-img", "data-caption": m.caption || "", "aria-label": m.caption || "Namuna masalasi" });
-        a.appendChild(el("img", { src: m.img, alt: m.alt, loading: "lazy", width: m.width, height: m.height }));
+        var dImg = el("img", {
+          src: m.img,
+          alt: m.alt,
+          loading: "lazy",
+          width: m.width,
+          height: m.height,
+          class: "img-blur-loading"
+        });
+        dImg.onload = function () {
+          dImg.classList.remove("img-blur-loading");
+          dImg.classList.add("img-loaded");
+        };
+        dImg.onerror = function () {
+          dImg.classList.remove("img-blur-loading");
+          dImg.classList.add("img-offline-pending");
+        };
+        if (dImg.complete && dImg.naturalWidth > 0) {
+          dImg.classList.remove("img-blur-loading");
+          dImg.classList.add("img-loaded");
+        }
+        a.appendChild(dImg);
         imgWrap.appendChild(a);
       } else {
         imgWrap.classList.add("doska-masala-img-pending");

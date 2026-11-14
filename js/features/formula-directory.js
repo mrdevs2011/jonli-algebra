@@ -25,6 +25,9 @@
 
   function getDeepLinkUrl(formula) {
     if (!formula) return "#";
+    if (formula.bob === 0 || formula.lessonLink === "#poydevor" || formula.lessonLink === "#bob-poydevor") {
+      return "#bob-poydevor";
+    }
     var base = formula.lessonLink || ("lessons/math/9/" + formula.lessonId + "/");
     var mapping = PARAM_MAP[formula.id];
     if (mapping && mapping.params) {
