@@ -2984,11 +2984,11 @@
 
 /* ---- manba: js/features/offline-sync.js ---- */
 /**
- * Jonli Algebra — Zero-Friction Resumable Offline Sync Engine
+ * Jonli Algebra — Silent Zero-Friction Resumable Offline Sync Engine
  *
- * 1. Avtomatik: Ilovaga kirilishi bilanoq fonda yuklashni boshlaydi.
+ * 1. 100% Orqa fonda: Foydalanuvchiga hech qanday status/banner ko'rsatilmaydi, ekranni band qilmaydi.
  * 2. Qayta tiklanuvchan (Resumable): Foydalanuvchi 3 soniyada chiqib ketsa ham, keshga tushgan
- *    fayllar qoladi. Keyingi kirishda CacheStorage.keys() orqali tekshirilib, faqat yetishmayotgan
+ *    fayllar saqlanadi. Keyingi kirishda CacheStorage.keys() orqali tekshirilib, faqat yetishmayotgan
  *    fayllar yuklanadi (1ms da skaner qilinadi, oldingi yuklanganlar qayta yuklanmaydi).
  * 3. 2 Bosqichli ustuvorlik (Two-Tier Priority):
  *    - 1-bosqich: Matn, kod, uslublar, 22 ta interaktiv sahna va 38 ta darsning barchasi (Tier 1 ~ 2MB)
@@ -3587,38 +3587,6 @@
     return new URL(relPath, baseUrl).href;
   }
 
-  function updateStatusUI() {
-    var el = document.getElementById("offlineSyncStatus");
-    if (!el) return;
-
-    var pct = Math.min(100, Math.round((state.cachedCount / state.totalFiles) * 100));
-    var isDone = state.cachedCount >= state.totalFiles;
-
-    if (isDone) {
-      el.className = "ja-offline-badge is-ready";
-      el.innerHTML =
-        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px; vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
-        '<span>Offline: 100% tayyor</span>';
-      el.setAttribute("title", "Barcha darslar, interaktiv sahnalar va rasmlar to'liq offline saqlangan");
-    } else if (state.isSyncing) {
-      el.className = "ja-offline-badge is-syncing";
-      el.innerHTML =
-        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px; vertical-align:-2px; animation:ja-spin 1.5s linear infinite;"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>' +
-        '<span>Offline yuklanmoqda: ' + pct + '%</span>';
-      el.setAttribute("title", "Kelgan joyidan fonda yuklanmoqda (" + state.cachedCount + "/" + state.totalFiles + ")");
-    } else if (state.tier1Done) {
-      el.className = "ja-offline-badge is-tier1";
-      el.innerHTML =
-        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px; vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
-        '<span>Darslar offline tayyor (' + pct + '%)</span>';
-    } else {
-      el.className = "ja-offline-badge is-pending";
-      el.innerHTML =
-        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px; vertical-align:-2px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>' +
-        '<span>Offline kesh: ' + pct + '%</span>';
-    }
-  }
-
   function saveProgress() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -3668,7 +3636,6 @@
           if (!navigator.onLine) {
             state.paused = true;
             state.isSyncing = false;
-            updateStatusUI();
             resolve();
             return;
           }
@@ -3691,9 +3658,8 @@
             active--;
             completed++;
             state.cachedCount++;
-            if (state.cachedCount % 4 === 0 || state.cachedCount === state.totalFiles) {
+            if (state.cachedCount % 5 === 0 || state.cachedCount === state.totalFiles) {
               saveProgress();
-              updateStatusUI();
             }
 
             if (throttleMs > 0) {
@@ -3711,13 +3677,9 @@
   function startSync() {
     if (!("caches" in window)) return;
     if (state.isSyncing) return;
-    if (!navigator.onLine) {
-      updateStatusUI();
-      return;
-    }
+    if (!navigator.onLine) return;
 
     state.isSyncing = true;
-    updateStatusUI();
 
     caches.open(CACHE_NAME).then(function (cache) {
       var baseUrl = getBaseUrl();
@@ -3754,14 +3716,12 @@
         state.tier1Done = tier1Remaining.length === 0;
         state.tier2Done = tier2Remaining.length === 0;
         saveProgress();
-        updateStatusUI();
 
         // Agar barcha fayllar allaqachon keshda bo'lsa:
         if (state.cachedCount >= state.totalFiles) {
           state.isSyncing = false;
           state.tier1Done = true;
           state.tier2Done = true;
-          updateStatusUI();
           return;
         }
 
@@ -3772,7 +3732,6 @@
           promise = downloadBatch(tier1Remaining, cache, 6, 0).then(function () {
             state.tier1Done = true;
             saveProgress();
-            updateStatusUI();
           });
         }
 
@@ -3787,18 +3746,15 @@
           }
         }).catch(function () {}).then(function () {
           state.isSyncing = false;
-          updateStatusUI();
         });
       });
     }).catch(function () {
       state.isSyncing = false;
-      updateStatusUI();
     });
   }
 
   function init() {
     loadSavedProgress();
-    updateStatusUI();
 
     // Service Workerni har qanday sahifada (root yoki dars) avtomatik ro'yxatdan o'tkazish
     if ("serviceWorker" in navigator) {
@@ -3815,10 +3771,9 @@
     window.addEventListener("offline", function () {
       state.paused = true;
       state.isSyncing = false;
-      updateStatusUI();
     });
 
-    // Sahifa yuklanishi bilanoq fonda darhol ishga tushirish
+    // Sahifa yuklanishi bilanoq fonda darhol ishga tushirish (orqa fonda 100% sukut bilan)
     if (document.readyState === "complete") {
       startSync();
     } else {

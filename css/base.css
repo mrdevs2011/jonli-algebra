@@ -1160,53 +1160,8 @@ html[data-theme="dark"] .exam-timer-mock {
 }
 
 /* ==========================================================================
-   Resumable Offline Sync & Image Blur Placeholders
+   Image Blur Placeholder Engine
    ========================================================================== */
-.ja-offline-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--paper-2);
-  border: 1px solid var(--line-strong);
-  color: var(--ink-soft);
-  text-decoration: none;
-  transition: all 0.25s ease;
-  user-select: none;
-}
-
-.ja-offline-badge.is-syncing {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(194, 75, 42, 0.08);
-}
-
-.ja-offline-badge.is-tier1 {
-  border-color: var(--accent-2);
-  color: var(--accent-2);
-  background: rgba(43, 107, 79, 0.08);
-}
-
-.ja-offline-badge.is-ready {
-  border-color: var(--accent-2);
-  color: #1e7048;
-  background: rgba(43, 107, 79, 0.12);
-}
-
-html[data-theme="dark"] .ja-offline-badge.is-ready {
-  color: #55d697;
-  background: rgba(61, 163, 116, 0.18);
-  border-color: rgba(61, 163, 116, 0.4);
-}
-
-@keyframes ja-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Image Blur Placeholder Engine */
 img.img-blur-loading,
 .kitob-sahifa img.img-blur-loading,
 .doska-img img.img-blur-loading {
